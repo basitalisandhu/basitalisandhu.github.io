@@ -373,7 +373,7 @@ def render_feed(site: Site) -> str:
             items.append((rel["date"], f"{r['name']} {rel['tag']}", rel["url"], f"Release {rel['tag']} of {r['name']}: {plain(r['one_liner'])}"))
     items.sort(key=lambda x: (x[0], x[1]), reverse=True)
     items = items[: site.cfg.get("feed_items", 30)]
-    last = rfc822(items[0][0]) if items else rfc822("2026-10-05")
+    last = rfc822(items[0][0]) if items else rfc822("2026-10-04")
     xml_items = "".join(
         f"\n  <item><title>{esc(t)}</title><link>{esc(u)}</link><guid isPermaLink=\"true\">{esc(u)}</guid>"
         f"<pubDate>{rfc822(d)}</pubDate><description>{esc(desc)}</description></item>"

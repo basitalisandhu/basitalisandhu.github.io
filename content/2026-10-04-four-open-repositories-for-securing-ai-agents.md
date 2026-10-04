@@ -1,6 +1,6 @@
 ---
 title: Four open repositories for securing AI agents, and what each is for
-date: 2026-10-05
+date: 2026-10-04
 description: A map of the open tools for AI agent security: an incident dataset, Semgrep rules for agent code, a threat-model CLI and Claude Code skill packs, with where each one stops.
 ---
 # Four open repositories for securing AI agents, and what each is for
