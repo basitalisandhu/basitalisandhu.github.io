@@ -600,7 +600,7 @@ An AI agent is a model that can read untrusted content and call tools with real 
 ## Post: Four open repositories for securing AI agents, and what each is for
 
 URL: https://basitalisandhu.github.io/posts/four-open-repositories-for-securing-ai-agents/
-Date: 2026-10-05
+Date: 2026-10-04
 
 Teams are putting language models in front of tools, data and credentials faster than they are writing down what could go wrong. I have spent the year building small, open tools for that gap and for the cloud accounts the agents run in. This post is the map: what each repository is for, where it stops, and the order I would use them in.
 

@@ -4,7 +4,7 @@ All notable changes to this site and its generator. The format follows [Keep a C
 
 ## [Unreleased]
 
-## [0.1.0] - 2026-10-05
+## [0.1.0] - 2026-10-04
 
 ### Added
 
