@@ -61,6 +61,8 @@
 <tr><td><a href="/compliance-evidence-skills/">compliance-evidence-skills</a></td><td>Compliance evidence skills for Claude Code: integrity-checked evidence packs from GitHub, AWS and Microsoft 365 exports, mapped to ISO 27001 and SOC 2, with narratives that cite evidence or say not assessable.</td></tr>
 <tr><td><a href="/claude-dev-skills/">claude-dev-skills</a></td><td>Claude Code skills for everyday development: code review, refactoring, debugging, CI and containers, data and APIs, documentation and security basics.</td></tr>
 <tr><td><a href="/agent-security-skills/">agent-security-skills</a></td><td>Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review, incident lookup.</td></tr>
+<tr><td><a href="/github-manager-skills/">github-manager-skills</a></td><td>Claude Code skills for engineering managers that compute from exported GitHub data.</td></tr>
+<tr><td><a href="/mac-maintenance-skills/">mac-maintenance-skills</a></td><td>Claude Code skills for cleaning up and speeding up a Mac.</td></tr>
 </tbody></table>
 <h3 id="mcp-tooling">MCP tooling</h3>
 <table class="repos"><thead><tr><th scope="col">Repository</th><th scope="col">What it is</th></tr></thead><tbody>
@@ -70,6 +72,7 @@
 <tr><td><a href="/mcp-auth-doctor/">mcp-auth-doctor</a></td><td>Diagnose OAuth discovery problems on remote MCP servers.</td></tr>
 <tr><td><a href="/mcp-egress/">mcp-egress</a></td><td>Record every host an MCP server contacts, per tool, and fail CI on new ones.</td></tr>
 <tr><td><a href="/claude-mcp-allow/">claude-mcp-allow</a></td><td>Least-privilege Claude Code permission rules for MCP tools, generated from their annotations.</td></tr>
+<tr><td><a href="/agentdojo-mcp/">agentdojo-mcp</a></td><td>Run AgentDojo against MCP servers.</td></tr>
 <tr><td><a href="/mcp-rc-check/">mcp-rc-check</a></td><td>MCP specification migration checker for the 2026-07-28 revision.</td></tr>
 </tbody></table>
 <h3 id="security-tooling">Security tooling</h3>
@@ -82,7 +85,9 @@
 <tr><td><a href="/cc-plugin-lock/">cc-plugin-lock</a></td><td>Lock file for Claude Code plugins: pins plugins and skills to content hashes and verifies them before load.</td></tr>
 <tr><td><a href="/claude-perm-sim/">claude-perm-sim</a></td><td>Claude Code permission rule simulator: shows which rule decides a tool call and where a rule set is permissive.</td></tr>
 <tr><td><a href="/llms-txt-gen/">llms-txt-gen</a></td><td>Generate llms.txt for any docs site or repository.</td></tr>
+<tr><td><a href="/scp-guardrails/">scp-guardrails</a></td><td>AWS service control policy builder and linter.</td></tr>
 <tr><td><a href="/skill-scan-gate/">skill-scan-gate</a></td><td>CI gate for Claude Code skills and plugins.</td></tr>
+<tr><td><a href="/spotlighting/">spotlighting</a></td><td>Spotlighting for prompt injection defence in Python.</td></tr>
 </tbody></table>
 <h3 id="data-and-lists">Data and lists</h3>
 <table class="repos"><thead><tr><th scope="col">Repository</th><th scope="col">What it is</th></tr></thead><tbody>
@@ -92,14 +97,14 @@
 </section>
 <section aria-labelledby="releases-h"><h2 id="releases-h">Latest releases</h2>
 <table class="releases"><thead><tr><th scope="col">Project</th><th scope="col">Release</th><th scope="col">Published</th></tr></thead><tbody>
+<tr><td><a href="/spotlighting/">spotlighting</a></td><td><a href="https://github.com/basitalisandhu/spotlighting/releases/tag/v0.1.0">v0.1.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
+<tr><td><a href="/skill-scan-gate/">skill-scan-gate</a></td><td><a href="https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.1.0">v0.1.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
 <tr><td><a href="/security-actions/">security-actions</a></td><td><a href="https://github.com/basitalisandhu/security-actions/releases/tag/v0.1.0">v0.1.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
+<tr><td><a href="/scp-guardrails/">scp-guardrails</a></td><td><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.1.0">v0.1.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
 <tr><td><a href="/repo-engineering-skills/">repo-engineering-skills</a></td><td><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.2.0">v0.2.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
 <tr><td><a href="/mcp-tools-lint/">mcp-tools-lint</a></td><td><a href="https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.1.0">v0.1.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
 <tr><td><a href="/mcp-server-template/">mcp-server-template</a></td><td><a href="https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.1.0">v0.1.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
-<tr><td><a href="/mcp-egress/">mcp-egress</a></td><td><a href="https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.1.0">v0.1.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
-<tr><td><a href="/mcp-auth-doctor/">mcp-auth-doctor</a></td><td><a href="https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.1.0">v0.1.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
-<tr><td><a href="/m365-governance-skills/">m365-governance-skills</a></td><td><a href="https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.0">v0.2.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
-<tr><td><a href="/llms-txt-gen/">llms-txt-gen</a></td><td><a href="https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.1.0">v0.1.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
+<tr><td><a href="/mcp-rc-check/">mcp-rc-check</a></td><td><a href="https://github.com/basitalisandhu/mcp-rc-check/releases/tag/v0.2.0">v0.2.0</a></td><td><time datetime="2026-10-04">2026-10-04</time></td></tr>
 </tbody></table>
 <p>Packages: container images and npm packages are listed on <a href="https://github.com/basitalisandhu?tab=packages">the Packages tab</a>.</p></section>
 <section aria-labelledby="posts-h"><h2 id="posts-h">Posts</h2>
