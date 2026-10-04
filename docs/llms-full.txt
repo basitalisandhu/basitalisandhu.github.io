@@ -176,6 +176,62 @@ Install:
 
 Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.0
 
+## github-manager-skills
+
+Page: https://basitalisandhu.github.io/github-manager-skills/
+Repository: https://github.com/basitalisandhu/github-manager-skills
+Theme: Claude Code skill packs
+
+Claude Code skills for engineering managers that compute from exported GitHub data.
+
+**Engineering manager skills for Claude Code that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report, and an incident postmortem timeline, every number cited to the PR or issue it came from.**
+
+github-manager-skills is a Claude Code plugin with three skills for engineering managers and tech leads who report on work that lives in GitHub. It exists because manager artefacts (the standup digest, the sprint report, the postmortem timeline) are usually written from memory, and memory miscounts: a PR merged the day after the sprint gets included, the mitigation lands before the label, the reviewer with ten pending requests goes unnoticed. Each skill reads a saved `gh` export with a standard-library Python script, computes the figures with stated definitions, and cites every row, so the text Claude writes can be checked by clicking the links.
+
+```text
+/plugin marketplace add basitalisandhu/github-manager-skills
+/plugin install github-manager@github-manager-skills
+```
+
+Quickstart: open Claude Code and ask "which PRs are stuck on OWNER/REPO?"; the skill gives you the `gh` export commands to run, then reads the files. Or run a script directly from a clone of this repository on the committed fixture:
+
+```bash
+python3 scripts/cli.py pr-queue tests/fixtures/pr_queue
+```
+
+Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/github-manager-skills/blob/main/SECURITY.md).
+
+Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.1.0
+
+## mac-maintenance-skills
+
+Page: https://basitalisandhu.github.io/mac-maintenance-skills/
+Repository: https://github.com/basitalisandhu/mac-maintenance-skills
+Theme: Claude Code skill packs
+
+Claude Code skills for cleaning up and speeding up a Mac.
+
+**Mac maintenance skills for Claude Code: a survey that only measures, a safe tier that removes only what programs recreate, and a written list for every decision that is yours.**
+
+mac-maintenance-skills is a Claude Code plugin with three skills for people whose Mac has filled up with caches, duplicate exports, leftovers of uninstalled apps and a few gigabytes pinned in memory, and who do not want a cleaner that guesses. It exists because the usual cleanup either deletes too little to matter or deletes something that mattered: each skill pairs the model's judgement with a standard-library Python script that measures before it proposes, removes only regenerable caches on its own, and moves anything of yours to a dated folder in the Trash instead of deleting it.
+
+```text
+/plugin marketplace add basitalisandhu/mac-maintenance-skills
+/plugin install mac-maintenance@mac-maintenance-skills
+```
+
+Quickstart: open Claude Code and ask "look at my Mac and clean up the garbage", or run a script directly from a clone of this repository:
+
+```bash
+python3 plugins/mac-maintenance/skills/mac-cleanup/scripts/safe_clean.py
+```
+
+That prints the safe-tier plan with sizes and changes nothing; add `--apply` to run it.
+
+Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/mac-maintenance-skills/blob/main/SECURITY.md).
+
+Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/mac-maintenance-skills/releases/tag/v0.1.0
+
 ## dev-mcp-servers
 
 Page: https://basitalisandhu.github.io/dev-mcp-servers/
@@ -301,6 +357,44 @@ npm install -g @basitalisandhu/claude-mcp-allow@0.1.1   # or install the claude-
 
 Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.1.0
 
+## agentdojo-mcp
+
+Page: https://basitalisandhu.github.io/agentdojo-mcp/
+Repository: https://github.com/basitalisandhu/agentdojo-mcp
+Theme: MCP tooling
+
+Run AgentDojo against MCP servers.
+
+**agentdojo-mcp maps an AgentDojo task suite's tools onto a real MCP server so the benchmark's user tasks and injection tasks run against the server's actual tool surface, and reports utility and attack success per task with every call logged.**
+
+```bash
+pip install "agentdojo-mcp[dojo] @ git+https://github.com/basitalisandhu/agentdojo-mcp"
+```
+
+Install:
+
+```bash
+pip install "agentdojo-mcp[dojo] @ git+https://github.com/basitalisandhu/agentdojo-mcp"
+
+# 1. What does the server offer?
+agentdojo-mcp inspect --stdio "python my_server.py" --json -o tools.json
+
+# 2. Propose a mapping for a suite, then edit it.
+agentdojo-mcp map --suite travel --server-dump tools.json -o mapping.yaml
+agentdojo-mcp validate-mapping mapping.yaml --suite travel --server-dump tools.json
+
+# 3. Check the mapping with the reference solutions first (no model, no network).
+agentdojo-mcp run --suite travel --mapping mapping.yaml --stdio "python my_server.py" \
+  --model ground-truth --attack direct
+
+# 4. Run a model. Keys come from the environment variables AgentDojo and the provider SDKs read.
+agentdojo-mcp run --suite travel --mapping mapping.yaml --stdio "python my_server.py" \
+  --model provider:model-name --attack important_instructions --tasks user_task_0 --tasks user_task_1
+# ... see the README for the rest
+```
+
+Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.1.0
+
 ## mcp-rc-check
 
 Page: https://basitalisandhu.github.io/mcp-rc-check/
@@ -315,8 +409,10 @@ Install:
 
 ```bash
 npx @basitalisandhu/mcp-rc-check scan --dump tools.json     # run without installing
-npm install -g @basitalisandhu/mcp-rc-check@0.1.0           # or install the mcp-rc-check command
+npm install -g @basitalisandhu/mcp-rc-check@0.2.0           # or install the mcp-rc-check command
 ```
+
+Latest release: v0.2.0 (2026-10-04) https://github.com/basitalisandhu/mcp-rc-check/releases/tag/v0.2.0
 
 ## agent-threat-model
 
@@ -522,6 +618,32 @@ llms-txt-gen serve-snippet
 
 Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.1.0
 
+## scp-guardrails
+
+Page: https://basitalisandhu.github.io/scp-guardrails/
+Repository: https://github.com/basitalisandhu/scp-guardrails
+Theme: Security tooling
+
+AWS service control policy builder and linter.
+
+**scp-guardrails builds AWS Organizations service control policies from a short spec (region allowlist, protected roles, deny leaving the org, deny disabling CloudTrail and GuardDuty, deny root, require IMDSv2, deny public S3 ACLs, spend denies) under the SCP size limit, lints existing SCPs for the mistakes that lock you out or do nothing, and runs as a GitHub Action.**
+
+```bash
+pipx install git+https://github.com/basitalisandhu/scp-guardrails
+scp-guardrails build --spec examples/spec.yaml --out scps
+scp-guardrails lint scps/
+```
+
+Install:
+
+```bash
+pip install scp-guardrails                                                              # once published to PyPI
+pipx install git+https://github.com/basitalisandhu/scp-guardrails                        # the scp-guardrails command, isolated
+uvx --from git+https://github.com/basitalisandhu/scp-guardrails scp-guardrails --help   # run without installing
+```
+
+Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.1.0
+
 ## skill-scan-gate
 
 Page: https://basitalisandhu.github.io/skill-scan-gate/
@@ -560,6 +682,27 @@ skill-scan-gate baseline . --out .skill-scan-gate-baseline.json
 skill-scan-gate scan . --baseline .skill-scan-gate-baseline.json --allow .skill-scan-gate-allow
 skill-scan-gate rules                                    # list every rule
 ```
+
+Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.1.0
+
+## spotlighting
+
+Page: https://basitalisandhu.github.io/spotlighting/
+Repository: https://github.com/basitalisandhu/spotlighting
+Theme: Security tooling
+
+Spotlighting for prompt injection defence in Python.
+
+**spotlighting marks untrusted text before it reaches a model, with delimiting, datamarking and encoding as described in the Microsoft Research paper, plus the system-prompt instructions that go with each mode, so an agent can tell data from instructions.**
+
+Install:
+
+```bash
+pipx install git+https://github.com/basitalisandhu/spotlighting            # the spotlighting command
+python3 -m pip install git+https://github.com/basitalisandhu/spotlighting  # the library
+```
+
+Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/spotlighting/releases/tag/v0.1.0
 
 ## ai-agent-incidents
 

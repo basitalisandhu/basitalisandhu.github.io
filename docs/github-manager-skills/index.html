@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>github-manager-skills | Muhammad Basit Ali</title>
+<meta name="description" content="Claude Code skills for engineering managers that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report with cycle time, and a blameless incident postmortem timeline, every number cited to its PR or issue. Team level only, no per-person scoring. Offline standard-library scripts.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/github-manager-skills/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="github-manager-skills">
+<meta property="og:description" content="Claude Code skills for engineering managers that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report with cycle time, and a blameless incident postmortem timeline, every number cited to its PR or issue. Team level only, no per-person scoring. Offline standard-library scripts.">
+<meta property="og:url" content="https://basitalisandhu.github.io/github-manager-skills/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "github-manager-skills",
+ "description": "Claude Code skills for engineering managers that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report with cycle time, and a blameless incident postmortem timeline, every number cited to its PR or issue. Team level only, no per-person scoring. Offline standard-library scripts.",
+ "url": "https://basitalisandhu.github.io/github-manager-skills/",
+ "codeRepository": "https://github.com/basitalisandhu/github-manager-skills",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-skills, blameless-postmortem, claude-code, claude-code-plugin, claude-skills, code-review, cycle-time, developer-tools, engineering-management, engineering-manager, gh-cli, github, hacktoberfest, incident-response, postmortem, pull-requests, python, review-queue, sprint-report",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
+<h1>github-manager-skills</h1>
+<p class="lede">Claude Code skills for engineering managers that compute from exported GitHub data.</p>
+<p class="meta">Python · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p><strong>Engineering manager skills for Claude Code that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report, and an incident postmortem timeline, every number cited to the PR or issue it came from.</strong></p>
+<p>github-manager-skills is a Claude Code plugin with three skills for engineering managers and tech leads who report on work that lives in GitHub. It exists because manager artefacts (the standup digest, the sprint report, the postmortem timeline) are usually written from memory, and memory miscounts: a PR merged the day after the sprint gets included, the mitigation lands before the label, the reviewer with ten pending requests goes unnoticed. Each skill reads a saved <code>gh</code> export with a standard-library Python script, computes the figures with stated definitions, and cites every row, so the text Claude writes can be checked by clicking the links.</p>
+<pre><code class="language-text">/plugin marketplace add basitalisandhu/github-manager-skills
+/plugin install github-manager@github-manager-skills</code></pre>
+<p>Quickstart: open Claude Code and ask &quot;which PRs are stuck on OWNER/REPO?&quot;; the skill gives you the <code>gh</code> export commands to run, then reads the files. Or run a script directly from a clone of this repository on the committed fixture:</p>
+<pre><code class="language-bash">python3 scripts/cli.py pr-queue tests/fixtures/pr_queue</code></pre>
+<p>Questions, bugs and ideas: open an issue on this repository. Security reports: see <a href="https://github.com/basitalisandhu/github-manager-skills/blob/main/SECURITY.md">SECURITY.md</a>.</p>
+</section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/github-manager-skills">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/github-manager-skills/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=github-manager-skills">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/github-manager-skills/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-skills, blameless-postmortem, claude-code, claude-code-plugin, claude-skills, code-review, cycle-time, developer-tools, engineering-management, engineering-manager, gh-cli, github, hacktoberfest, incident-response, postmortem, pull-requests, python, review-queue, sprint-report</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

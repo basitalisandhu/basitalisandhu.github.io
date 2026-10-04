@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mac-maintenance-skills | Muhammad Basit Ali</title>
+<meta name="description" content="Claude Code skills for cleaning up and speeding up a Mac: a read-only survey of what takes space and memory, a safe tier that removes only caches programs recreate, hash-verified duplicate files moved to the Trash, and leftovers of uninstalled apps. Tested standard-library scripts, no network, no sudo.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/mac-maintenance-skills/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="mac-maintenance-skills">
+<meta property="og:description" content="Claude Code skills for cleaning up and speeding up a Mac: a read-only survey of what takes space and memory, a safe tier that removes only caches programs recreate, hash-verified duplicate files moved to the Trash, and leftovers of uninstalled apps. Tested standard-library scripts, no network, no sudo.">
+<meta property="og:url" content="https://basitalisandhu.github.io/mac-maintenance-skills/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "mac-maintenance-skills",
+ "description": "Claude Code skills for cleaning up and speeding up a Mac: a read-only survey of what takes space and memory, a safe tier that removes only caches programs recreate, hash-verified duplicate files moved to the Trash, and leftovers of uninstalled apps. Tested standard-library scripts, no network, no sudo.",
+ "url": "https://basitalisandhu.github.io/mac-maintenance-skills/",
+ "codeRepository": "https://github.com/basitalisandhu/mac-maintenance-skills",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-skills, claude-code, claude-code-plugin, claude-skills, cleanup, developer-tools, disk-cleanup, disk-space, docker, duplicate-files, hacktoberfest, homebrew, mac, macos, maintenance, python, uninstall, xcode",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
+<h1>mac-maintenance-skills</h1>
+<p class="lede">Claude Code skills for cleaning up and speeding up a Mac.</p>
+<p class="meta">Python · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p><strong>Mac maintenance skills for Claude Code: a survey that only measures, a safe tier that removes only what programs recreate, and a written list for every decision that is yours.</strong></p>
+<p>mac-maintenance-skills is a Claude Code plugin with three skills for people whose Mac has filled up with caches, duplicate exports, leftovers of uninstalled apps and a few gigabytes pinned in memory, and who do not want a cleaner that guesses. It exists because the usual cleanup either deletes too little to matter or deletes something that mattered: each skill pairs the model&#x27;s judgement with a standard-library Python script that measures before it proposes, removes only regenerable caches on its own, and moves anything of yours to a dated folder in the Trash instead of deleting it.</p>
+<pre><code class="language-text">/plugin marketplace add basitalisandhu/mac-maintenance-skills
+/plugin install mac-maintenance@mac-maintenance-skills</code></pre>
+<p>Quickstart: open Claude Code and ask &quot;look at my Mac and clean up the garbage&quot;, or run a script directly from a clone of this repository:</p>
+<pre><code class="language-bash">python3 plugins/mac-maintenance/skills/mac-cleanup/scripts/safe_clean.py</code></pre>
+<p>That prints the safe-tier plan with sizes and changes nothing; add <code>--apply</code> to run it.</p>
+<p>Questions, bugs and ideas: open an issue on this repository. Security reports: see <a href="https://github.com/basitalisandhu/mac-maintenance-skills/blob/main/SECURITY.md">SECURITY.md</a>.</p>
+</section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/mac-maintenance-skills">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/mac-maintenance-skills/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=mac-maintenance-skills">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/mac-maintenance-skills/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/mac-maintenance-skills/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-skills, claude-code, claude-code-plugin, claude-skills, cleanup, developer-tools, disk-cleanup, disk-space, docker, duplicate-files, hacktoberfest, homebrew, mac, macos, maintenance, python, uninstall, xcode</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

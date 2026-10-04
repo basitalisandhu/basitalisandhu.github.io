@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>agentdojo-mcp | Muhammad Basit Ali</title>
+<meta name="description" content="Run AgentDojo against MCP servers: map a task suite&#x27;s tools onto a real MCP server&#x27;s tools, run the benchmark&#x27;s user tasks and injection tasks against that tool surface, and report utility, targeted attack success and every MCP call per task. Mapping proposer and validator, offline replay, stdlib core.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/agentdojo-mcp/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="agentdojo-mcp">
+<meta property="og:description" content="Run AgentDojo against MCP servers: map a task suite&#x27;s tools onto a real MCP server&#x27;s tools, run the benchmark&#x27;s user tasks and injection tasks against that tool surface, and report utility, targeted attack success and every MCP call per task. Mapping proposer and validator, offline replay, stdlib core.">
+<meta property="og:url" content="https://basitalisandhu.github.io/agentdojo-mcp/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "agentdojo-mcp",
+ "description": "Run AgentDojo against MCP servers: map a task suite's tools onto a real MCP server's tools, run the benchmark's user tasks and injection tasks against that tool surface, and report utility, targeted attack success and every MCP call per task. Mapping proposer and validator, offline replay, stdlib core.",
+ "url": "https://basitalisandhu.github.io/agentdojo-mcp/",
+ "codeRepository": "https://github.com/basitalisandhu/agentdojo-mcp",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-security, agentdojo, ai-agents, ai-security, benchmark, cli, evaluation, hacktoberfest, llm-evaluation, llm-security, mcp, mcp-server, model-context-protocol, prompt-injection, python, red-teaming, security-tools",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
+<h1>agentdojo-mcp</h1>
+<p class="lede">Run AgentDojo against MCP servers.</p>
+<p class="meta">Python · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p><strong>agentdojo-mcp maps an AgentDojo task suite&#x27;s tools onto a real MCP server so the benchmark&#x27;s user tasks and injection tasks run against the server&#x27;s actual tool surface, and reports utility and attack success per task with every call logged.</strong></p>
+<pre><code class="language-bash">pip install &quot;agentdojo-mcp[dojo] @ git+https://github.com/basitalisandhu/agentdojo-mcp&quot;</code></pre>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">pip install &quot;agentdojo-mcp[dojo] @ git+https://github.com/basitalisandhu/agentdojo-mcp&quot;
+
+# 1. What does the server offer?
+agentdojo-mcp inspect --stdio &quot;python my_server.py&quot; --json -o tools.json
+
+# 2. Propose a mapping for a suite, then edit it.
+agentdojo-mcp map --suite travel --server-dump tools.json -o mapping.yaml
+agentdojo-mcp validate-mapping mapping.yaml --suite travel --server-dump tools.json
+
+# 3. Check the mapping with the reference solutions first (no model, no network).
+agentdojo-mcp run --suite travel --mapping mapping.yaml --stdio &quot;python my_server.py&quot; \
+  --model ground-truth --attack direct
+
+# 4. Run a model. Keys come from the environment variables AgentDojo and the provider SDKs read.
+agentdojo-mcp run --suite travel --mapping mapping.yaml --stdio &quot;python my_server.py&quot; \
+  --model provider:model-name --attack important_instructions --tasks user_task_0 --tasks user_task_1
+# ... see the README for the rest</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/agentdojo-mcp#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/agentdojo-mcp">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/agentdojo-mcp/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=agentdojo-mcp">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/agentdojo-mcp/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-security, agentdojo, ai-agents, ai-security, benchmark, cli, evaluation, hacktoberfest, llm-evaluation, llm-security, mcp, mcp-server, model-context-protocol, prompt-injection, python, red-teaming, security-tools</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>
