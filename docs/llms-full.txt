@@ -4,6 +4,27 @@
 
 I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day-to-day work is cloud governance: multi-account AWS guardrails, identity and endpoint controls in Microsoft 365, access reviews and the engineering teams that run them. Before that I built backend systems in Python and TypeScript, including a regulated lending platform and real-time grid software. The repositories here are the open part of that work: Claude Code skill packs, MCP servers and linters, threat modelling and static analysis for agent code, and a dataset of AI agent incidents. Each one stands alone, says what it does not do, and backs its security claims with tests.
 
+## claude-skills
+
+Page: https://basitalisandhu.github.io/claude-skills/
+Repository: https://github.com/basitalisandhu/claude-skills
+Theme: Claude Code skill packs
+
+Every skill I maintain, in one repository: 87 skills in 13 plugins from the packs below, one marketplace, one install script, synced daily.
+
+**87 skills in 13 plugins, from 8 source repositories, as of 2026-10-04.**
+
+This repository collects every Claude Code skill I maintain. Clone it once and you have all of them. It is also one Claude Code plugin marketplace, so you can install any plugin from it by name. The numbers above are a snapshot; the [catalog](https://github.com/basitalisandhu/claude-skills#catalog) below is regenerated on every sync and is the live count.
+
+Browse the skills on the site: <https://basitalisandhu.github.io/claude-skills/>
+
+Install:
+
+```text
+/plugin marketplace add basitalisandhu/claude-skills
+/plugin install aws-security@claude-skills
+```
+
 ## aws-security-skills
 
 Page: https://basitalisandhu.github.io/aws-security-skills/
@@ -57,14 +78,14 @@ Questions, bugs and ideas: open an issue on this repository. Security reports: s
 Install:
 
 ```bash
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 docs-truth /work --only-failures
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 readme-check /work/README.md
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 test-gaps /work --top 20
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 hygiene /work --sarif /work/hygiene.sarif
-docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 --help
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 docs-truth /work --only-failures
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 readme-check /work/README.md
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 test-gaps /work --top 20
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 hygiene /work --sarif /work/hygiene.sarif
+docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 --help
 ```
 
-Latest release: v0.2.0 (2026-10-04) https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.2.0
+Latest release: v0.3.0 (2026-10-04) https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.3.0
 
 ## m365-governance-skills
 
@@ -182,7 +203,7 @@ Page: https://basitalisandhu.github.io/github-manager-skills/
 Repository: https://github.com/basitalisandhu/github-manager-skills
 Theme: Claude Code skill packs
 
-Claude Code skills for engineering managers that compute from exported GitHub data.
+Claude Code skills for engineering managers that compute from exported GitHub data: stuck-PR and review-queue digest, iteration report, blameless postmortem timeline.
 
 **Engineering manager skills for Claude Code that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report, and an incident postmortem timeline, every number cited to the PR or issue it came from.**
 
@@ -209,7 +230,7 @@ Page: https://basitalisandhu.github.io/mac-maintenance-skills/
 Repository: https://github.com/basitalisandhu/mac-maintenance-skills
 Theme: Claude Code skill packs
 
-Claude Code skills for cleaning up and speeding up a Mac.
+Claude Code skills for cleaning up and speeding up a Mac: read-only survey first, safe tier removes only what programs recreate, leftovers and duplicate finders.
 
 **Mac maintenance skills for Claude Code: a survey that only measures, a safe tier that removes only what programs recreate, and a written list for every decision that is yours.**
 
@@ -219,6 +240,8 @@ mac-maintenance-skills is a Claude Code plugin with three skills for people whos
 /plugin marketplace add basitalisandhu/mac-maintenance-skills
 /plugin install mac-maintenance@mac-maintenance-skills
 ```
+
+This pack is also part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.
 
 Quickstart: open Claude Code and ask "look at my Mac and clean up the garbage", or run a script directly from a clone of this repository:
 

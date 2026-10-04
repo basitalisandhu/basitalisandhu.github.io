@@ -47,13 +47,14 @@
 <main>
 <p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
 <h1>mac-maintenance-skills</h1>
-<p class="lede">Claude Code skills for cleaning up and speeding up a Mac.</p>
+<p class="lede">Claude Code skills for cleaning up and speeding up a Mac: read-only survey first, safe tier removes only what programs recreate, leftovers and duplicate finders.</p>
 <p class="meta">Python · MIT · latest v0.1.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>Mac maintenance skills for Claude Code: a survey that only measures, a safe tier that removes only what programs recreate, and a written list for every decision that is yours.</strong></p>
 <p>mac-maintenance-skills is a Claude Code plugin with three skills for people whose Mac has filled up with caches, duplicate exports, leftovers of uninstalled apps and a few gigabytes pinned in memory, and who do not want a cleaner that guesses. It exists because the usual cleanup either deletes too little to matter or deletes something that mattered: each skill pairs the model&#x27;s judgement with a standard-library Python script that measures before it proposes, removes only regenerable caches on its own, and moves anything of yours to a dated folder in the Trash instead of deleting it.</p>
 <pre><code class="language-text">/plugin marketplace add basitalisandhu/mac-maintenance-skills
 /plugin install mac-maintenance@mac-maintenance-skills</code></pre>
+<p>This pack is also part of <a href="https://github.com/basitalisandhu/claude-skills">claude-skills</a>, which holds every skill I maintain as one marketplace: <code>/plugin marketplace add basitalisandhu/claude-skills</code>.</p>
 <p>Quickstart: open Claude Code and ask &quot;look at my Mac and clean up the garbage&quot;, or run a script directly from a clone of this repository:</p>
 <pre><code class="language-bash">python3 plugins/mac-maintenance/skills/mac-cleanup/scripts/safe_clean.py</code></pre>
 <p>That prints the safe-tier plan with sizes and changes nothing; add <code>--apply</code> to run it.</p>

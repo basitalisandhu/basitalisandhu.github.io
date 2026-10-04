@@ -37,7 +37,7 @@
   ]
  },
  "keywords": "agent-skills, agents-md, characterization-tests, claude-code, claude-code-plugin, claude-md, claude-skills, code-audit, codebase-analysis, developer-tools, docs-as-code, documentation, hacktoberfest, python, readme, static-analysis, technical-debt, testing",
- "version": "0.2.0",
+ "version": "0.3.0",
  "dateModified": "2026-10-04"
 }
 </script>
@@ -48,7 +48,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
 <h1>repo-engineering-skills</h1>
 <p class="lede">Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, agent context files that say only what code cannot.</p>
-<p class="meta">Python · MIT · latest v0.2.0</p>
+<p class="meta">Python · MIT · latest v0.3.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, onboarding guides built from cited facts, and restructure, ADR, hygiene and release checks run by scripts.</strong></p>
 <p>repo-engineering-skills is a Claude Code plugin with ten skills for maintainers and teams who need to trust what is written about their repository: the README, the docs, the onboarding guide, the audit report, the AGENTS.md, the decision records, the release notes. It exists because generated docs and audits are cheap to produce and hard to check, so each skill pairs the model&#x27;s work with a standard-library Python script that checks it against the working tree or the git history, instead of asking you to take the text on faith.</p>
@@ -59,11 +59,11 @@
 <p>Questions, bugs and ideas: open an issue on this repository. Security reports: see <a href="https://github.com/basitalisandhu/repo-engineering-skills/blob/main/SECURITY.md">SECURITY.md</a>.</p>
 </section>
 <section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
-<pre><code class="language-bash">docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 docs-truth /work --only-failures
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 readme-check /work/README.md
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 test-gaps /work --top 20
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 hygiene /work --sarif /work/hygiene.sarif
-docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 --help</code></pre>
+<pre><code class="language-bash">docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 docs-truth /work --only-failures
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 readme-check /work/README.md
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 test-gaps /work --top 20
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 hygiene /work --sarif /work/hygiene.sarif
+docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 --help</code></pre>
 <p class="muted">From the README; see <a href="https://github.com/basitalisandhu/repo-engineering-skills#readme">the full README</a> for every option.</p></section>
 <section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills">Repository</a></li>
@@ -72,6 +72,7 @@ docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 --help</cod
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-04">2026-10-04</time></li>
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.1.0">v0.1.0: 0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
