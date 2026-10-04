@@ -4,6 +4,7 @@
     {
       "title": "Claude Code skill packs",
       "repos": [
+        "claude-skills",
         "aws-security-skills",
         "repo-engineering-skills",
         "m365-governance-skills",
@@ -644,6 +645,46 @@
       ]
     },
     {
+      "name": "claude-skills",
+      "description": "Claude Code skills, every skill I maintain in one repository: 87 skills in 13 plugins for AWS and Microsoft 365 security, agent security, compliance evidence, repository engineering, debugging, DevOps, docs and data, vendored from their source packs and synced daily. One marketplace add, or one clone and one install command. Offline, no telemetry.",
+      "one_liner": "Every skill I maintain, in one repository: 87 skills in 13 plugins from the packs below, one marketplace, one install script, synced daily.",
+      "theme": "Claude Code skill packs",
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "aws-security",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-code-plugins",
+        "claude-code-skills",
+        "claude-skills",
+        "compliance",
+        "debugging",
+        "developer-tools",
+        "devops",
+        "documentation",
+        "hacktoberfest",
+        "microsoft-365",
+        "plugin-marketplace",
+        "python",
+        "security-tools",
+        "skills"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/claude-skills",
+      "default_branch": "main",
+      "homepage": "https://basitalisandhu.github.io/claude-skills/",
+      "own_site": "https://basitalisandhu.github.io/claude-skills/",
+      "intro_md": "**87 skills in 13 plugins, from 8 source repositories, as of 2026-10-04.**\n\nThis repository collects every Claude Code skill I maintain. Clone it once and you have all of them. It is also one Claude Code plugin marketplace, so you can install any plugin from it by name. The numbers above are a snapshot; the [catalog](https://github.com/basitalisandhu/claude-skills#catalog) below is regenerated on every sync and is the live count.\n\nBrowse the skills on the site: <https://basitalisandhu.github.io/claude-skills/>",
+      "install": {
+        "lang": "text",
+        "code": "/plugin marketplace add basitalisandhu/claude-skills\n/plugin install aws-security@claude-skills",
+        "from": "Install"
+      },
+      "releases": []
+    },
+    {
       "name": "compliance-evidence-skills",
       "description": "Claude Code skills for compliance evidence: a plugin with five skills that pack GitHub, AWS and Microsoft 365 exports with SHA-256 manifests, map them to ISO 27001 and SOC 2 control identifiers, and draft auditor narratives that cite evidence or say not assessable. Tested standard-library scripts work offline.",
       "one_liner": "Compliance evidence skills for Claude Code: integrity-checked evidence packs from GitHub, AWS and Microsoft 365 exports, mapped to ISO 27001 and SOC 2, with narratives that cite evidence or say not assessable.",
@@ -740,7 +781,7 @@
     {
       "name": "github-manager-skills",
       "description": "Claude Code skills for engineering managers that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report with cycle time, and a blameless incident postmortem timeline, every number cited to its PR or issue. Team level only, no per-person scoring. Offline standard-library scripts.",
-      "one_liner": "Claude Code skills for engineering managers that compute from exported GitHub data.",
+      "one_liner": "Claude Code skills for engineering managers that compute from exported GitHub data: stuck-PR and review-queue digest, iteration report, blameless postmortem timeline.",
       "theme": "Claude Code skill packs",
       "topics": [
         "agent-skills",
@@ -886,7 +927,7 @@
     {
       "name": "mac-maintenance-skills",
       "description": "Claude Code skills for cleaning up and speeding up a Mac: a read-only survey of what takes space and memory, a safe tier that removes only caches programs recreate, hash-verified duplicate files moved to the Trash, and leftovers of uninstalled apps. Tested standard-library scripts, no network, no sudo.",
-      "one_liner": "Claude Code skills for cleaning up and speeding up a Mac.",
+      "one_liner": "Claude Code skills for cleaning up and speeding up a Mac: read-only survey first, safe tier removes only what programs recreate, leftovers and duplicate finders.",
       "theme": "Claude Code skill packs",
       "topics": [
         "agent-skills",
@@ -914,7 +955,7 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/mac-maintenance-skills/",
       "own_site": null,
-      "intro_md": "**Mac maintenance skills for Claude Code: a survey that only measures, a safe tier that removes only what programs recreate, and a written list for every decision that is yours.**\n\nmac-maintenance-skills is a Claude Code plugin with three skills for people whose Mac has filled up with caches, duplicate exports, leftovers of uninstalled apps and a few gigabytes pinned in memory, and who do not want a cleaner that guesses. It exists because the usual cleanup either deletes too little to matter or deletes something that mattered: each skill pairs the model's judgement with a standard-library Python script that measures before it proposes, removes only regenerable caches on its own, and moves anything of yours to a dated folder in the Trash instead of deleting it.\n\n```text\n/plugin marketplace add basitalisandhu/mac-maintenance-skills\n/plugin install mac-maintenance@mac-maintenance-skills\n```\n\nQuickstart: open Claude Code and ask \"look at my Mac and clean up the garbage\", or run a script directly from a clone of this repository:\n\n```bash\npython3 plugins/mac-maintenance/skills/mac-cleanup/scripts/safe_clean.py\n```\n\nThat prints the safe-tier plan with sizes and changes nothing; add `--apply` to run it.\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/mac-maintenance-skills/blob/main/SECURITY.md).",
+      "intro_md": "**Mac maintenance skills for Claude Code: a survey that only measures, a safe tier that removes only what programs recreate, and a written list for every decision that is yours.**\n\nmac-maintenance-skills is a Claude Code plugin with three skills for people whose Mac has filled up with caches, duplicate exports, leftovers of uninstalled apps and a few gigabytes pinned in memory, and who do not want a cleaner that guesses. It exists because the usual cleanup either deletes too little to matter or deletes something that mattered: each skill pairs the model's judgement with a standard-library Python script that measures before it proposes, removes only regenerable caches on its own, and moves anything of yours to a dated folder in the Trash instead of deleting it.\n\n```text\n/plugin marketplace add basitalisandhu/mac-maintenance-skills\n/plugin install mac-maintenance@mac-maintenance-skills\n```\n\nThis pack is also part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.\n\nQuickstart: open Claude Code and ask \"look at my Mac and clean up the garbage\", or run a script directly from a clone of this repository:\n\n```bash\npython3 plugins/mac-maintenance/skills/mac-cleanup/scripts/safe_clean.py\n```\n\nThat prints the safe-tier plan with sizes and changes nothing; add `--apply` to run it.\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/mac-maintenance-skills/blob/main/SECURITY.md).",
       "install": null,
       "releases": [
         {
@@ -1194,10 +1235,16 @@
       "intro_md": "**Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, onboarding guides built from cited facts, and restructure, ADR, hygiene and release checks run by scripts.**\n\nrepo-engineering-skills is a Claude Code plugin with ten skills for maintainers and teams who need to trust what is written about their repository: the README, the docs, the onboarding guide, the audit report, the AGENTS.md, the decision records, the release notes. It exists because generated docs and audits are cheap to produce and hard to check, so each skill pairs the model's work with a standard-library Python script that checks it against the working tree or the git history, instead of asking you to take the text on faith.\n\n```text\n/plugin marketplace add basitalisandhu/repo-engineering-skills\n/plugin install repo-engineering@repo-engineering-skills\n```\n\nQuickstart: open Claude Code in a repository and ask \"check the docs against the code\", or run a script directly from a clone of this repository:\n\n```bash\npython3 plugins/repo-engineering/skills/docs-truth-check/scripts/docs_truth_check.py . --only-failures\n```\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/repo-engineering-skills/blob/main/SECURITY.md).",
       "install": {
         "lang": "bash",
-        "code": "docker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 docs-truth /work --only-failures\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 readme-check /work/README.md\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 test-gaps /work --top 20\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 hygiene /work --sarif /work/hygiene.sarif\ndocker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 --help",
+        "code": "docker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 docs-truth /work --only-failures\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 readme-check /work/README.md\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 test-gaps /work --top 20\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 hygiene /work --sarif /work/hygiene.sarif\ndocker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 --help",
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.3.0",
+          "name": "v0.3.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.3.0"
+        },
         {
           "tag": "v0.2.0",
           "name": "v0.2.0",
