@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>repo-engineering-skills | Muhammad Basit Ali</title>
+<meta name="description" content="Claude Code skills for repository audits and documentation: verify README and docs claims against the code, run audits where every finding cites a resolvable path:line, write AGENTS.md and CLAUDE.md with only what code cannot say, check a README&#x27;s first screen, rank test gaps. Tested standard-library scripts, no network.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/repo-engineering-skills/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="repo-engineering-skills">
+<meta property="og:description" content="Claude Code skills for repository audits and documentation: verify README and docs claims against the code, run audits where every finding cites a resolvable path:line, write AGENTS.md and CLAUDE.md with only what code cannot say, check a README&#x27;s first screen, rank test gaps. Tested standard-library scripts, no network.">
+<meta property="og:url" content="https://basitalisandhu.github.io/repo-engineering-skills/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "repo-engineering-skills",
+ "description": "Claude Code skills for repository audits and documentation: verify README and docs claims against the code, run audits where every finding cites a resolvable path:line, write AGENTS.md and CLAUDE.md with only what code cannot say, check a README's first screen, rank test gaps. Tested standard-library scripts, no network.",
+ "url": "https://basitalisandhu.github.io/repo-engineering-skills/",
+ "codeRepository": "https://github.com/basitalisandhu/repo-engineering-skills",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-skills, agents-md, characterization-tests, claude-code, claude-code-plugin, claude-md, claude-skills, code-audit, codebase-analysis, developer-tools, docs-as-code, documentation, hacktoberfest, python, readme, static-analysis, technical-debt, testing",
+ "version": "0.2.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
+<h1>repo-engineering-skills</h1>
+<p class="lede">Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, agent context files that say only what code cannot.</p>
+<p class="meta">Python · MIT · latest v0.2.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p><strong>Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, onboarding guides built from cited facts, and restructure, ADR, hygiene and release checks run by scripts.</strong></p>
+<p>repo-engineering-skills is a Claude Code plugin with ten skills for maintainers and teams who need to trust what is written about their repository: the README, the docs, the onboarding guide, the audit report, the AGENTS.md, the decision records, the release notes. It exists because generated docs and audits are cheap to produce and hard to check, so each skill pairs the model&#x27;s work with a standard-library Python script that checks it against the working tree or the git history, instead of asking you to take the text on faith.</p>
+<pre><code class="language-text">/plugin marketplace add basitalisandhu/repo-engineering-skills
+/plugin install repo-engineering@repo-engineering-skills</code></pre>
+<p>Quickstart: open Claude Code in a repository and ask &quot;check the docs against the code&quot;, or run a script directly from a clone of this repository:</p>
+<pre><code class="language-bash">python3 plugins/repo-engineering/skills/docs-truth-check/scripts/docs_truth_check.py . --only-failures</code></pre>
+<p>Questions, bugs and ideas: open an issue on this repository. Security reports: see <a href="https://github.com/basitalisandhu/repo-engineering-skills/blob/main/SECURITY.md">SECURITY.md</a>.</p>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 docs-truth /work --only-failures
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 readme-check /work/README.md
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 test-gaps /work --top 20
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 hygiene /work --sarif /work/hygiene.sarif
+docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 --help</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/repo-engineering-skills#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/repo-engineering-skills">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=repo-engineering-skills">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/repo-engineering-skills/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+<li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-04">2026-10-04</time></li>
+<li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.1.0">v0.1.0: 0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-skills, agents-md, characterization-tests, claude-code, claude-code-plugin, claude-md, claude-skills, code-audit, codebase-analysis, developer-tools, docs-as-code, documentation, hacktoberfest, python, readme, static-analysis, technical-debt, testing</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

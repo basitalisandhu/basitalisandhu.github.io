@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mcp-tools-lint | Muhammad Basit Ali</title>
+<meta name="description" content="Lint MCP tool schemas and annotations before clients reject them: flags non-2020-12 $schema dialects, boolean schemas, bad required lists and missing or contradictory annotations in tools/list, over stdio, Streamable HTTP or a JSON file. Text, JSON and SARIF output, RFC 6902 --fix patch, GitHub Action.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/mcp-tools-lint/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="mcp-tools-lint">
+<meta property="og:description" content="Lint MCP tool schemas and annotations before clients reject them: flags non-2020-12 $schema dialects, boolean schemas, bad required lists and missing or contradictory annotations in tools/list, over stdio, Streamable HTTP or a JSON file. Text, JSON and SARIF output, RFC 6902 --fix patch, GitHub Action.">
+<meta property="og:url" content="https://basitalisandhu.github.io/mcp-tools-lint/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "mcp-tools-lint",
+ "description": "Lint MCP tool schemas and annotations before clients reject them: flags non-2020-12 $schema dialects, boolean schemas, bad required lists and missing or contradictory annotations in tools/list, over stdio, Streamable HTTP or a JSON file. Text, JSON and SARIF output, RFC 6902 --fix patch, GitHub Action.",
+ "url": "https://basitalisandhu.github.io/mcp-tools-lint/",
+ "codeRepository": "https://github.com/basitalisandhu/mcp-tools-lint",
+ "programmingLanguage": "TypeScript",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "ai-agents, claude-code, cli, developer-tools, github-actions, hacktoberfest, json-patch, json-schema, lint, linter, mcp, mcp-server, mcp-tools, model-context-protocol, npm, sarif, tool-annotations, typescript",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
+<h1>mcp-tools-lint</h1>
+<p class="lede">Lint MCP tool schemas and annotations before clients reject them.</p>
+<p class="meta">TypeScript · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p>Lint MCP tool schemas and annotations before clients reject them. Point it at a running MCP server (stdio or Streamable HTTP) or at a saved <code>tools/list</code> result, and it checks every tool against what Claude Code and other strict clients accept: JSON Schema 2020-12 only, no boolean schemas, <code>required</code> names that exist, and annotations that are present, camelCase and not self-contradictory. It prints text, JSON or SARIF, writes an RFC 6902 patch for the fixable findings, and ships as a GitHub Action.</p>
+<p>Built alongside <a href="https://github.com/basitalisandhu/dev-mcp-servers">dev-mcp-servers</a>.</p>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">npx @basitalisandhu/mcp-tools-lint --help              # run without installing
+npm install -g @basitalisandhu/mcp-tools-lint@0.1.1    # global CLI, installs the mcp-tools-lint command
+npm install -D @basitalisandhu/mcp-tools-lint@0.1.1    # as a dev dependency of a server project</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/mcp-tools-lint#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/mcp-tools-lint">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/mcp-tools-lint/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=mcp-tools-lint">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/mcp-tools-lint/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: ai-agents, claude-code, cli, developer-tools, github-actions, hacktoberfest, json-patch, json-schema, lint, linter, mcp, mcp-server, mcp-tools, model-context-protocol, npm, sarif, tool-annotations, typescript</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

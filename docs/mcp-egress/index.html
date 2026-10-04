@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mcp-egress | Muhammad Basit Ali</title>
+<meta name="description" content="Record every host an MCP server contacts, per tool, and fail CI on new ones. Runs a stdio MCP server behind an embedded CONNECT proxy, records host, port and tool for initialize, tools/list and sample calls, writes egress.json, prints Claude Code WebFetch rules and a sandbox allowlist, and warns when a server bypasses proxy variables.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/mcp-egress/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="mcp-egress">
+<meta property="og:description" content="Record every host an MCP server contacts, per tool, and fail CI on new ones. Runs a stdio MCP server behind an embedded CONNECT proxy, records host, port and tool for initialize, tools/list and sample calls, writes egress.json, prints Claude Code WebFetch rules and a sandbox allowlist, and warns when a server bypasses proxy variables.">
+<meta property="og:url" content="https://basitalisandhu.github.io/mcp-egress/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "mcp-egress",
+ "description": "Record every host an MCP server contacts, per tool, and fail CI on new ones. Runs a stdio MCP server behind an embedded CONNECT proxy, records host, port and tool for initialize, tools/list and sample calls, writes egress.json, prints Claude Code WebFetch rules and a sandbox allowlist, and warns when a server bypasses proxy variables.",
+ "url": "https://basitalisandhu.github.io/mcp-egress/",
+ "codeRepository": "https://github.com/basitalisandhu/mcp-egress",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-security, ai-agents, allowlist, ci, claude-code, cli, devsecops, egress, hacktoberfest, llm-security, mcp, model-context-protocol, network-security, proxy, python, security-tools, supply-chain-security",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
+<h1>mcp-egress</h1>
+<p class="lede">Record every host an MCP server contacts, per tool, and fail CI on new ones.</p>
+<p class="meta">Python · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p>Run a stdio MCP server behind a small recording proxy and get the exact set of hosts it contacts while you run <code>initialize</code>, <code>tools/list</code> and sample tool calls. Every host is attributed to the phase and the tool that reached it, written to <code>egress.json</code>, printed as a table, and printed again as two ready-to-paste blocks: Claude Code <code>WebFetch(domain:host)</code> permission rules and a sandbox allowed-domain list. Keep the file as a baseline and <code>--check</code> fails CI the day a tool starts talking to a host nobody declared.</p>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/mcp-egress                       # isolated CLI install
+uvx --from git+https://github.com/basitalisandhu/mcp-egress mcp-egress --help       # run without installing
+pip install git+https://github.com/basitalisandhu/mcp-egress                        # into the current environment
+git clone https://github.com/basitalisandhu/mcp-egress &amp;&amp; cd mcp-egress &amp;&amp; uv venv &amp;&amp; uv pip install -e &quot;.[dev]&quot;   # development</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/mcp-egress#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/mcp-egress">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/mcp-egress/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=mcp-egress">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/mcp-egress/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-security, ai-agents, allowlist, ci, claude-code, cli, devsecops, egress, hacktoberfest, llm-security, mcp, model-context-protocol, network-security, proxy, python, security-tools, supply-chain-security</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

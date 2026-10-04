@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>m365-governance-skills | Muhammad Basit Ali</title>
+<meta name="description" content="Claude Code skills for Microsoft 365 governance: a plugin with five skills for Graph permission preflight, Entra ID posture review, Intune baseline check, Teams and group sprawl and a quarterly access review pack. Read-only Graph exports; tested standard-library scripts evaluate the JSON offline.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/m365-governance-skills/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="m365-governance-skills">
+<meta property="og:description" content="Claude Code skills for Microsoft 365 governance: a plugin with five skills for Graph permission preflight, Entra ID posture review, Intune baseline check, Teams and group sprawl and a quarterly access review pack. Read-only Graph exports; tested standard-library scripts evaluate the JSON offline.">
+<meta property="og:url" content="https://basitalisandhu.github.io/m365-governance-skills/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "m365-governance-skills",
+ "description": "Claude Code skills for Microsoft 365 governance: a plugin with five skills for Graph permission preflight, Entra ID posture review, Intune baseline check, Teams and group sprawl and a quarterly access review pack. Read-only Graph exports; tested standard-library scripts evaluate the JSON offline.",
+ "url": "https://basitalisandhu.github.io/m365-governance-skills/",
+ "codeRepository": "https://github.com/basitalisandhu/m365-governance-skills",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "access-review, agent-skills, azure-ad, claude-code, claude-code-plugin, conditional-access, endpoint-management, entra-id, hacktoberfest, identity-governance, intune, least-privilege, m365-security, microsoft-365, microsoft-graph, microsoft-teams, python, security-tools",
+ "version": "0.2.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
+<h1>m365-governance-skills</h1>
+<p class="lede">Microsoft 365 governance skills for Claude Code: Entra ID posture review, Intune baseline check, Graph permission preflight, Teams and group sprawl, access review pack.</p>
+<p class="meta">Python · MIT · latest v0.2.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p><strong>Microsoft 365 governance skills for Claude Code: Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence audit, Intune baseline check, Graph permission preflight, Teams and group sprawl report, access review pack. Scripts read exported Graph JSON offline.</strong></p>
+<p>m365-governance-skills is a Claude Code plugin marketplace with one plugin, <code>m365-governance</code>, holding nine skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skill tells Claude which read-only Microsoft Graph exports to run and which permission each one needs; the script then evaluates the saved JSON on your machine. Results are repeatable, can be checked by someone without tenant access, and are produced without the script ever calling Microsoft Graph.</p>
+<p>It is written for administrators who look after Microsoft 365, Entra ID and Intune for a company or for clients, often alongside other duties. It exists because the governance questions repeat in every tenant (who are the Global Admins, is MFA really enforced and for whom, which guests can still reach what, which licences sit on disabled accounts, which teams have no owner, what is this connector asking for, what goes into this quarter&#x27;s access review), and agents now connect to Microsoft 365 with broad Graph permissions. Message triage and daily digests are already covered by first-party plugins; this pack is the governance layer underneath: what can touch the tenant, and is the tenant in the state you think it is.</p>
+<p>No network access from the scripts, no telemetry. Nothing in this repository changes a tenant: every skill proposes a portal path or a Graph call and runs a change only after you confirm that exact command.</p>
+<pre><code class="language-text">/plugin marketplace add basitalisandhu/m365-governance-skills
+/plugin install m365-governance@m365-governance-skills</code></pre>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">claude plugin marketplace add basitalisandhu/m365-governance-skills
+claude plugin install m365-governance@m365-governance-skills --scope user</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/m365-governance-skills#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/m365-governance-skills">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/m365-governance-skills/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=m365-governance-skills">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/m365-governance-skills/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+<li><a href="https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-04">2026-10-04</time></li>
+<li><a href="https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.1.0">v0.1.0: 0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: access-review, agent-skills, azure-ad, claude-code, claude-code-plugin, conditional-access, endpoint-management, entra-id, hacktoberfest, identity-governance, intune, least-privilege, m365-security, microsoft-365, microsoft-graph, microsoft-teams, python, security-tools</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

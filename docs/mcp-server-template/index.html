@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mcp-server-template | Muhammad Basit Ali</title>
+<meta name="description" content="Secure MCP server template in TypeScript and Python: stdio by default, optional streamable HTTP behind bearer auth, rate limit and body cap, bound to 127.0.0.1; bounded file and network access with allowlists and SSRF protection; redacting JSON logs; health tool; tests, non-root pinned Docker images, Semgrep, gitleaks, CodeQL, SBOMs.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/mcp-server-template/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="mcp-server-template">
+<meta property="og:description" content="Secure MCP server template in TypeScript and Python: stdio by default, optional streamable HTTP behind bearer auth, rate limit and body cap, bound to 127.0.0.1; bounded file and network access with allowlists and SSRF protection; redacting JSON logs; health tool; tests, non-root pinned Docker images, Semgrep, gitleaks, CodeQL, SBOMs.">
+<meta property="og:url" content="https://basitalisandhu.github.io/mcp-server-template/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "mcp-server-template",
+ "description": "Secure MCP server template in TypeScript and Python: stdio by default, optional streamable HTTP behind bearer auth, rate limit and body cap, bound to 127.0.0.1; bounded file and network access with allowlists and SSRF protection; redacting JSON logs; health tool; tests, non-root pinned Docker images, Semgrep, gitleaks, CodeQL, SBOMs.",
+ "url": "https://basitalisandhu.github.io/mcp-server-template/",
+ "codeRepository": "https://github.com/basitalisandhu/mcp-server-template",
+ "programmingLanguage": "TypeScript",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-security, ai-agents, ai-security, devsecops, docker, fastmcp, github-actions, hacktoberfest, llm-security, mcp, mcp-server, model-context-protocol, python, sbom, security-automation, ssrf, template, template-repository, typescript",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
+<h1>mcp-server-template</h1>
+<p class="lede">Secure MCP server template in TypeScript and Python, safe by default.</p>
+<p class="meta">TypeScript · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p>Secure MCP server template in TypeScript and Python: a starting point for a Model Context Protocol server that is safe by default. Both reference implementations ship the same four read-only tools and the same controls: strict input validation, file access bounded to allowlisted directories, network access bounded to allowlisted hosts with SSRF protection, structured logs that redact secrets, a health tool, stdio transport by default, and an optional streamable HTTP transport that is bound to 127.0.0.1, requires a bearer token, rate-limits clients and caps request bodies. Tests, Dockerfiles with digest-pinned bases and non-root users, CI with Semgrep, gitleaks and CodeQL, and SBOMs on release are included.</p>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">cd typescript
+npm ci &amp;&amp; npm run build &amp;&amp; npm test
+MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing one directory</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/mcp-server-template#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/mcp-server-template">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/mcp-server-template/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=mcp-server-template">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/mcp-server-template/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.1.0">v0.1.0: 0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-security, ai-agents, ai-security, devsecops, docker, fastmcp, github-actions, hacktoberfest, llm-security, mcp, mcp-server, model-context-protocol, python, sbom, security-automation, ssrf, template, template-repository, typescript</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

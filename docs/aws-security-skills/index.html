@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>aws-security-skills | Muhammad Basit Ali</title>
+<meta name="description" content="Claude Code skills for AWS security: a plugin with five skills for a read-only account audit, SCP guardrail builder and linter, blast-radius landing zone design, IAM least-privilege review and Security Hub and GuardDuty triage. Tested standard-library scripts evaluate saved aws CLI output offline.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/aws-security-skills/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="aws-security-skills">
+<meta property="og:description" content="Claude Code skills for AWS security: a plugin with five skills for a read-only account audit, SCP guardrail builder and linter, blast-radius landing zone design, IAM least-privilege review and Security Hub and GuardDuty triage. Tested standard-library scripts evaluate saved aws CLI output offline.">
+<meta property="og:url" content="https://basitalisandhu.github.io/aws-security-skills/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "aws-security-skills",
+ "description": "Claude Code skills for AWS security: a plugin with five skills for a read-only account audit, SCP guardrail builder and linter, blast-radius landing zone design, IAM least-privilege review and Security Hub and GuardDuty triage. Tested standard-library scripts evaluate saved aws CLI output offline.",
+ "url": "https://basitalisandhu.github.io/aws-security-skills/",
+ "codeRepository": "https://github.com/basitalisandhu/aws-security-skills",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-skills, aws, aws-organizations, aws-security, claude-code, claude-code-plugin, cloud-security, cspm, devsecops, guardduty, hacktoberfest, iam, landing-zone, least-privilege, python, security-hub, security-tools, service-control-policies",
+ "version": "0.2.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
+<h1>aws-security-skills</h1>
+<p class="lede">AWS security skills for Claude Code: account audit, SCP guardrails, blast-radius landing zones, IAM least privilege, Security Hub triage.</p>
+<p class="meta">Python · MIT · latest v0.2.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p><strong>AWS security skills for Claude Code: account audit, SCP guardrails, blast-radius landing zones, IAM least privilege, Security Hub triage, agent-safe access, incident response runbooks, spend guardrails, sandbox guardrails.</strong></p>
+<p>aws-security-skills is a Claude Code plugin marketplace with one plugin, <code>aws-security</code>, holding nine skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skills tell Claude which read-only <code>aws</code> CLI commands to run and where to save the JSON, or which short spec to write; the scripts then evaluate that saved output, or generate policies and runbooks from the spec, offline, so results are repeatable, reviewable by someone without account access, and produced without the script ever touching AWS.</p>
+<p>It is written for cloud and platform engineers who look after one or many AWS accounts, especially multi-account organizations governed by service control policies. It exists because the same questions come up on every account (is root protected, is CloudTrail on, can this role escalate, which SCPs go where, what do we fix first in Security Hub, what may an AI agent do here, what do we do in the first hour of an incident, how do we stop a runaway bill), and a scripted procedure answers them the same way each time.</p>
+<p>No network access from the scripts, no telemetry. Nothing in this repository changes an AWS account: every skill proposes fix commands and runs one only after you confirm that exact command.</p>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-text">/plugin marketplace add basitalisandhu/aws-security-skills
+/plugin install aws-security@aws-security-skills</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/aws-security-skills#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/aws-security-skills">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/aws-security-skills/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=aws-security-skills">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/aws-security-skills/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+<li><a href="https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-04">2026-10-04</time></li>
+<li><a href="https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.1.0">v0.1.0: 0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-skills, aws, aws-organizations, aws-security, claude-code, claude-code-plugin, cloud-security, cspm, devsecops, guardduty, hacktoberfest, iam, landing-zone, least-privilege, python, security-hub, security-tools, service-control-policies</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

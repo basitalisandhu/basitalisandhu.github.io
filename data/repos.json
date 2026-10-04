@@ -1,0 +1,1160 @@
+{
+  "owner": "basitalisandhu",
+  "themes": [
+    {
+      "title": "Claude Code skill packs",
+      "repos": [
+        "aws-security-skills",
+        "repo-engineering-skills",
+        "m365-governance-skills",
+        "compliance-evidence-skills",
+        "claude-dev-skills",
+        "agent-security-skills"
+      ]
+    },
+    {
+      "title": "MCP tooling",
+      "repos": [
+        "dev-mcp-servers",
+        "mcp-server-template",
+        "mcp-tools-lint",
+        "mcp-auth-doctor",
+        "mcp-egress",
+        "claude-mcp-allow",
+        "mcp-rc-check"
+      ]
+    },
+    {
+      "title": "Security tooling",
+      "repos": [
+        "agent-threat-model",
+        "agent-config-audit",
+        "agentic-semgrep-rules",
+        "security-actions",
+        "cc-hooks",
+        "cc-plugin-lock",
+        "claude-perm-sim",
+        "llms-txt-gen",
+        "skill-scan-gate"
+      ]
+    },
+    {
+      "title": "Data and lists",
+      "repos": [
+        "ai-agent-incidents",
+        "awesome-agent-security"
+      ]
+    }
+  ],
+  "repos": [
+    {
+      "name": "agent-config-audit",
+      "description": "Audit AI agent configuration files for security risks: risky permissions in .claude settings, secrets and unpinned servers in .mcp.json and claude_desktop_config.json, exfiltrating hooks, and prompt-injection patterns in CLAUDE.md, AGENTS.md and .cursor rules. Table, JSON and SARIF output, allowlist, GitHub Action, pre-commit.",
+      "one_liner": "Audit AI agent configuration files for security risks.",
+      "theme": "Security tooling",
+      "topics": [
+        "agent-security",
+        "ai-agents",
+        "ai-security",
+        "claude-code",
+        "cli",
+        "configuration-audit",
+        "cursor",
+        "devsecops",
+        "github-actions",
+        "hacktoberfest",
+        "llm-security",
+        "mcp",
+        "pre-commit",
+        "prompt-injection",
+        "python",
+        "sarif",
+        "secrets-detection",
+        "security-automation",
+        "security-tools"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/agent-config-audit",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "Audit AI agent configuration files for security risks: one command reads the files that launch and instruct a coding agent (`.claude/settings*.json`, `.mcp.json`, `claude_desktop_config.json`, `.cursor/` rules and MCP config, `CLAUDE.md`, `AGENTS.md`, plugin manifests, hooks, skills) and reports pre-approved dangerous commands, bypassed permission prompts, secrets committed next to server definitions, unpinned MCP servers, hooks that phone home, and prompt-injection patterns hidden in instruction files. Output as a table, JSON, Markdown or SARIF for GitHub code scanning. Read-only, standard library only, no network, deterministic.",
+      "install": {
+        "lang": "bash",
+        "code": "pipx install git+https://github.com/basitalisandhu/agent-config-audit\ncd your-project\nagent-config-audit                      # table on stdout, exit 0\nagent-config-audit --fail-on high       # exit 1 when a high or critical finding exists\nagent-config-audit --format sarif --output agent-config-audit.sarif\nagent-config-audit --include-home       # also ~/.claude, ~/.cursor, the Claude Desktop config",
+        "from": "Quickstart"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "agent-security-skills",
+      "description": "Claude Code security plugin and agentskills.io skill pack for securing LLM agents: threat modelling, config audits, prompt injection review, MCP server review, incident lookup, security evals, Semgrep rules, guard hooks and an incident-database MCP server.",
+      "one_liner": "Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review, incident lookup.",
+      "theme": "Claude Code skill packs",
+      "topics": [
+        "agent-security",
+        "agent-skills",
+        "agentic-ai",
+        "ai-agents",
+        "ai-security",
+        "claude-code",
+        "claude-code-hooks",
+        "claude-code-plugin",
+        "devsecops",
+        "hacktoberfest",
+        "llm-security",
+        "mcp",
+        "mcp-server",
+        "owasp",
+        "prompt-injection",
+        "security-automation",
+        "security-tools",
+        "semgrep",
+        "threat-modeling"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/agent-security-skills",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review and incident lookup.**\n\nagent-security-skills is a Claude Code plugin marketplace and an [agentskills.io](https://agentskills.io)-compatible skill pack for people who build or run LLM agents against real APIs, MCP servers and codebases: security engineers reviewing an agent before it ships, and developers who want that review inside the tool they already use. Each skill is a procedure with a tested script or a fixed checklist, so two reviewers reach the same verdict and the evidence is a file, a line or a command output.\n\nEight skills (each with a tested script or a checklist), three slash commands, a subagent, two guard hooks for `Bash`, and an optional MCP server over the [ai-agent-incidents](https://github.com/basitalisandhu/ai-agent-incidents) dataset (80 documented events mapped to OWASP Agentic, OWASP LLM and MITRE ATLAS). No telemetry, no network calls except the documented, opt-in dataset refresh.",
+      "install": {
+        "lang": "text",
+        "code": "/plugin marketplace add basitalisandhu/agent-security-skills\n/plugin install agent-security@agent-security-skills",
+        "from": "Install"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "agent-threat-model",
+      "description": "Threat modeling for AI agents: describe an LLM-agent system in YAML and get a deterministic STRIDE and OWASP Agentic threat model with a ranked threat register, Mermaid diagram, control checklist, residual risk score and SARIF for GitHub code scanning. CLI and GitHub Action, offline, no model in the loop.",
+      "one_liner": "Threat modeling for AI agents: describe the system in YAML, get a STRIDE and OWASP Agentic threat model.",
+      "theme": "Security tooling",
+      "topics": [
+        "agent-security",
+        "agentic-ai",
+        "ai-agents",
+        "ai-security",
+        "cli",
+        "devsecops",
+        "github-actions",
+        "hacktoberfest",
+        "llm-security",
+        "mitre-atlas",
+        "owasp",
+        "prompt-injection",
+        "python",
+        "sarif",
+        "security-automation",
+        "security-tools",
+        "stride",
+        "threat-model",
+        "threat-modeling"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/agent-threat-model",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "Threat modeling for AI agents and LLM applications, for security architects and the engineers who own an agent: describe the system in YAML and get a STRIDE and OWASP Agentic threat model with a ranked threat register, a Mermaid diagram, a control checklist, a residual risk score and SARIF for GitHub code scanning. Deterministic, offline, no model in the loop, so the same input always gives the same report and it runs in CI.",
+      "install": {
+        "lang": "bash",
+        "code": "pipx install git+https://github.com/basitalisandhu/agent-threat-model\natm init system.yaml                 # writes the support-bot example\natm analyse system.yaml",
+        "from": "30-second demo"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/agent-threat-model/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "agentic-semgrep-rules",
+      "description": "Semgrep rules for AI agent code: static analysis for LLM applications in Python, TypeScript and JavaScript. Finds model output reaching exec, shells, SQL, URLs, files and HTML, user input in system prompts, over-broad tools, MCP servers without auth, leaked keys and unsafe model loading. 36 tested rules, CWE and OWASP mapping.",
+      "one_liner": "Semgrep rules for AI agent code in Python, TypeScript and JavaScript.",
+      "theme": "Security tooling",
+      "topics": [
+        "agent-security",
+        "agentic-ai",
+        "ai-agents",
+        "ai-security",
+        "code-scanning",
+        "devsecops",
+        "github-actions",
+        "hacktoberfest",
+        "llm-security",
+        "mcp",
+        "owasp",
+        "prompt-injection",
+        "sast",
+        "security-automation",
+        "security-tools",
+        "semgrep",
+        "semgrep-rules",
+        "ssrf",
+        "static-analysis"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/agentic-semgrep-rules",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "Semgrep rules for AI agent code: static analysis for LLM applications in Python, TypeScript and JavaScript that finds model output flowing into `exec`, shells, SQL, URLs, file paths and HTML (eval of model output, SSRF through tool URLs), user input written into system prompts, tools that let the model run anything, MCP server security checks (HTTP transports without authentication, servers bound to every interface), leaked provider keys, and unsafe model or config loading. For teams that ship LLM agents, MCP servers and tool-using assistants and want these mistakes caught in a pull request rather than found in an incident.\n\n36 rules (23 Python, 13 TypeScript/JavaScript), every one with a tested fixture, CWE and OWASP LLM Top 10 (2025) mapping, and a message that says what is wrong and how to fix it.\n\n```sh\npip install semgrep\nsemgrep --config https://raw.githubusercontent.com/basitalisandhu/agentic-semgrep-rules/main/agentic-semgrep-rules.yaml .\n```",
+      "install": {
+        "lang": "sh",
+        "code": "pip install semgrep\n\n# the single-file bundle, straight from GitHub (Semgrep accepts a URL only for a single file)\nsemgrep --config https://raw.githubusercontent.com/basitalisandhu/agentic-semgrep-rules/main/agentic-semgrep-rules.yaml .\n\n# or the rules directory from a clone\ngit clone https://github.com/basitalisandhu/agentic-semgrep-rules\nsemgrep --config agentic-semgrep-rules/rules .",
+        "from": "Install and run"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/agentic-semgrep-rules/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "ai-agent-incidents",
+      "description": "Open dataset of AI agent and LLM security incidents (2023 to 2026): schema-validated JSON records of prompt injection, data exfiltration, supply-chain and agent-misuse events, coded by the role AI plays and mapped to the OWASP LLM and Agentic Top 10 and MITRE ATLAS. JSON, CSV, RSS and a searchable site. Data CC BY 4.0.",
+      "one_liner": "An open dataset of AI agent and LLM security incidents, with a [browsable site](https://basitalisandhu.github.io/ai-agent-incidents/).",
+      "theme": "Data and lists",
+      "topics": [
+        "agent-security",
+        "agentic-ai",
+        "ai-agents",
+        "ai-incidents",
+        "ai-safety",
+        "ai-security",
+        "dataset",
+        "hacktoberfest",
+        "incident-database",
+        "json-schema",
+        "llm-security",
+        "mcp",
+        "mitre-atlas",
+        "open-data",
+        "owasp",
+        "prompt-injection",
+        "security-incidents",
+        "security-research",
+        "threat-intelligence"
+      ],
+      "language": "HTML",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/ai-agent-incidents",
+      "default_branch": "main",
+      "homepage": "https://basitalisandhu.github.io/ai-agent-incidents/",
+      "own_site": "https://basitalisandhu.github.io/ai-agent-incidents/",
+      "intro_md": "An open, structured dataset (an incident database) of publicly documented security\nincidents, vulnerability disclosures and threat reports involving LLM applications and\nAI agents, for security engineers, researchers and policy teams who need evidence about\nprompt injection, data exfiltration, supply-chain compromise and agent misuse rather\nthan headlines. Every event is one schema-validated JSON file, coded under a written codebook by the role AI plays\nin it (**weapon**, **target** or **surface**), how the attack got in, what authority the\nAI held, how the effect got out, and what harm resulted, and cross-referenced to the\nOWASP Top 10 for LLM Applications, the OWASP Top 10 for Agentic Applications and\nMITRE ATLAS.\n\nBrowse it at **https://basitalisandhu.github.io/ai-agent-incidents/** (searchable\ntable, one page per event, [RSS feed](https://basitalisandhu.github.io/ai-agent-incidents/feed.xml),\n[JSON](https://basitalisandhu.github.io/ai-agent-incidents/incidents.json),\n[CSV](https://basitalisandhu.github.io/ai-agent-incidents/incidents.csv),\n[stats](https://basitalisandhu.github.io/ai-agent-incidents/stats.json)).",
+      "install": null,
+      "releases": []
+    },
+    {
+      "name": "awesome-agent-security",
+      "description": "Curated list of AI agent security tools, papers and datasets: runtime controls and authorization, sandboxes, scanners for MCP servers and skills, static analysis, red teaming and evaluation, incident records, threat modelling, standards (OWASP, NIST, MITRE ATLAS). Every entry verified on GitHub. CC0, as awesome lists are.",
+      "one_liner": "Curated list of AI agent security tools, papers and datasets.",
+      "theme": "Data and lists",
+      "topics": [
+        "agent-security",
+        "agentic-ai",
+        "ai-agents",
+        "ai-security",
+        "awesome",
+        "awesome-list",
+        "datasets",
+        "hacktoberfest",
+        "llm-security",
+        "mcp",
+        "mitre-atlas",
+        "model-context-protocol",
+        "owasp",
+        "prompt-injection",
+        "red-teaming",
+        "sandboxing",
+        "security-tools",
+        "threat-modeling"
+      ],
+      "language": "Python",
+      "license": "NOASSERTION",
+      "html_url": "https://github.com/basitalisandhu/awesome-agent-security",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "> Curated list of AI agent security tools, papers and datasets: runtime controls, sandboxes, scanners for MCP servers and skills, static analysis, red teaming, incident records, threat models and standards.\n\nAn AI agent is a model that can read untrusted content and call tools with real privileges. Securing one means controlling what it may touch, isolating what it runs, scanning what it loads, and measuring how it fails. Every entry below exists on GitHub and is maintained; descriptions are the projects' own words, shortened. Maintained by [Muhammad Basit Ali](https://github.com/basitalisandhu); projects by the maintainer are listed in their sections like any other entry. See [contributing.md](https://github.com/basitalisandhu/awesome-agent-security/blob/main/contributing.md) for the inclusion criteria.",
+      "install": null,
+      "releases": []
+    },
+    {
+      "name": "aws-security-skills",
+      "description": "Claude Code skills for AWS security: a plugin with five skills for a read-only account audit, SCP guardrail builder and linter, blast-radius landing zone design, IAM least-privilege review and Security Hub and GuardDuty triage. Tested standard-library scripts evaluate saved aws CLI output offline.",
+      "one_liner": "AWS security skills for Claude Code: account audit, SCP guardrails, blast-radius landing zones, IAM least privilege, Security Hub triage.",
+      "theme": "Claude Code skill packs",
+      "topics": [
+        "agent-skills",
+        "aws",
+        "aws-organizations",
+        "aws-security",
+        "claude-code",
+        "claude-code-plugin",
+        "cloud-security",
+        "cspm",
+        "devsecops",
+        "guardduty",
+        "hacktoberfest",
+        "iam",
+        "landing-zone",
+        "least-privilege",
+        "python",
+        "security-hub",
+        "security-tools",
+        "service-control-policies"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/aws-security-skills",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**AWS security skills for Claude Code: account audit, SCP guardrails, blast-radius landing zones, IAM least privilege, Security Hub triage, agent-safe access, incident response runbooks, spend guardrails, sandbox guardrails.**\n\naws-security-skills is a Claude Code plugin marketplace with one plugin, `aws-security`, holding nine skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skills tell Claude which read-only `aws` CLI commands to run and where to save the JSON, or which short spec to write; the scripts then evaluate that saved output, or generate policies and runbooks from the spec, offline, so results are repeatable, reviewable by someone without account access, and produced without the script ever touching AWS.\n\nIt is written for cloud and platform engineers who look after one or many AWS accounts, especially multi-account organizations governed by service control policies. It exists because the same questions come up on every account (is root protected, is CloudTrail on, can this role escalate, which SCPs go where, what do we fix first in Security Hub, what may an AI agent do here, what do we do in the first hour of an incident, how do we stop a runaway bill), and a scripted procedure answers them the same way each time.\n\nNo network access from the scripts, no telemetry. Nothing in this repository changes an AWS account: every skill proposes fix commands and runs one only after you confirm that exact command.",
+      "install": {
+        "lang": "text",
+        "code": "/plugin marketplace add basitalisandhu/aws-security-skills\n/plugin install aws-security@aws-security-skills",
+        "from": "Quickstart"
+      },
+      "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.2.0"
+        },
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.1.1"
+        },
+        {
+          "tag": "v0.1.0",
+          "name": "0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "cc-hooks",
+      "description": "Typed Python SDK and offline test runner for Claude Code hooks: one frozen dataclass per documented event (33), decision builders that print the documented JSON and exit codes, and a CLI that explains which handlers fire from merged settings and replays recorded payloads through them in dry run. Standard library only, Python 3.11+.",
+      "one_liner": "Typed Python SDK and offline test runner for Claude Code hooks.",
+      "theme": "Security tooling",
+      "topics": [
+        "agent-security",
+        "agentic-ai",
+        "ai-agents",
+        "claude-code",
+        "claude-code-hooks",
+        "cli",
+        "developer-tools",
+        "dry-run",
+        "fixtures",
+        "guardrails",
+        "hacktoberfest",
+        "hooks",
+        "llm-security",
+        "python",
+        "sdk",
+        "settings",
+        "testing",
+        "typed"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/cc-hooks",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "One frozen dataclass per documented hook event, decision builders that print exactly the JSON and exit codes the [hooks reference](https://code.claude.com/docs/en/hooks) documents, and a `cc-hooks` command that tells you which handlers would run for a payload, replays recorded payloads through them without side effects, and records real payloads as fixtures. Standard library only, Python 3.11 or newer.",
+      "install": {
+        "lang": "bash",
+        "code": "pipx install git+https://github.com/basitalisandhu/cc-hooks   # the cc-hooks command (see \"Install\" for the library side)",
+        "from": "30-second demo"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/cc-hooks/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "cc-plugin-lock",
+      "description": "Lock file for Claude Code plugins: pins marketplace plugins and skills to content hashes, verifies them before a session loads them, scores changes by component (hooks and MCP high, skills medium), diffs against the locked content, and scans plugin folders before install. SARIF output, SessionStart gate, Python stdlib only.",
+      "one_liner": "Lock file for Claude Code plugins: pins plugins and skills to content hashes and verifies them before load.",
+      "theme": "Security tooling",
+      "topics": [
+        "agent-security",
+        "ai-agents",
+        "ai-security",
+        "claude-code",
+        "claude-code-plugins",
+        "cli",
+        "devsecops",
+        "hacktoberfest",
+        "hooks",
+        "integrity",
+        "lockfile",
+        "mcp",
+        "plugins",
+        "python",
+        "sarif",
+        "security-tools",
+        "skills",
+        "supply-chain-security"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/cc-plugin-lock",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**cc-plugin-lock pins Claude Code marketplace plugins and skills to content hashes and verifies them before load, so a plugin that changes upstream cannot silently change what runs on your machine.**\n\n```bash\npipx install git+https://github.com/basitalisandhu/cc-plugin-lock\n```",
+      "install": {
+        "lang": "bash",
+        "code": "pipx install git+https://github.com/basitalisandhu/cc-plugin-lock\n\n# 1. Lock what is installed now (review your plugins first; the lock records what you trust).\ncc-plugin-lock lock -o ~/.claude/cc-plugins.lock.json --store\n\n# 2. Any time later: has anything changed?\ncc-plugin-lock verify --lock ~/.claude/cc-plugins.lock.json\n\n# 3. Gate every session: print the hook block and merge it into ~/.claude/settings.json.\ncc-plugin-lock hook --lock ~/.claude/cc-plugins.lock.json",
+        "from": "Quickstart"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/cc-plugin-lock/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "claude-dev-skills",
+      "description": "Claude Code skills for everyday development: a plugin marketplace with six plugins and forty skills for code review, refactoring, debugging, CI and containers, data and APIs, docs and security basics, 23 with tested standard-library scripts. No network, no telemetry.",
+      "one_liner": "Claude Code skills for everyday development: code review, refactoring, debugging, CI and containers, data and APIs, documentation and security basics.",
+      "theme": "Claude Code skill packs",
+      "topics": [
+        "agent-skills",
+        "claude-code",
+        "claude-code-plugin",
+        "code-review",
+        "debugging",
+        "developer-tools",
+        "devops",
+        "docker",
+        "documentation",
+        "github-actions",
+        "hacktoberfest",
+        "kubernetes",
+        "openapi",
+        "productivity",
+        "python",
+        "refactoring",
+        "security-tools",
+        "sql"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/claude-dev-skills",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**Claude Code skills for everyday development: code review, refactoring, debugging, CI and containers, data and APIs, documentation, and security basics. Forty skills in six plugins, each with a procedure, an output format and, where it helps, a tested standard-library script.**\n\nclaude-dev-skills is a Claude Code plugin marketplace for the work developers do every day: reviewing a pull request, finding why a test is flaky, hardening a Dockerfile, planning a schema migration, writing release notes, checking a token. Each skill is a fixed procedure with a concrete output, so two people (or two sessions) reach the same result and the evidence is a file, a line or a command output. Twenty-three skills bundle a Python script (standard library only, `--json` output, tested) that does the mechanical part; the rest bundle checklists and templates.\n\nNo network access, no telemetry: scripts read the files you point them at and write only where you ask.",
+      "install": {
+        "lang": "text",
+        "code": "/plugin marketplace add basitalisandhu/claude-dev-skills\n/plugin install code-quality@claude-dev-skills",
+        "from": "Install"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "claude-mcp-allow",
+      "description": "Generate least-privilege Claude Code permission rules for MCP tools from their live annotations: readOnlyHint tools go to allow, everything else to ask, one mcp__server__tool rule each, never a glob. Merges into settings files, prints a diff, and --check exits 1 when annotations drift. TypeScript CLI on npm.",
+      "one_liner": "Least-privilege Claude Code permission rules for MCP tools, generated from their annotations.",
+      "theme": "MCP tooling",
+      "topics": [
+        "agent-security",
+        "ai-agents",
+        "ai-security",
+        "claude-code",
+        "cli",
+        "developer-tools",
+        "devsecops",
+        "drift-detection",
+        "hacktoberfest",
+        "least-privilege",
+        "llm-security",
+        "mcp",
+        "mcp-client",
+        "model-context-protocol",
+        "permissions",
+        "security-tools",
+        "tool-annotations",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/claude-mcp-allow",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "Generate `permissions.allow` and `permissions.ask` rules for every MCP tool Claude Code can reach, from the annotations each server reports on `tools/list`: a tool that says `readOnlyHint: true` (and not `destructiveHint: true`) gets an `allow` rule, everything else gets an `ask` rule, one exact `mcp__<server>__<tool>` rule per tool and never a glob. `--write` merges the rules into the settings file you choose, `--diff` shows what would change, and `--check` reconnects later and exits 1 when a server's annotations have drifted from the rules you saved.",
+      "install": {
+        "lang": "bash",
+        "code": "npx @basitalisandhu/claude-mcp-allow                    # run without installing\nnpm install -g @basitalisandhu/claude-mcp-allow@0.1.1   # or install the claude-mcp-allow command",
+        "from": "Install"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "claude-perm-sim",
+      "description": "Claude Code permission rule simulator: load the merged allow, ask and deny settings, show which rule decides any tool call, and find the bypasses: commands that slip past a Bash pattern, paths that escape an Edit scope, domain rules that admit subdomains, and MCP tools nothing covers. Table, JSON and SARIF. TypeScript CLI.",
+      "one_liner": "Claude Code permission rule simulator: shows which rule decides a tool call and where a rule set is permissive.",
+      "theme": "Security tooling",
+      "topics": [
+        "agent-security",
+        "ai-agents",
+        "ai-security",
+        "claude-code",
+        "cli",
+        "developer-tools",
+        "devsecops",
+        "hacktoberfest",
+        "least-privilege",
+        "llm-security",
+        "permission-rules",
+        "permissions",
+        "sarif",
+        "security-tools",
+        "simulator",
+        "static-analysis",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/claude-perm-sim",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**claude-perm-sim loads your merged Claude Code permission settings, tells you which rule decides any given tool call, and finds the bypasses: commands that slip past a Bash pattern, paths that escape an Edit scope, and MCP tools nothing covers.**",
+      "install": {
+        "lang": "bash",
+        "code": "npx @basitalisandhu/claude-perm-sim load                 # run without installing\nnpm install -g @basitalisandhu/claude-perm-sim@0.1.0     # or install the claude-perm-sim command",
+        "from": "Install"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/claude-perm-sim/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "compliance-evidence-skills",
+      "description": "Claude Code skills for compliance evidence: a plugin with five skills that pack GitHub, AWS and Microsoft 365 exports with SHA-256 manifests, map them to ISO 27001 and SOC 2 control identifiers, and draft auditor narratives that cite evidence or say not assessable. Tested standard-library scripts work offline.",
+      "one_liner": "Compliance evidence skills for Claude Code: integrity-checked evidence packs from GitHub, AWS and Microsoft 365 exports, mapped to ISO 27001 and SOC 2, with narratives that cite evidence or say not assessable.",
+      "theme": "Claude Code skill packs",
+      "topics": [
+        "agent-skills",
+        "audit-evidence",
+        "aws",
+        "claude-code",
+        "claude-code-plugin",
+        "cloudtrail",
+        "compliance",
+        "compliance-automation",
+        "control-mapping",
+        "evidence-collection",
+        "github",
+        "grc",
+        "hacktoberfest",
+        "iso27001",
+        "microsoft-365",
+        "python",
+        "security-tools",
+        "soc2"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/compliance-evidence-skills",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**Compliance evidence skills for Claude Code: build integrity-checked evidence packs from GitHub, AWS and Microsoft 365 exports, map them to ISO 27001 and SOC 2 control identifiers, and draft auditor narratives that cite evidence or say not assessable.**\n\ncompliance-evidence-skills is a Claude Code plugin marketplace with one plugin, `compliance-evidence`, holding five skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skills tell Claude which read-only exports to take and which permission each needs; the scripts then work on the saved files: hash them into a pack with a manifest, map them to control identifiers, and draft narratives in which every evidence statement cites a file and field.\n\nIt is written for the people who prepare an ISO 27001 or SOC 2 assessment in a small or mid-sized organisation: engineers and IT administrators who own GitHub, AWS and Microsoft 365, and the security or compliance lead who has to hand evidence to an assessor. It exists because evidence is still mostly screenshots and loose exports with no record of who took them, when, or with which command, and because tools that turn an API error into a control failure (or a missing file into a pass) cost hours of argument during fieldwork. These skills keep three result states only, `supported`, `contradicted` and `not assessable`, and never mark a control supported without a cited evidence file and field.\n\nNo network access from the scripts, no telemetry. All inputs are exports already on disk.\n\n```text\n/plugin marketplace add basitalisandhu/compliance-evidence-skills\n/plugin install compliance-evidence@compliance-evidence-skills\n```",
+      "install": {
+        "lang": "bash",
+        "code": "python3 plugins/compliance-evidence/skills/evidence-pack-builder/scripts/evidence_pack.py build tests/fixtures/exports --out /tmp/pack\npython3 plugins/compliance-evidence/skills/evidence-pack-builder/scripts/evidence_pack.py verify tests/fixtures/evidence-pack/tampered-pack\npython3 plugins/compliance-evidence/skills/control-map-from-exports/scripts/control_map.py /tmp/pack --framework iso27001 \\\n  --map plugins/compliance-evidence/skills/control-map-from-exports/references/starter-map.yaml --out /tmp/control-map.json\npython3 plugins/compliance-evidence/skills/auditor-narrative-drafter/scripts/narrative.py /tmp/control-map.json --control A.8.15\npython3 plugins/compliance-evidence/skills/github-change-control-evidence/scripts/github_evidence.py tests/fixtures/github/free-plan",
+        "from": "Quickstart"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "dev-mcp-servers",
+      "description": "MCP servers for everyday development and security checks: OSV vulnerability lookup, security header grading, JWT decoding and verification, regex testing with ReDoS detection, cron explanation, JSON Schema validation, OpenAPI and Dockerfile linting, read-only git insights and llms.txt generation. TypeScript, stdio, zod-validated, no telemetry.",
+      "one_liner": "Ten small MCP servers for everyday development and security checks.",
+      "theme": "MCP tooling",
+      "topics": [
+        "claude-code",
+        "claude-desktop",
+        "cron",
+        "cursor",
+        "developer-tools",
+        "devsecops",
+        "dockerfile",
+        "hacktoberfest",
+        "json-schema",
+        "jwt",
+        "llms-txt",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "openapi",
+        "osv",
+        "regex",
+        "security-headers",
+        "security-tools",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/dev-mcp-servers",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "Ten small MCP servers for everyday development and security checks. Each one is a separate npm package you add to Claude Code, Claude Desktop, Cursor or any other MCP client with one line, and each does one job well: look up vulnerabilities, grade security headers, decode a JWT, test a regex, explain a cron expression, validate JSON against a schema, lint an OpenAPI document or a Dockerfile, read statistics out of a git repository, or build an `llms.txt`.\n\nAll servers are TypeScript on the official `@modelcontextprotocol/sdk`, speak stdio only, validate every input with zod, bound their inputs and run time, send no telemetry, and ship with `node:test` suites that cover every tool.",
+      "install": {
+        "lang": "bash",
+        "code": "claude mcp add jwt-tools -- npx -y @basitalisandhu/mcp-jwt-tools@0.1.1\nclaude mcp list",
+        "from": "Quick start"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "llms-txt-gen",
+      "description": "Generate llms.txt for any docs site or repository: build llms.txt and llms-full.txt from a directory of Markdown or HTML or from a sitemap URL, validate existing files against the llmstxt.org convention, and print the link tag that advertises them. Standard library only, deterministic, CLI plus GitHub Action and pre-commit hook.",
+      "one_liner": "Generate llms.txt for any docs site or repository.",
+      "theme": "Security tooling",
+      "topics": [
+        "ai-readiness",
+        "cli",
+        "developer-tools",
+        "docs",
+        "docs-as-code",
+        "documentation",
+        "github-actions",
+        "hacktoberfest",
+        "llm",
+        "llms-txt",
+        "llmstxt",
+        "markdown",
+        "pre-commit",
+        "python",
+        "seo",
+        "sitemap",
+        "static-site"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/llms-txt-gen",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "Generate llms.txt for any docs site or repository: point `llms-txt-gen` at a directory of Markdown or HTML, or at a sitemap URL, and it writes an `llms.txt` (and, with `--full`, an `llms-full.txt`) that follows the convention published at [llmstxt.org](https://llmstxt.org). It also checks an existing file against that convention and prints the HTML tag that tells crawlers where the file lives. Standard library only, no model in the loop, deterministic output, runs in CI.",
+      "install": {
+        "lang": "bash",
+        "code": "pipx install git+https://github.com/basitalisandhu/llms-txt-gen\n\nllms-txt-gen generate docs/ --out llms.txt --base-url https://docs.example.com\nllms-txt-gen generate https://docs.example.com/sitemap.xml --out llms.txt --full\nllms-txt-gen check llms.txt\nllms-txt-gen serve-snippet",
+        "from": "Quickstart"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "m365-governance-skills",
+      "description": "Claude Code skills for Microsoft 365 governance: a plugin with five skills for Graph permission preflight, Entra ID posture review, Intune baseline check, Teams and group sprawl and a quarterly access review pack. Read-only Graph exports; tested standard-library scripts evaluate the JSON offline.",
+      "one_liner": "Microsoft 365 governance skills for Claude Code: Entra ID posture review, Intune baseline check, Graph permission preflight, Teams and group sprawl, access review pack.",
+      "theme": "Claude Code skill packs",
+      "topics": [
+        "access-review",
+        "agent-skills",
+        "azure-ad",
+        "claude-code",
+        "claude-code-plugin",
+        "conditional-access",
+        "endpoint-management",
+        "entra-id",
+        "hacktoberfest",
+        "identity-governance",
+        "intune",
+        "least-privilege",
+        "m365-security",
+        "microsoft-365",
+        "microsoft-graph",
+        "microsoft-teams",
+        "python",
+        "security-tools"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/m365-governance-skills",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**Microsoft 365 governance skills for Claude Code: Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence audit, Intune baseline check, Graph permission preflight, Teams and group sprawl report, access review pack. Scripts read exported Graph JSON offline.**\n\nm365-governance-skills is a Claude Code plugin marketplace with one plugin, `m365-governance`, holding nine skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skill tells Claude which read-only Microsoft Graph exports to run and which permission each one needs; the script then evaluates the saved JSON on your machine. Results are repeatable, can be checked by someone without tenant access, and are produced without the script ever calling Microsoft Graph.\n\nIt is written for administrators who look after Microsoft 365, Entra ID and Intune for a company or for clients, often alongside other duties. It exists because the governance questions repeat in every tenant (who are the Global Admins, is MFA really enforced and for whom, which guests can still reach what, which licences sit on disabled accounts, which teams have no owner, what is this connector asking for, what goes into this quarter's access review), and agents now connect to Microsoft 365 with broad Graph permissions. Message triage and daily digests are already covered by first-party plugins; this pack is the governance layer underneath: what can touch the tenant, and is the tenant in the state you think it is.\n\nNo network access from the scripts, no telemetry. Nothing in this repository changes a tenant: every skill proposes a portal path or a Graph call and runs a change only after you confirm that exact command.\n\n```text\n/plugin marketplace add basitalisandhu/m365-governance-skills\n/plugin install m365-governance@m365-governance-skills\n```",
+      "install": {
+        "lang": "bash",
+        "code": "claude plugin marketplace add basitalisandhu/m365-governance-skills\nclaude plugin install m365-governance@m365-governance-skills --scope user",
+        "from": "Quickstart"
+      },
+      "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.0"
+        },
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.1.1"
+        },
+        {
+          "tag": "v0.1.0",
+          "name": "0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "mcp-auth-doctor",
+      "description": "Diagnose OAuth discovery problems on remote MCP servers: the 401 challenge, RFC 9728 protected resource metadata, authorization server metadata, PKCE S256, client registration, token endpoint error format and an optional PKCE login, checked against the MCP 2026-07-28 and 2025-11-25 authorization rules. Read-only CLI, httpx only, pipx or uvx.",
+      "one_liner": "Diagnose OAuth discovery problems on remote MCP servers.",
+      "theme": "MCP tooling",
+      "topics": [
+        "authorization",
+        "claude-code",
+        "cli",
+        "developer-tools",
+        "diagnostics",
+        "hacktoberfest",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "oauth",
+        "oauth2",
+        "openid-connect",
+        "pkce",
+        "python",
+        "rfc8414",
+        "rfc8707",
+        "rfc9728",
+        "security-tools"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/mcp-auth-doctor",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "One read-only command that explains why a remote MCP server's OAuth login fails. It does what a conforming MCP client does when it meets a server, step by step, and reports each step as pass, fail, warn or skip with a one-line reason and the evidence: the unauthenticated 401, the `WWW-Authenticate` challenge, Protected Resource Metadata (RFC 9728), authorization server metadata (RFC 8414 or OpenID Connect Discovery), PKCE S256, client registration options, the RFC 9207 `iss` parameter and the token endpoint's error format. Optionally it runs the whole PKCE login and calls `tools/list` with the token.\n\nChecked against the MCP authorization specification, both the 2026-07-28 release and 2025-11-25. Python 3.11+, one dependency (httpx), runs with `pipx` or `uvx`.",
+      "install": {
+        "lang": "bash",
+        "code": "pipx install git+https://github.com/basitalisandhu/mcp-auth-doctor                                 # isolated CLI install\nuvx --from git+https://github.com/basitalisandhu/mcp-auth-doctor mcp-auth-doctor https://host/mcp  # run without installing\npip install git+https://github.com/basitalisandhu/mcp-auth-doctor                                  # into the current environment",
+        "from": "Install"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "mcp-egress",
+      "description": "Record every host an MCP server contacts, per tool, and fail CI on new ones. Runs a stdio MCP server behind an embedded CONNECT proxy, records host, port and tool for initialize, tools/list and sample calls, writes egress.json, prints Claude Code WebFetch rules and a sandbox allowlist, and warns when a server bypasses proxy variables.",
+      "one_liner": "Record every host an MCP server contacts, per tool, and fail CI on new ones.",
+      "theme": "MCP tooling",
+      "topics": [
+        "agent-security",
+        "ai-agents",
+        "allowlist",
+        "ci",
+        "claude-code",
+        "cli",
+        "devsecops",
+        "egress",
+        "hacktoberfest",
+        "llm-security",
+        "mcp",
+        "model-context-protocol",
+        "network-security",
+        "proxy",
+        "python",
+        "security-tools",
+        "supply-chain-security"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/mcp-egress",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "Run a stdio MCP server behind a small recording proxy and get the exact set of hosts it contacts while you run `initialize`, `tools/list` and sample tool calls. Every host is attributed to the phase and the tool that reached it, written to `egress.json`, printed as a table, and printed again as two ready-to-paste blocks: Claude Code `WebFetch(domain:host)` permission rules and a sandbox allowed-domain list. Keep the file as a baseline and `--check` fails CI the day a tool starts talking to a host nobody declared.",
+      "install": {
+        "lang": "bash",
+        "code": "pipx install git+https://github.com/basitalisandhu/mcp-egress                       # isolated CLI install\nuvx --from git+https://github.com/basitalisandhu/mcp-egress mcp-egress --help       # run without installing\npip install git+https://github.com/basitalisandhu/mcp-egress                        # into the current environment\ngit clone https://github.com/basitalisandhu/mcp-egress && cd mcp-egress && uv venv && uv pip install -e \".[dev]\"   # development",
+        "from": "Install"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "mcp-rc-check",
+      "description": "MCP specification migration checker for the 2026-07-28 revision: scans a live stdio or HTTP server, a saved dump or a client config, flags removed, changed and deprecated constructs with the spec section for each, and writes a patch for mechanical fixes. Table, JSON and SARIF. TypeScript CLI.",
+      "one_liner": "MCP specification migration checker for the 2026-07-28 revision.",
+      "theme": "MCP tooling",
+      "topics": [
+        "ai-agents",
+        "cli",
+        "compliance",
+        "developer-tools",
+        "devsecops",
+        "hacktoberfest",
+        "json-schema",
+        "linter",
+        "mcp",
+        "mcp-client",
+        "mcp-server",
+        "migration",
+        "model-context-protocol",
+        "sarif",
+        "specification",
+        "static-analysis",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/mcp-rc-check",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**mcp-rc-check tells you what an MCP server or client must change for the 2026-07-28 specification revision: it reads the live server (stdio or HTTP) or a saved capabilities and tools dump, flags every deprecated or changed construct with the spec section, and writes the autofix patch where one is mechanical.**",
+      "install": {
+        "lang": "bash",
+        "code": "npx @basitalisandhu/mcp-rc-check scan --dump tools.json     # run without installing\nnpm install -g @basitalisandhu/mcp-rc-check@0.1.0           # or install the mcp-rc-check command",
+        "from": "Install"
+      },
+      "releases": []
+    },
+    {
+      "name": "mcp-server-template",
+      "description": "Secure MCP server template in TypeScript and Python: stdio by default, optional streamable HTTP behind bearer auth, rate limit and body cap, bound to 127.0.0.1; bounded file and network access with allowlists and SSRF protection; redacting JSON logs; health tool; tests, non-root pinned Docker images, Semgrep, gitleaks, CodeQL, SBOMs.",
+      "one_liner": "Secure MCP server template in TypeScript and Python, safe by default.",
+      "theme": "MCP tooling",
+      "topics": [
+        "agent-security",
+        "ai-agents",
+        "ai-security",
+        "devsecops",
+        "docker",
+        "fastmcp",
+        "github-actions",
+        "hacktoberfest",
+        "llm-security",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "python",
+        "sbom",
+        "security-automation",
+        "ssrf",
+        "template",
+        "template-repository",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/mcp-server-template",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "Secure MCP server template in TypeScript and Python: a starting point for a Model Context Protocol server that is safe by default. Both reference implementations ship the same four read-only tools and the same controls: strict input validation, file access bounded to allowlisted directories, network access bounded to allowlisted hosts with SSRF protection, structured logs that redact secrets, a health tool, stdio transport by default, and an optional streamable HTTP transport that is bound to 127.0.0.1, requires a bearer token, rate-limits clients and caps request bodies. Tests, Dockerfiles with digest-pinned bases and non-root users, CI with Semgrep, gitleaks and CodeQL, and SBOMs on release are included.",
+      "install": {
+        "lang": "bash",
+        "code": "cd typescript\nnpm ci && npm run build && npm test\nMCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing one directory",
+        "from": "Quickstart"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "mcp-tools-lint",
+      "description": "Lint MCP tool schemas and annotations before clients reject them: flags non-2020-12 $schema dialects, boolean schemas, bad required lists and missing or contradictory annotations in tools/list, over stdio, Streamable HTTP or a JSON file. Text, JSON and SARIF output, RFC 6902 --fix patch, GitHub Action.",
+      "one_liner": "Lint MCP tool schemas and annotations before clients reject them.",
+      "theme": "MCP tooling",
+      "topics": [
+        "ai-agents",
+        "claude-code",
+        "cli",
+        "developer-tools",
+        "github-actions",
+        "hacktoberfest",
+        "json-patch",
+        "json-schema",
+        "lint",
+        "linter",
+        "mcp",
+        "mcp-server",
+        "mcp-tools",
+        "model-context-protocol",
+        "npm",
+        "sarif",
+        "tool-annotations",
+        "typescript"
+      ],
+      "language": "TypeScript",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/mcp-tools-lint",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "Lint MCP tool schemas and annotations before clients reject them. Point it at a running MCP server (stdio or Streamable HTTP) or at a saved `tools/list` result, and it checks every tool against what Claude Code and other strict clients accept: JSON Schema 2020-12 only, no boolean schemas, `required` names that exist, and annotations that are present, camelCase and not self-contradictory. It prints text, JSON or SARIF, writes an RFC 6902 patch for the fixable findings, and ships as a GitHub Action.\n\nBuilt alongside [dev-mcp-servers](https://github.com/basitalisandhu/dev-mcp-servers).",
+      "install": {
+        "lang": "bash",
+        "code": "npx @basitalisandhu/mcp-tools-lint --help              # run without installing\nnpm install -g @basitalisandhu/mcp-tools-lint@0.1.1    # global CLI, installs the mcp-tools-lint command\nnpm install -D @basitalisandhu/mcp-tools-lint@0.1.1    # as a dev dependency of a server project",
+        "from": "Install"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "repo-engineering-skills",
+      "description": "Claude Code skills for repository audits and documentation: verify README and docs claims against the code, run audits where every finding cites a resolvable path:line, write AGENTS.md and CLAUDE.md with only what code cannot say, check a README's first screen, rank test gaps. Tested standard-library scripts, no network.",
+      "one_liner": "Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, agent context files that say only what code cannot.",
+      "theme": "Claude Code skill packs",
+      "topics": [
+        "agent-skills",
+        "agents-md",
+        "characterization-tests",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-md",
+        "claude-skills",
+        "code-audit",
+        "codebase-analysis",
+        "developer-tools",
+        "docs-as-code",
+        "documentation",
+        "hacktoberfest",
+        "python",
+        "readme",
+        "static-analysis",
+        "technical-debt",
+        "testing"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/repo-engineering-skills",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, onboarding guides built from cited facts, and restructure, ADR, hygiene and release checks run by scripts.**\n\nrepo-engineering-skills is a Claude Code plugin with ten skills for maintainers and teams who need to trust what is written about their repository: the README, the docs, the onboarding guide, the audit report, the AGENTS.md, the decision records, the release notes. It exists because generated docs and audits are cheap to produce and hard to check, so each skill pairs the model's work with a standard-library Python script that checks it against the working tree or the git history, instead of asking you to take the text on faith.\n\n```text\n/plugin marketplace add basitalisandhu/repo-engineering-skills\n/plugin install repo-engineering@repo-engineering-skills\n```\n\nQuickstart: open Claude Code in a repository and ask \"check the docs against the code\", or run a script directly from a clone of this repository:\n\n```bash\npython3 plugins/repo-engineering/skills/docs-truth-check/scripts/docs_truth_check.py . --only-failures\n```\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/repo-engineering-skills/blob/main/SECURITY.md).",
+      "install": {
+        "lang": "bash",
+        "code": "docker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 docs-truth /work --only-failures\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 readme-check /work/README.md\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 test-gaps /work --top 20\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 hygiene /work --sarif /work/hygiene.sarif\ndocker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.2.0 --help",
+        "from": "Install"
+      },
+      "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.2.0"
+        },
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.1.1"
+        },
+        {
+          "tag": "v0.1.0",
+          "name": "0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "security-actions",
+      "description": "GitHub Actions for AI agent and supply chain security checks: audit agent configs (Claude Code settings, MCP servers, Cursor rules, CLAUDE.md) for risky permissions and prompt injection, find secrets in prompt files and notebooks, diff SBOMs in PR comments, audit licences, validate llms.txt, ping IndexNow. SARIF output, no dependencies.",
+      "one_liner": "GitHub Actions for AI agent and supply chain security checks.",
+      "theme": "Security tooling",
+      "topics": [
+        "agent-security",
+        "ai-security",
+        "code-scanning",
+        "composite-action",
+        "cyclonedx",
+        "devsecops",
+        "github-actions",
+        "hacktoberfest",
+        "indexnow",
+        "license-compliance",
+        "llms-txt",
+        "mcp",
+        "prompt-injection",
+        "sarif",
+        "sbom",
+        "secret-scanning",
+        "security-automation",
+        "spdx",
+        "supply-chain-security"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/security-actions",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "GitHub Actions for AI agent and supply chain security checks. Six small composite actions, each in its own directory with a dependency-free Python or Node script and a test suite, that teams drop into CI with one `uses:` line. The agent-side actions find risky agent configuration and leaked credentials in prompt files; the supply-chain actions diff SBOMs, audit licences, keep `llms.txt` valid and tell search engines about changed pages.\n\n```yaml\n- uses: basitalisandhu/security-actions/agent-config-audit@v1\n```",
+      "install": {
+        "lang": "yaml",
+        "code": "name: security-actions\non:\n  push:\n    branches: [main]\n  pull_request:\npermissions:\n  contents: read\n  security-events: write\njobs:\n  checks:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: basitalisandhu/security-actions/agent-config-audit@v1\n      - uses: basitalisandhu/security-actions/prompt-secrets-scan@v1\n      - uses: basitalisandhu/security-actions/license-audit@v1\n# ... see the README for the rest",
+        "from": "Quick start"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/security-actions/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "skill-scan-gate",
+      "description": "CI gate for Claude Code skills and plugins: scans a skills or plugin repository for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build above your threshold. GitHub Action and CLI.",
+      "one_liner": "CI gate for Claude Code skills and plugins.",
+      "theme": "Security tooling",
+      "topics": [
+        "agent-security",
+        "agent-skills",
+        "ai-security",
+        "ci",
+        "claude-code",
+        "claude-code-plugins",
+        "claude-code-skills",
+        "code-scanning",
+        "devsecops",
+        "github-actions",
+        "hacktoberfest",
+        "hooks",
+        "mcp",
+        "prompt-injection",
+        "python",
+        "sarif",
+        "secret-scanning",
+        "supply-chain-security"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/skill-scan-gate",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**skill-scan-gate scans a skills or plugin repository in CI for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build on findings above your threshold.**\n\nGitHub Action:\n\n```yaml\n- uses: basitalisandhu/skill-scan-gate@v0.1.0\n```\n\npip (after the first PyPI release; until then `pipx install git+https://github.com/basitalisandhu/skill-scan-gate`):\n\n```bash\npip install skill-scan-gate\n```\n\nContainer image (GitHub Packages):\n\n```bash\ndocker run --rm -v \"$PWD:/work:ro\" ghcr.io/basitalisandhu/skill-scan-gate:0.1.0 scan .\n```",
+      "install": {
+        "lang": "bash",
+        "code": "skill-scan-gate scan .                                   # table, fail on high\nskill-scan-gate scan . --fail-on medium --sarif out.sarif\nskill-scan-gate scan . --format json --output report.json\nskill-scan-gate baseline . --out .skill-scan-gate-baseline.json\nskill-scan-gate scan . --baseline .skill-scan-gate-baseline.json --allow .skill-scan-gate-allow\nskill-scan-gate rules                                    # list every rule",
+        "from": "Quickstart"
+      },
+      "releases": []
+    }
+  ]
+}

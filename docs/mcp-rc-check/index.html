@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mcp-rc-check | Muhammad Basit Ali</title>
+<meta name="description" content="MCP specification migration checker for the 2026-07-28 revision: scans a live stdio or HTTP server, a saved dump or a client config, flags removed, changed and deprecated constructs with the spec section for each, and writes a patch for mechanical fixes. Table, JSON and SARIF. TypeScript CLI.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/mcp-rc-check/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="mcp-rc-check">
+<meta property="og:description" content="MCP specification migration checker for the 2026-07-28 revision: scans a live stdio or HTTP server, a saved dump or a client config, flags removed, changed and deprecated constructs with the spec section for each, and writes a patch for mechanical fixes. Table, JSON and SARIF. TypeScript CLI.">
+<meta property="og:url" content="https://basitalisandhu.github.io/mcp-rc-check/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "mcp-rc-check",
+ "description": "MCP specification migration checker for the 2026-07-28 revision: scans a live stdio or HTTP server, a saved dump or a client config, flags removed, changed and deprecated constructs with the spec section for each, and writes a patch for mechanical fixes. Table, JSON and SARIF. TypeScript CLI.",
+ "url": "https://basitalisandhu.github.io/mcp-rc-check/",
+ "codeRepository": "https://github.com/basitalisandhu/mcp-rc-check",
+ "programmingLanguage": "TypeScript",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "ai-agents, cli, compliance, developer-tools, devsecops, hacktoberfest, json-schema, linter, mcp, mcp-client, mcp-server, migration, model-context-protocol, sarif, specification, static-analysis, typescript"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
+<h1>mcp-rc-check</h1>
+<p class="lede">MCP specification migration checker for the 2026-07-28 revision.</p>
+<p class="meta">TypeScript · MIT · no release yet</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p><strong>mcp-rc-check tells you what an MCP server or client must change for the 2026-07-28 specification revision: it reads the live server (stdio or HTTP) or a saved capabilities and tools dump, flags every deprecated or changed construct with the spec section, and writes the autofix patch where one is mechanical.</strong></p>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">npx @basitalisandhu/mcp-rc-check scan --dump tools.json     # run without installing
+npm install -g @basitalisandhu/mcp-rc-check@0.1.0           # or install the mcp-rc-check command</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/mcp-rc-check#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/mcp-rc-check">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/mcp-rc-check/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=mcp-rc-check">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/mcp-rc-check/issues">Issues</a></li>
+</ul></section>
+<p class="topics">Topics: ai-agents, cli, compliance, developer-tools, devsecops, hacktoberfest, json-schema, linter, mcp, mcp-client, mcp-server, migration, model-context-protocol, sarif, specification, static-analysis, typescript</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

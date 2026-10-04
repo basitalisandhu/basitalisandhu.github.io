@@ -1,0 +1,60 @@
+{
+  "owner": "basitalisandhu",
+  "themes": [
+    {"title": "Security tooling", "repos": ["tool-one", "tool-two"]},
+    {"title": "Data and lists", "repos": ["dataset-x"]}
+  ],
+  "repos": [
+    {
+      "name": "dataset-x",
+      "description": "A dataset with its own Pages site.",
+      "one_liner": "A dataset, with a [browsable site](https://basitalisandhu.github.io/dataset-x/).",
+      "theme": "Data and lists",
+      "topics": ["dataset"],
+      "language": "HTML",
+      "license": "NOASSERTION",
+      "html_url": "https://github.com/basitalisandhu/dataset-x",
+      "default_branch": "main",
+      "homepage": "https://basitalisandhu.github.io/dataset-x/",
+      "own_site": "https://basitalisandhu.github.io/dataset-x/",
+      "intro_md": "A dataset.",
+      "install": null,
+      "releases": []
+    },
+    {
+      "name": "tool-one",
+      "description": "Tool one checks things & reports <them>.",
+      "one_liner": "Tool one checks `things`.",
+      "theme": "Security tooling",
+      "topics": ["cli", "security-tools"],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/tool-one",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "**Tool one** checks things.\n\n- fast\n- offline\n\nSee [the docs](https://github.com/basitalisandhu/tool-one/blob/main/docs/x.md).",
+      "install": {"lang": "bash", "code": "pipx install tool-one\ntool-one --help", "from": "Install"},
+      "releases": [
+        {"tag": "v0.2.0", "name": "v0.2.0", "date": "2026-10-04", "url": "https://github.com/basitalisandhu/tool-one/releases/tag/v0.2.0"},
+        {"tag": "v0.1.0", "name": "First", "date": "2026-10-01", "url": "https://github.com/basitalisandhu/tool-one/releases/tag/v0.1.0"}
+      ]
+    },
+    {
+      "name": "tool-two",
+      "description": "Tool two.",
+      "one_liner": "Tool two.",
+      "theme": "Security tooling",
+      "topics": [],
+      "language": "",
+      "license": "",
+      "html_url": "https://github.com/basitalisandhu/tool-two",
+      "default_branch": "main",
+      "homepage": "",
+      "own_site": null,
+      "intro_md": "",
+      "install": null,
+      "releases": []
+    }
+  ]
+}

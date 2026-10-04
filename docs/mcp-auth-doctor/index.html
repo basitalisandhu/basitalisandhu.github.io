@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mcp-auth-doctor | Muhammad Basit Ali</title>
+<meta name="description" content="Diagnose OAuth discovery problems on remote MCP servers: the 401 challenge, RFC 9728 protected resource metadata, authorization server metadata, PKCE S256, client registration, token endpoint error format and an optional PKCE login, checked against the MCP 2026-07-28 and 2025-11-25 authorization rules. Read-only CLI, httpx only, pipx or uvx.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/mcp-auth-doctor/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="mcp-auth-doctor">
+<meta property="og:description" content="Diagnose OAuth discovery problems on remote MCP servers: the 401 challenge, RFC 9728 protected resource metadata, authorization server metadata, PKCE S256, client registration, token endpoint error format and an optional PKCE login, checked against the MCP 2026-07-28 and 2025-11-25 authorization rules. Read-only CLI, httpx only, pipx or uvx.">
+<meta property="og:url" content="https://basitalisandhu.github.io/mcp-auth-doctor/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "mcp-auth-doctor",
+ "description": "Diagnose OAuth discovery problems on remote MCP servers: the 401 challenge, RFC 9728 protected resource metadata, authorization server metadata, PKCE S256, client registration, token endpoint error format and an optional PKCE login, checked against the MCP 2026-07-28 and 2025-11-25 authorization rules. Read-only CLI, httpx only, pipx or uvx.",
+ "url": "https://basitalisandhu.github.io/mcp-auth-doctor/",
+ "codeRepository": "https://github.com/basitalisandhu/mcp-auth-doctor",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "authorization, claude-code, cli, developer-tools, diagnostics, hacktoberfest, mcp, mcp-server, model-context-protocol, oauth, oauth2, openid-connect, pkce, python, rfc8414, rfc8707, rfc9728, security-tools",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
+<h1>mcp-auth-doctor</h1>
+<p class="lede">Diagnose OAuth discovery problems on remote MCP servers.</p>
+<p class="meta">Python · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p>One read-only command that explains why a remote MCP server&#x27;s OAuth login fails. It does what a conforming MCP client does when it meets a server, step by step, and reports each step as pass, fail, warn or skip with a one-line reason and the evidence: the unauthenticated 401, the <code>WWW-Authenticate</code> challenge, Protected Resource Metadata (RFC 9728), authorization server metadata (RFC 8414 or OpenID Connect Discovery), PKCE S256, client registration options, the RFC 9207 <code>iss</code> parameter and the token endpoint&#x27;s error format. Optionally it runs the whole PKCE login and calls <code>tools/list</code> with the token.</p>
+<p>Checked against the MCP authorization specification, both the 2026-07-28 release and 2025-11-25. Python 3.11+, one dependency (httpx), runs with <code>pipx</code> or <code>uvx</code>.</p>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/mcp-auth-doctor                                 # isolated CLI install
+uvx --from git+https://github.com/basitalisandhu/mcp-auth-doctor mcp-auth-doctor https://host/mcp  # run without installing
+pip install git+https://github.com/basitalisandhu/mcp-auth-doctor                                  # into the current environment</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/mcp-auth-doctor#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/mcp-auth-doctor">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/mcp-auth-doctor/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=mcp-auth-doctor">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/mcp-auth-doctor/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: authorization, claude-code, cli, developer-tools, diagnostics, hacktoberfest, mcp, mcp-server, model-context-protocol, oauth, oauth2, openid-connect, pkce, python, rfc8414, rfc8707, rfc9728, security-tools</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

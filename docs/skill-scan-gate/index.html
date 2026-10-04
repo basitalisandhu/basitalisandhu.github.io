@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>skill-scan-gate | Muhammad Basit Ali</title>
+<meta name="description" content="CI gate for Claude Code skills and plugins: scans a skills or plugin repository for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build above your threshold. GitHub Action and CLI.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/skill-scan-gate/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="skill-scan-gate">
+<meta property="og:description" content="CI gate for Claude Code skills and plugins: scans a skills or plugin repository for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build above your threshold. GitHub Action and CLI.">
+<meta property="og:url" content="https://basitalisandhu.github.io/skill-scan-gate/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "skill-scan-gate",
+ "description": "CI gate for Claude Code skills and plugins: scans a skills or plugin repository for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build above your threshold. GitHub Action and CLI.",
+ "url": "https://basitalisandhu.github.io/skill-scan-gate/",
+ "codeRepository": "https://github.com/basitalisandhu/skill-scan-gate",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-security, agent-skills, ai-security, ci, claude-code, claude-code-plugins, claude-code-skills, code-scanning, devsecops, github-actions, hacktoberfest, hooks, mcp, prompt-injection, python, sarif, secret-scanning, supply-chain-security"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
+<h1>skill-scan-gate</h1>
+<p class="lede">CI gate for Claude Code skills and plugins.</p>
+<p class="meta">Python · MIT · no release yet</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p><strong>skill-scan-gate scans a skills or plugin repository in CI for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build on findings above your threshold.</strong></p>
+<p>GitHub Action:</p>
+<pre><code class="language-yaml">- uses: basitalisandhu/skill-scan-gate@v0.1.0</code></pre>
+<p>pip (after the first PyPI release; until then <code>pipx install git+https://github.com/basitalisandhu/skill-scan-gate</code>):</p>
+<pre><code class="language-bash">pip install skill-scan-gate</code></pre>
+<p>Container image (GitHub Packages):</p>
+<pre><code class="language-bash">docker run --rm -v &quot;$PWD:/work:ro&quot; ghcr.io/basitalisandhu/skill-scan-gate:0.1.0 scan .</code></pre>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">skill-scan-gate scan .                                   # table, fail on high
+skill-scan-gate scan . --fail-on medium --sarif out.sarif
+skill-scan-gate scan . --format json --output report.json
+skill-scan-gate baseline . --out .skill-scan-gate-baseline.json
+skill-scan-gate scan . --baseline .skill-scan-gate-baseline.json --allow .skill-scan-gate-allow
+skill-scan-gate rules                                    # list every rule</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/skill-scan-gate#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/skill-scan-gate">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/skill-scan-gate/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=skill-scan-gate">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/skill-scan-gate/issues">Issues</a></li>
+</ul></section>
+<p class="topics">Topics: agent-security, agent-skills, ai-security, ci, claude-code, claude-code-plugins, claude-code-skills, code-scanning, devsecops, github-actions, hacktoberfest, hooks, mcp, prompt-injection, python, sarif, secret-scanning, supply-chain-security</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

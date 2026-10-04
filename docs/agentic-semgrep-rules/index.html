@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>agentic-semgrep-rules | Muhammad Basit Ali</title>
+<meta name="description" content="Semgrep rules for AI agent code: static analysis for LLM applications in Python, TypeScript and JavaScript. Finds model output reaching exec, shells, SQL, URLs, files and HTML, user input in system prompts, over-broad tools, MCP servers without auth, leaked keys and unsafe model loading. 36 tested rules, CWE and OWASP mapping.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/agentic-semgrep-rules/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="agentic-semgrep-rules">
+<meta property="og:description" content="Semgrep rules for AI agent code: static analysis for LLM applications in Python, TypeScript and JavaScript. Finds model output reaching exec, shells, SQL, URLs, files and HTML, user input in system prompts, over-broad tools, MCP servers without auth, leaked keys and unsafe model loading. 36 tested rules, CWE and OWASP mapping.">
+<meta property="og:url" content="https://basitalisandhu.github.io/agentic-semgrep-rules/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "agentic-semgrep-rules",
+ "description": "Semgrep rules for AI agent code: static analysis for LLM applications in Python, TypeScript and JavaScript. Finds model output reaching exec, shells, SQL, URLs, files and HTML, user input in system prompts, over-broad tools, MCP servers without auth, leaked keys and unsafe model loading. 36 tested rules, CWE and OWASP mapping.",
+ "url": "https://basitalisandhu.github.io/agentic-semgrep-rules/",
+ "codeRepository": "https://github.com/basitalisandhu/agentic-semgrep-rules",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-security, agentic-ai, ai-agents, ai-security, code-scanning, devsecops, github-actions, hacktoberfest, llm-security, mcp, owasp, prompt-injection, sast, security-automation, security-tools, semgrep, semgrep-rules, ssrf, static-analysis",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
+<h1>agentic-semgrep-rules</h1>
+<p class="lede">Semgrep rules for AI agent code in Python, TypeScript and JavaScript.</p>
+<p class="meta">Python · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p>Semgrep rules for AI agent code: static analysis for LLM applications in Python, TypeScript and JavaScript that finds model output flowing into <code>exec</code>, shells, SQL, URLs, file paths and HTML (eval of model output, SSRF through tool URLs), user input written into system prompts, tools that let the model run anything, MCP server security checks (HTTP transports without authentication, servers bound to every interface), leaked provider keys, and unsafe model or config loading. For teams that ship LLM agents, MCP servers and tool-using assistants and want these mistakes caught in a pull request rather than found in an incident.</p>
+<p>36 rules (23 Python, 13 TypeScript/JavaScript), every one with a tested fixture, CWE and OWASP LLM Top 10 (2025) mapping, and a message that says what is wrong and how to fix it.</p>
+<pre><code class="language-sh">pip install semgrep
+semgrep --config https://raw.githubusercontent.com/basitalisandhu/agentic-semgrep-rules/main/agentic-semgrep-rules.yaml .</code></pre>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-sh">pip install semgrep
+
+# the single-file bundle, straight from GitHub (Semgrep accepts a URL only for a single file)
+semgrep --config https://raw.githubusercontent.com/basitalisandhu/agentic-semgrep-rules/main/agentic-semgrep-rules.yaml .
+
+# or the rules directory from a clone
+git clone https://github.com/basitalisandhu/agentic-semgrep-rules
+semgrep --config agentic-semgrep-rules/rules .</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/agentic-semgrep-rules#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/agentic-semgrep-rules">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/agentic-semgrep-rules/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=agentic-semgrep-rules">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/agentic-semgrep-rules/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/agentic-semgrep-rules/releases/tag/v0.1.0">v0.1.0: 0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-security, agentic-ai, ai-agents, ai-security, code-scanning, devsecops, github-actions, hacktoberfest, llm-security, mcp, owasp, prompt-injection, sast, security-automation, security-tools, semgrep, semgrep-rules, ssrf, static-analysis</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

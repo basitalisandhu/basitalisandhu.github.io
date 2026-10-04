@@ -1,0 +1,81 @@
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - run: python3 -m pip install pytest
+      - run: python3 -m pytest -q
+      - name: Build and run the site checks
+        run: python3 build.py --check
+      - name: Committed docs/ matches the build
+        run: git diff --exit-code --stat -- docs && test -z "$(git status --porcelain -- docs)"
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: docs
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+
+  indexnow:
+    name: Ping IndexNow with the changed pages
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Changed URLs and the IndexNow key
+        id: urls
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          base="${BEFORE:-HEAD^}"
+          case "$base" in 0000000000000000000000000000000000000000) base="none" ;; esac
+          python3 scripts/changed_urls.py --base "$base" --head HEAD > changed-urls.txt
+          echo "count=$(grep -c . changed-urls.txt || true)" >> "$GITHUB_OUTPUT"
+          echo "key=$(python3 -c 'import json; print(json.load(open("site.json"))["indexnow_key"])')" >> "$GITHUB_OUTPUT"
+          echo "host=$(python3 -c 'import json, urllib.parse; print(urllib.parse.urlsplit(json.load(open("site.json"))["url"]).hostname)')" >> "$GITHUB_OUTPUT"
+          cat changed-urls.txt
+      - name: Submit to IndexNow
+        if: steps.urls.outputs.count != '0'
+        uses: basitalisandhu/security-actions/indexnow-ping@97b1739f114e08a909118a091771f2805ec41d29 # v0.1.0
+        with:
+          host: ${{ steps.urls.outputs.host }}
+          key: ${{ steps.urls.outputs.key }}
+          urls-file: changed-urls.txt

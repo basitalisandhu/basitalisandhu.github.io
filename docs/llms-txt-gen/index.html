@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>llms-txt-gen | Muhammad Basit Ali</title>
+<meta name="description" content="Generate llms.txt for any docs site or repository: build llms.txt and llms-full.txt from a directory of Markdown or HTML or from a sitemap URL, validate existing files against the llmstxt.org convention, and print the link tag that advertises them. Standard library only, deterministic, CLI plus GitHub Action and pre-commit hook.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/llms-txt-gen/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="llms-txt-gen">
+<meta property="og:description" content="Generate llms.txt for any docs site or repository: build llms.txt and llms-full.txt from a directory of Markdown or HTML or from a sitemap URL, validate existing files against the llmstxt.org convention, and print the link tag that advertises them. Standard library only, deterministic, CLI plus GitHub Action and pre-commit hook.">
+<meta property="og:url" content="https://basitalisandhu.github.io/llms-txt-gen/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "llms-txt-gen",
+ "description": "Generate llms.txt for any docs site or repository: build llms.txt and llms-full.txt from a directory of Markdown or HTML or from a sitemap URL, validate existing files against the llmstxt.org convention, and print the link tag that advertises them. Standard library only, deterministic, CLI plus GitHub Action and pre-commit hook.",
+ "url": "https://basitalisandhu.github.io/llms-txt-gen/",
+ "codeRepository": "https://github.com/basitalisandhu/llms-txt-gen",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "ai-readiness, cli, developer-tools, docs, docs-as-code, documentation, github-actions, hacktoberfest, llm, llms-txt, llmstxt, markdown, pre-commit, python, seo, sitemap, static-site",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
+<h1>llms-txt-gen</h1>
+<p class="lede">Generate llms.txt for any docs site or repository.</p>
+<p class="meta">Python · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p>Generate llms.txt for any docs site or repository: point <code>llms-txt-gen</code> at a directory of Markdown or HTML, or at a sitemap URL, and it writes an <code>llms.txt</code> (and, with <code>--full</code>, an <code>llms-full.txt</code>) that follows the convention published at <a href="https://llmstxt.org">llmstxt.org</a>. It also checks an existing file against that convention and prints the HTML tag that tells crawlers where the file lives. Standard library only, no model in the loop, deterministic output, runs in CI.</p>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/llms-txt-gen
+
+llms-txt-gen generate docs/ --out llms.txt --base-url https://docs.example.com
+llms-txt-gen generate https://docs.example.com/sitemap.xml --out llms.txt --full
+llms-txt-gen check llms.txt
+llms-txt-gen serve-snippet</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/llms-txt-gen#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/llms-txt-gen">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/llms-txt-gen/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=llms-txt-gen">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/llms-txt-gen/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: ai-readiness, cli, developer-tools, docs, docs-as-code, documentation, github-actions, hacktoberfest, llm, llms-txt, llmstxt, markdown, pre-commit, python, seo, sitemap, static-site</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

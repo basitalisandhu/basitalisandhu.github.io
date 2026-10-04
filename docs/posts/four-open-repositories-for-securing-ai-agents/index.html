@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Four open repositories for securing AI agents, and what each is for | Muhammad Basit Ali</title>
+<meta name="description" content="A map of the open tools for AI agent security: an incident dataset, Semgrep rules for agent code, a threat-model CLI and Claude Code skill packs, with where each one stops.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/posts/four-open-repositories-for-securing-ai-agents/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Four open repositories for securing AI agents, and what each is for">
+<meta property="og:description" content="A map of the open tools for AI agent security: an incident dataset, Semgrep rules for agent code, a threat-model CLI and Claude Code skill packs, with where each one stops.">
+<meta property="og:url" content="https://basitalisandhu.github.io/posts/four-open-repositories-for-securing-ai-agents/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "Four open repositories for securing AI agents, and what each is for",
+ "description": "A map of the open tools for AI agent security: an incident dataset, Semgrep rules for agent code, a threat-model CLI and Claude Code skill packs, with where each one stops.",
+ "datePublished": "2026-10-05",
+ "dateModified": "2026-10-05",
+ "url": "https://basitalisandhu.github.io/posts/four-open-repositories-for-securing-ai-agents/",
+ "mainEntityOfPage": "https://basitalisandhu.github.io/posts/four-open-repositories-for-securing-ai-agents/",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "inLanguage": "en"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/posts/">Posts</a></p><article><h1>Four open repositories for securing AI agents, and what each is for</h1><p class="meta">By Muhammad Basit Ali · <time datetime="2026-10-05">2026-10-05</time></p>
+<p>Teams are putting language models in front of tools, data and credentials faster than they are writing down what could go wrong. I have spent the year building small, open tools for that gap and for the cloud accounts the agents run in. This post is the map: what each repository is for, where it stops, and the order I would use them in.</p>
+<p>None of it is a platform. Each repository stands alone, links its siblings, and does one job. The <a href="/#projects">project list on this site</a> and the profile at <a href="https://github.com/basitalisandhu">github.com/basitalisandhu</a> are the index.</p>
+<h3 id="1-start-from-evidence-ai-agent-incidents">1. Start from evidence: ai-agent-incidents</h3>
+<p>Arguments about agent risk are usually made from a handful of famous cases. <a href="https://github.com/basitalisandhu/ai-agent-incidents">ai-agent-incidents</a> (browse it at <a href="https://basitalisandhu.github.io/ai-agent-incidents/">its own site</a>) is a structured dataset of publicly documented AI agent and LLM security incidents from February 2023 onwards, one record per event.</p>
+<p>Each record was coded from a primary source under a written codebook: the role AI played (weapon, target or surface), the vector, the input channel, the authority the agent held, the output channel and the outcome. Each is mapped to the OWASP Top 10 for LLM Applications, the OWASP Top 10 for Agentic Applications and MITRE ATLAS. There are JSON and CSV downloads, an RSS feed and a searchable site. The data is CC BY 4.0.</p>
+<p>Its limit matters as much as its content. It is a convenience sample of what vendors and researchers chose to disclose, so it over-represents some kinds of incident, and no percentage computed from it estimates how common anything is. An empty mapping means no confident mapping, not that no category applies. If you disagree with a coding, the codebook is in the repository and a pull request is welcome.</p>
+<h3 id="2-check-the-code-agentic-semgrep-rules">2. Check the code: agentic-semgrep-rules</h3>
+<p>Some agent vulnerabilities come down to one short function: model output reaching a shell, a query, a URL fetch or <code>eval</code>. <a href="/agentic-semgrep-rules/">agentic-semgrep-rules</a> is a set of Semgrep rules for AI agent code in Python, TypeScript and JavaScript. They look for model output reaching exec, shells, SQL, URLs, files and HTML, user input in system prompts, over-broad tools, MCP servers without authentication, leaked keys and unsafe model loading, and each rule maps to a CWE and the OWASP lists.</p>
+<p>Every rule has tests, so a change to a rule shows up as a failing test rather than a surprise in someone else&#x27;s pipeline. Tests show what a rule flags; they do not show what it misses. A clean run is one signal, not a clearance, and a false positive is a bug worth reporting.</p>
+<h3 id="3-model-the-system-agent-threat-model">3. Model the system: agent-threat-model</h3>
+<p>Code scanning finds lines. It does not tell you what an agent can reach if it is tricked. <a href="/agent-threat-model/">agent-threat-model</a> takes a YAML description of the system (the model, its tools, where its inputs come from, what credentials it holds, who approves what) and produces a ranked threat register under STRIDE and the OWASP Agentic Top 10, a Mermaid diagram, a control checklist, a residual risk score and SARIF for GitHub code scanning.</p>
+<p>It runs offline, as a CLI or a GitHub Action, with no model in the loop, so the same description always produces the same output and you can diff a threat model between two pull requests. It only knows what you tell it; the YAML is as good as your description of the system.</p>
+<h3 id="4-bring-it-into-the-editor-and-the-account-the-skill-packs">4. Bring it into the editor and the account: the skill packs</h3>
+<p>The same habits are packaged as Claude Code skills, each with tested scripts that run offline on saved output rather than on a live system:</p>
+<ul><li><a href="/agent-security-skills/">agent-security-skills</a>: threat modelling, configuration audits, prompt injection review, MCP server review and incident lookup for securing LLM agents.</li><li><a href="/aws-security-skills/">aws-security-skills</a>: a read-only AWS account audit, SCP guardrails, IAM least-privilege review and Security Hub and GuardDuty triage.</li><li><a href="/repo-engineering-skills/">repo-engineering-skills</a>: README and documentation claims checked against the code, audits where every finding cites a resolvable <code>path:line</code>.</li><li><a href="/m365-governance-skills/">m365-governance-skills</a>: Graph permission preflight, Entra ID posture review, Intune baseline check and a quarterly access review pack, from read-only exports.</li></ul>
+<h3 id="how-i-would-use-them-together">How I would use them together</h3>
+<ol><li>Read a few records from the dataset that look like your architecture.</li><li>Describe your agent in YAML and run the threat-model CLI; compare its register against those records.</li><li>Run the Semgrep rules over the agent&#x27;s code, and fix or consciously accept each finding.</li><li>Put the threat model and the rules in CI so they are still true next quarter.</li></ol>
+<h3 id="what-is-not-here">What is not here</h3>
+<p>These tools do not stop an agent from doing anything at runtime. They help you find, describe and review risk before it ships. I would rather say that plainly than imply more.</p>
+<h3 id="what-is-next">What is next</h3>
+<p>One repository a week. The Show HN sequence runs through the incident dataset, the Semgrep rules and the threat-model CLI; the skill packs and the other developer tooling follow. If you run agents against real systems, I would like to hear what these tools miss. Issues and pull requests are open on every repository, and <a href="/#projects">the project list</a> has them all.</p>
+</article>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

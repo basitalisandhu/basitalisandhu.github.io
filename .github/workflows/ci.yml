@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build, test and check the site
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - run: python3 -m pip install pytest ruff
+      - run: python3 -m ruff check .
+      - run: python3 -m pytest -q
+      - name: Build and run the site checks
+        run: python3 build.py --check
+      - name: Committed docs/ matches the build
+        run: |
+          if ! git diff --exit-code --stat -- docs; then
+            echo "::error::docs/ is out of date. Run python3 build.py and commit docs/."
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain -- docs)" ]; then
+            git status --porcelain -- docs
+            echo "::error::build.py created files that are not committed. Run python3 build.py and commit docs/."
+            exit 1
+          fi

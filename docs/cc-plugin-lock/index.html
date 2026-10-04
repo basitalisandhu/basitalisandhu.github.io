@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cc-plugin-lock | Muhammad Basit Ali</title>
+<meta name="description" content="Lock file for Claude Code plugins: pins marketplace plugins and skills to content hashes, verifies them before a session loads them, scores changes by component (hooks and MCP high, skills medium), diffs against the locked content, and scans plugin folders before install. SARIF output, SessionStart gate, Python stdlib only.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/cc-plugin-lock/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="cc-plugin-lock">
+<meta property="og:description" content="Lock file for Claude Code plugins: pins marketplace plugins and skills to content hashes, verifies them before a session loads them, scores changes by component (hooks and MCP high, skills medium), diffs against the locked content, and scans plugin folders before install. SARIF output, SessionStart gate, Python stdlib only.">
+<meta property="og:url" content="https://basitalisandhu.github.io/cc-plugin-lock/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "cc-plugin-lock",
+ "description": "Lock file for Claude Code plugins: pins marketplace plugins and skills to content hashes, verifies them before a session loads them, scores changes by component (hooks and MCP high, skills medium), diffs against the locked content, and scans plugin folders before install. SARIF output, SessionStart gate, Python stdlib only.",
+ "url": "https://basitalisandhu.github.io/cc-plugin-lock/",
+ "codeRepository": "https://github.com/basitalisandhu/cc-plugin-lock",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-security, ai-agents, ai-security, claude-code, claude-code-plugins, cli, devsecops, hacktoberfest, hooks, integrity, lockfile, mcp, plugins, python, sarif, security-tools, skills, supply-chain-security",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
+<h1>cc-plugin-lock</h1>
+<p class="lede">Lock file for Claude Code plugins: pins plugins and skills to content hashes and verifies them before load.</p>
+<p class="meta">Python · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p><strong>cc-plugin-lock pins Claude Code marketplace plugins and skills to content hashes and verifies them before load, so a plugin that changes upstream cannot silently change what runs on your machine.</strong></p>
+<pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/cc-plugin-lock</code></pre>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/cc-plugin-lock
+
+# 1. Lock what is installed now (review your plugins first; the lock records what you trust).
+cc-plugin-lock lock -o ~/.claude/cc-plugins.lock.json --store
+
+# 2. Any time later: has anything changed?
+cc-plugin-lock verify --lock ~/.claude/cc-plugins.lock.json
+
+# 3. Gate every session: print the hook block and merge it into ~/.claude/settings.json.
+cc-plugin-lock hook --lock ~/.claude/cc-plugins.lock.json</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/cc-plugin-lock#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/cc-plugin-lock">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/cc-plugin-lock/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=cc-plugin-lock">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/cc-plugin-lock/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/cc-plugin-lock/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-security, ai-agents, ai-security, claude-code, claude-code-plugins, cli, devsecops, hacktoberfest, hooks, integrity, lockfile, mcp, plugins, python, sarif, security-tools, skills, supply-chain-security</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

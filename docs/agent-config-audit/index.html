@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>agent-config-audit | Muhammad Basit Ali</title>
+<meta name="description" content="Audit AI agent configuration files for security risks: risky permissions in .claude settings, secrets and unpinned servers in .mcp.json and claude_desktop_config.json, exfiltrating hooks, and prompt-injection patterns in CLAUDE.md, AGENTS.md and .cursor rules. Table, JSON and SARIF output, allowlist, GitHub Action, pre-commit.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/agent-config-audit/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="agent-config-audit">
+<meta property="og:description" content="Audit AI agent configuration files for security risks: risky permissions in .claude settings, secrets and unpinned servers in .mcp.json and claude_desktop_config.json, exfiltrating hooks, and prompt-injection patterns in CLAUDE.md, AGENTS.md and .cursor rules. Table, JSON and SARIF output, allowlist, GitHub Action, pre-commit.">
+<meta property="og:url" content="https://basitalisandhu.github.io/agent-config-audit/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "agent-config-audit",
+ "description": "Audit AI agent configuration files for security risks: risky permissions in .claude settings, secrets and unpinned servers in .mcp.json and claude_desktop_config.json, exfiltrating hooks, and prompt-injection patterns in CLAUDE.md, AGENTS.md and .cursor rules. Table, JSON and SARIF output, allowlist, GitHub Action, pre-commit.",
+ "url": "https://basitalisandhu.github.io/agent-config-audit/",
+ "codeRepository": "https://github.com/basitalisandhu/agent-config-audit",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-security, ai-agents, ai-security, claude-code, cli, configuration-audit, cursor, devsecops, github-actions, hacktoberfest, llm-security, mcp, pre-commit, prompt-injection, python, sarif, secrets-detection, security-automation, security-tools",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
+<h1>agent-config-audit</h1>
+<p class="lede">Audit AI agent configuration files for security risks.</p>
+<p class="meta">Python · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p>Audit AI agent configuration files for security risks: one command reads the files that launch and instruct a coding agent (<code>.claude/settings*.json</code>, <code>.mcp.json</code>, <code>claude_desktop_config.json</code>, <code>.cursor/</code> rules and MCP config, <code>CLAUDE.md</code>, <code>AGENTS.md</code>, plugin manifests, hooks, skills) and reports pre-approved dangerous commands, bypassed permission prompts, secrets committed next to server definitions, unpinned MCP servers, hooks that phone home, and prompt-injection patterns hidden in instruction files. Output as a table, JSON, Markdown or SARIF for GitHub code scanning. Read-only, standard library only, no network, deterministic.</p>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/agent-config-audit
+cd your-project
+agent-config-audit                      # table on stdout, exit 0
+agent-config-audit --fail-on high       # exit 1 when a high or critical finding exists
+agent-config-audit --format sarif --output agent-config-audit.sarif
+agent-config-audit --include-home       # also ~/.claude, ~/.cursor, the Claude Desktop config</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/agent-config-audit#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/agent-config-audit">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/agent-config-audit/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=agent-config-audit">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/agent-config-audit/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-security, ai-agents, ai-security, claude-code, cli, configuration-audit, cursor, devsecops, github-actions, hacktoberfest, llm-security, mcp, pre-commit, prompt-injection, python, sarif, secrets-detection, security-automation, security-tools</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

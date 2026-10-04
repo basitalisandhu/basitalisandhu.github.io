@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>claude-mcp-allow | Muhammad Basit Ali</title>
+<meta name="description" content="Generate least-privilege Claude Code permission rules for MCP tools from their live annotations: readOnlyHint tools go to allow, everything else to ask, one mcp__server__tool rule each, never a glob. Merges into settings files, prints a diff, and --check exits 1 when annotations drift. TypeScript CLI on npm.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/claude-mcp-allow/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="claude-mcp-allow">
+<meta property="og:description" content="Generate least-privilege Claude Code permission rules for MCP tools from their live annotations: readOnlyHint tools go to allow, everything else to ask, one mcp__server__tool rule each, never a glob. Merges into settings files, prints a diff, and --check exits 1 when annotations drift. TypeScript CLI on npm.">
+<meta property="og:url" content="https://basitalisandhu.github.io/claude-mcp-allow/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "claude-mcp-allow",
+ "description": "Generate least-privilege Claude Code permission rules for MCP tools from their live annotations: readOnlyHint tools go to allow, everything else to ask, one mcp__server__tool rule each, never a glob. Merges into settings files, prints a diff, and --check exits 1 when annotations drift. TypeScript CLI on npm.",
+ "url": "https://basitalisandhu.github.io/claude-mcp-allow/",
+ "codeRepository": "https://github.com/basitalisandhu/claude-mcp-allow",
+ "programmingLanguage": "TypeScript",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-security, ai-agents, ai-security, claude-code, cli, developer-tools, devsecops, drift-detection, hacktoberfest, least-privilege, llm-security, mcp, mcp-client, model-context-protocol, permissions, security-tools, tool-annotations, typescript",
+ "version": "0.1.0",
+ "dateModified": "2026-10-04"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
+<h1>claude-mcp-allow</h1>
+<p class="lede">Least-privilege Claude Code permission rules for MCP tools, generated from their annotations.</p>
+<p class="meta">TypeScript · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p>Generate <code>permissions.allow</code> and <code>permissions.ask</code> rules for every MCP tool Claude Code can reach, from the annotations each server reports on <code>tools/list</code>: a tool that says <code>readOnlyHint: true</code> (and not <code>destructiveHint: true</code>) gets an <code>allow</code> rule, everything else gets an <code>ask</code> rule, one exact <code>mcp__&lt;server&gt;__&lt;tool&gt;</code> rule per tool and never a glob. <code>--write</code> merges the rules into the settings file you choose, <code>--diff</code> shows what would change, and <code>--check</code> reconnects later and exits 1 when a server&#x27;s annotations have drifted from the rules you saved.</p>
+</section>
+<section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
+<pre><code class="language-bash">npx @basitalisandhu/claude-mcp-allow                    # run without installing
+npm install -g @basitalisandhu/claude-mcp-allow@0.1.1   # or install the claude-mcp-allow command</code></pre>
+<p class="muted">From the README; see <a href="https://github.com/basitalisandhu/claude-mcp-allow#readme">the full README</a> for every option.</p></section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/claude-mcp-allow">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/claude-mcp-allow/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=claude-mcp-allow">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/claude-mcp-allow/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+</ul></section>
+<p class="topics">Topics: agent-security, ai-agents, ai-security, claude-code, cli, developer-tools, devsecops, drift-detection, hacktoberfest, least-privilege, llm-security, mcp, mcp-client, model-context-protocol, permissions, security-tools, tool-annotations, typescript</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>
