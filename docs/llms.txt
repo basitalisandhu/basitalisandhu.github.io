@@ -49,6 +49,7 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 ## Posts
 
 - [Four open repositories for securing AI agents, and what each is for](https://basitalisandhu.github.io/posts/four-open-repositories-for-securing-ai-agents/): A map of the open tools for AI agent security: an incident dataset, Semgrep rules for agent code, a threat-model CLI and Claude Code skill packs, with where each one stops.
+- [Every Claude Code skill I maintain, in one repository](https://basitalisandhu.github.io/posts/every-claude-code-skill-in-one-repository/): 87 Claude Code skills in 13 plugins from 8 source repositories, now in one repository with one marketplace and one install script.
 
 ## Optional
 
