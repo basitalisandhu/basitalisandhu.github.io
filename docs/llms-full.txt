@@ -25,6 +25,38 @@ Install:
 /plugin install aws-security@claude-skills
 ```
 
+Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/claude-skills/releases/tag/v0.1.0
+
+## ways-of-working-skills
+
+Page: https://basitalisandhu.github.io/ways-of-working-skills/
+Repository: https://github.com/basitalisandhu/ways-of-working-skills
+Theme: Claude Code skill packs
+
+Claude Code skills for ways of working: change requests from a Terraform plan, an action ledger across meeting notes, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger and focus time from a calendar export.
+
+**Nine skills: change requests, action ledgers, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger and focus time from a calendar export. Offline, standard-library scripts, tested.**
+
+ways-of-working-skills is a Claude Code plugin for the records that keep a team honest about its own process: what a change will do before the board approves it, which actions from last month's meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, and where the focus time went. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.
+
+```text
+/plugin marketplace add basitalisandhu/ways-of-working-skills
+/plugin install ways-of-working@ways-of-working-skills
+```
+
+Quickstart: open Claude Code in a folder of meeting notes and ask "which actions from our syncs are overdue?". Or run a script directly from a clone of this repository:
+
+```bash
+python3 scripts/cli.py meeting-ledger path/to/notes --as-of 2026-10-05
+python3 scripts/cli.py change-request plan.json --out change-record.md
+```
+
+Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/ways-of-working-skills/blob/main/SECURITY.md).
+
+This pack is part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.
+
+Latest release: v0.1.0 (2026-10-05) https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.1.0
+
 ## aws-security-skills
 
 Page: https://basitalisandhu.github.io/aws-security-skills/
@@ -115,7 +147,7 @@ claude plugin marketplace add basitalisandhu/m365-governance-skills
 claude plugin install m365-governance@m365-governance-skills --scope user
 ```
 
-Latest release: v0.2.0 (2026-10-04) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.0
+Latest release: v0.2.1 (2026-10-04) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.1
 
 ## compliance-evidence-skills
 
@@ -149,7 +181,7 @@ python3 plugins/compliance-evidence/skills/auditor-narrative-drafter/scripts/nar
 python3 plugins/compliance-evidence/skills/github-change-control-evidence/scripts/github_evidence.py tests/fixtures/github/free-plan
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-04) https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.1.1
 
 ## claude-dev-skills
 
@@ -172,7 +204,7 @@ Install:
 /plugin install code-quality@claude-dev-skills
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-04) https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.1.1
 
 ## agent-security-skills
 
@@ -195,7 +227,7 @@ Install:
 /plugin install agent-security@agent-security-skills
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-04) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.1
 
 ## github-manager-skills
 
@@ -222,7 +254,7 @@ python3 scripts/cli.py pr-queue tests/fixtures/pr_queue
 
 Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/github-manager-skills/blob/main/SECURITY.md).
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-04) https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.1.1
 
 ## mac-maintenance-skills
 
@@ -253,7 +285,7 @@ That prints the safe-tier plan with sizes and changes nothing; add `--apply` to 
 
 Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/mac-maintenance-skills/blob/main/SECURITY.md).
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/mac-maintenance-skills/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-04) https://github.com/basitalisandhu/mac-maintenance-skills/releases/tag/v0.1.1
 
 ## dev-mcp-servers
 

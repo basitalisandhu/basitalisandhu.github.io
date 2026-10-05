@@ -7,6 +7,7 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 ## Claude Code skill packs
 
 - [claude-skills](https://basitalisandhu.github.io/claude-skills/): Every skill I maintain, in one repository: 87 skills in 13 plugins from the packs below, one marketplace, one install script, synced daily.
+- [ways-of-working-skills](https://basitalisandhu.github.io/ways-of-working-skills/): Claude Code skills for ways of working: change requests from a Terraform plan, an action ledger across meeting notes, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger and focus time from a calendar export.
 - [aws-security-skills](https://basitalisandhu.github.io/aws-security-skills/): AWS security skills for Claude Code: account audit, SCP guardrails, blast-radius landing zones, IAM least privilege, Security Hub triage.
 - [repo-engineering-skills](https://basitalisandhu.github.io/repo-engineering-skills/): Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, agent context files that say only what code cannot.
 - [m365-governance-skills](https://basitalisandhu.github.io/m365-governance-skills/): Microsoft 365 governance skills for Claude Code: Entra ID posture review, Intune baseline check, Graph permission preflight, Teams and group sprawl, access review pack.

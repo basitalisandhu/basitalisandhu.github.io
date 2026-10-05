@@ -5,6 +5,7 @@
       "title": "Claude Code skill packs",
       "repos": [
         "claude-skills",
+        "ways-of-working-skills",
         "aws-security-skills",
         "repo-engineering-skills",
         "m365-governance-skills",
@@ -139,6 +140,12 @@
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.1"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -546,6 +553,12 @@
       },
       "releases": [
         {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.1.1"
+        },
+        {
           "tag": "v0.1.0",
           "name": "0.1.0",
           "date": "2026-10-04",
@@ -682,7 +695,14 @@
         "code": "/plugin marketplace add basitalisandhu/claude-skills\n/plugin install aws-security@claude-skills",
         "from": "Install"
       },
-      "releases": []
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/claude-skills/releases/tag/v0.1.0"
+        }
+      ]
     },
     {
       "name": "compliance-evidence-skills",
@@ -722,6 +742,12 @@
         "from": "Quickstart"
       },
       "releases": [
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.1.1"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -814,6 +840,12 @@
       "install": null,
       "releases": [
         {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.1.1"
+        },
+        {
           "tag": "v0.1.0",
           "name": "v0.1.0",
           "date": "2026-10-04",
@@ -905,6 +937,12 @@
       },
       "releases": [
         {
+          "tag": "v0.2.1",
+          "name": "v0.2.1",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.1"
+        },
+        {
           "tag": "v0.2.0",
           "name": "v0.2.0",
           "date": "2026-10-04",
@@ -958,6 +996,12 @@
       "intro_md": "**Mac maintenance skills for Claude Code: a survey that only measures, a safe tier that removes only what programs recreate, and a written list for every decision that is yours.**\n\nmac-maintenance-skills is a Claude Code plugin with three skills for people whose Mac has filled up with caches, duplicate exports, leftovers of uninstalled apps and a few gigabytes pinned in memory, and who do not want a cleaner that guesses. It exists because the usual cleanup either deletes too little to matter or deletes something that mattered: each skill pairs the model's judgement with a standard-library Python script that measures before it proposes, removes only regenerable caches on its own, and moves anything of yours to a dated folder in the Trash instead of deleting it.\n\n```text\n/plugin marketplace add basitalisandhu/mac-maintenance-skills\n/plugin install mac-maintenance@mac-maintenance-skills\n```\n\nThis pack is also part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.\n\nQuickstart: open Claude Code and ask \"look at my Mac and clean up the garbage\", or run a script directly from a clone of this repository:\n\n```bash\npython3 plugins/mac-maintenance/skills/mac-cleanup/scripts/safe_clean.py\n```\n\nThat prints the safe-tier plan with sizes and changes nothing; add `--apply` to run it.\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/mac-maintenance-skills/blob/main/SECURITY.md).",
       "install": null,
       "releases": [
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-04",
+          "url": "https://github.com/basitalisandhu/mac-maintenance-skills/releases/tag/v0.1.1"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -1443,6 +1487,49 @@
           "name": "v0.1.0",
           "date": "2026-10-04",
           "url": "https://github.com/basitalisandhu/spotlighting/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "ways-of-working-skills",
+      "description": "Claude Code skills for ways of working, from files already on disk: change requests from a Terraform plan or PR export, an action ledger across meeting notes, a security exception register, RFC lifecycle lint, a decision log, weekly status notes, a private 1:1 ledger, focus time from a calendar export, a risk register refresh. Offline.",
+      "one_liner": "Claude Code skills for ways of working: change requests from a Terraform plan, an action ledger across meeting notes, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger and focus time from a calendar export.",
+      "theme": "Claude Code skill packs",
+      "topics": [
+        "agent-skills",
+        "calendar",
+        "change-management",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-skills",
+        "decision-log",
+        "engineering-management",
+        "hacktoberfest",
+        "meeting-notes",
+        "one-on-ones",
+        "productivity",
+        "python",
+        "rfc",
+        "risk-register",
+        "security-exceptions",
+        "status-reports",
+        "terraform",
+        "ways-of-working"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/ways-of-working-skills",
+      "default_branch": "main",
+      "homepage": "https://basitalisandhu.github.io/ways-of-working-skills/",
+      "own_site": null,
+      "intro_md": "**Nine skills: change requests, action ledgers, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger and focus time from a calendar export. Offline, standard-library scripts, tested.**\n\nways-of-working-skills is a Claude Code plugin for the records that keep a team honest about its own process: what a change will do before the board approves it, which actions from last month's meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, and where the focus time went. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.\n\n```text\n/plugin marketplace add basitalisandhu/ways-of-working-skills\n/plugin install ways-of-working@ways-of-working-skills\n```\n\nQuickstart: open Claude Code in a folder of meeting notes and ask \"which actions from our syncs are overdue?\". Or run a script directly from a clone of this repository:\n\n```bash\npython3 scripts/cli.py meeting-ledger path/to/notes --as-of 2026-10-05\npython3 scripts/cli.py change-request plan.json --out change-record.md\n```\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/ways-of-working-skills/blob/main/SECURITY.md).\n\nThis pack is part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.",
+      "install": null,
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.1.0"
         }
       ]
     }
