@@ -16,6 +16,8 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 - [agent-security-skills](https://basitalisandhu.github.io/agent-security-skills/): Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review, incident lookup.
 - [github-manager-skills](https://basitalisandhu.github.io/github-manager-skills/): Claude Code skills for engineering managers that compute from exported GitHub data: stuck-PR and review-queue digest, iteration report, blameless postmortem timeline.
 - [mac-maintenance-skills](https://basitalisandhu.github.io/mac-maintenance-skills/): Claude Code skills for cleaning up and speeding up a Mac: read-only survey first, safe tier removes only what programs recreate, leftovers and duplicate finders.
+- [agent-identity-governance-skills](https://basitalisandhu.github.io/agent-identity-governance-skills/): Claude Code skills for agent identity governance.
+- [claude-code-tooling-skills](https://basitalisandhu.github.io/claude-code-tooling-skills/): Claude Code skills for keeping a Claude Code setup safe.
 
 ## MCP tooling
 
