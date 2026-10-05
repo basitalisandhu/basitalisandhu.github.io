@@ -26,6 +26,7 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 - [mcp-egress](https://basitalisandhu.github.io/mcp-egress/): Record every host an MCP server contacts, per tool, and fail CI on new ones.
 - [claude-mcp-allow](https://basitalisandhu.github.io/claude-mcp-allow/): Least-privilege Claude Code permission rules for MCP tools, generated from their annotations.
 - [agentdojo-mcp](https://basitalisandhu.github.io/agentdojo-mcp/): Run AgentDojo against MCP servers.
+- [garak-mcp-probes](https://basitalisandhu.github.io/garak-mcp-probes/): Run garak against your own MCP servers.
 - [mcp-rc-check](https://basitalisandhu.github.io/mcp-rc-check/): MCP specification migration checker for the 2026-07-28 revision.
 
 ## Security tooling

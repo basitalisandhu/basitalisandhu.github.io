@@ -37,8 +37,8 @@
   ]
  },
  "keywords": "authorization, claude-code, cli, developer-tools, diagnostics, hacktoberfest, mcp, mcp-server, model-context-protocol, oauth, oauth2, openid-connect, pkce, python, rfc8414, rfc8707, rfc9728, security-tools",
- "version": "0.1.0",
- "dateModified": "2026-10-04"
+ "version": "0.1.1",
+ "dateModified": "2026-10-05"
 }
 </script>
 </head>
@@ -48,7 +48,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>mcp-auth-doctor</h1>
 <p class="lede">Diagnose OAuth discovery problems on remote MCP servers.</p>
-<p class="meta">Python · MIT · latest v0.1.0</p>
+<p class="meta">Python · MIT · latest v0.1.1</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p>One read-only command that explains why a remote MCP server&#x27;s OAuth login fails. It does what a conforming MCP client does when it meets a server, step by step, and reports each step as pass, fail, warn or skip with a one-line reason and the evidence: the unauthenticated 401, the <code>WWW-Authenticate</code> challenge, Protected Resource Metadata (RFC 9728), authorization server metadata (RFC 8414 or OpenID Connect Discovery), PKCE S256, client registration options, the RFC 9207 <code>iss</code> parameter and the token endpoint&#x27;s error format. Optionally it runs the whole PKCE login and calls <code>tools/list</code> with the token.</p>
 <p>Checked against the MCP authorization specification, both the 2026-07-28 release and 2025-11-25. Python 3.11+, one dependency (httpx), runs with <code>pipx</code> or <code>uvx</code>.</p>
@@ -65,6 +65,7 @@ pip install git+https://github.com/basitalisandhu/mcp-auth-doctor               
 <li><a href="https://github.com/basitalisandhu/mcp-auth-doctor/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>
 <p class="topics">Topics: authorization, claude-code, cli, developer-tools, diagnostics, hacktoberfest, mcp, mcp-server, model-context-protocol, oauth, oauth2, openid-connect, pkce, python, rfc8414, rfc8707, rfc9728, security-tools</p>

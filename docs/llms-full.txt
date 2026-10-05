@@ -12,8 +12,6 @@ Theme: Claude Code skill packs
 
 Every skill I maintain, in one repository: 87 skills in 13 plugins from the packs below, one marketplace, one install script, synced daily.
 
-**87 skills in 13 plugins, from 8 source repositories, as of 2026-10-04.**
-
 This repository collects every Claude Code skill I maintain. Clone it once and you have all of them. It is also one Claude Code plugin marketplace, so you can install any plugin from it by name. The numbers above are a snapshot; the [catalog](https://github.com/basitalisandhu/claude-skills#catalog) below is regenerated on every sync and is the live count.
 
 Browse the skills on the site: <https://basitalisandhu.github.io/claude-skills/>
@@ -35,9 +33,9 @@ Theme: Claude Code skill packs
 
 Claude Code skills for ways of working: change requests from a Terraform plan, an action ledger across meeting notes, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger and focus time from a calendar export.
 
-**Nine skills: change requests, action ledgers, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger and focus time from a calendar export. Offline, standard-library scripts, tested.**
+**Twelve skills: change requests, action ledgers, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger, focus time from a calendar export, a vendor scorecard, a working agreement check and a shift handover note. Offline, standard-library scripts, tested.**
 
-ways-of-working-skills is a Claude Code plugin for the records that keep a team honest about its own process: what a change will do before the board approves it, which actions from last month's meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, and where the focus time went. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.
+ways-of-working-skills is a Claude Code plugin for the records that keep a team honest about its own process: what a change will do before the board approves it, which actions from last month's meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, where the focus time went, whether a vendor choice survives a change of weights, whether the repository settings match the team's working agreement, and what the next on-call shift needs to know. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.
 
 ```text
 /plugin marketplace add basitalisandhu/ways-of-working-skills
@@ -55,7 +53,7 @@ Questions, bugs and ideas: open an issue on this repository. Security reports: s
 
 This pack is part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.
 
-Latest release: v0.1.0 (2026-10-05) https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.1.0
+Latest release: v0.2.0 (2026-10-05) https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.2.0
 
 ## aws-security-skills
 
@@ -71,6 +69,8 @@ aws-security-skills is a Claude Code plugin marketplace with one plugin, `aws-se
 
 It is written for cloud and platform engineers who look after one or many AWS accounts, especially multi-account organizations governed by service control policies. It exists because the same questions come up on every account (is root protected, is CloudTrail on, can this role escalate, which SCPs go where, what do we fix first in Security Hub, what may an AI agent do here, what do we do in the first hour of an incident, how do we stop a runaway bill), and a scripted procedure answers them the same way each time.
 
+Common searches it answers: a CIS AWS Foundations benchmark style account check, a Well-Architected security pillar review of account structure, and a permission boundary for an AI agent role.
+
 No network access from the scripts, no telemetry. Nothing in this repository changes an AWS account: every skill proposes fix commands and runs one only after you confirm that exact command.
 
 Install:
@@ -80,7 +80,7 @@ Install:
 /plugin install aws-security@aws-security-skills
 ```
 
-Latest release: v0.2.0 (2026-10-04) https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.2.0
+Latest release: v0.2.1 (2026-10-05) https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.2.1
 
 ## repo-engineering-skills
 
@@ -163,6 +163,8 @@ compliance-evidence-skills is a Claude Code plugin marketplace with one plugin, 
 
 It is written for the people who prepare an ISO 27001 or SOC 2 assessment in a small or mid-sized organisation: engineers and IT administrators who own GitHub, AWS and Microsoft 365, and the security or compliance lead who has to hand evidence to an assessor. It exists because evidence is still mostly screenshots and loose exports with no record of who took them, when, or with which command, and because tools that turn an API error into a control failure (or a missing file into a pass) cost hours of argument during fieldwork. These skills keep three result states only, `supported`, `contradicted` and `not assessable`, and never mark a control supported without a cited evidence file and field.
 
+Common searches it answers: SOC 2 Type II evidence from GitHub and AWS, an ISO 27001 or SOC 2 readiness assessment, and packing a Vanta or Drata export with a hash manifest for the assessor.
+
 No network access from the scripts, no telemetry. All inputs are exports already on disk.
 
 ```text
@@ -181,7 +183,7 @@ python3 plugins/compliance-evidence/skills/auditor-narrative-drafter/scripts/nar
 python3 plugins/compliance-evidence/skills/github-change-control-evidence/scripts/github_evidence.py tests/fixtures/github/free-plan
 ```
 
-Latest release: v0.1.1 (2026-10-04) https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.1.1
+Latest release: v0.1.2 (2026-10-05) https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.1.2
 
 ## claude-dev-skills
 
@@ -197,6 +199,8 @@ claude-dev-skills is a Claude Code plugin marketplace for the work developers do
 
 No network access, no telemetry: scripts read the files you point them at and write only where you ask.
 
+Find this when you search for: code review checklist, tech debt, code smells, flaky tests, CI fails randomly, race condition, Docker image too big, zero-downtime migration, ReDoS, release notes, incident report, OWASP Top 10, npm audit fix.
+
 Install:
 
 ```text
@@ -204,7 +208,7 @@ Install:
 /plugin install code-quality@claude-dev-skills
 ```
 
-Latest release: v0.1.1 (2026-10-04) https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.1.1
+Latest release: v0.1.2 (2026-10-05) https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.1.2
 
 ## agent-security-skills
 
@@ -220,6 +224,8 @@ agent-security-skills is a Claude Code plugin marketplace and an [agentskills.io
 
 Eight skills (each with a tested script or a checklist), three slash commands, a subagent, two guard hooks for `Bash`, and an optional MCP server over the [ai-agent-incidents](https://github.com/basitalisandhu/ai-agent-incidents) dataset (80 documented events mapped to OWASP Agentic, OWASP LLM and MITRE ATLAS). No telemetry, no network calls except the documented, opt-in dataset refresh.
 
+Typical questions it answers: "is this MCP server safe to install?", "does this agent have the lethal trifecta?" and "could a malicious skill or plugin in this repository take over my agent?".
+
 Install:
 
 ```text
@@ -227,7 +233,7 @@ Install:
 /plugin install agent-security@agent-security-skills
 ```
 
-Latest release: v0.1.1 (2026-10-04) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.1
+Latest release: v0.1.2 (2026-10-05) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.2
 
 ## github-manager-skills
 
@@ -240,6 +246,8 @@ Claude Code skills for engineering managers that compute from exported GitHub da
 **Engineering manager skills for Claude Code that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report, and an incident postmortem timeline, every number cited to the PR or issue it came from.**
 
 github-manager-skills is a Claude Code plugin with three skills for engineering managers and tech leads who report on work that lives in GitHub. It exists because manager artefacts (the standup digest, the sprint report, the postmortem timeline) are usually written from memory, and memory miscounts: a PR merged the day after the sprint gets included, the mitigation lands before the label, the reviewer with ten pending requests goes unnoticed. Each skill reads a saved `gh` export with a standard-library Python script, computes the figures with stated definitions, and cites every row, so the text Claude writes can be checked by clicking the links.
+
+Common searches it answers: stale PRs and review bottlenecks, cycle time to merge and review turnaround (the DORA metrics' lead time for changes up to the merge, not the other three), and a cited incident postmortem timeline. It does not do issue triage.
 
 ```text
 /plugin marketplace add basitalisandhu/github-manager-skills
@@ -306,7 +314,7 @@ claude mcp add jwt-tools -- npx -y @basitalisandhu/mcp-jwt-tools@0.1.1
 claude mcp list
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.1.1
 
 ## mcp-server-template
 
@@ -326,7 +334,7 @@ npm ci && npm run build && npm test
 MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing one directory
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.1.1
 
 ## mcp-tools-lint
 
@@ -348,7 +356,7 @@ npm install -g @basitalisandhu/mcp-tools-lint@0.1.1    # global CLI, installs th
 npm install -D @basitalisandhu/mcp-tools-lint@0.1.1    # as a dev dependency of a server project
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.1.1
 
 ## mcp-auth-doctor
 
@@ -370,7 +378,7 @@ uvx --from git+https://github.com/basitalisandhu/mcp-auth-doctor mcp-auth-doctor
 pip install git+https://github.com/basitalisandhu/mcp-auth-doctor                                  # into the current environment
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.1.1
 
 ## mcp-egress
 
@@ -391,7 +399,7 @@ pip install git+https://github.com/basitalisandhu/mcp-egress                    
 git clone https://github.com/basitalisandhu/mcp-egress && cd mcp-egress && uv venv && uv pip install -e ".[dev]"   # development
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.1.1
 
 ## claude-mcp-allow
 
@@ -410,7 +418,7 @@ npx @basitalisandhu/claude-mcp-allow                    # run without installing
 npm install -g @basitalisandhu/claude-mcp-allow@0.1.1   # or install the claude-mcp-allow command
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.1.1
 
 ## agentdojo-mcp
 
@@ -450,6 +458,32 @@ agentdojo-mcp run --suite travel --mapping mapping.yaml --stdio "python my_serve
 
 Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.1.0
 
+## garak-mcp-probes
+
+Page: https://basitalisandhu.github.io/garak-mcp-probes/
+Repository: https://github.com/basitalisandhu/garak-mcp-probes
+Theme: MCP tooling
+
+Run garak against your own MCP servers.
+
+**garak-mcp-probes puts garak's existing probes through an agent that uses your own MCP servers, records every tool call the agent makes, and scores that trace with detectors for deny-listed tools, leaked canary strings, tools outside an allow-list, runaway loops and failed calls.**
+
+For servers and agents you own or are authorised to test. This repository contains no probes, no injection payloads and no jailbreak text: every prompt comes from the garak you have installed.
+
+```bash
+pip install "garak-mcp-probes @ git+https://github.com/basitalisandhu/garak-mcp-probes"
+garak-mcp run --dry-run --probes test.Test --report-dir garak-mcp-report
+```
+
+Install:
+
+```bash
+garak-mcp doctor --dry-run
+garak-mcp run --dry-run --probes test.Test --report-dir garak-mcp-report
+```
+
+Latest release: v0.1.0 (2026-10-05) https://github.com/basitalisandhu/garak-mcp-probes/releases/tag/v0.1.0
+
 ## mcp-rc-check
 
 Page: https://basitalisandhu.github.io/mcp-rc-check/
@@ -487,7 +521,7 @@ atm init system.yaml                 # writes the support-bot example
 atm analyse system.yaml
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/agent-threat-model/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/agent-threat-model/releases/tag/v0.1.1
 
 ## agent-config-audit
 
@@ -510,7 +544,7 @@ agent-config-audit --format sarif --output agent-config-audit.sarif
 agent-config-audit --include-home       # also ~/.claude, ~/.cursor, the Claude Desktop config
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.1.1
 
 ## agentic-semgrep-rules
 
@@ -555,7 +589,7 @@ GitHub Actions for AI agent and supply chain security checks.
 GitHub Actions for AI agent and supply chain security checks. Six small composite actions, each in its own directory with a dependency-free Python or Node script and a test suite, that teams drop into CI with one `uses:` line. The agent-side actions find risky agent configuration and leaked credentials in prompt files; the supply-chain actions diff SBOMs, audit licences, keep `llms.txt` valid and tell search engines about changed pages.
 
 ```yaml
-- uses: basitalisandhu/security-actions/agent-config-audit@v1
+- uses: basitalisandhu/security-actions/agent-config-audit@v0
 ```
 
 Install:
@@ -574,9 +608,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: basitalisandhu/security-actions/agent-config-audit@v1
-      - uses: basitalisandhu/security-actions/prompt-secrets-scan@v1
-      - uses: basitalisandhu/security-actions/license-audit@v1
+      - uses: basitalisandhu/security-actions/agent-config-audit@v0
+      - uses: basitalisandhu/security-actions/prompt-secrets-scan@v0
+      - uses: basitalisandhu/security-actions/license-audit@v0
 # ... see the README for the rest
 ```
 
@@ -598,7 +632,7 @@ Install:
 pipx install git+https://github.com/basitalisandhu/cc-hooks   # the cc-hooks command (see "Install" for the library side)
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/cc-hooks/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/cc-hooks/releases/tag/v0.1.1
 
 ## cc-plugin-lock
 
@@ -671,7 +705,7 @@ llms-txt-gen check llms.txt
 llms-txt-gen serve-snippet
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.1.1
 
 ## scp-guardrails
 

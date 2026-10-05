@@ -26,6 +26,7 @@
         "mcp-egress",
         "claude-mcp-allow",
         "agentdojo-mcp",
+        "garak-mcp-probes",
         "mcp-rc-check"
       ]
     },
@@ -94,6 +95,12 @@
       },
       "releases": [
         {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.1.1"
+        },
+        {
           "tag": "v0.1.0",
           "name": "v0.1.0",
           "date": "2026-10-04",
@@ -133,13 +140,19 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/agent-security-skills/",
       "own_site": null,
-      "intro_md": "**Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review and incident lookup.**\n\nagent-security-skills is a Claude Code plugin marketplace and an [agentskills.io](https://agentskills.io)-compatible skill pack for people who build or run LLM agents against real APIs, MCP servers and codebases: security engineers reviewing an agent before it ships, and developers who want that review inside the tool they already use. Each skill is a procedure with a tested script or a fixed checklist, so two reviewers reach the same verdict and the evidence is a file, a line or a command output.\n\nEight skills (each with a tested script or a checklist), three slash commands, a subagent, two guard hooks for `Bash`, and an optional MCP server over the [ai-agent-incidents](https://github.com/basitalisandhu/ai-agent-incidents) dataset (80 documented events mapped to OWASP Agentic, OWASP LLM and MITRE ATLAS). No telemetry, no network calls except the documented, opt-in dataset refresh.",
+      "intro_md": "**Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review and incident lookup.**\n\nagent-security-skills is a Claude Code plugin marketplace and an [agentskills.io](https://agentskills.io)-compatible skill pack for people who build or run LLM agents against real APIs, MCP servers and codebases: security engineers reviewing an agent before it ships, and developers who want that review inside the tool they already use. Each skill is a procedure with a tested script or a fixed checklist, so two reviewers reach the same verdict and the evidence is a file, a line or a command output.\n\nEight skills (each with a tested script or a checklist), three slash commands, a subagent, two guard hooks for `Bash`, and an optional MCP server over the [ai-agent-incidents](https://github.com/basitalisandhu/ai-agent-incidents) dataset (80 documented events mapped to OWASP Agentic, OWASP LLM and MITRE ATLAS). No telemetry, no network calls except the documented, opt-in dataset refresh.\n\nTypical questions it answers: \"is this MCP server safe to install?\", \"does this agent have the lethal trifecta?\" and \"could a malicious skill or plugin in this repository take over my agent?\".",
       "install": {
         "lang": "text",
         "code": "/plugin marketplace add basitalisandhu/agent-security-skills\n/plugin install agent-security@agent-security-skills",
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.1.2",
+          "name": "v0.1.2",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.2"
+        },
         {
           "tag": "v0.1.1",
           "name": "v0.1.1",
@@ -193,6 +206,12 @@
         "from": "30-second demo"
       },
       "releases": [
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/agent-threat-model/releases/tag/v0.1.1"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -395,13 +414,19 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/aws-security-skills/",
       "own_site": null,
-      "intro_md": "**AWS security skills for Claude Code: account audit, SCP guardrails, blast-radius landing zones, IAM least privilege, Security Hub triage, agent-safe access, incident response runbooks, spend guardrails, sandbox guardrails.**\n\naws-security-skills is a Claude Code plugin marketplace with one plugin, `aws-security`, holding nine skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skills tell Claude which read-only `aws` CLI commands to run and where to save the JSON, or which short spec to write; the scripts then evaluate that saved output, or generate policies and runbooks from the spec, offline, so results are repeatable, reviewable by someone without account access, and produced without the script ever touching AWS.\n\nIt is written for cloud and platform engineers who look after one or many AWS accounts, especially multi-account organizations governed by service control policies. It exists because the same questions come up on every account (is root protected, is CloudTrail on, can this role escalate, which SCPs go where, what do we fix first in Security Hub, what may an AI agent do here, what do we do in the first hour of an incident, how do we stop a runaway bill), and a scripted procedure answers them the same way each time.\n\nNo network access from the scripts, no telemetry. Nothing in this repository changes an AWS account: every skill proposes fix commands and runs one only after you confirm that exact command.",
+      "intro_md": "**AWS security skills for Claude Code: account audit, SCP guardrails, blast-radius landing zones, IAM least privilege, Security Hub triage, agent-safe access, incident response runbooks, spend guardrails, sandbox guardrails.**\n\naws-security-skills is a Claude Code plugin marketplace with one plugin, `aws-security`, holding nine skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skills tell Claude which read-only `aws` CLI commands to run and where to save the JSON, or which short spec to write; the scripts then evaluate that saved output, or generate policies and runbooks from the spec, offline, so results are repeatable, reviewable by someone without account access, and produced without the script ever touching AWS.\n\nIt is written for cloud and platform engineers who look after one or many AWS accounts, especially multi-account organizations governed by service control policies. It exists because the same questions come up on every account (is root protected, is CloudTrail on, can this role escalate, which SCPs go where, what do we fix first in Security Hub, what may an AI agent do here, what do we do in the first hour of an incident, how do we stop a runaway bill), and a scripted procedure answers them the same way each time.\n\nCommon searches it answers: a CIS AWS Foundations benchmark style account check, a Well-Architected security pillar review of account structure, and a permission boundary for an AI agent role.\n\nNo network access from the scripts, no telemetry. Nothing in this repository changes an AWS account: every skill proposes fix commands and runs one only after you confirm that exact command.",
       "install": {
         "lang": "text",
         "code": "/plugin marketplace add basitalisandhu/aws-security-skills\n/plugin install aws-security@aws-security-skills",
         "from": "Quickstart"
       },
       "releases": [
+        {
+          "tag": "v0.2.1",
+          "name": "v0.2.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.2.1"
+        },
         {
           "tag": "v0.2.0",
           "name": "v0.2.0",
@@ -460,6 +485,12 @@
         "from": "30-second demo"
       },
       "releases": [
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/cc-hooks/releases/tag/v0.1.1"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -545,13 +576,19 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/claude-dev-skills/",
       "own_site": null,
-      "intro_md": "**Claude Code skills for everyday development: code review, refactoring, debugging, CI and containers, data and APIs, documentation, and security basics. Forty skills in six plugins, each with a procedure, an output format and, where it helps, a tested standard-library script.**\n\nclaude-dev-skills is a Claude Code plugin marketplace for the work developers do every day: reviewing a pull request, finding why a test is flaky, hardening a Dockerfile, planning a schema migration, writing release notes, checking a token. Each skill is a fixed procedure with a concrete output, so two people (or two sessions) reach the same result and the evidence is a file, a line or a command output. Twenty-three skills bundle a Python script (standard library only, `--json` output, tested) that does the mechanical part; the rest bundle checklists and templates.\n\nNo network access, no telemetry: scripts read the files you point them at and write only where you ask.",
+      "intro_md": "**Claude Code skills for everyday development: code review, refactoring, debugging, CI and containers, data and APIs, documentation, and security basics. Forty skills in six plugins, each with a procedure, an output format and, where it helps, a tested standard-library script.**\n\nclaude-dev-skills is a Claude Code plugin marketplace for the work developers do every day: reviewing a pull request, finding why a test is flaky, hardening a Dockerfile, planning a schema migration, writing release notes, checking a token. Each skill is a fixed procedure with a concrete output, so two people (or two sessions) reach the same result and the evidence is a file, a line or a command output. Twenty-three skills bundle a Python script (standard library only, `--json` output, tested) that does the mechanical part; the rest bundle checklists and templates.\n\nNo network access, no telemetry: scripts read the files you point them at and write only where you ask.\n\nFind this when you search for: code review checklist, tech debt, code smells, flaky tests, CI fails randomly, race condition, Docker image too big, zero-downtime migration, ReDoS, release notes, incident report, OWASP Top 10, npm audit fix.",
       "install": {
         "lang": "text",
         "code": "/plugin marketplace add basitalisandhu/claude-dev-skills\n/plugin install code-quality@claude-dev-skills",
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.1.2",
+          "name": "v0.1.2",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.1.2"
+        },
         {
           "tag": "v0.1.1",
           "name": "v0.1.1",
@@ -604,6 +641,12 @@
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.1.1"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -689,7 +732,7 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/claude-skills/",
       "own_site": "https://basitalisandhu.github.io/claude-skills/",
-      "intro_md": "**87 skills in 13 plugins, from 8 source repositories, as of 2026-10-04.**\n\nThis repository collects every Claude Code skill I maintain. Clone it once and you have all of them. It is also one Claude Code plugin marketplace, so you can install any plugin from it by name. The numbers above are a snapshot; the [catalog](https://github.com/basitalisandhu/claude-skills#catalog) below is regenerated on every sync and is the live count.\n\nBrowse the skills on the site: <https://basitalisandhu.github.io/claude-skills/>",
+      "intro_md": "This repository collects every Claude Code skill I maintain. Clone it once and you have all of them. It is also one Claude Code plugin marketplace, so you can install any plugin from it by name. The numbers above are a snapshot; the [catalog](https://github.com/basitalisandhu/claude-skills#catalog) below is regenerated on every sync and is the live count.\n\nBrowse the skills on the site: <https://basitalisandhu.github.io/claude-skills/>",
       "install": {
         "lang": "text",
         "code": "/plugin marketplace add basitalisandhu/claude-skills\n/plugin install aws-security@claude-skills",
@@ -735,13 +778,19 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/compliance-evidence-skills/",
       "own_site": null,
-      "intro_md": "**Compliance evidence skills for Claude Code: build integrity-checked evidence packs from GitHub, AWS and Microsoft 365 exports, map them to ISO 27001 and SOC 2 control identifiers, and draft auditor narratives that cite evidence or say not assessable.**\n\ncompliance-evidence-skills is a Claude Code plugin marketplace with one plugin, `compliance-evidence`, holding five skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skills tell Claude which read-only exports to take and which permission each needs; the scripts then work on the saved files: hash them into a pack with a manifest, map them to control identifiers, and draft narratives in which every evidence statement cites a file and field.\n\nIt is written for the people who prepare an ISO 27001 or SOC 2 assessment in a small or mid-sized organisation: engineers and IT administrators who own GitHub, AWS and Microsoft 365, and the security or compliance lead who has to hand evidence to an assessor. It exists because evidence is still mostly screenshots and loose exports with no record of who took them, when, or with which command, and because tools that turn an API error into a control failure (or a missing file into a pass) cost hours of argument during fieldwork. These skills keep three result states only, `supported`, `contradicted` and `not assessable`, and never mark a control supported without a cited evidence file and field.\n\nNo network access from the scripts, no telemetry. All inputs are exports already on disk.\n\n```text\n/plugin marketplace add basitalisandhu/compliance-evidence-skills\n/plugin install compliance-evidence@compliance-evidence-skills\n```",
+      "intro_md": "**Compliance evidence skills for Claude Code: build integrity-checked evidence packs from GitHub, AWS and Microsoft 365 exports, map them to ISO 27001 and SOC 2 control identifiers, and draft auditor narratives that cite evidence or say not assessable.**\n\ncompliance-evidence-skills is a Claude Code plugin marketplace with one plugin, `compliance-evidence`, holding five skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skills tell Claude which read-only exports to take and which permission each needs; the scripts then work on the saved files: hash them into a pack with a manifest, map them to control identifiers, and draft narratives in which every evidence statement cites a file and field.\n\nIt is written for the people who prepare an ISO 27001 or SOC 2 assessment in a small or mid-sized organisation: engineers and IT administrators who own GitHub, AWS and Microsoft 365, and the security or compliance lead who has to hand evidence to an assessor. It exists because evidence is still mostly screenshots and loose exports with no record of who took them, when, or with which command, and because tools that turn an API error into a control failure (or a missing file into a pass) cost hours of argument during fieldwork. These skills keep three result states only, `supported`, `contradicted` and `not assessable`, and never mark a control supported without a cited evidence file and field.\n\nCommon searches it answers: SOC 2 Type II evidence from GitHub and AWS, an ISO 27001 or SOC 2 readiness assessment, and packing a Vanta or Drata export with a hash manifest for the assessor.\n\nNo network access from the scripts, no telemetry. All inputs are exports already on disk.\n\n```text\n/plugin marketplace add basitalisandhu/compliance-evidence-skills\n/plugin install compliance-evidence@compliance-evidence-skills\n```",
       "install": {
         "lang": "bash",
         "code": "python3 plugins/compliance-evidence/skills/evidence-pack-builder/scripts/evidence_pack.py build tests/fixtures/exports --out /tmp/pack\npython3 plugins/compliance-evidence/skills/evidence-pack-builder/scripts/evidence_pack.py verify tests/fixtures/evidence-pack/tampered-pack\npython3 plugins/compliance-evidence/skills/control-map-from-exports/scripts/control_map.py /tmp/pack --framework iso27001 \\\n  --map plugins/compliance-evidence/skills/control-map-from-exports/references/starter-map.yaml --out /tmp/control-map.json\npython3 plugins/compliance-evidence/skills/auditor-narrative-drafter/scripts/narrative.py /tmp/control-map.json --control A.8.15\npython3 plugins/compliance-evidence/skills/github-change-control-evidence/scripts/github_evidence.py tests/fixtures/github/free-plan",
         "from": "Quickstart"
       },
       "releases": [
+        {
+          "tag": "v0.1.2",
+          "name": "v0.1.2",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.1.2"
+        },
         {
           "tag": "v0.1.1",
           "name": "v0.1.1",
@@ -797,10 +846,61 @@
       },
       "releases": [
         {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.1.1"
+        },
+        {
           "tag": "v0.1.0",
           "name": "v0.1.0",
           "date": "2026-10-04",
           "url": "https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "garak-mcp-probes",
+      "description": "Run garak against your own MCP servers: a garak generator that drives an agent with tools from your MCP servers, plus detectors that fire when a probe makes the agent call a denied tool, leak a planted canary or exceed its step budget. Reuses garak's probe catalogue, adds no attack content, runs offline in dry-run mode. 111 tests.",
+      "one_liner": "Run garak against your own MCP servers.",
+      "theme": "MCP tooling",
+      "topics": [
+        "agent-security",
+        "ai-agents",
+        "ai-security",
+        "cli",
+        "detectors",
+        "docker",
+        "garak",
+        "hacktoberfest",
+        "llm-security",
+        "mcp",
+        "model-context-protocol",
+        "prompt-injection",
+        "python",
+        "red-team",
+        "sbom",
+        "security-testing",
+        "tool-use"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/garak-mcp-probes",
+      "default_branch": "main",
+      "homepage": "https://basitalisandhu.github.io/garak-mcp-probes/",
+      "own_site": null,
+      "intro_md": "**garak-mcp-probes puts garak's existing probes through an agent that uses your own MCP servers, records every tool call the agent makes, and scores that trace with detectors for deny-listed tools, leaked canary strings, tools outside an allow-list, runaway loops and failed calls.**\n\nFor servers and agents you own or are authorised to test. This repository contains no probes, no injection payloads and no jailbreak text: every prompt comes from the garak you have installed.\n\n```bash\npip install \"garak-mcp-probes @ git+https://github.com/basitalisandhu/garak-mcp-probes\"\ngarak-mcp run --dry-run --probes test.Test --report-dir garak-mcp-report\n```",
+      "install": {
+        "lang": "bash",
+        "code": "garak-mcp doctor --dry-run\ngarak-mcp run --dry-run --probes test.Test --report-dir garak-mcp-report",
+        "from": "Quick start (offline)"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/garak-mcp-probes/releases/tag/v0.1.0"
         }
       ]
     },
@@ -836,7 +936,7 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/github-manager-skills/",
       "own_site": null,
-      "intro_md": "**Engineering manager skills for Claude Code that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report, and an incident postmortem timeline, every number cited to the PR or issue it came from.**\n\ngithub-manager-skills is a Claude Code plugin with three skills for engineering managers and tech leads who report on work that lives in GitHub. It exists because manager artefacts (the standup digest, the sprint report, the postmortem timeline) are usually written from memory, and memory miscounts: a PR merged the day after the sprint gets included, the mitigation lands before the label, the reviewer with ten pending requests goes unnoticed. Each skill reads a saved `gh` export with a standard-library Python script, computes the figures with stated definitions, and cites every row, so the text Claude writes can be checked by clicking the links.\n\n```text\n/plugin marketplace add basitalisandhu/github-manager-skills\n/plugin install github-manager@github-manager-skills\n```\n\nQuickstart: open Claude Code and ask \"which PRs are stuck on OWNER/REPO?\"; the skill gives you the `gh` export commands to run, then reads the files. Or run a script directly from a clone of this repository on the committed fixture:\n\n```bash\npython3 scripts/cli.py pr-queue tests/fixtures/pr_queue\n```\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/github-manager-skills/blob/main/SECURITY.md).",
+      "intro_md": "**Engineering manager skills for Claude Code that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report, and an incident postmortem timeline, every number cited to the PR or issue it came from.**\n\ngithub-manager-skills is a Claude Code plugin with three skills for engineering managers and tech leads who report on work that lives in GitHub. It exists because manager artefacts (the standup digest, the sprint report, the postmortem timeline) are usually written from memory, and memory miscounts: a PR merged the day after the sprint gets included, the mitigation lands before the label, the reviewer with ten pending requests goes unnoticed. Each skill reads a saved `gh` export with a standard-library Python script, computes the figures with stated definitions, and cites every row, so the text Claude writes can be checked by clicking the links.\n\nCommon searches it answers: stale PRs and review bottlenecks, cycle time to merge and review turnaround (the DORA metrics' lead time for changes up to the merge, not the other three), and a cited incident postmortem timeline. It does not do issue triage.\n\n```text\n/plugin marketplace add basitalisandhu/github-manager-skills\n/plugin install github-manager@github-manager-skills\n```\n\nQuickstart: open Claude Code and ask \"which PRs are stuck on OWNER/REPO?\"; the skill gives you the `gh` export commands to run, then reads the files. Or run a script directly from a clone of this repository on the committed fixture:\n\n```bash\npython3 scripts/cli.py pr-queue tests/fixtures/pr_queue\n```\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/github-manager-skills/blob/main/SECURITY.md).",
       "install": null,
       "releases": [
         {
@@ -890,6 +990,12 @@
         "from": "Quickstart"
       },
       "releases": [
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.1.1"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -1049,6 +1155,12 @@
       },
       "releases": [
         {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.1.1"
+        },
+        {
           "tag": "v0.1.0",
           "name": "v0.1.0",
           "date": "2026-10-04",
@@ -1093,6 +1205,12 @@
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.1.1"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -1192,6 +1310,12 @@
       },
       "releases": [
         {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.1.1"
+        },
+        {
           "tag": "v0.1.0",
           "name": "0.1.0",
           "date": "2026-10-04",
@@ -1237,6 +1361,12 @@
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.1.1"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -1387,16 +1517,16 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/security-actions/",
       "own_site": null,
-      "intro_md": "GitHub Actions for AI agent and supply chain security checks. Six small composite actions, each in its own directory with a dependency-free Python or Node script and a test suite, that teams drop into CI with one `uses:` line. The agent-side actions find risky agent configuration and leaked credentials in prompt files; the supply-chain actions diff SBOMs, audit licences, keep `llms.txt` valid and tell search engines about changed pages.\n\n```yaml\n- uses: basitalisandhu/security-actions/agent-config-audit@v1\n```",
+      "intro_md": "GitHub Actions for AI agent and supply chain security checks. Six small composite actions, each in its own directory with a dependency-free Python or Node script and a test suite, that teams drop into CI with one `uses:` line. The agent-side actions find risky agent configuration and leaked credentials in prompt files; the supply-chain actions diff SBOMs, audit licences, keep `llms.txt` valid and tell search engines about changed pages.\n\n```yaml\n- uses: basitalisandhu/security-actions/agent-config-audit@v0\n```",
       "install": {
         "lang": "yaml",
-        "code": "name: security-actions\non:\n  push:\n    branches: [main]\n  pull_request:\npermissions:\n  contents: read\n  security-events: write\njobs:\n  checks:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: basitalisandhu/security-actions/agent-config-audit@v1\n      - uses: basitalisandhu/security-actions/prompt-secrets-scan@v1\n      - uses: basitalisandhu/security-actions/license-audit@v1\n# ... see the README for the rest",
+        "code": "name: security-actions\non:\n  push:\n    branches: [main]\n  pull_request:\npermissions:\n  contents: read\n  security-events: write\njobs:\n  checks:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: basitalisandhu/security-actions/agent-config-audit@v0\n      - uses: basitalisandhu/security-actions/prompt-secrets-scan@v0\n      - uses: basitalisandhu/security-actions/license-audit@v0\n# ... see the README for the rest",
         "from": "Quick start"
       },
       "releases": [
         {
           "tag": "v0.1.0",
-          "name": "0.1.0",
+          "name": "v0.1.0",
           "date": "2026-10-04",
           "url": "https://github.com/basitalisandhu/security-actions/releases/tag/v0.1.0"
         }
@@ -1522,9 +1652,15 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/ways-of-working-skills/",
       "own_site": null,
-      "intro_md": "**Nine skills: change requests, action ledgers, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger and focus time from a calendar export. Offline, standard-library scripts, tested.**\n\nways-of-working-skills is a Claude Code plugin for the records that keep a team honest about its own process: what a change will do before the board approves it, which actions from last month's meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, and where the focus time went. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.\n\n```text\n/plugin marketplace add basitalisandhu/ways-of-working-skills\n/plugin install ways-of-working@ways-of-working-skills\n```\n\nQuickstart: open Claude Code in a folder of meeting notes and ask \"which actions from our syncs are overdue?\". Or run a script directly from a clone of this repository:\n\n```bash\npython3 scripts/cli.py meeting-ledger path/to/notes --as-of 2026-10-05\npython3 scripts/cli.py change-request plan.json --out change-record.md\n```\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/ways-of-working-skills/blob/main/SECURITY.md).\n\nThis pack is part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.",
+      "intro_md": "**Twelve skills: change requests, action ledgers, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger, focus time from a calendar export, a vendor scorecard, a working agreement check and a shift handover note. Offline, standard-library scripts, tested.**\n\nways-of-working-skills is a Claude Code plugin for the records that keep a team honest about its own process: what a change will do before the board approves it, which actions from last month's meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, where the focus time went, whether a vendor choice survives a change of weights, whether the repository settings match the team's working agreement, and what the next on-call shift needs to know. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.\n\n```text\n/plugin marketplace add basitalisandhu/ways-of-working-skills\n/plugin install ways-of-working@ways-of-working-skills\n```\n\nQuickstart: open Claude Code in a folder of meeting notes and ask \"which actions from our syncs are overdue?\". Or run a script directly from a clone of this repository:\n\n```bash\npython3 scripts/cli.py meeting-ledger path/to/notes --as-of 2026-10-05\npython3 scripts/cli.py change-request plan.json --out change-record.md\n```\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/ways-of-working-skills/blob/main/SECURITY.md).\n\nThis pack is part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.",
       "install": null,
       "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-05",
+          "url": "https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.2.0"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",

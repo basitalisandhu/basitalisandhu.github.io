@@ -37,7 +37,7 @@
   ]
  },
  "keywords": "agent-skills, calendar, change-management, claude-code, claude-code-plugin, claude-skills, decision-log, engineering-management, hacktoberfest, meeting-notes, one-on-ones, productivity, python, rfc, risk-register, security-exceptions, status-reports, terraform, ways-of-working",
- "version": "0.1.0",
+ "version": "0.2.0",
  "dateModified": "2026-10-05"
 }
 </script>
@@ -48,10 +48,10 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
 <h1>ways-of-working-skills</h1>
 <p class="lede">Claude Code skills for ways of working: change requests from a Terraform plan, an action ledger across meeting notes, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger and focus time from a calendar export.</p>
-<p class="meta">Python · MIT · latest v0.1.0</p>
+<p class="meta">Python · MIT · latest v0.2.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
-<p><strong>Nine skills: change requests, action ledgers, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger and focus time from a calendar export. Offline, standard-library scripts, tested.</strong></p>
-<p>ways-of-working-skills is a Claude Code plugin for the records that keep a team honest about its own process: what a change will do before the board approves it, which actions from last month&#x27;s meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, and where the focus time went. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.</p>
+<p><strong>Twelve skills: change requests, action ledgers, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger, focus time from a calendar export, a vendor scorecard, a working agreement check and a shift handover note. Offline, standard-library scripts, tested.</strong></p>
+<p>ways-of-working-skills is a Claude Code plugin for the records that keep a team honest about its own process: what a change will do before the board approves it, which actions from last month&#x27;s meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, where the focus time went, whether a vendor choice survives a change of weights, whether the repository settings match the team&#x27;s working agreement, and what the next on-call shift needs to know. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.</p>
 <pre><code class="language-text">/plugin marketplace add basitalisandhu/ways-of-working-skills
 /plugin install ways-of-working@ways-of-working-skills</code></pre>
 <p>Quickstart: open Claude Code in a folder of meeting notes and ask &quot;which actions from our syncs are overdue?&quot;. Or run a script directly from a clone of this repository:</p>
@@ -67,6 +67,7 @@ python3 scripts/cli.py change-request plan.json --out change-record.md</code></p
 <li><a href="https://github.com/basitalisandhu/ways-of-working-skills/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-05">2026-10-05</time></li>
 </ul></section>
 <p class="topics">Topics: agent-skills, calendar, change-management, claude-code, claude-code-plugin, claude-skills, decision-log, engineering-management, hacktoberfest, meeting-notes, one-on-ones, productivity, python, rfc, risk-register, security-exceptions, status-reports, terraform, ways-of-working</p>
