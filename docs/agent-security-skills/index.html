@@ -37,7 +37,7 @@
   ]
  },
  "keywords": "agent-security, agent-skills, agentic-ai, ai-agents, ai-security, claude-code, claude-code-hooks, claude-code-plugin, devsecops, hacktoberfest, llm-security, mcp, mcp-server, owasp, prompt-injection, security-automation, security-tools, semgrep, threat-modeling",
- "version": "0.1.2",
+ "version": "0.2.0",
  "dateModified": "2026-10-05"
 }
 </script>
@@ -48,12 +48,13 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
 <h1>agent-security-skills</h1>
 <p class="lede">Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review, incident lookup.</p>
-<p class="meta">Python · MIT · latest v0.1.2</p>
+<p class="meta">Python · MIT · latest v0.2.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
-<p><strong>Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review and incident lookup.</strong></p>
+<p><strong>Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review, incident lookup and agent session log review.</strong></p>
 <p>agent-security-skills is a Claude Code plugin marketplace and an <a href="https://agentskills.io">agentskills.io</a>-compatible skill pack for people who build or run LLM agents against real APIs, MCP servers and codebases: security engineers reviewing an agent before it ships, and developers who want that review inside the tool they already use. Each skill is a procedure with a tested script or a fixed checklist, so two reviewers reach the same verdict and the evidence is a file, a line or a command output.</p>
-<p>Eight skills (each with a tested script or a checklist), three slash commands, a subagent, two guard hooks for <code>Bash</code>, and an optional MCP server over the <a href="https://github.com/basitalisandhu/ai-agent-incidents">ai-agent-incidents</a> dataset (80 documented events mapped to OWASP Agentic, OWASP LLM and MITRE ATLAS). No telemetry, no network calls except the documented, opt-in dataset refresh.</p>
-<p>Typical questions it answers: &quot;is this MCP server safe to install?&quot;, &quot;does this agent have the lethal trifecta?&quot; and &quot;could a malicious skill or plugin in this repository take over my agent?&quot;.</p>
+<p>Nine skills (each with a tested script or a checklist), three slash commands, a subagent, two guard hooks for <code>Bash</code>, and an optional MCP server over the <a href="https://github.com/basitalisandhu/ai-agent-incidents">ai-agent-incidents</a> dataset (80 documented events mapped to OWASP Agentic, OWASP LLM and MITRE ATLAS). No telemetry, no network calls except the documented, opt-in dataset refresh.</p>
+<p>Typical questions it answers: &quot;is this MCP server safe to install?&quot;, &quot;does this agent have the lethal trifecta?&quot;, &quot;could a malicious skill or plugin in this repository take over my agent?&quot; and &quot;what did the agent actually do in this session?&quot;.</p>
+<p>Find this when you search for: AI agent session log review, Claude Code transcript audit, agent observability for actions outside policy, detecting prompt injection in agent logs, agent data exfiltration check.</p>
 </section>
 <section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
 <pre><code class="language-text">/plugin marketplace add basitalisandhu/agent-security-skills
@@ -66,6 +67,7 @@
 <li><a href="https://github.com/basitalisandhu/agent-security-skills/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.2">v0.1.2</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-04">2026-10-04</time></li>
 <li><a href="https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>

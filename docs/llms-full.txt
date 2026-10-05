@@ -131,20 +131,15 @@ Theme: Claude Code skill packs
 
 Microsoft 365 governance skills for Claude Code: Entra ID posture review, Intune baseline check, Graph permission preflight, Teams and group sprawl, access review pack.
 
-**Microsoft 365 governance skills for Claude Code: Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence audit, Intune baseline check, Graph permission preflight, Teams and group sprawl report, access review pack. Scripts read exported Graph JSON offline.**
+**Microsoft 365 governance skills for Claude Code: Entra ID posture review, Conditional Access gap analysis, privileged access review, guest and external sharing review, licence audit, Intune baseline check, Graph permission preflight, Teams and group sprawl report, access review pack, Copilot oversharing readiness. Scripts read exported Graph and SharePoint JSON offline.**
 
-m365-governance-skills is a Claude Code plugin marketplace with one plugin, `m365-governance`, holding nine skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skill tells Claude which read-only Microsoft Graph exports to run and which permission each one needs; the script then evaluates the saved JSON on your machine. Results are repeatable, can be checked by someone without tenant access, and are produced without the script ever calling Microsoft Graph.
+m365-governance-skills is a Claude Code plugin marketplace with one plugin, `m365-governance`, holding ten skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skill tells Claude which read-only Microsoft Graph exports to run and which permission each one needs; the script then evaluates the saved JSON on your machine. Results are repeatable, can be checked by someone without tenant access, and are produced without the script ever calling Microsoft Graph.
 
 It is written for administrators who look after Microsoft 365, Entra ID and Intune for a company or for clients, often alongside other duties. It exists because the governance questions repeat in every tenant (who are the Global Admins, is MFA really enforced and for whom, which guests can still reach what, which licences sit on disabled accounts, which teams have no owner, what is this connector asking for, what goes into this quarter's access review), and agents now connect to Microsoft 365 with broad Graph permissions. Message triage and daily digests are already covered by first-party plugins; this pack is the governance layer underneath: what can touch the tenant, and is the tenant in the state you think it is.
 
-Common searches it answers: Copilot oversharing readiness at the tenant sharing level, the identity controls behind Microsoft Secure Score, and guest access reviews. A per-site SharePoint site permissions audit is not covered.
+Common searches it answers: Copilot oversharing readiness site by site ("are we ready to turn on Copilot?", "which sites are shared with Everyone except external users?"), a Copilot deployment oversharing assessment with fixes per site owner, the identity controls behind Microsoft Secure Score, and guest access reviews. A full per-item SharePoint permissions audit is not covered.
 
 No network access from the scripts, no telemetry. Nothing in this repository changes a tenant: every skill proposes a portal path or a Graph call and runs a change only after you confirm that exact command.
-
-```text
-/plugin marketplace add basitalisandhu/m365-governance-skills
-/plugin install m365-governance@m365-governance-skills
-```
 
 Install:
 
@@ -153,7 +148,7 @@ claude plugin marketplace add basitalisandhu/m365-governance-skills
 claude plugin install m365-governance@m365-governance-skills --scope user
 ```
 
-Latest release: v0.2.2 (2026-10-05) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.2
+Latest release: v0.3.0 (2026-10-05) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.3.0
 
 ## compliance-evidence-skills
 
@@ -224,13 +219,15 @@ Theme: Claude Code skill packs
 
 Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review, incident lookup.
 
-**Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review and incident lookup.**
+**Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review, incident lookup and agent session log review.**
 
 agent-security-skills is a Claude Code plugin marketplace and an [agentskills.io](https://agentskills.io)-compatible skill pack for people who build or run LLM agents against real APIs, MCP servers and codebases: security engineers reviewing an agent before it ships, and developers who want that review inside the tool they already use. Each skill is a procedure with a tested script or a fixed checklist, so two reviewers reach the same verdict and the evidence is a file, a line or a command output.
 
-Eight skills (each with a tested script or a checklist), three slash commands, a subagent, two guard hooks for `Bash`, and an optional MCP server over the [ai-agent-incidents](https://github.com/basitalisandhu/ai-agent-incidents) dataset (80 documented events mapped to OWASP Agentic, OWASP LLM and MITRE ATLAS). No telemetry, no network calls except the documented, opt-in dataset refresh.
+Nine skills (each with a tested script or a checklist), three slash commands, a subagent, two guard hooks for `Bash`, and an optional MCP server over the [ai-agent-incidents](https://github.com/basitalisandhu/ai-agent-incidents) dataset (80 documented events mapped to OWASP Agentic, OWASP LLM and MITRE ATLAS). No telemetry, no network calls except the documented, opt-in dataset refresh.
 
-Typical questions it answers: "is this MCP server safe to install?", "does this agent have the lethal trifecta?" and "could a malicious skill or plugin in this repository take over my agent?".
+Typical questions it answers: "is this MCP server safe to install?", "does this agent have the lethal trifecta?", "could a malicious skill or plugin in this repository take over my agent?" and "what did the agent actually do in this session?".
+
+Find this when you search for: AI agent session log review, Claude Code transcript audit, agent observability for actions outside policy, detecting prompt injection in agent logs, agent data exfiltration check.
 
 Install:
 
@@ -239,7 +236,7 @@ Install:
 /plugin install agent-security@agent-security-skills
 ```
 
-Latest release: v0.1.2 (2026-10-05) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.2
+Latest release: v0.2.0 (2026-10-05) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.2.0
 
 ## github-manager-skills
 
