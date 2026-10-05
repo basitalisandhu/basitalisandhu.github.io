@@ -37,8 +37,8 @@
   ]
  },
  "keywords": "agent-skills, aws, aws-organizations, aws-security, claude-code, claude-code-plugin, cloud-security, cspm, devsecops, guardduty, hacktoberfest, iam, landing-zone, least-privilege, python, security-hub, security-tools, service-control-policies",
- "version": "0.2.0",
- "dateModified": "2026-10-04"
+ "version": "0.2.1",
+ "dateModified": "2026-10-05"
 }
 </script>
 </head>
@@ -48,11 +48,12 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
 <h1>aws-security-skills</h1>
 <p class="lede">AWS security skills for Claude Code: account audit, SCP guardrails, blast-radius landing zones, IAM least privilege, Security Hub triage.</p>
-<p class="meta">Python · MIT · latest v0.2.0</p>
+<p class="meta">Python · MIT · latest v0.2.1</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>AWS security skills for Claude Code: account audit, SCP guardrails, blast-radius landing zones, IAM least privilege, Security Hub triage, agent-safe access, incident response runbooks, spend guardrails, sandbox guardrails.</strong></p>
 <p>aws-security-skills is a Claude Code plugin marketplace with one plugin, <code>aws-security</code>, holding nine skills. Each skill is a fixed procedure plus a tested Python script (standard library only). The skills tell Claude which read-only <code>aws</code> CLI commands to run and where to save the JSON, or which short spec to write; the scripts then evaluate that saved output, or generate policies and runbooks from the spec, offline, so results are repeatable, reviewable by someone without account access, and produced without the script ever touching AWS.</p>
 <p>It is written for cloud and platform engineers who look after one or many AWS accounts, especially multi-account organizations governed by service control policies. It exists because the same questions come up on every account (is root protected, is CloudTrail on, can this role escalate, which SCPs go where, what do we fix first in Security Hub, what may an AI agent do here, what do we do in the first hour of an incident, how do we stop a runaway bill), and a scripted procedure answers them the same way each time.</p>
+<p>Common searches it answers: a CIS AWS Foundations benchmark style account check, a Well-Architected security pillar review of account structure, and a permission boundary for an AI agent role.</p>
 <p>No network access from the scripts, no telemetry. Nothing in this repository changes an AWS account: every skill proposes fix commands and runs one only after you confirm that exact command.</p>
 </section>
 <section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
@@ -66,6 +67,7 @@
 <li><a href="https://github.com/basitalisandhu/aws-security-skills/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.2.1">v0.2.1</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 <li><a href="https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-04">2026-10-04</time></li>
 <li><a href="https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.1.0">v0.1.0: 0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>

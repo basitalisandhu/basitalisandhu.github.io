@@ -37,8 +37,8 @@
   ]
  },
  "keywords": "agent-security, ai-agents, ai-security, claude-code, cli, configuration-audit, cursor, devsecops, github-actions, hacktoberfest, llm-security, mcp, pre-commit, prompt-injection, python, sarif, secrets-detection, security-automation, security-tools",
- "version": "0.1.0",
- "dateModified": "2026-10-04"
+ "version": "0.1.1",
+ "dateModified": "2026-10-05"
 }
 </script>
 </head>
@@ -48,7 +48,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
 <h1>agent-config-audit</h1>
 <p class="lede">Audit AI agent configuration files for security risks.</p>
-<p class="meta">Python · MIT · latest v0.1.0</p>
+<p class="meta">Python · MIT · latest v0.1.1</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p>Audit AI agent configuration files for security risks: one command reads the files that launch and instruct a coding agent (<code>.claude/settings*.json</code>, <code>.mcp.json</code>, <code>claude_desktop_config.json</code>, <code>.cursor/</code> rules and MCP config, <code>CLAUDE.md</code>, <code>AGENTS.md</code>, plugin manifests, hooks, skills) and reports pre-approved dangerous commands, bypassed permission prompts, secrets committed next to server definitions, unpinned MCP servers, hooks that phone home, and prompt-injection patterns hidden in instruction files. Output as a table, JSON, Markdown or SARIF for GitHub code scanning. Read-only, standard library only, no network, deterministic.</p>
 </section>
@@ -67,6 +67,7 @@ agent-config-audit --include-home       # also ~/.claude, ~/.cursor, the Claude 
 <li><a href="https://github.com/basitalisandhu/agent-config-audit/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>
 <p class="topics">Topics: agent-security, ai-agents, ai-security, claude-code, cli, configuration-audit, cursor, devsecops, github-actions, hacktoberfest, llm-security, mcp, pre-commit, prompt-injection, python, sarif, secrets-detection, security-automation, security-tools</p>

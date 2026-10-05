@@ -51,7 +51,7 @@
 <p class="meta">Python · MIT · latest v0.1.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p>GitHub Actions for AI agent and supply chain security checks. Six small composite actions, each in its own directory with a dependency-free Python or Node script and a test suite, that teams drop into CI with one <code>uses:</code> line. The agent-side actions find risky agent configuration and leaked credentials in prompt files; the supply-chain actions diff SBOMs, audit licences, keep <code>llms.txt</code> valid and tell search engines about changed pages.</p>
-<pre><code class="language-yaml">- uses: basitalisandhu/security-actions/agent-config-audit@v1</code></pre>
+<pre><code class="language-yaml">- uses: basitalisandhu/security-actions/agent-config-audit@v0</code></pre>
 </section>
 <section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
 <pre><code class="language-yaml">name: security-actions
@@ -67,9 +67,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: basitalisandhu/security-actions/agent-config-audit@v1
-      - uses: basitalisandhu/security-actions/prompt-secrets-scan@v1
-      - uses: basitalisandhu/security-actions/license-audit@v1
+      - uses: basitalisandhu/security-actions/agent-config-audit@v0
+      - uses: basitalisandhu/security-actions/prompt-secrets-scan@v0
+      - uses: basitalisandhu/security-actions/license-audit@v0
 # ... see the README for the rest</code></pre>
 <p class="muted">From the README; see <a href="https://github.com/basitalisandhu/security-actions#readme">the full README</a> for every option.</p></section>
 <section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
@@ -79,7 +79,7 @@ jobs:
 <li><a href="https://github.com/basitalisandhu/security-actions/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
-<li><a href="https://github.com/basitalisandhu/security-actions/releases/tag/v0.1.0">v0.1.0: 0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
+<li><a href="https://github.com/basitalisandhu/security-actions/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>
 <p class="topics">Topics: agent-security, ai-security, code-scanning, composite-action, cyclonedx, devsecops, github-actions, hacktoberfest, indexnow, license-compliance, llms-txt, mcp, prompt-injection, sarif, sbom, secret-scanning, security-automation, spdx, supply-chain-security</p>
 </main>
