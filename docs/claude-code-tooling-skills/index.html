@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>claude-code-tooling-skills | Muhammad Basit Ali</title>
+<meta name="description" content="Claude Code skills for keeping a Claude Code setup safe: review a third-party skill before installing it, lint and evaluate your own skill descriptions, audit the context budget, build least-privilege permissions, author and test hooks, find skill collisions and portability problems. Drives the author&#x27;s gate, lock, simulator and hook tools.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/claude-code-tooling-skills/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="claude-code-tooling-skills">
+<meta property="og:description" content="Claude Code skills for keeping a Claude Code setup safe: review a third-party skill before installing it, lint and evaluate your own skill descriptions, audit the context budget, build least-privilege permissions, author and test hooks, find skill collisions and portability problems. Drives the author&#x27;s gate, lock, simulator and hook tools.">
+<meta property="og:url" content="https://basitalisandhu.github.io/claude-code-tooling-skills/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareSourceCode",
+ "name": "claude-code-tooling-skills",
+ "description": "Claude Code skills for keeping a Claude Code setup safe: review a third-party skill before installing it, lint and evaluate your own skill descriptions, audit the context budget, build least-privilege permissions, author and test hooks, find skill collisions and portability problems. Drives the author's gate, lock, simulator and hook tools.",
+ "url": "https://basitalisandhu.github.io/claude-code-tooling-skills/",
+ "codeRepository": "https://github.com/basitalisandhu/claude-code-tooling-skills",
+ "programmingLanguage": "Python",
+ "license": "https://spdx.org/licenses/MIT.html",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "keywords": "agent-skills, ai-agents, ai-security, claude-code, claude-code-plugin, claude-code-skills, claude-skills, context-engineering, developer-tools, hacktoberfest, hooks, linting, permissions, python, skill-security, supply-chain-security",
+ "version": "0.1.0",
+ "dateModified": "2026-10-05"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
+<h1>claude-code-tooling-skills</h1>
+<p class="lede">Claude Code skills for keeping a Claude Code setup safe.</p>
+<p class="meta">Python · MIT · latest v0.1.0</p>
+<section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
+<p><strong>Eight skills, each with an offline, standard-library Python script and tests: skill-supply-chain-review, skill-description-linter, skill-trigger-eval, context-budget-audit, permissions-builder, hook-author, skill-collision-check and skill-portability-check.</strong></p>
+<p>claude-code-tooling-skills is a Claude Code plugin for the upkeep of Claude Code itself. A setup grows by accretion: skills and plugins installed from other people&#x27;s repositories, descriptions written once and never measured, memory files and MCP servers that fill the context before the first word, permission rules added one &quot;always allow&quot; at a time, hooks copied from examples, two skills with the same name, a script that works on one laptop only. Each skill here turns one of those into a check with a script that reads local files, applies stated rules, and reports what it found with the file and line, leaving the decision to you.</p>
+<p><strong>Who it is for:</strong> people who write or maintain Claude Code skills and plugins, teams that share a <code>.claude/</code> folder in a repository, and anyone about to install a skill or plugin they did not write.</p>
+<p><strong>Why:</strong> skill and plugin supply chains are now an attack path, descriptions decide whether a skill is ever used, and the context window is shared by everything installed. The author already maintains command-line tools for parts of this (skill-scan-gate, cc-plugin-lock, claude-perm-sim, claude-mcp-allow, cc-hooks, mcp-tools-lint); these skills tell Claude when and how to run them, and add the offline checks they do not cover.</p>
+<pre><code class="language-text">/plugin marketplace add basitalisandhu/claude-code-tooling-skills
+/plugin install cc-setup-tooling@claude-code-tooling-skills</code></pre>
+<p>Quickstart: open Claude Code in a folder of skills and ask &quot;will this skill work on Windows?&quot; or &quot;why is my context so full?&quot;. Or run a script directly from a clone of this repository:</p>
+<pre><code class="language-bash">python3 scripts/cli.py portability path/to/my-skill
+python3 scripts/cli.py desc-lint path/to/skills --diff
+python3 scripts/cli.py context-budget . --home ~</code></pre>
+<p>Questions, bugs and ideas: open an issue on this repository. Security reports: see <a href="https://github.com/basitalisandhu/claude-code-tooling-skills/blob/main/SECURITY.md">SECURITY.md</a>.</p>
+</section>
+<section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
+<li><a href="https://github.com/basitalisandhu/claude-code-tooling-skills">Repository</a></li>
+<li><a href="https://github.com/basitalisandhu/claude-code-tooling-skills/releases">Releases</a></li>
+<li><a href="https://github.com/basitalisandhu?tab=packages&amp;repo_name=claude-code-tooling-skills">Packages</a></li>
+<li><a href="https://github.com/basitalisandhu/claude-code-tooling-skills/issues">Issues</a></li>
+</ul></section>
+<section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/claude-code-tooling-skills/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-05">2026-10-05</time></li>
+</ul></section>
+<p class="topics">Topics: agent-skills, ai-agents, ai-security, claude-code, claude-code-plugin, claude-code-skills, claude-skills, context-engineering, developer-tools, hacktoberfest, hooks, linting, permissions, python, skill-security, supply-chain-security</p>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>

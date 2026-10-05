@@ -37,6 +37,8 @@ Claude Code skills for ways of working: change requests from a Terraform plan, a
 
 ways-of-working-skills is a Claude Code plugin for the records that keep a team honest about its own process: what a change will do before the board approves it, which actions from last month's meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, where the focus time went, whether a vendor choice survives a change of weights, whether the repository settings match the team's working agreement, and what the next on-call shift needs to know. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.
 
+Find this when you search for: "meeting overload", "action items", "weekly update".
+
 ```text
 /plugin marketplace add basitalisandhu/ways-of-working-skills
 /plugin install ways-of-working@ways-of-working-skills
@@ -53,7 +55,7 @@ Questions, bugs and ideas: open an issue on this repository. Security reports: s
 
 This pack is part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.
 
-Latest release: v0.2.0 (2026-10-05) https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.2.0
+Latest release: v0.2.1 (2026-10-05) https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.2.1
 
 ## aws-security-skills
 
@@ -94,6 +96,8 @@ Repository engineering skills for Claude Code: docs checked against the code, au
 
 repo-engineering-skills is a Claude Code plugin with ten skills for maintainers and teams who need to trust what is written about their repository: the README, the docs, the onboarding guide, the audit report, the AGENTS.md, the decision records, the release notes. It exists because generated docs and audits are cheap to produce and hard to check, so each skill pairs the model's work with a standard-library Python script that checks it against the working tree or the git history, instead of asking you to take the text on faith.
 
+Common searches it answers: technical due diligence on a codebase, an import dependency graph before a restructure, and stale docs. Bus factor from commit history is not measured.
+
 ```text
 /plugin marketplace add basitalisandhu/repo-engineering-skills
 /plugin install repo-engineering@repo-engineering-skills
@@ -110,14 +114,14 @@ Questions, bugs and ideas: open an issue on this repository. Security reports: s
 Install:
 
 ```bash
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 docs-truth /work --only-failures
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 readme-check /work/README.md
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 test-gaps /work --top 20
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 hygiene /work --sarif /work/hygiene.sarif
-docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.3.0 --help
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.1 docs-truth /work --only-failures
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.1 readme-check /work/README.md
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.1 test-gaps /work --top 20
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.3.1 hygiene /work --sarif /work/hygiene.sarif
+docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.3.1 --help
 ```
 
-Latest release: v0.3.0 (2026-10-04) https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.3.0
+Latest release: v0.3.1 (2026-10-05) https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.3.1
 
 ## m365-governance-skills
 
@@ -133,6 +137,8 @@ m365-governance-skills is a Claude Code plugin marketplace with one plugin, `m36
 
 It is written for administrators who look after Microsoft 365, Entra ID and Intune for a company or for clients, often alongside other duties. It exists because the governance questions repeat in every tenant (who are the Global Admins, is MFA really enforced and for whom, which guests can still reach what, which licences sit on disabled accounts, which teams have no owner, what is this connector asking for, what goes into this quarter's access review), and agents now connect to Microsoft 365 with broad Graph permissions. Message triage and daily digests are already covered by first-party plugins; this pack is the governance layer underneath: what can touch the tenant, and is the tenant in the state you think it is.
 
+Common searches it answers: Copilot oversharing readiness at the tenant sharing level, the identity controls behind Microsoft Secure Score, and guest access reviews. A per-site SharePoint site permissions audit is not covered.
+
 No network access from the scripts, no telemetry. Nothing in this repository changes a tenant: every skill proposes a portal path or a Graph call and runs a change only after you confirm that exact command.
 
 ```text
@@ -147,7 +153,7 @@ claude plugin marketplace add basitalisandhu/m365-governance-skills
 claude plugin install m365-governance@m365-governance-skills --scope user
 ```
 
-Latest release: v0.2.1 (2026-10-04) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.1
+Latest release: v0.2.2 (2026-10-05) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.2
 
 ## compliance-evidence-skills
 
@@ -262,7 +268,7 @@ python3 scripts/cli.py pr-queue tests/fixtures/pr_queue
 
 Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/github-manager-skills/blob/main/SECURITY.md).
 
-Latest release: v0.1.1 (2026-10-04) https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.1.1
+Latest release: v0.1.2 (2026-10-05) https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.1.2
 
 ## mac-maintenance-skills
 
@@ -275,6 +281,8 @@ Claude Code skills for cleaning up and speeding up a Mac: read-only survey first
 **Mac maintenance skills for Claude Code: a survey that only measures, a safe tier that removes only what programs recreate, and a written list for every decision that is yours.**
 
 mac-maintenance-skills is a Claude Code plugin with three skills for people whose Mac has filled up with caches, duplicate exports, leftovers of uninstalled apps and a few gigabytes pinned in memory, and who do not want a cleaner that guesses. It exists because the usual cleanup either deletes too little to matter or deletes something that mattered: each skill pairs the model's judgement with a standard-library Python script that measures before it proposes, removes only regenerable caches on its own, and moves anything of yours to a dated folder in the Trash instead of deleting it.
+
+Common searches it answers: "System Data is huge", a Docker.raw file that keeps growing, and duplicate photos or leftovers of uninstalled apps. Time Machine local snapshots are out of scope.
 
 ```text
 /plugin marketplace add basitalisandhu/mac-maintenance-skills
@@ -293,7 +301,52 @@ That prints the safe-tier plan with sizes and changes nothing; add `--apply` to 
 
 Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/mac-maintenance-skills/blob/main/SECURITY.md).
 
-Latest release: v0.1.1 (2026-10-04) https://github.com/basitalisandhu/mac-maintenance-skills/releases/tag/v0.1.1
+Latest release: v0.1.2 (2026-10-05) https://github.com/basitalisandhu/mac-maintenance-skills/releases/tag/v0.1.2
+
+## agent-identity-governance-skills
+
+Page: https://basitalisandhu.github.io/agent-identity-governance-skills/
+Repository: https://github.com/basitalisandhu/agent-identity-governance-skills
+Theme: Claude Code skill packs
+
+Claude Code skills for agent identity governance.
+
+**Eight skills that treat AI agents, service principals, workload identities, API keys and MCP connectors as identities: each needs an inventory entry, an owner, a periodic review, credentials that expire and an off switch. Offline, standard-library scripts over exports you save from Entra ID, AWS, GitHub and your own registers. Tested.**
+
+Latest release: v0.1.0 (2026-10-05) https://github.com/basitalisandhu/agent-identity-governance-skills/releases/tag/v0.1.0
+
+## claude-code-tooling-skills
+
+Page: https://basitalisandhu.github.io/claude-code-tooling-skills/
+Repository: https://github.com/basitalisandhu/claude-code-tooling-skills
+Theme: Claude Code skill packs
+
+Claude Code skills for keeping a Claude Code setup safe.
+
+**Eight skills, each with an offline, standard-library Python script and tests: skill-supply-chain-review, skill-description-linter, skill-trigger-eval, context-budget-audit, permissions-builder, hook-author, skill-collision-check and skill-portability-check.**
+
+claude-code-tooling-skills is a Claude Code plugin for the upkeep of Claude Code itself. A setup grows by accretion: skills and plugins installed from other people's repositories, descriptions written once and never measured, memory files and MCP servers that fill the context before the first word, permission rules added one "always allow" at a time, hooks copied from examples, two skills with the same name, a script that works on one laptop only. Each skill here turns one of those into a check with a script that reads local files, applies stated rules, and reports what it found with the file and line, leaving the decision to you.
+
+**Who it is for:** people who write or maintain Claude Code skills and plugins, teams that share a `.claude/` folder in a repository, and anyone about to install a skill or plugin they did not write.
+
+**Why:** skill and plugin supply chains are now an attack path, descriptions decide whether a skill is ever used, and the context window is shared by everything installed. The author already maintains command-line tools for parts of this (skill-scan-gate, cc-plugin-lock, claude-perm-sim, claude-mcp-allow, cc-hooks, mcp-tools-lint); these skills tell Claude when and how to run them, and add the offline checks they do not cover.
+
+```text
+/plugin marketplace add basitalisandhu/claude-code-tooling-skills
+/plugin install cc-setup-tooling@claude-code-tooling-skills
+```
+
+Quickstart: open Claude Code in a folder of skills and ask "will this skill work on Windows?" or "why is my context so full?". Or run a script directly from a clone of this repository:
+
+```bash
+python3 scripts/cli.py portability path/to/my-skill
+python3 scripts/cli.py desc-lint path/to/skills --diff
+python3 scripts/cli.py context-budget . --home ~
+```
+
+Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/claude-code-tooling-skills/blob/main/SECURITY.md).
+
+Latest release: v0.1.0 (2026-10-05) https://github.com/basitalisandhu/claude-code-tooling-skills/releases/tag/v0.1.0
 
 ## dev-mcp-servers
 
