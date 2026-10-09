@@ -43,6 +43,7 @@
         "cc-plugin-lock",
         "claude-perm-sim",
         "llms-txt-gen",
+        "agent-off-switch",
         "scp-guardrails",
         "skill-scan-gate",
         "spotlighting"
@@ -154,6 +155,53 @@
           "name": "v0.1.0",
           "date": "2026-10-05",
           "url": "https://github.com/basitalisandhu/agent-identity-governance-skills/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "agent-off-switch",
+      "description": "Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Inventory, blast-radius review with SARIF, an ordered off-switch runbook per identity, and a drift gate for CI. Offline on saved read-only exports; it prints commands and never runs them.",
+      "one_liner": "Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Inventory, blast-radius review with SARIF, an ordered off-switch runbook per identity, and a drift gate for CI. Offline on saved read-only exports; it prints commands and never runs them.",
+      "theme": "Security tooling",
+      "topics": [
+        "access-review",
+        "agent-security",
+        "ai-agents",
+        "ai-security",
+        "aws-iam",
+        "cli",
+        "entra-id",
+        "github-action",
+        "github-apps",
+        "hacktoberfest",
+        "identity-governance",
+        "incident-response",
+        "kill-switch",
+        "microsoft-365",
+        "non-human-identity",
+        "python",
+        "sarif",
+        "security-tools",
+        "workload-identity"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/agent-off-switch",
+      "default_branch": "main",
+      "homepage": "https://basitalisandhu.github.io/agent-off-switch/",
+      "own_site": null,
+      "intro_md": "Copilot agents, MCP connectors and coding agents run as Entra app registrations, managed identities, AWS IAM roles, access keys and GitHub Apps. `aos` reads saved exports of those, puts every agent identity in one table with its owner, credentials, grants and last use, ranks what it can reach, and prints the exact steps to switch one off.\n\n- **`aos inventory`**: every non-human identity, with the ones that look like agents marked; flags ownerless identities, identities unused for N days and credentials older than 90 days. Markdown, CSV or JSON.\n- **`aos review`**: findings ranked by blast radius, each with its fix. Markdown, JSON or SARIF for GitHub code scanning.\n- **`aos off <identity>`**: an ordered runbook (disable, revoke sessions and grants, delete credentials, remove role assignments, verify in the audit log) with the command and the verification command for each step. It prints; it never runs anything.\n- **`aos drift old.json new.json`**: new identities, new grants and lost owners since the last inventory; exits 1 while anything new is unreviewed, for CI.\n\nStandard-library Python 3.10+, offline, read-only. It needs no credentials of its own: you take the exports with read-only commands listed in [docs/exports.md](https://github.com/basitalisandhu/agent-off-switch/blob/main/docs/exports.md).",
+      "install": {
+        "lang": "bash",
+        "code": "pip install \"git+https://github.com/basitalisandhu/agent-off-switch@v0.1.0\"\naos --help",
+        "from": "Install"
+      },
+      "releases": [
+        {
+          "tag": "v0.1.0",
+          "name": "v0.1.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/agent-off-switch/releases/tag/v0.1.0"
         }
       ]
     },

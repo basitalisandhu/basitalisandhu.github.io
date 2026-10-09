@@ -759,6 +759,32 @@ llms-txt-gen serve-snippet
 
 Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.1.1
 
+## agent-off-switch
+
+Page: https://basitalisandhu.github.io/agent-off-switch/
+Repository: https://github.com/basitalisandhu/agent-off-switch
+Theme: Security tooling
+
+Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Inventory, blast-radius review with SARIF, an ordered off-switch runbook per identity, and a drift gate for CI. Offline on saved read-only exports; it prints commands and never runs them.
+
+Copilot agents, MCP connectors and coding agents run as Entra app registrations, managed identities, AWS IAM roles, access keys and GitHub Apps. `aos` reads saved exports of those, puts every agent identity in one table with its owner, credentials, grants and last use, ranks what it can reach, and prints the exact steps to switch one off.
+
+- **`aos inventory`**: every non-human identity, with the ones that look like agents marked; flags ownerless identities, identities unused for N days and credentials older than 90 days. Markdown, CSV or JSON.
+- **`aos review`**: findings ranked by blast radius, each with its fix. Markdown, JSON or SARIF for GitHub code scanning.
+- **`aos off <identity>`**: an ordered runbook (disable, revoke sessions and grants, delete credentials, remove role assignments, verify in the audit log) with the command and the verification command for each step. It prints; it never runs anything.
+- **`aos drift old.json new.json`**: new identities, new grants and lost owners since the last inventory; exits 1 while anything new is unreviewed, for CI.
+
+Standard-library Python 3.10+, offline, read-only. It needs no credentials of its own: you take the exports with read-only commands listed in [docs/exports.md](https://github.com/basitalisandhu/agent-off-switch/blob/main/docs/exports.md).
+
+Install:
+
+```bash
+pip install "git+https://github.com/basitalisandhu/agent-off-switch@v0.1.0"
+aos --help
+```
+
+Latest release: v0.1.0 (2026-10-09) https://github.com/basitalisandhu/agent-off-switch/releases/tag/v0.1.0
+
 ## scp-guardrails
 
 Page: https://basitalisandhu.github.io/scp-guardrails/
