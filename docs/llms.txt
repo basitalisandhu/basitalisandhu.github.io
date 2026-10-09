@@ -41,6 +41,7 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 - [cc-plugin-lock](https://basitalisandhu.github.io/cc-plugin-lock/): Lock file for Claude Code plugins: pins plugins and skills to content hashes and verifies them before load.
 - [claude-perm-sim](https://basitalisandhu.github.io/claude-perm-sim/): Claude Code permission rule simulator: shows which rule decides a tool call and where a rule set is permissive.
 - [llms-txt-gen](https://basitalisandhu.github.io/llms-txt-gen/): Generate llms.txt for any docs site or repository.
+- [agent-off-switch](https://basitalisandhu.github.io/agent-off-switch/): Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Inventory, blast-radius review with SARIF, an ordered off-switch runbook per identity, and a drift gate for CI. Offline on saved read-only exports; it prints commands and never runs them.
 - [scp-guardrails](https://basitalisandhu.github.io/scp-guardrails/): AWS service control policy builder and linter.
 - [skill-scan-gate](https://basitalisandhu.github.io/skill-scan-gate/): CI gate for Claude Code skills and plugins.
 - [spotlighting](https://basitalisandhu.github.io/spotlighting/): Spotlighting for prompt injection defence in Python.
