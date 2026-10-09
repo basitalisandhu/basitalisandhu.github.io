@@ -82,7 +82,7 @@ Install:
 /plugin install aws-security@aws-security-skills
 ```
 
-Latest release: v0.3.0 (2026-10-05) https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.3.0
+Latest release: v0.4.0 (2026-10-09) https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.4.0
 
 ## repo-engineering-skills
 
@@ -114,14 +114,14 @@ Questions, bugs and ideas: open an issue on this repository. Security reports: s
 Install:
 
 ```bash
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.0 docs-truth /work --only-failures
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.0 readme-check /work/README.md
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.0 test-gaps /work --top 20
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.0 hygiene /work --sarif /work/hygiene.sarif
-docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.4.0 --help
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 docs-truth /work --only-failures
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 readme-check /work/README.md
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 test-gaps /work --top 20
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 hygiene /work --sarif /work/hygiene.sarif
+docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 --help
 ```
 
-Latest release: v0.4.0 (2026-10-05) https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.4.0
+Latest release: v0.4.1 (2026-10-09) https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.4.1
 
 ## m365-governance-skills
 
@@ -148,7 +148,7 @@ claude plugin marketplace add basitalisandhu/m365-governance-skills
 claude plugin install m365-governance@m365-governance-skills --scope user
 ```
 
-Latest release: v0.3.0 (2026-10-05) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.3.0
+Latest release: v0.4.0 (2026-10-09) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.4.0
 
 ## compliance-evidence-skills
 
@@ -184,7 +184,7 @@ python3 plugins/compliance-evidence/skills/auditor-narrative-drafter/scripts/nar
 python3 plugins/compliance-evidence/skills/github-change-control-evidence/scripts/github_evidence.py tests/fixtures/github/free-plan
 ```
 
-Latest release: v0.2.0 (2026-10-05) https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.2.0
+Latest release: v0.3.0 (2026-10-09) https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.3.0
 
 ## claude-dev-skills
 
@@ -209,7 +209,7 @@ Install:
 /plugin install code-quality@claude-dev-skills
 ```
 
-Latest release: v0.2.1 (2026-10-05) https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.2.1
+Latest release: v0.3.0 (2026-10-09) https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.3.0
 
 ## agent-security-skills
 
@@ -236,7 +236,7 @@ Install:
 /plugin install agent-security@agent-security-skills
 ```
 
-Latest release: v0.2.0 (2026-10-05) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.2.0
+Latest release: v0.3.0 (2026-10-09) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.3.0
 
 ## github-manager-skills
 
@@ -267,7 +267,7 @@ python3 scripts/cli.py pr-queue tests/fixtures/pr_queue
 
 Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/github-manager-skills/blob/main/SECURITY.md).
 
-Latest release: v0.2.0 (2026-10-05) https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.2.0
+Latest release: v0.3.0 (2026-10-09) https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.3.0
 
 ## mac-maintenance-skills
 
@@ -362,11 +362,11 @@ All servers are TypeScript on the official `@modelcontextprotocol/sdk`, speak st
 Install:
 
 ```bash
-claude mcp add jwt-tools -- npx -y @basitalisandhu/mcp-jwt-tools@0.1.1
+claude mcp add jwt-tools -- npx -y @basitalisandhu/mcp-jwt-tools@0.2.0
 claude mcp list
 ```
 
-Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.1.1
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.2.0
 
 ## mcp-server-template
 
@@ -386,7 +386,7 @@ npm ci && npm run build && npm test
 MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing one directory
 ```
 
-Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.1.1
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.2.0
 
 ## mcp-tools-lint
 
@@ -404,11 +404,11 @@ Install:
 
 ```bash
 npx @basitalisandhu/mcp-tools-lint --help              # run without installing
-npm install -g @basitalisandhu/mcp-tools-lint@0.1.1    # global CLI, installs the mcp-tools-lint command
-npm install -D @basitalisandhu/mcp-tools-lint@0.1.1    # as a dev dependency of a server project
+npm install -g @basitalisandhu/mcp-tools-lint@0.2.0    # global CLI, installs the mcp-tools-lint command
+npm install -D @basitalisandhu/mcp-tools-lint@0.2.0    # as a dev dependency of a server project
 ```
 
-Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.1.1
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.2.0
 
 ## mcp-auth-doctor
 
@@ -430,7 +430,7 @@ uvx --from git+https://github.com/basitalisandhu/mcp-auth-doctor mcp-auth-doctor
 pip install git+https://github.com/basitalisandhu/mcp-auth-doctor                                  # into the current environment
 ```
 
-Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.1.1
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.2.0
 
 ## mcp-egress
 
@@ -467,10 +467,10 @@ Install:
 
 ```bash
 npx @basitalisandhu/claude-mcp-allow                    # run without installing
-npm install -g @basitalisandhu/claude-mcp-allow@0.1.1   # or install the claude-mcp-allow command
+npm install -g @basitalisandhu/claude-mcp-allow@0.2.0   # or install the claude-mcp-allow command
 ```
 
-Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.1.1
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.2.0
 
 ## agentdojo-mcp
 
@@ -508,7 +508,7 @@ agentdojo-mcp run --suite travel --mapping mapping.yaml --stdio "python my_serve
 # ... see the README for the rest
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.1.0
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.2.0
 
 ## garak-mcp-probes
 
@@ -550,10 +550,10 @@ Install:
 
 ```bash
 npx @basitalisandhu/mcp-rc-check scan --dump tools.json     # run without installing
-npm install -g @basitalisandhu/mcp-rc-check@0.2.0           # or install the mcp-rc-check command
+npm install -g @basitalisandhu/mcp-rc-check@0.3.0           # or install the mcp-rc-check command
 ```
 
-Latest release: v0.2.0 (2026-10-04) https://github.com/basitalisandhu/mcp-rc-check/releases/tag/v0.2.0
+Latest release: v0.3.0 (2026-10-09) https://github.com/basitalisandhu/mcp-rc-check/releases/tag/v0.3.0
 
 ## agent-threat-model
 
@@ -573,7 +573,7 @@ atm init system.yaml                 # writes the support-bot example
 atm analyse system.yaml
 ```
 
-Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/agent-threat-model/releases/tag/v0.1.1
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/agent-threat-model/releases/tag/v0.2.0
 
 ## agent-config-audit
 
@@ -596,7 +596,7 @@ agent-config-audit --format sarif --output agent-config-audit.sarif
 agent-config-audit --include-home       # also ~/.claude, ~/.cursor, the Claude Desktop config
 ```
 
-Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.1.1
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.2.0
 
 ## agentic-semgrep-rules
 
@@ -715,7 +715,7 @@ cc-plugin-lock verify --lock ~/.claude/cc-plugins.lock.json
 cc-plugin-lock hook --lock ~/.claude/cc-plugins.lock.json
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/cc-plugin-lock/releases/tag/v0.1.0
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/cc-plugin-lock/releases/tag/v0.2.0
 
 ## claude-perm-sim
 
@@ -731,10 +731,10 @@ Install:
 
 ```bash
 npx @basitalisandhu/claude-perm-sim load                 # run without installing
-npm install -g @basitalisandhu/claude-perm-sim@0.1.0     # or install the claude-perm-sim command
+npm install -g @basitalisandhu/claude-perm-sim@0.2.0     # or install the claude-perm-sim command
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/claude-perm-sim/releases/tag/v0.1.0
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/claude-perm-sim/releases/tag/v0.2.0
 
 ## llms-txt-gen
 
@@ -757,7 +757,7 @@ llms-txt-gen check llms.txt
 llms-txt-gen serve-snippet
 ```
 
-Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.1.1
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.2.0
 
 ## agent-off-switch
 
@@ -824,7 +824,7 @@ CI gate for Claude Code skills and plugins.
 GitHub Action:
 
 ```yaml
-- uses: basitalisandhu/skill-scan-gate@v0.1.0
+- uses: basitalisandhu/skill-scan-gate@v0.2.0
 ```
 
 pip (after the first PyPI release; until then `pipx install git+https://github.com/basitalisandhu/skill-scan-gate`):
@@ -836,7 +836,7 @@ pip install skill-scan-gate
 Container image (GitHub Packages):
 
 ```bash
-docker run --rm -v "$PWD:/work:ro" ghcr.io/basitalisandhu/skill-scan-gate:0.1.0 scan .
+docker run --rm -v "$PWD:/work:ro" ghcr.io/basitalisandhu/skill-scan-gate:0.2.0 scan .
 ```
 
 Install:
@@ -850,7 +850,7 @@ skill-scan-gate scan . --baseline .skill-scan-gate-baseline.json --allow .skill-
 skill-scan-gate rules                                    # list every rule
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.1.0
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.2.0
 
 ## spotlighting
 
@@ -869,7 +869,7 @@ pipx install git+https://github.com/basitalisandhu/spotlighting            # the
 python3 -m pip install git+https://github.com/basitalisandhu/spotlighting  # the library
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/spotlighting/releases/tag/v0.1.0
+Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/spotlighting/releases/tag/v0.2.0
 
 ## ai-agent-incidents
 
