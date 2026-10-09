@@ -37,8 +37,8 @@
   ]
  },
  "keywords": "agent-security, ai-agents, ai-security, devsecops, docker, fastmcp, github-actions, hacktoberfest, llm-security, mcp, mcp-server, model-context-protocol, python, sbom, security-automation, ssrf, template, template-repository, typescript",
- "version": "0.1.1",
- "dateModified": "2026-10-05"
+ "version": "0.2.0",
+ "dateModified": "2026-10-09"
 }
 </script>
 </head>
@@ -48,7 +48,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>mcp-server-template</h1>
 <p class="lede">Secure MCP server template in TypeScript and Python, safe by default.</p>
-<p class="meta">Python · MIT · latest v0.1.1</p>
+<p class="meta">Python · MIT · latest v0.2.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p>Secure MCP server template in TypeScript and Python: a starting point for a Model Context Protocol server that is safe by default. Both reference implementations ship the same four read-only tools and the same controls: strict input validation, file access bounded to allowlisted directories, network access bounded to allowlisted hosts with SSRF protection, structured logs that redact secrets, a health tool, stdio transport by default, and an optional streamable HTTP transport that is bound to 127.0.0.1, requires a bearer token, rate-limits clients and caps request bodies. Tests, Dockerfiles with digest-pinned bases and non-root users, CI with Semgrep, gitleaks and CodeQL, and SBOMs on release are included.</p>
 </section>
@@ -64,6 +64,7 @@ MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing 
 <li><a href="https://github.com/basitalisandhu/mcp-server-template/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-09">2026-10-09</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.1.0">v0.1.0: 0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>

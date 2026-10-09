@@ -98,6 +98,12 @@
       },
       "releases": [
         {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.2.0"
+        },
+        {
           "tag": "v0.1.1",
           "name": "v0.1.1",
           "date": "2026-10-05",
@@ -245,6 +251,12 @@
       },
       "releases": [
         {
+          "tag": "v0.3.0",
+          "name": "v0.3.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.3.0"
+        },
+        {
           "tag": "v0.2.0",
           "name": "v0.2.0",
           "date": "2026-10-05",
@@ -310,6 +322,12 @@
       },
       "releases": [
         {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/agent-threat-model/releases/tag/v0.2.0"
+        },
+        {
           "tag": "v0.1.1",
           "name": "v0.1.1",
           "date": "2026-10-05",
@@ -360,6 +378,12 @@
         "from": "Quickstart"
       },
       "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.2.0"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -525,6 +549,12 @@
       },
       "releases": [
         {
+          "tag": "v0.4.0",
+          "name": "v0.4.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.4.0"
+        },
+        {
           "tag": "v0.3.0",
           "name": "v0.3.0",
           "date": "2026-10-05",
@@ -547,12 +577,6 @@
           "name": "v0.1.1",
           "date": "2026-10-04",
           "url": "https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.1.1"
-        },
-        {
-          "tag": "v0.1.0",
-          "name": "0.1.0",
-          "date": "2026-10-04",
-          "url": "https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.1.0"
         }
       ]
     },
@@ -647,6 +671,12 @@
       },
       "releases": [
         {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/cc-plugin-lock/releases/tag/v0.2.0"
+        },
+        {
           "tag": "v0.1.0",
           "name": "v0.1.0",
           "date": "2026-10-04",
@@ -739,6 +769,12 @@
       },
       "releases": [
         {
+          "tag": "v0.3.0",
+          "name": "v0.3.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.3.0"
+        },
+        {
           "tag": "v0.2.1",
           "name": "v0.2.1",
           "date": "2026-10-05",
@@ -761,12 +797,6 @@
           "name": "v0.1.1",
           "date": "2026-10-04",
           "url": "https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.1.1"
-        },
-        {
-          "tag": "v0.1.0",
-          "name": "0.1.0",
-          "date": "2026-10-04",
-          "url": "https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.1.0"
         }
       ]
     },
@@ -804,10 +834,16 @@
       "intro_md": "Generate `permissions.allow` and `permissions.ask` rules for every MCP tool Claude Code can reach, from the annotations each server reports on `tools/list`: a tool that says `readOnlyHint: true` (and not `destructiveHint: true`) gets an `allow` rule, everything else gets an `ask` rule, one exact `mcp__<server>__<tool>` rule per tool and never a glob. `--write` merges the rules into the settings file you choose, `--diff` shows what would change, and `--check` reconnects later and exits 1 when a server's annotations have drifted from the rules you saved.",
       "install": {
         "lang": "bash",
-        "code": "npx @basitalisandhu/claude-mcp-allow                    # run without installing\nnpm install -g @basitalisandhu/claude-mcp-allow@0.1.1   # or install the claude-mcp-allow command",
+        "code": "npx @basitalisandhu/claude-mcp-allow                    # run without installing\nnpm install -g @basitalisandhu/claude-mcp-allow@0.2.0   # or install the claude-mcp-allow command",
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.2.0"
+        },
         {
           "tag": "v0.1.1",
           "name": "v0.1.1",
@@ -855,10 +891,16 @@
       "intro_md": "**claude-perm-sim loads your merged Claude Code permission settings, tells you which rule decides any given tool call, and finds the bypasses: commands that slip past a Bash pattern, paths that escape an Edit scope, and MCP tools nothing covers.**",
       "install": {
         "lang": "bash",
-        "code": "npx @basitalisandhu/claude-perm-sim load                 # run without installing\nnpm install -g @basitalisandhu/claude-perm-sim@0.1.0     # or install the claude-perm-sim command",
+        "code": "npx @basitalisandhu/claude-perm-sim load                 # run without installing\nnpm install -g @basitalisandhu/claude-perm-sim@0.2.0     # or install the claude-perm-sim command",
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/claude-perm-sim/releases/tag/v0.2.0"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -953,6 +995,12 @@
       },
       "releases": [
         {
+          "tag": "v0.3.0",
+          "name": "v0.3.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.3.0"
+        },
+        {
           "tag": "v0.2.0",
           "name": "v0.2.0",
           "date": "2026-10-05",
@@ -1014,10 +1062,16 @@
       "intro_md": "Ten small MCP servers for everyday development and security checks. Each one is a separate npm package you add to Claude Code, Claude Desktop, Cursor or any other MCP client with one line, and each does one job well: look up vulnerabilities, grade security headers, decode a JWT, test a regex, explain a cron expression, validate JSON against a schema, lint an OpenAPI document or a Dockerfile, read statistics out of a git repository, or build an `llms.txt`.\n\nAll servers are TypeScript on the official `@modelcontextprotocol/sdk`, speak stdio only, validate every input with zod, bound their inputs and run time, send no telemetry, and ship with `node:test` suites that cover every tool.",
       "install": {
         "lang": "bash",
-        "code": "claude mcp add jwt-tools -- npx -y @basitalisandhu/mcp-jwt-tools@0.1.1\nclaude mcp list",
+        "code": "claude mcp add jwt-tools -- npx -y @basitalisandhu/mcp-jwt-tools@0.2.0\nclaude mcp list",
         "from": "Quick start"
       },
       "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.2.0"
+        },
         {
           "tag": "v0.1.1",
           "name": "v0.1.1",
@@ -1113,6 +1167,12 @@
       "install": null,
       "releases": [
         {
+          "tag": "v0.3.0",
+          "name": "v0.3.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.3.0"
+        },
+        {
           "tag": "v0.2.0",
           "name": "v0.2.0",
           "date": "2026-10-05",
@@ -1176,6 +1236,12 @@
       },
       "releases": [
         {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.2.0"
+        },
+        {
           "tag": "v0.1.1",
           "name": "v0.1.1",
           "date": "2026-10-05",
@@ -1228,6 +1294,12 @@
       },
       "releases": [
         {
+          "tag": "v0.4.0",
+          "name": "v0.4.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.4.0"
+        },
+        {
           "tag": "v0.3.0",
           "name": "v0.3.0",
           "date": "2026-10-05",
@@ -1250,12 +1322,6 @@
           "name": "v0.2.0",
           "date": "2026-10-04",
           "url": "https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.0"
-        },
-        {
-          "tag": "v0.1.1",
-          "name": "v0.1.1",
-          "date": "2026-10-04",
-          "url": "https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.1.1"
         }
       ]
     },
@@ -1351,6 +1417,12 @@
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.2.0"
+        },
         {
           "tag": "v0.1.1",
           "name": "v0.1.1",
@@ -1449,10 +1521,16 @@
       "intro_md": "**mcp-rc-check tells you what an MCP server or client must change for the 2026-07-28 specification revision: it reads the live server (stdio or HTTP) or a saved capabilities and tools dump, flags every deprecated or changed construct with the spec section, and writes the autofix patch where one is mechanical.**",
       "install": {
         "lang": "bash",
-        "code": "npx @basitalisandhu/mcp-rc-check scan --dump tools.json     # run without installing\nnpm install -g @basitalisandhu/mcp-rc-check@0.2.0           # or install the mcp-rc-check command",
+        "code": "npx @basitalisandhu/mcp-rc-check scan --dump tools.json     # run without installing\nnpm install -g @basitalisandhu/mcp-rc-check@0.3.0           # or install the mcp-rc-check command",
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.3.0",
+          "name": "v0.3.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/mcp-rc-check/releases/tag/v0.3.0"
+        },
         {
           "tag": "v0.2.0",
           "name": "v0.2.0",
@@ -1507,6 +1585,12 @@
       },
       "releases": [
         {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.2.0"
+        },
+        {
           "tag": "v0.1.1",
           "name": "v0.1.1",
           "date": "2026-10-05",
@@ -1554,10 +1638,16 @@
       "intro_md": "Lint MCP tool schemas and annotations before clients reject them. Point it at a running MCP server (stdio or Streamable HTTP) or at a saved `tools/list` result, and it checks every tool against what Claude Code and other strict clients accept: JSON Schema 2020-12 only, no boolean schemas, `required` names that exist, and annotations that are present, camelCase and not self-contradictory. It prints text, JSON or SARIF, writes an RFC 6902 patch for the fixable findings, and ships as a GitHub Action.\n\nBuilt alongside [dev-mcp-servers](https://github.com/basitalisandhu/dev-mcp-servers).",
       "install": {
         "lang": "bash",
-        "code": "npx @basitalisandhu/mcp-tools-lint --help              # run without installing\nnpm install -g @basitalisandhu/mcp-tools-lint@0.1.1    # global CLI, installs the mcp-tools-lint command\nnpm install -D @basitalisandhu/mcp-tools-lint@0.1.1    # as a dev dependency of a server project",
+        "code": "npx @basitalisandhu/mcp-tools-lint --help              # run without installing\nnpm install -g @basitalisandhu/mcp-tools-lint@0.2.0    # global CLI, installs the mcp-tools-lint command\nnpm install -D @basitalisandhu/mcp-tools-lint@0.2.0    # as a dev dependency of a server project",
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.2.0"
+        },
         {
           "tag": "v0.1.1",
           "name": "v0.1.1",
@@ -1606,10 +1696,16 @@
       "intro_md": "**Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, onboarding guides built from cited facts, and restructure, ADR, hygiene and release checks run by scripts.**\n\nrepo-engineering-skills is a Claude Code plugin with twelve skills for maintainers and teams who need to trust what is written about their repository: the README, the docs, the onboarding guide, the audit report, the AGENTS.md, the decision records, the release notes, the branch list and the plan before coding. It exists because generated docs and audits are cheap to produce and hard to check, so each skill pairs the model's work with a standard-library Python script that checks it against the working tree or the git history, instead of asking you to take the text on faith.\n\nCommon searches it answers: technical due diligence on a codebase, an import dependency graph before a restructure, stale docs, delete stale branches, and review an implementation plan. Bus factor from commit history is not measured.\n\n```text\n/plugin marketplace add basitalisandhu/repo-engineering-skills\n/plugin install repo-engineering@repo-engineering-skills\n```\n\nQuickstart: open Claude Code in a repository and ask \"check the docs against the code\", or run a script directly from a clone of this repository:\n\n```bash\npython3 plugins/repo-engineering/skills/docs-truth-check/scripts/docs_truth_check.py . --only-failures\n```\n\nQuestions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/repo-engineering-skills/blob/main/SECURITY.md).",
       "install": {
         "lang": "bash",
-        "code": "docker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.0 docs-truth /work --only-failures\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.0 readme-check /work/README.md\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.0 test-gaps /work --top 20\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.0 hygiene /work --sarif /work/hygiene.sarif\ndocker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.4.0 --help",
+        "code": "docker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 docs-truth /work --only-failures\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 readme-check /work/README.md\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 test-gaps /work --top 20\ndocker run --rm -v \"$PWD:/work\" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 hygiene /work --sarif /work/hygiene.sarif\ndocker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 --help",
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.4.1",
+          "name": "v0.4.1",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.4.1"
+        },
         {
           "tag": "v0.4.0",
           "name": "v0.4.0",
@@ -1633,12 +1729,6 @@
           "name": "v0.2.0",
           "date": "2026-10-04",
           "url": "https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.2.0"
-        },
-        {
-          "tag": "v0.1.1",
-          "name": "v0.1.1",
-          "date": "2026-10-04",
-          "url": "https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.1.1"
         }
       ]
     },
@@ -1766,13 +1856,19 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/skill-scan-gate/",
       "own_site": null,
-      "intro_md": "**skill-scan-gate scans a skills or plugin repository in CI for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build on findings above your threshold.**\n\nGitHub Action:\n\n```yaml\n- uses: basitalisandhu/skill-scan-gate@v0.1.0\n```\n\npip (after the first PyPI release; until then `pipx install git+https://github.com/basitalisandhu/skill-scan-gate`):\n\n```bash\npip install skill-scan-gate\n```\n\nContainer image (GitHub Packages):\n\n```bash\ndocker run --rm -v \"$PWD:/work:ro\" ghcr.io/basitalisandhu/skill-scan-gate:0.1.0 scan .\n```",
+      "intro_md": "**skill-scan-gate scans a skills or plugin repository in CI for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build on findings above your threshold.**\n\nGitHub Action:\n\n```yaml\n- uses: basitalisandhu/skill-scan-gate@v0.2.0\n```\n\npip (after the first PyPI release; until then `pipx install git+https://github.com/basitalisandhu/skill-scan-gate`):\n\n```bash\npip install skill-scan-gate\n```\n\nContainer image (GitHub Packages):\n\n```bash\ndocker run --rm -v \"$PWD:/work:ro\" ghcr.io/basitalisandhu/skill-scan-gate:0.2.0 scan .\n```",
       "install": {
         "lang": "bash",
         "code": "skill-scan-gate scan .                                   # table, fail on high\nskill-scan-gate scan . --fail-on medium --sarif out.sarif\nskill-scan-gate scan . --format json --output report.json\nskill-scan-gate baseline . --out .skill-scan-gate-baseline.json\nskill-scan-gate scan . --baseline .skill-scan-gate-baseline.json --allow .skill-scan-gate-allow\nskill-scan-gate rules                                    # list every rule",
         "from": "Quickstart"
       },
       "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.2.0"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
@@ -1815,6 +1911,12 @@
         "from": "Install"
       },
       "releases": [
+        {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/spotlighting/releases/tag/v0.2.0"
+        },
         {
           "tag": "v0.1.0",
           "name": "v0.1.0",
