@@ -639,6 +639,12 @@
       "install": null,
       "releases": [
         {
+          "tag": "v0.1.1",
+          "name": "v0.1.1",
+          "date": "2026-10-09",
+          "url": "https://github.com/basitalisandhu/claude-code-tooling-skills/releases/tag/v0.1.1"
+        },
+        {
           "tag": "v0.1.0",
           "name": "v0.1.0",
           "date": "2026-10-05",
@@ -1439,7 +1445,7 @@
         "template-repository",
         "typescript"
       ],
-      "language": "TypeScript",
+      "language": "Python",
       "license": "MIT",
       "html_url": "https://github.com/basitalisandhu/mcp-server-template",
       "default_branch": "main",

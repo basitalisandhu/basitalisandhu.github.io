@@ -26,7 +26,7 @@
  "description": "Secure MCP server template in TypeScript and Python: stdio by default, optional streamable HTTP behind bearer auth, rate limit and body cap, bound to 127.0.0.1; bounded file and network access with allowlists and SSRF protection; redacting JSON logs; health tool; tests, non-root pinned Docker images, Semgrep, gitleaks, CodeQL, SBOMs.",
  "url": "https://basitalisandhu.github.io/mcp-server-template/",
  "codeRepository": "https://github.com/basitalisandhu/mcp-server-template",
- "programmingLanguage": "TypeScript",
+ "programmingLanguage": "Python",
  "license": "https://spdx.org/licenses/MIT.html",
  "author": {
   "@type": "Person",
@@ -48,7 +48,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>mcp-server-template</h1>
 <p class="lede">Secure MCP server template in TypeScript and Python, safe by default.</p>
-<p class="meta">TypeScript · MIT · latest v0.1.1</p>
+<p class="meta">Python · MIT · latest v0.1.1</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p>Secure MCP server template in TypeScript and Python: a starting point for a Model Context Protocol server that is safe by default. Both reference implementations ship the same four read-only tools and the same controls: strict input validation, file access bounded to allowlisted directories, network access bounded to allowlisted hosts with SSRF protection, structured logs that redact secrets, a health tool, stdio transport by default, and an optional streamable HTTP transport that is bound to 127.0.0.1, requires a bearer token, rate-limits clients and caps request bodies. Tests, Dockerfiles with digest-pinned bases and non-root users, CI with Semgrep, gitleaks and CodeQL, and SBOMs on release are included.</p>
 </section>
