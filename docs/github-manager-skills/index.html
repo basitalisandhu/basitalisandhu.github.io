@@ -37,7 +37,7 @@
   ]
  },
  "keywords": "agent-skills, blameless-postmortem, claude-code, claude-code-plugin, claude-skills, code-review, cycle-time, developer-tools, engineering-management, engineering-manager, gh-cli, github, hacktoberfest, incident-response, postmortem, pull-requests, python, review-queue, sprint-report",
- "version": "0.1.2",
+ "version": "0.2.0",
  "dateModified": "2026-10-05"
 }
 </script>
@@ -48,11 +48,12 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
 <h1>github-manager-skills</h1>
 <p class="lede">Claude Code skills for engineering managers that compute from exported GitHub data: stuck-PR and review-queue digest, iteration report, blameless postmortem timeline.</p>
-<p class="meta">Python · MIT · latest v0.1.2</p>
+<p class="meta">Python · MIT · latest v0.2.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
-<p><strong>Engineering manager skills for Claude Code that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report, and an incident postmortem timeline, every number cited to the PR or issue it came from.</strong></p>
-<p>github-manager-skills is a Claude Code plugin with three skills for engineering managers and tech leads who report on work that lives in GitHub. It exists because manager artefacts (the standup digest, the sprint report, the postmortem timeline) are usually written from memory, and memory miscounts: a PR merged the day after the sprint gets included, the mitigation lands before the label, the reviewer with ten pending requests goes unnoticed. Each skill reads a saved <code>gh</code> export with a standard-library Python script, computes the figures with stated definitions, and cites every row, so the text Claude writes can be checked by clicking the links.</p>
-<p>Common searches it answers: stale PRs and review bottlenecks, cycle time to merge and review turnaround (the DORA metrics&#x27; lead time for changes up to the merge, not the other three), and a cited incident postmortem timeline. It does not do issue triage.</p>
+<p><strong>Engineering manager skills for Claude Code that compute from exported GitHub data: a stuck-PR and review-queue digest, an iteration report, an incident postmortem timeline and an issue triage digest, every number cited to the PR or issue it came from.</strong></p>
+<p>github-manager-skills is a Claude Code plugin with four skills for engineering managers and tech leads who report on work that lives in GitHub. It exists because manager artefacts (the standup digest, the sprint report, the postmortem timeline) are usually written from memory, and memory miscounts: a PR merged the day after the sprint gets included, the mitigation lands before the label, the reviewer with ten pending requests goes unnoticed. Each skill reads a saved <code>gh</code> export with a standard-library Python script, computes the figures with stated definitions, and cites every row, so the text Claude writes can be checked by clicking the links.</p>
+<p>Common searches it answers: stale PRs and review bottlenecks, cycle time to merge and review turnaround (the DORA metrics&#x27; lead time for changes up to the merge, not the other three), a cited incident postmortem timeline, and issue triage (unlabelled, unanswered, duplicate and stale issues, label suggestions).</p>
+<p>Find this when you search for: issue triage, stale issues, duplicate issues, issue backlog cleanup, label suggestions.</p>
 <pre><code class="language-text">/plugin marketplace add basitalisandhu/github-manager-skills
 /plugin install github-manager@github-manager-skills</code></pre>
 <p>Quickstart: open Claude Code and ask &quot;which PRs are stuck on OWNER/REPO?&quot;; the skill gives you the <code>gh</code> export commands to run, then reads the files. Or run a script directly from a clone of this repository on the committed fixture:</p>
@@ -66,6 +67,7 @@
 <li><a href="https://github.com/basitalisandhu/github-manager-skills/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.1.2">v0.1.2</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-04">2026-10-04</time></li>
 <li><a href="https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
