@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent identities are the new service accounts | Muhammad Basit Ali</title>
+<meta name="description" content="AI agents run as app registrations, IAM roles and GitHub Apps that nobody owns or reviews. The failure modes, the controls, and an offline tool for them.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/posts/agent-identities-are-the-new-service-accounts/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agent identities are the new service accounts">
+<meta property="og:description" content="AI agents run as app registrations, IAM roles and GitHub Apps that nobody owns or reviews. The failure modes, the controls, and an offline tool for them.">
+<meta property="og:url" content="https://basitalisandhu.github.io/posts/agent-identities-are-the-new-service-accounts/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "Agent identities are the new service accounts",
+ "description": "AI agents run as app registrations, IAM roles and GitHub Apps that nobody owns or reviews. The failure modes, the controls, and an offline tool for them.",
+ "datePublished": "2026-10-13",
+ "dateModified": "2026-10-13",
+ "url": "https://basitalisandhu.github.io/posts/agent-identities-are-the-new-service-accounts/",
+ "mainEntityOfPage": "https://basitalisandhu.github.io/posts/agent-identities-are-the-new-service-accounts/",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu"
+  ]
+ },
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "inLanguage": "en"
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/posts/">Posts</a></p><article><h1>Agent identities are the new service accounts</h1><p class="meta">By Muhammad Basit Ali · <time datetime="2026-10-13">2026-10-13</time></p>
+<p>Part of my job is running access reviews. Human accounts are the easy part: there is an HR system, a manager, a leaver process. The hard part has always been the service accounts, and AI agents have made that part bigger.</p>
+<p>An agent does not act with its own authority. It acts with whatever identity it was given. In practice that is an Entra app registration or service principal, a managed identity, an AWS IAM role or an access key, a GitHub App installation or a deploy key. These are the service accounts we already struggle to govern, and agents add more of them, created faster, often by a team running a pilot rather than by the people who run identity.</p>
+<p>The pattern I keep seeing has three parts. Nobody owns the list. Nobody recertifies it. And when something goes wrong, nobody can stop one of these identities quickly and prove it is stopped.</p>
+<h3 id="why-this-is-an-identity-problem-not-a-model-problem">Why this is an identity problem, not a model problem</h3>
+<p>The <a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/">OWASP Top 10 for Agentic Applications for 2026</a> lists ASI03, Identity &amp; Privilege Abuse, as its own category. The <a href="https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/">OWASP announcement</a> describes leaked credentials letting agents operate &quot;far beyond their intended scope&quot;. Whatever an agent is tricked into doing, the blast radius is set by its identity&#x27;s grants.</p>
+<p>Microsoft says much the same in its <a href="https://learn.microsoft.com/en-us/entra/id-governance/agent-id-governance-overview">governance guidance for agent identities</a>: agents have historically reached Microsoft services through tools that use service principals. <a href="https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id">Microsoft Entra Agent ID</a> is its answer, a dedicated identity type for agents built from agent identity blueprints, with Conditional Access, Identity Protection, governance and audit logs extended to them. It is a good direction. It does not cover the AWS role your coding agent assumes or the GitHub App it pushes with, and many agents in Entra still run as ordinary app registrations.</p>
+<h3 id="the-failure-modes-i-look-for">The failure modes I look for</h3>
+<p>These are the patterns I look for first in a review.</p>
+<ul><li><strong>An ownerless identity with a tenant-wide Graph application permission.</strong> An application permission such as <code>Mail.ReadWrite</code> works for every mailbox in the tenant with no signed-in user. If nobody owns the app registration, nobody will notice when it is misused, and nobody will answer the question &quot;do we still need this?&quot;.</li><li><strong>A role with <code>Action: &quot;*&quot;</code> that a CI agent assumes through OIDC.</strong> Federation is the right way to give a pipeline credentials. But an OIDC trust to a role with <code>*</code> on <code>*</code> means any workflow that can satisfy the trust condition has the whole account.</li><li><strong>A credential older than 90 days.</strong> A client secret or access key that has not been rotated is a long-lived secret sitting in a pipeline variable, a vault or a laptop. AWS&#x27;s <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">IAM security best practices</a> say to require workloads to use temporary credentials with IAM roles, and to update access keys where long-term credentials cannot be avoided.</li><li><strong>An owner who left.</strong> The identity had an owner when it was created. That person moved on, the owner field was cleared or now points at a disabled account, and the identity kept working.</li><li><strong>A GitHub App with administration write on every repository.</strong> Administration covers settings, branch protection and deletion. GitHub&#x27;s <a href="https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app">best practices for creating a GitHub App</a> start with selecting the minimum permissions the app needs. Read-write deploy keys are a smaller version of the same problem: GitHub&#x27;s <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys">deploy key documentation</a> notes that they have no expiry date and are tied to the repository, not to a user.</li><li><strong>Stopping a role does not end existing sessions.</strong> Changing an IAM role&#x27;s trust policy stops new sessions. Credentials already issued stay valid until they expire. AWS documents how to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_revoke-sessions.html">revoke role sessions</a> with an <code>AWSRevokeOlderSessions</code> policy keyed on <code>aws:TokenIssueTime</code>. If your off switch is &quot;edit the trust policy&quot;, it is half a switch.</li></ul>
+<h3 id="the-controls">The controls</h3>
+<p>None of these controls is new. They are the service account controls, applied to a population that grew while nobody was counting.</p>
+<ol><li><strong>Inventory.</strong> One list of every non-human identity across Microsoft 365, AWS and GitHub, with the likely agents marked.</li><li><strong>Owner.</strong> A named person or team for each one. No owner, no access.</li><li><strong>Least privilege.</strong> Grants sized to the task, not to the pilot. AWS points to IAM Access Analyzer to generate policies from access activity, and GitHub to minimum permissions and limiting the repositories an app can reach.</li><li><strong>Credential hygiene.</strong> No secrets where a federated or managed credential will do; rotation and an age limit where a secret is unavoidable; expired credentials deleted.</li><li><strong>Recertification.</strong> On a schedule, the owner confirms the identity is still needed and its grants are still right. AWS&#x27;s best practices include regularly reviewing and removing unused users, roles, permissions and credentials.</li><li><strong>An off switch.</strong> A tested, ordered procedure to stop one identity: disable it, end live sessions, remove grants and credentials, and check the audit log.</li><li><strong>Drift in CI.</strong> New identities, new grants and lost owners between reviews should fail a check until a person accepts them.</li></ol>
+<h3 id="how-agent-off-switch-maps-to-those-controls">How agent-off-switch maps to those controls</h3>
+<p>I built <a href="https://github.com/basitalisandhu/agent-off-switch">agent-off-switch</a> (<code>aos</code>) for the reviews I run. It reads saved exports from Entra, AWS and GitHub, plus an optional <code>agents.csv</code> register, and works offline with no credentials of its own. Everything below is real output from the synthetic demo tenant that ships in the repository: the ids are fake and the AWS account is the documentation account <code>111122223333</code>.</p>
+<p><strong>Inventory, owner, least privilege and credential hygiene</strong> come from <code>aos review</code>, which ranks findings by blast radius (0 to 100) and gives each a fix:</p>
+<pre><code class="language-console">$ aos review examples/demo-tenant --as-of 2026-10-09
+# Agent access review
+
+As of 2026-10-09: 13 non-human identities, 11 look like agents. 15 findings (8 error), ranked by blast radius (0 to 100, see docs/scoring.md).
+
+## 4 agent identities nobody owns
+
+- **coding-agent-runner** `aws-role:coding-agent-runner` (blast radius 100): Action * on Resource *
+  - switch off: `aos off examples/demo-tenant aws-role:coding-agent-runner`
+- **repo-autopilot** `github-app:repo-autopilot` (blast radius 95): administration: write on every repository (settings, branch protection, deletion)
+  - switch off: `aos off examples/demo-tenant github-app:repo-autopilot`
+- **mail-triage-agent** `entra:aaaaaaaa-0000-4000-8000-000000000001` (blast radius 90): Mail.ReadWrite as an application permission changes data for every user in the tenant
+  - switch off: `aos off examples/demo-tenant entra:aaaaaaaa-0000-4000-8000-000000000001`
+...</code></pre>
+<p>The findings table that follows covers the rest of the failure modes above, including a client secret 434 days old and a deploy key that can push, each with its fix.</p>
+<p>The same review can be written as SARIF for GitHub code scanning. <code>aos inventory</code> gives the full table of identities with owners, credentials, grants and last use, as Markdown, CSV or JSON.</p>
+<p><strong>The off switch</strong> is <code>aos off</code>. It prints an ordered runbook and runs nothing. For the coding agent&#x27;s role, the first two steps are the point I made above: stop new sessions, then revoke the ones already issued.</p>
+<pre><code class="language-console">$ aos off examples/demo-tenant aws-role:coding-agent-runner --as-of 2026-10-09
+# Off-switch runbook: coding-agent-runner
+
+Identity `aws-role:coding-agent-runner` (aws-iam-role on aws). Owners: none recorded. Blast radius 100. Exports as of 2026-10-09.
+
+aos printed these commands and ran none of them. Run each change in order, then its verification, and keep the verification output for the incident record. Values in &lt;angle brackets&gt; are for you to fill in.
+
+## 1 disable
+
+### Step 1: Stop new sessions: replace the trust policy (now trusts Federated: arn:aws:iam::111122223333:oidc-provider/token.actions.githubusercontent.com) with a deny-all one; save the current one first
+...
+## 2 revoke sessions and grants
+
+### Step 2: Revoke every session issued before the disable time (the console&#x27;s Revoke active sessions)
+...
+## 5 verify with the audit log
+
+### Step 5: Confirm in CloudTrail that nothing succeeded after the disable time
+...
+## Coverage
+
+Every credential and grant in the exports is named by a step.</code></pre>
+<p>Each step in the full output has a change command, a verification command and a line to record the time and the person. The coverage line matters: if a grant in the exports is not named by any step, <code>aos</code> says so and exits 1.</p>
+<p><strong>Drift in CI</strong> is <code>aos drift</code>, which compares a saved inventory with today&#x27;s exports:</p>
+<pre><code class="language-console">$ aos drift examples/drift/baseline.json examples/demo-tenant --as-of 2026-10-09 --accept examples/drift/accepted.txt
+# Agent identity drift
+
+From 2026-09-01 (11 identities) to 2026-10-09 (13 identities): 4 changes, 3 not reviewed.
+
+| Change | Identity | Detail | Reviewed |
+|---|---|---|---|
+| new-identity | `github-app:repo-autopilot` | repo-autopilot (github-app, no owner, blast radius 95) | **no** |
+| new-identity | `github-app:docs-preview-bot` | docs-preview-bot (github-app, web-team@example.com, blast radius 55) | yes |
+| new-grant | `aws-role:coding-agent-runner` | agent-all (score 100) | **no** |
+| owner-lost | `entra:aaaaaaaa-0000-4000-8000-000000000001` | was owned by messaging-team@example.com; now no owner | **no** |
+...</code></pre>
+<p>It exits 1 while anything is unreviewed, so it can gate a pull request. Accepting a change means adding its key to the accept file, so the decision sits in version control next to the inventory.</p>
+<h3 id="what-it-does-not-do">What it does not do</h3>
+<p>I would rather say this plainly.</p>
+<ul><li><strong>Recertification is supported, not performed.</strong> <code>aos</code> gives you the data a recertification needs: owners, grants, credential ages, last use, and the unused and no-owner findings. It does not send attestations, collect decisions or remove access when nobody answers. That is still a process you run, or a governance product&#x27;s job.</li><li><strong>It never changes anything.</strong> It calls no cloud API and runs no command. <code>off</code> prints commands for a person to run.</li><li><strong>It is not real time.</strong> It sees what the exports saw. An identity created after the export is invisible until the next run.</li><li><strong>It does not read every limit on access.</strong> Azure role assignments, AWS permission boundaries, service control policies, resource policies, Exchange RBAC for Applications scopes and Conditional Access are not read, so a score can overstate reach that one of those limits.</li><li><strong>An owner who left is only partly covered.</strong> <code>drift</code> flags an owner that disappears between two inventories. It does not check whether a named owner&#x27;s account is still active.</li><li><strong>It does not judge GitHub App activity</strong> (the installations export has no last-use date) <strong>or look inside agents</strong>: prompts, tool calls and memory are out of scope.</li><li><strong>It does not replace Entra Agent ID</strong>, an identity governance product or a cloud security platform. It gives you one offline list across platforms and a way to act on it.</li></ul>
+<h3 id="where-to-start">Where to start</h3>
+<p>If you run access reviews, add the agent identities to the next one. Take the read-only exports, list what exists, and put a name against every row. The ones nobody claims are your first off-switch drill.</p>
+<p>The repository is at <a href="https://github.com/basitalisandhu/agent-off-switch">github.com/basitalisandhu/agent-off-switch</a>, with the demo tenant, the <a href="https://github.com/basitalisandhu/agent-off-switch/blob/main/docs/threat-model.md">threat model</a> and the <a href="https://github.com/basitalisandhu/agent-off-switch/blob/main/docs/scoring.md">scoring rules</a>. Issues and pull requests are welcome, especially new export formats and corrections to the scoring.</p>
+</article>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>
