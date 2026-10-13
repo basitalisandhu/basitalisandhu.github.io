@@ -35,7 +35,7 @@ I did not report a measure until I had checked how often it was right. Unrestric
 
 Some measures did not survive. The linter's "no Use when sentence" check was right only 5 times in 12, because most descriptions it flagged did say when to use the skill, in other words or another language, so I dropped it. The secret rules were the weakest of all: a check for provider tokens was right 0 times in 10, mostly because the hits were scanner regexes, placeholders and example responses in documentation.
 
-That matters for anyone counting "leaked secrets" in public skill repositories. The secret-shaped-string rules fired in 471 of the 2,999. After triaging every hit by structure, without displaying any value, 30 possible live credentials in 17 repositories remained. Those were reported privately to their owners before this post went out, and neither the post nor the dataset names them.
+That matters for anyone counting "leaked secrets" in public skill repositories. The secret-shaped-string rules fired in 471 of the 2,999. After triaging every hit by structure, without displaying any value, 30 possible live credentials in 17 repositories remained. Before publishing, I re-checked each one: 4 were test values or shortened examples, and the owners of the other 13 were notified, by email where an address existed and otherwise with a short public notice that names no file or key type, since none had private vulnerability reporting enabled.
 
 ## What to do before installing a skill or MCP server
 
