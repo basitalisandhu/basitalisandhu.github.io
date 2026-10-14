@@ -23,7 +23,7 @@ Install:
 /plugin install aws-security@claude-skills
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/claude-skills/releases/tag/v0.1.0
+Latest release: v0.2.0 (2026-10-13) https://github.com/basitalisandhu/claude-skills/releases/tag/v0.2.0
 
 ## ways-of-working-skills
 
@@ -148,7 +148,7 @@ claude plugin marketplace add basitalisandhu/m365-governance-skills
 claude plugin install m365-governance@m365-governance-skills --scope user
 ```
 
-Latest release: v0.4.0 (2026-10-09) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.4.0
+Latest release: v0.5.0 (2026-10-13) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.5.0
 
 ## compliance-evidence-skills
 
@@ -362,11 +362,11 @@ All servers are TypeScript on the official `@modelcontextprotocol/sdk`, speak st
 Install:
 
 ```bash
-claude mcp add jwt-tools -- npx -y @basitalisandhu/mcp-jwt-tools@0.2.0
+claude mcp add jwt-tools -- docker run --rm -i ghcr.io/basitalisandhu/mcp-jwt-tools:0.2.1
 claude mcp list
 ```
 
-Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.2.0
+Latest release: v0.2.1 (2026-10-13) https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.2.1
 
 ## mcp-server-template
 
@@ -774,6 +774,8 @@ Copilot agents, MCP connectors and coding agents run as Entra app registrations,
 - **`aos off <identity>`**: an ordered runbook (disable, revoke sessions and grants, delete credentials, remove role assignments, verify in the audit log) with the command and the verification command for each step. It prints; it never runs anything.
 - **`aos drift old.json new.json`**: new identities, new grants and lost owners since the last inventory; exits 1 while anything new is unreviewed, for CI.
 
+**Why this exists:** agents run as service accounts that nobody owns, recertifies or can stop fast. The argument, the failure modes and the controls are in [Agent identities are the new service accounts](https://basitalisandhu.github.io/posts/agent-identities-are-the-new-service-accounts/).
+
 Standard-library Python 3.10+, offline, read-only. It needs no credentials of its own: you take the exports with read-only commands listed in [docs/exports.md](https://github.com/basitalisandhu/agent-off-switch/blob/main/docs/exports.md).
 
 Install:
@@ -809,7 +811,7 @@ pipx install git+https://github.com/basitalisandhu/scp-guardrails               
 uvx --from git+https://github.com/basitalisandhu/scp-guardrails scp-guardrails --help   # run without installing
 ```
 
-Latest release: v0.1.0 (2026-10-04) https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.1.0
+Latest release: v0.2.0 (2026-10-13) https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.2.0
 
 ## skill-scan-gate
 
@@ -821,36 +823,13 @@ CI gate for Claude Code skills and plugins.
 
 **skill-scan-gate scans a skills or plugin repository in CI for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build on findings above your threshold.**
 
-GitHub Action:
-
-```yaml
-- uses: basitalisandhu/skill-scan-gate@v0.2.0
-```
-
-pip (after the first PyPI release; until then `pipx install git+https://github.com/basitalisandhu/skill-scan-gate`):
+Install:
 
 ```bash
 pip install skill-scan-gate
 ```
 
-Container image (GitHub Packages):
-
-```bash
-docker run --rm -v "$PWD:/work:ro" ghcr.io/basitalisandhu/skill-scan-gate:0.2.0 scan .
-```
-
-Install:
-
-```bash
-skill-scan-gate scan .                                   # table, fail on high
-skill-scan-gate scan . --fail-on medium --sarif out.sarif
-skill-scan-gate scan . --format json --output report.json
-skill-scan-gate baseline . --out .skill-scan-gate-baseline.json
-skill-scan-gate scan . --baseline .skill-scan-gate-baseline.json --allow .skill-scan-gate-allow
-skill-scan-gate rules                                    # list every rule
-```
-
-Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.2.0
+Latest release: v0.3.0 (2026-10-13) https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.3.0
 
 ## spotlighting
 
@@ -895,6 +874,8 @@ table, one page per event, [RSS feed](https://basitalisandhu.github.io/ai-agent-
 [CSV](https://basitalisandhu.github.io/ai-agent-incidents/incidents.csv),
 [stats](https://basitalisandhu.github.io/ai-agent-incidents/stats.json)).
 
+Latest release: v1.0.0 (2026-10-13) https://github.com/basitalisandhu/ai-agent-incidents/releases/tag/v1.0.0
+
 ## awesome-agent-security
 
 Page: https://basitalisandhu.github.io/awesome-agent-security/
@@ -905,7 +886,23 @@ Curated list of AI agent security tools, papers and datasets.
 
 > Curated list of AI agent security tools, papers and datasets: runtime controls, sandboxes, scanners for MCP servers and skills, static analysis, red teaming, incident records, threat models and standards.
 
-An AI agent is a model that can read untrusted content and call tools with real privileges. Securing one means controlling what it may touch, isolating what it runs, scanning what it loads, and measuring how it fails. Every entry below exists on GitHub and is maintained; descriptions are the projects' own words, shortened. Maintained by [Muhammad Basit Ali](https://github.com/basitalisandhu); projects by the maintainer are listed in their sections like any other entry. See [contributing.md](https://github.com/basitalisandhu/awesome-agent-security/blob/main/contributing.md) for the inclusion criteria.
+An AI agent is a model that can read untrusted content and call tools with real privileges. Securing one means controlling what it may touch, isolating what it runs, scanning what it loads, and measuring how it fails. Every entry below exists on GitHub and is maintained; descriptions are the projects' own words, shortened. Maintained by [Muhammad Basit Ali](https://github.com/basitalisandhu); projects by the maintainer are listed in their sections like any other entry. See [contributing.md](https://github.com/basitalisandhu/awesome-agent-security/blob/main/contributing.md) for the inclusion criteria and [SECURITY.md](https://github.com/basitalisandhu/awesome-agent-security/blob/main/SECURITY.md) to report a listed project that has turned malicious.
+
+## agent-skills-state-2026
+
+Page: https://basitalisandhu.github.io/agent-skills-state-2026/
+Repository: https://github.com/basitalisandhu/agent-skills-state-2026
+Theme: Data and lists
+
+Study of 2,999 public agent skill, plugin and MCP repositories (October 2026).
+
+*Muhammad Basit Ali, 13 October 2026. Dataset, method and scripts are in this repository. Data and text: CC BY 4.0. Code: MIT.*
+
+*This is the first edition. The scan is re-run every month and each month's data is added alongside; see [Updated monthly](https://github.com/basitalisandhu/agent-skills-state-2026#updated-monthly).*
+
+Agent skills, plugin marketplaces and MCP servers are now installed the way browser extensions once were: someone finds a repository, copies a line into a config file and the agent gains new instructions, new shell access or a new process that starts with every session. We wanted to know what that supply looks like on the ground, measured rather than guessed. So we took a random sample of 2,999 public GitHub repositories that ship a `SKILL.md`, a plugin or marketplace manifest, or an MCP `server.json`, scanned them with open-source tools, and hand-checked the scanners before trusting them.
+
+Latest release: v1.0.0 (2026-10-13) https://github.com/basitalisandhu/agent-skills-state-2026/releases/tag/v1.0.0
 
 ## Post: The state of public agent skills and MCP servers
 
