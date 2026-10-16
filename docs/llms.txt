@@ -50,6 +50,7 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 
 - [ai-agent-incidents](https://basitalisandhu.github.io/ai-agent-incidents/): An open dataset of AI agent and LLM security incidents, with a browsable site.
 - [awesome-agent-security](https://basitalisandhu.github.io/awesome-agent-security/): Curated list of AI agent security tools, papers and datasets.
+- [agent-skills-state-2026](https://basitalisandhu.github.io/agent-skills-state-2026/): Study of 2,999 public agent skill, plugin and MCP repositories (October 2026).
 
 ## Posts
 

@@ -53,7 +53,8 @@
       "title": "Data and lists",
       "repos": [
         "ai-agent-incidents",
-        "awesome-agent-security"
+        "awesome-agent-security",
+        "agent-skills-state-2026"
       ]
     }
   ],
@@ -196,7 +197,7 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/agent-off-switch/",
       "own_site": null,
-      "intro_md": "Copilot agents, MCP connectors and coding agents run as Entra app registrations, managed identities, AWS IAM roles, access keys and GitHub Apps. `aos` reads saved exports of those, puts every agent identity in one table with its owner, credentials, grants and last use, ranks what it can reach, and prints the exact steps to switch one off.\n\n- **`aos inventory`**: every non-human identity, with the ones that look like agents marked; flags ownerless identities, identities unused for N days and credentials older than 90 days. Markdown, CSV or JSON.\n- **`aos review`**: findings ranked by blast radius, each with its fix. Markdown, JSON or SARIF for GitHub code scanning.\n- **`aos off <identity>`**: an ordered runbook (disable, revoke sessions and grants, delete credentials, remove role assignments, verify in the audit log) with the command and the verification command for each step. It prints; it never runs anything.\n- **`aos drift old.json new.json`**: new identities, new grants and lost owners since the last inventory; exits 1 while anything new is unreviewed, for CI.\n\nStandard-library Python 3.10+, offline, read-only. It needs no credentials of its own: you take the exports with read-only commands listed in [docs/exports.md](https://github.com/basitalisandhu/agent-off-switch/blob/main/docs/exports.md).",
+      "intro_md": "Copilot agents, MCP connectors and coding agents run as Entra app registrations, managed identities, AWS IAM roles, access keys and GitHub Apps. `aos` reads saved exports of those, puts every agent identity in one table with its owner, credentials, grants and last use, ranks what it can reach, and prints the exact steps to switch one off.\n\n- **`aos inventory`**: every non-human identity, with the ones that look like agents marked; flags ownerless identities, identities unused for N days and credentials older than 90 days. Markdown, CSV or JSON.\n- **`aos review`**: findings ranked by blast radius, each with its fix. Markdown, JSON or SARIF for GitHub code scanning.\n- **`aos off <identity>`**: an ordered runbook (disable, revoke sessions and grants, delete credentials, remove role assignments, verify in the audit log) with the command and the verification command for each step. It prints; it never runs anything.\n- **`aos drift old.json new.json`**: new identities, new grants and lost owners since the last inventory; exits 1 while anything new is unreviewed, for CI.\n\n**Why this exists:** agents run as service accounts that nobody owns, recertifies or can stop fast. The argument, the failure modes and the controls are in [Agent identities are the new service accounts](https://basitalisandhu.github.io/posts/agent-identities-are-the-new-service-accounts/).\n\nStandard-library Python 3.10+, offline, read-only. It needs no credentials of its own: you take the exports with read-only commands listed in [docs/exports.md](https://github.com/basitalisandhu/agent-off-switch/blob/main/docs/exports.md).",
       "install": {
         "lang": "bash",
         "code": "pip install \"git+https://github.com/basitalisandhu/agent-off-switch@v0.1.0\"\naos --help",
@@ -279,6 +280,41 @@
           "name": "v0.1.0",
           "date": "2026-10-04",
           "url": "https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "agent-skills-state-2026",
+      "description": "Study of 2,999 public agent skill, plugin and MCP repositories (October 2026): missing security policies, unpinned MCP servers, unrestricted shell in skills, front matter that fails to parse. Dataset (CC BY 4.0), method, hand-checked precision and scripts.",
+      "one_liner": "Study of 2,999 public agent skill, plugin and MCP repositories (October 2026).",
+      "theme": "Data and lists",
+      "topics": [
+        "agent-security",
+        "agent-skills",
+        "ai-security",
+        "claude-code",
+        "dataset",
+        "empirical-study",
+        "mcp",
+        "model-context-protocol",
+        "open-data",
+        "security-research",
+        "supply-chain-security"
+      ],
+      "language": "Python",
+      "license": "MIT",
+      "html_url": "https://github.com/basitalisandhu/agent-skills-state-2026",
+      "default_branch": "main",
+      "homepage": "https://basitalisandhu.github.io/posts/the-state-of-public-agent-skills-and-mcp-servers/",
+      "own_site": null,
+      "intro_md": "*Muhammad Basit Ali, 13 October 2026. Dataset, method and scripts are in this repository. Data and text: CC BY 4.0. Code: MIT.*\n\n*This is the first edition. The scan is re-run every month and each month's data is added alongside; see [Updated monthly](https://github.com/basitalisandhu/agent-skills-state-2026#updated-monthly).*\n\nAgent skills, plugin marketplaces and MCP servers are now installed the way browser extensions once were: someone finds a repository, copies a line into a config file and the agent gains new instructions, new shell access or a new process that starts with every session. We wanted to know what that supply looks like on the ground, measured rather than guessed. So we took a random sample of 2,999 public GitHub repositories that ship a `SKILL.md`, a plugin or marketplace manifest, or an MCP `server.json`, scanned them with open-source tools, and hand-checked the scanners before trusting them.",
+      "install": null,
+      "releases": [
+        {
+          "tag": "v1.0.0",
+          "name": "v1.0.0: October 2026 edition",
+          "date": "2026-10-13",
+          "url": "https://github.com/basitalisandhu/agent-skills-state-2026/releases/tag/v1.0.0"
         }
       ]
     },
@@ -473,7 +509,14 @@
       "own_site": "https://basitalisandhu.github.io/ai-agent-incidents/",
       "intro_md": "An open, structured dataset (an incident database) of publicly documented security\nincidents, vulnerability disclosures and threat reports involving LLM applications and\nAI agents, for security engineers, researchers and policy teams who need evidence about\nprompt injection, data exfiltration, supply-chain compromise and agent misuse rather\nthan headlines. Every event is one schema-validated JSON file, coded under a written codebook by the role AI plays\nin it (**weapon**, **target** or **surface**), how the attack got in, what authority the\nAI held, how the effect got out, and what harm resulted, and cross-referenced to the\nOWASP Top 10 for LLM Applications, the OWASP Top 10 for Agentic Applications and\nMITRE ATLAS.\n\nBrowse it at **https://basitalisandhu.github.io/ai-agent-incidents/** (searchable\ntable, one page per event, [RSS feed](https://basitalisandhu.github.io/ai-agent-incidents/feed.xml),\n[JSON](https://basitalisandhu.github.io/ai-agent-incidents/incidents.json),\n[CSV](https://basitalisandhu.github.io/ai-agent-incidents/incidents.csv),\n[stats](https://basitalisandhu.github.io/ai-agent-incidents/stats.json)).",
       "install": null,
-      "releases": []
+      "releases": [
+        {
+          "tag": "v1.0.0",
+          "name": "1.0.0",
+          "date": "2026-10-13",
+          "url": "https://github.com/basitalisandhu/ai-agent-incidents/releases/tag/v1.0.0"
+        }
+      ]
     },
     {
       "name": "awesome-agent-security",
@@ -506,7 +549,7 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/awesome-agent-security/",
       "own_site": null,
-      "intro_md": "> Curated list of AI agent security tools, papers and datasets: runtime controls, sandboxes, scanners for MCP servers and skills, static analysis, red teaming, incident records, threat models and standards.\n\nAn AI agent is a model that can read untrusted content and call tools with real privileges. Securing one means controlling what it may touch, isolating what it runs, scanning what it loads, and measuring how it fails. Every entry below exists on GitHub and is maintained; descriptions are the projects' own words, shortened. Maintained by [Muhammad Basit Ali](https://github.com/basitalisandhu); projects by the maintainer are listed in their sections like any other entry. See [contributing.md](https://github.com/basitalisandhu/awesome-agent-security/blob/main/contributing.md) for the inclusion criteria.",
+      "intro_md": "> Curated list of AI agent security tools, papers and datasets: runtime controls, sandboxes, scanners for MCP servers and skills, static analysis, red teaming, incident records, threat models and standards.\n\nAn AI agent is a model that can read untrusted content and call tools with real privileges. Securing one means controlling what it may touch, isolating what it runs, scanning what it loads, and measuring how it fails. Every entry below exists on GitHub and is maintained; descriptions are the projects' own words, shortened. Maintained by [Muhammad Basit Ali](https://github.com/basitalisandhu); projects by the maintainer are listed in their sections like any other entry. See [contributing.md](https://github.com/basitalisandhu/awesome-agent-security/blob/main/contributing.md) for the inclusion criteria and [SECURITY.md](https://github.com/basitalisandhu/awesome-agent-security/blob/main/SECURITY.md) to report a listed project that has turned malicious.",
       "install": null,
       "releases": []
     },
@@ -949,6 +992,12 @@
       },
       "releases": [
         {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-13",
+          "url": "https://github.com/basitalisandhu/claude-skills/releases/tag/v0.2.0"
+        },
+        {
           "tag": "v0.1.0",
           "name": "v0.1.0",
           "date": "2026-10-04",
@@ -1062,10 +1111,16 @@
       "intro_md": "Ten small MCP servers for everyday development and security checks. Each one is a separate npm package you add to Claude Code, Claude Desktop, Cursor or any other MCP client with one line, and each does one job well: look up vulnerabilities, grade security headers, decode a JWT, test a regex, explain a cron expression, validate JSON against a schema, lint an OpenAPI document or a Dockerfile, read statistics out of a git repository, or build an `llms.txt`.\n\nAll servers are TypeScript on the official `@modelcontextprotocol/sdk`, speak stdio only, validate every input with zod, bound their inputs and run time, send no telemetry, and ship with `node:test` suites that cover every tool.",
       "install": {
         "lang": "bash",
-        "code": "claude mcp add jwt-tools -- npx -y @basitalisandhu/mcp-jwt-tools@0.2.0\nclaude mcp list",
+        "code": "claude mcp add jwt-tools -- docker run --rm -i ghcr.io/basitalisandhu/mcp-jwt-tools:0.2.1\nclaude mcp list",
         "from": "Quick start"
       },
       "releases": [
+        {
+          "tag": "v0.2.1",
+          "name": "v0.2.1",
+          "date": "2026-10-13",
+          "url": "https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.2.1"
+        },
         {
           "tag": "v0.2.0",
           "name": "v0.2.0",
@@ -1294,6 +1349,12 @@
       },
       "releases": [
         {
+          "tag": "v0.5.0",
+          "name": "v0.5.0",
+          "date": "2026-10-13",
+          "url": "https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.5.0"
+        },
+        {
           "tag": "v0.4.0",
           "name": "v0.4.0",
           "date": "2026-10-09",
@@ -1316,12 +1377,6 @@
           "name": "v0.2.1",
           "date": "2026-10-04",
           "url": "https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.1"
-        },
-        {
-          "tag": "v0.2.0",
-          "name": "v0.2.0",
-          "date": "2026-10-04",
-          "url": "https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.2.0"
         }
       ]
     },
@@ -1771,6 +1826,12 @@
       },
       "releases": [
         {
+          "tag": "v0.2.0",
+          "name": "v0.2.0",
+          "date": "2026-10-13",
+          "url": "https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.2.0"
+        },
+        {
           "tag": "v0.1.0",
           "name": "v0.1.0",
           "date": "2026-10-04",
@@ -1856,13 +1917,19 @@
       "default_branch": "main",
       "homepage": "https://basitalisandhu.github.io/skill-scan-gate/",
       "own_site": null,
-      "intro_md": "**skill-scan-gate scans a skills or plugin repository in CI for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build on findings above your threshold.**\n\nGitHub Action:\n\n```yaml\n- uses: basitalisandhu/skill-scan-gate@v0.2.0\n```\n\npip (after the first PyPI release; until then `pipx install git+https://github.com/basitalisandhu/skill-scan-gate`):\n\n```bash\npip install skill-scan-gate\n```\n\nContainer image (GitHub Packages):\n\n```bash\ndocker run --rm -v \"$PWD:/work:ro\" ghcr.io/basitalisandhu/skill-scan-gate:0.2.0 scan .\n```",
+      "intro_md": "**skill-scan-gate scans a skills or plugin repository in CI for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build on findings above your threshold.**",
       "install": {
         "lang": "bash",
-        "code": "skill-scan-gate scan .                                   # table, fail on high\nskill-scan-gate scan . --fail-on medium --sarif out.sarif\nskill-scan-gate scan . --format json --output report.json\nskill-scan-gate baseline . --out .skill-scan-gate-baseline.json\nskill-scan-gate scan . --baseline .skill-scan-gate-baseline.json --allow .skill-scan-gate-allow\nskill-scan-gate rules                                    # list every rule",
-        "from": "Quickstart"
+        "code": "pip install skill-scan-gate",
+        "from": "Quick start"
       },
       "releases": [
+        {
+          "tag": "v0.3.0",
+          "name": "v0.3.0",
+          "date": "2026-10-13",
+          "url": "https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.3.0"
+        },
         {
           "tag": "v0.2.0",
           "name": "v0.2.0",
