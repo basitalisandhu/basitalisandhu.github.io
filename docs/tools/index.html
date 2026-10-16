@@ -341,9 +341,9 @@ npm install -g @basitalisandhu/mcp-tools-lint@0.2.0    # global CLI, installs th
 npm install -D @basitalisandhu/mcp-tools-lint@0.2.0    # as a dev dependency of a server project</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-mcp-auth-doctor"><h3 id="tool-mcp-auth-doctor"><a href="/mcp-auth-doctor/">mcp-auth-doctor</a></h3><p>Diagnose OAuth discovery problems on remote MCP servers.</p>
-<pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/mcp-auth-doctor                                 # isolated CLI install
-uvx --from git+https://github.com/basitalisandhu/mcp-auth-doctor mcp-auth-doctor https://host/mcp  # run without installing
-pip install git+https://github.com/basitalisandhu/mcp-auth-doctor                                  # into the current environment</code></pre>
+<pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/mcp-auth-doctor
+mcp-auth-doctor https://your-server.example.com/mcp      # read-only; add -v for evidence
+mcp-auth-doctor https://your-server.example.com/mcp --json &gt; report.json</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-mcp-egress"><h3 id="tool-mcp-egress"><a href="/mcp-egress/">mcp-egress</a></h3><p>Record every host an MCP server contacts, per tool, and fail CI on new ones.</p>
 <pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/mcp-egress                       # isolated CLI install
@@ -352,8 +352,9 @@ pip install git+https://github.com/basitalisandhu/mcp-egress                    
 git clone https://github.com/basitalisandhu/mcp-egress &amp;&amp; cd mcp-egress &amp;&amp; uv venv &amp;&amp; uv pip install -e &quot;.[dev]&quot;   # development</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-claude-mcp-allow"><h3 id="tool-claude-mcp-allow"><a href="/claude-mcp-allow/">claude-mcp-allow</a></h3><p>Least-privilege Claude Code permission rules for MCP tools, generated from their annotations.</p>
-<pre><code class="language-bash">npx @basitalisandhu/claude-mcp-allow                    # run without installing
-npm install -g @basitalisandhu/claude-mcp-allow@0.2.0   # or install the claude-mcp-allow command</code></pre>
+<pre><code class="language-bash">npx @basitalisandhu/claude-mcp-allow            # print the proposed rules, change nothing
+npx @basitalisandhu/claude-mcp-allow --diff --write
+npx @basitalisandhu/claude-mcp-allow --check    # later, or in CI: exit 1 on drift</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-agentdojo-mcp"><h3 id="tool-agentdojo-mcp"><a href="/agentdojo-mcp/">agentdojo-mcp</a></h3><p>Run the AgentDojo benchmark&#x27;s user and injection tasks against a real MCP server&#x27;s tools.</p>
 <pre><code class="language-bash">pip install &quot;agentdojo-mcp[dojo] @ git+https://github.com/basitalisandhu/agentdojo-mcp&quot;
@@ -379,8 +380,9 @@ agentdojo-mcp run --suite travel --mapping mapping.yaml --stdio &quot;python my_
 garak-mcp run --dry-run --probes test.Test --report-dir garak-mcp-report</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-mcp-rc-check"><h3 id="tool-mcp-rc-check"><a href="/mcp-rc-check/">mcp-rc-check</a></h3><p>MCP specification migration checker for the 2026-07-28 revision: flags removed, changed and deprecated constructs and writes a patch for mechanical fixes.</p>
-<pre><code class="language-bash">npx @basitalisandhu/mcp-rc-check scan --dump tools.json     # run without installing
-npm install -g @basitalisandhu/mcp-rc-check@0.3.0           # or install the mcp-rc-check command</code></pre>
+<pre><code class="language-bash">git clone https://github.com/basitalisandhu/mcp-rc-check &amp;&amp; cd mcp-rc-check &amp;&amp; npm ci &amp;&amp; npm run build
+node dist/cli.js scan --stdio &quot;node /path/to/your/server.js&quot;   # or --url https://host/mcp, or --dump file.json
+node dist/cli.js scan --dump test/fixtures/fixture-pre-revision.json   # try it on a bundled pre-revision dump</code></pre>
 </section>
 <h2 id="security-tooling">Security tooling</h2>
 <section class="tool" aria-labelledby="tool-agent-off-switch"><h3 id="tool-agent-off-switch"><a href="/agent-off-switch/">agent-off-switch</a></h3><p>Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Offline on saved exports.</p>
@@ -398,10 +400,7 @@ atm analyse system.yaml</code></pre>
 <section class="tool" aria-labelledby="tool-agent-config-audit"><h3 id="tool-agent-config-audit"><a href="/agent-config-audit/">agent-config-audit</a></h3><p>Audit AI agent configuration files for security risks.</p>
 <pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/agent-config-audit
 cd your-project
-agent-config-audit                      # table on stdout, exit 0
-agent-config-audit --fail-on high       # exit 1 when a high or critical finding exists
-agent-config-audit --format sarif --output agent-config-audit.sarif
-agent-config-audit --include-home       # also ~/.claude, ~/.cursor, the Claude Desktop config</code></pre>
+agent-config-audit --fail-on high</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-agentic-semgrep-rules"><h3 id="tool-agentic-semgrep-rules"><a href="/agentic-semgrep-rules/">agentic-semgrep-rules</a></h3><p>Semgrep rules for AI agent code in Python, TypeScript and JavaScript.</p>
 <pre><code class="language-sh">pip install semgrep
@@ -426,14 +425,15 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: basitalisandhu/security-actions/agent-config-audit@v0
       - uses: basitalisandhu/security-actions/prompt-secrets-scan@v0
       - uses: basitalisandhu/security-actions/license-audit@v0
 # ... see the README for the rest</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-cc-hooks"><h3 id="tool-cc-hooks"><a href="/cc-hooks/">cc-hooks</a></h3><p>Typed Python SDK and offline test runner for Claude Code hooks.</p>
-<pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/cc-hooks   # the cc-hooks command (see &quot;Install&quot; for the library side)</code></pre>
+<pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/cc-hooks   # the cc-hooks command (see &quot;Install&quot; for the library side)
+python3 -m pip install git+https://github.com/basitalisandhu/cc-hooks   # the library, for the python3 that runs your hooks</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-cc-plugin-lock"><h3 id="tool-cc-plugin-lock"><a href="/cc-plugin-lock/">cc-plugin-lock</a></h3><p>Lock file for Claude Code plugins: pins plugins and skills to content hashes and verifies them before load.</p>
 <pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/cc-plugin-lock
@@ -448,8 +448,9 @@ cc-plugin-lock verify --lock ~/.claude/cc-plugins.lock.json
 cc-plugin-lock hook --lock ~/.claude/cc-plugins.lock.json</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-claude-perm-sim"><h3 id="tool-claude-perm-sim"><a href="/claude-perm-sim/">claude-perm-sim</a></h3><p>Claude Code permission rule simulator: shows which rule decides a tool call and where a rule set is permissive.</p>
-<pre><code class="language-bash">npx @basitalisandhu/claude-perm-sim load                 # run without installing
-npm install -g @basitalisandhu/claude-perm-sim@0.2.0     # or install the claude-perm-sim command</code></pre>
+<pre><code class="language-bash">npx github:basitalisandhu/claude-perm-sim load                               # effective rules, with the file each came from
+npx github:basitalisandhu/claude-perm-sim explain &quot;Bash(git push origin main)&quot;  # which rule decides one call
+npx github:basitalisandhu/claude-perm-sim bypass                             # where an allow rule admits more than it names</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-llms-txt-gen"><h3 id="tool-llms-txt-gen"><a href="/llms-txt-gen/">llms-txt-gen</a></h3><p>Generate llms.txt for any docs site or repository.</p>
 <pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/llms-txt-gen
