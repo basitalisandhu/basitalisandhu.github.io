@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What the OWASP Agentic Top 10 maps to in 88 real incidents | Muhammad Basit Ali</title>
+<meta name="description" content="88 public AI incidents coded against the OWASP Agentic Top 10: which categories show up, what they travel with, and what the list leaves out.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/posts/what-the-owasp-agentic-top-10-maps-to-in-88-real-incidents/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What the OWASP Agentic Top 10 maps to in 88 real incidents">
+<meta property="og:description" content="88 public AI incidents coded against the OWASP Agentic Top 10: which categories show up, what they travel with, and what the list leaves out.">
+<meta property="og:url" content="https://basitalisandhu.github.io/posts/what-the-owasp-agentic-top-10-maps-to-in-88-real-incidents/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://basitalisandhu.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What the OWASP Agentic Top 10 maps to in 88 real incidents">
+<meta name="twitter:description" content="88 public AI incidents coded against the OWASP Agentic Top 10: which categories show up, what they travel with, and what the list leaves out.">
+<meta name="twitter:image" content="https://basitalisandhu.github.io/og.png">
+<meta name="twitter:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "What the OWASP Agentic Top 10 maps to in 88 real incidents",
+ "description": "88 public AI incidents coded against the OWASP Agentic Top 10: which categories show up, what they travel with, and what the list leaves out.",
+ "datePublished": "2026-10-16",
+ "dateModified": "2026-10-16",
+ "url": "https://basitalisandhu.github.io/posts/what-the-owasp-agentic-top-10-maps-to-in-88-real-incidents/",
+ "mainEntityOfPage": "https://basitalisandhu.github.io/posts/what-the-owasp-agentic-top-10-maps-to-in-88-real-incidents/",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu",
+   "https://dev.to/basitalisandhu"
+  ]
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu",
+   "https://dev.to/basitalisandhu"
+  ]
+ },
+ "image": "https://basitalisandhu.github.io/og.png",
+ "isPartOf": {
+  "@type": "WebSite",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "inLanguage": "en",
+ "mentions": [
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "agent-off-switch",
+   "url": "https://basitalisandhu.github.io/agent-off-switch/",
+   "codeRepository": "https://github.com/basitalisandhu/agent-off-switch"
+  },
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "agent-threat-model",
+   "url": "https://basitalisandhu.github.io/agent-threat-model/",
+   "codeRepository": "https://github.com/basitalisandhu/agent-threat-model"
+  },
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "ai-agent-incidents",
+   "url": "https://basitalisandhu.github.io/ai-agent-incidents/",
+   "codeRepository": "https://github.com/basitalisandhu/ai-agent-incidents"
+  },
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "skill-scan-gate",
+   "url": "https://basitalisandhu.github.io/skill-scan-gate/",
+   "codeRepository": "https://github.com/basitalisandhu/skill-scan-gate"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/tools/">Tools</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/posts/">Posts</a></p><article><h1>What the OWASP Agentic Top 10 maps to in 88 real incidents</h1><p class="meta">By Muhammad Basit Ali · <time datetime="2026-10-16">2026-10-16</time></p>
+<p>When a team asks me which agent risks to plan for, the <a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/">OWASP Top 10 for Agentic Applications for 2026</a> is the list I point them to first. It is a good list. But a list of categories does not tell you which ones you will actually meet, what they look like on the ground, or what sits outside the list altogether.</p>
+<p>So I counted. The <a href="https://github.com/basitalisandhu/ai-agent-incidents">ai-agent-incidents</a> dataset I maintain has 88 publicly documented events from February 2023 to September 2026: 29 incidents, 48 vulnerability disclosures and 11 threat reports. Each one is coded from its primary source under a <a href="https://github.com/basitalisandhu/ai-agent-incidents/blob/main/docs/codebook.md">written codebook</a>, and each carries a mapping to the ten <code>ASI</code> categories where the source supports one. This week I added a script that cross-tabulates those mappings against the other coded fields. Every number below comes from it.</p>
+<h3 id="how-to-reproduce-the-numbers">How to reproduce the numbers</h3>
+<p>The script is standard-library Python, reads the committed JSON records and needs no network:</p>
+<pre><code class="language-console">$ git clone https://github.com/basitalisandhu/ai-agent-incidents
+$ cd ai-agent-incidents
+$ python3 scripts/agentic_crosstab.py --stdout
+## Coverage
+
+- Events: **88** (2023-02 to 2026-09)
+- Mapped to at least one ASI category: **57** (64.8%)
+- Mapped to none: **31** (35.2%)
+- Mapped events with two or more categories: **26** of 57 (45.6%)
+
+| lens | events | mapped | unmapped | mapped share |
+|---|---:|---:|---:|---:|
+| `surface` | 51 | 46 | 5 | 90.2% |
+| `target` | 21 | 7 | 14 | 33.3% |
+| `weapon` | 16 | 4 | 12 | 25.0% |
+...</code></pre>
+<p>The full output is committed as <a href="https://github.com/basitalisandhu/ai-agent-incidents/blob/main/docs/owasp-agentic-crosstab.md">docs/owasp-agentic-crosstab.md</a>, and a test fails if it drifts from the records. The per-category counts across the ten categories are: ASI01 Agent Goal Hijack 26, ASI05 Unexpected Code Execution 17, ASI02 Tool Misuse and Exploitation 16, ASI04 Agentic Supply Chain Vulnerabilities 12, ASI03 Identity and Privilege Abuse 7, ASI10 Rogue Agents 5, ASI06 Memory and Context Poisoning 4, ASI07 Insecure Inter-Agent Communication 1, and ASI08 Cascading Agent Failures and ASI09 Human-Agent Trust Exploitation none.</p>
+<h3 id="six-things-the-cross-tab-shows">Six things the cross-tab shows</h3>
+<p><strong>1. The list covers AI as an attack surface, and not much else.</strong> The dataset codes every event by the role AI plays: a <em>surface</em> (the agent is a path to someone else&#x27;s assets), a <em>target</em> (the AI&#x27;s own data, prompts, keys or serving stack are attacked) or a <em>weapon</em> (an attacker uses AI against people or systems). 46 of the 51 surface events (90.2%) map to at least one ASI category. Only 7 of 21 target events and 4 of 16 weapon events do. Of the 31 events that map to nothing, 26 are target or weapon events: exposed databases behind AI products, leaked API tokens, attacks on model-serving software, deepfake fraud and AI-orchestrated intrusion campaigns.</p>
+<p>That is not a flaw in the list. It says what it is for. If your threat model only uses the Agentic Top 10, it will cover the agent you build and miss the stack it runs on and the attackers who now use the same tools. 85 of the 88 events map to at least one of the three frameworks the dataset uses (the OWASP LLM Top 10 and MITRE ATLAS are the other two), so use them together.</p>
+<p><strong>2. Goal hijack is the front door, and it comes in through content.</strong> ASI01 is the largest category at 26 events, and 25 of those 26 are coded as indirect prompt injection. The content arrived through a web page in 9, a document in 6, a repository issue or pull request in 4, and email and support tickets in 2 each. Nobody typed the attack into the chat box; the agent read it while doing its job.</p>
+<p><strong>3. &quot;Read-only&quot; did not keep data in.</strong> 12 of the 26 goal hijack events involve an agent coded with read-only authority. In 10 of those 12 the outcome was data exfiltration, and in 9 the data left through an image or link fetch: the agent was told to render a URL with the data in its query string, and the client fetched it. If your approval for an agent rests on &quot;it can only read&quot;, ask what it can render and what it can fetch.</p>
+<p><strong>4. Categories travel together.</strong> 26 of the 57 mapped events (45.6%) carry two or more categories. The common pairs are ASI01 with ASI02 (9 events) and ASI01 with ASI05 (6). In practice goal hijack is the start of the chain and tool misuse or code execution is where the harm happens. I find it more useful to put controls at the consequence end, on what a hijacked agent can call and run, than to rely on spotting every injection.</p>
+<p><strong>5. Unexpected code execution means a shell.</strong> All 17 ASI05 events involve an agent coded with shell or code execution authority, and 16 ended in code execution. Across the whole dataset, 38 of 88 events involve that authority, more than any other. A coding agent with a terminal is the single most represented kind of agent in the public record.</p>
+<p><strong>6. Identity abuse is under-reported, not rare.</strong> ASI03 has only 7 events, though 5 events involve an agent holding cloud credentials and 5 involve repository write access. Only one of the cloud-credential events and one of the repository-write events is mapped to ASI03. My reading is that public write-ups describe the injection and the payload, and rarely the identity the agent ran as or how broad its grants were, so the mapping cannot be made with confidence. The blast radius was still set by those grants. I wrote about that gap in <a href="/posts/agent-identities-are-the-new-service-accounts/">Agent identities are the new service accounts</a>, and <a href="/agent-off-switch/">agent-off-switch</a> is the tool I use to list and stop those identities.</p>
+<h3 id="the-empty-columns">The empty columns</h3>
+<p>Two categories have no events at all, and a third has one. ASI08 Cascading Agent Failures and ASI09 Human-Agent Trust Exploitation are at zero, and ASI07 Insecure Inter-Agent Communication at one.</p>
+<p>An empty column in a sample of public reports is not evidence that a risk is rare. 48 of the 88 events are vulnerability disclosures, and a disclosure usually describes one bug in one product with a clean proof of concept. A failure that cascades across several agents, or an agent that talks a human approver into clicking yes, is harder to show in one advisory and harder to attribute in an incident report. These may be the categories most likely to be under-counted rather than the least likely to happen.</p>
+<p>ASI10 Rogue Agents is the opposite case. Its 5 events are all incidents, not disclosures, and 4 of them are coded as autonomous operations: evaluation and research agents that went outside their intended scope, breached systems they were not meant to touch or published data they should not have. These are recent: the year table shows how mapping coverage moved from 4 of 11 events in 2023 and 5 of 13 in 2024 to 24 of 32 in both 2025 and 2026, as agents with real tools became the subject of most reports.</p>
+<h3 id="what-i-take-from-it-for-a-threat-model">What I take from it for a threat model</h3>
+<p>For an agent I am reviewing, the counts suggest an order of work:</p>
+<ol><li><strong>Treat every input the agent reads as untrusted</strong>, not just chat. Web pages, documents, issues, pull requests, tickets and email are where ASI01 came in.</li><li><strong>Control egress, including link and image rendering.</strong> That one channel carried 9 of the 26 hijack events out.</li><li><strong>Constrain what a hijacked agent can call and run.</strong> Tool allowlists, scoped shell access and sandboxing address ASI02 and ASI05, the categories that most often follow ASI01.</li><li><strong>Size the identity before the pilot starts.</strong> The record will not tell you how often ASI03 happens, because write-ups rarely describe the grants. Assume it applies.</li><li><strong>Pin what the agent loads.</strong> ASI04 events came in through packages in 7 of 12 cases. My <a href="/posts/the-state-of-public-agent-skills-and-mcp-servers/">study of 2,999 public skill and MCP repositories</a> found 46.0% of repositories that configure a local MCP server start at least one with no pinned version, and <a href="/skill-scan-gate/">skill-scan-gate</a> fails a pull request that adds one.</li><li><strong>Then add the target and weapon lenses</strong>, with the OWASP LLM Top 10, MITRE ATLAS and ordinary application security.</li></ol>
+<p><a href="/agent-threat-model/">agent-threat-model</a> turns a YAML description of the agent into a ranked threat register and control checklist, offline and in CI, and every threat it reports carries its OWASP Agentic, OWASP LLM and ATLAS ids.</p>
+<h3 id="what-the-data-cannot-tell-you">What the data cannot tell you</h3>
+<ul><li><strong>It is a convenience sample.</strong> It holds what vendors, researchers and journalists chose to publish. No share in this post estimates how common anything is in the world; it describes 88 records.</li><li><strong>The mappings are one maintainer&#x27;s reading.</strong> Lens and vector were blind-coded twice for the paper behind the seed data (kappa 0.82 and 0.87 with the second coder). The OWASP mappings were not, and an empty mapping means &quot;no confident mapping&quot;, not &quot;none applies&quot;.</li><li><strong>Dates are the month of the public report</strong>, not of the event.</li><li><strong>Small cells are small.</strong> ASI06, ASI07 and ASI10 rest on one to five events each; read them as examples, not trends.</li></ul>
+<p>Each record links its primary source, so any count here can be checked against the events behind it. Corrections and new events are welcome as <a href="https://github.com/basitalisandhu/ai-agent-incidents/blob/main/CONTRIBUTING.md">issues or pull requests</a>; a new event needs a public primary source.</p>
+</article>
+<section aria-labelledby="tools-h"><h2 id="tools-h">Tools in this post</h2><ul class="links">
+<li><a href="/agent-off-switch/">agent-off-switch</a>: Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Offline on saved exports.</li>
+<li><a href="/agent-threat-model/">agent-threat-model</a>: Threat modeling for AI agents: describe the system in YAML, get a STRIDE and OWASP Agentic threat model.</li>
+<li><a href="https://basitalisandhu.github.io/ai-agent-incidents/">ai-agent-incidents</a>: An open dataset of AI agent and LLM security incidents, with a <a href="https://basitalisandhu.github.io/ai-agent-incidents/">browsable site</a>.</li>
+<li><a href="/skill-scan-gate/">skill-scan-gate</a>: CI gate for Claude Code skills and plugins, with SARIF output. GitHub Action and CLI.</li>
+</ul><p><a href="/tools/">All tools</a></p></section>
+<section aria-labelledby="more-posts-h"><h2 id="more-posts-h">More posts</h2>
+<ul class="posts"><li><a href="/posts/the-state-of-public-agent-skills-and-mcp-servers/">The state of public agent skills and MCP servers</a> <time datetime="2026-10-13">2026-10-13</time><br><span class="muted">A random sample of 2,999 public repositories that ship agent skills, plugins or MCP servers, scanned and hand-checked. Five findings, with denominators, and what to check before you install one.</span></li><li><a href="/posts/agent-identities-are-the-new-service-accounts/">Agent identities are the new service accounts</a> <time datetime="2026-10-13">2026-10-13</time><br><span class="muted">AI agents run as app registrations, IAM roles and GitHub Apps that nobody owns or reviews. The failure modes, the controls, and an offline tool for them.</span></li><li><a href="/posts/four-open-repositories-for-securing-ai-agents/">Four open repositories for securing AI agents, and what each is for</a> <time datetime="2026-10-04">2026-10-04</time><br><span class="muted">A map of the open tools for AI agent security: an incident dataset, Semgrep rules for agent code, a threat-model CLI and Claude Code skill packs, with where each one stops.</span></li><li><a href="/posts/every-claude-code-skill-in-one-repository/">Every Claude Code skill I maintain, in one repository</a> <time datetime="2026-10-04">2026-10-04</time><br><span class="muted">87 Claude Code skills in 13 plugins from 8 source repositories, now in one repository with one marketplace and one install script.</span></li></ul>
+</section>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/tools/">All tools</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>
