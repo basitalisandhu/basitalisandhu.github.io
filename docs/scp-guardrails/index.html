@@ -4,17 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>scp-guardrails | Muhammad Basit Ali</title>
-<meta name="description" content="AWS service control policy builder and linter: builds AWS Organizations SCPs from a short spec (region allowlist, deny root, protect CloudTrail and GuardDuty, IMDSv2, spend denies) under the size limit, lints SCPs for lockouts and statements that deny nothing, diffs and explains them. CLI and GitHub Action with SARIF.">
+<meta name="description" content="AWS service control policy builder and linter: builds AWS Organizations SCPs from a short spec (region allowlist, deny root, protect CloudTrail and...">
 <meta name="author" content="Muhammad Basit Ali">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0A1628">
 <link rel="canonical" href="https://basitalisandhu.github.io/scp-guardrails/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="scp-guardrails">
-<meta property="og:description" content="AWS service control policy builder and linter: builds AWS Organizations SCPs from a short spec (region allowlist, deny root, protect CloudTrail and GuardDuty, IMDSv2, spend denies) under the size limit, lints SCPs for lockouts and statements that deny nothing, diffs and explains them. CLI and GitHub Action with SARIF.">
+<meta property="og:description" content="AWS service control policy builder and linter: builds AWS Organizations SCPs from a short spec (region allowlist, deny root, protect CloudTrail and...">
 <meta property="og:url" content="https://basitalisandhu.github.io/scp-guardrails/">
 <meta property="og:site_name" content="Muhammad Basit Ali">
-<meta name="twitter:card" content="summary">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://basitalisandhu.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="scp-guardrails">
+<meta name="twitter:description" content="AWS service control policy builder and linter: builds AWS Organizations SCPs from a short spec (region allowlist, deny root, protect CloudTrail and...">
+<meta name="twitter:image" content="https://basitalisandhu.github.io/og.png">
+<meta name="twitter:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
 <link rel="stylesheet" href="/style.css">
 <link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
 <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
@@ -33,7 +42,8 @@
   "name": "Muhammad Basit Ali",
   "url": "https://basitalisandhu.github.io/",
   "sameAs": [
-   "https://github.com/basitalisandhu"
+   "https://github.com/basitalisandhu",
+   "https://dev.to/basitalisandhu"
   ]
  },
  "keywords": "aws, aws-organizations, aws-security, cli, cloud-security, devsecops, github-actions, guardrails, hacktoberfest, iam, landing-zone, linter, policy-as-code, python, sarif, scp, security-tools, service-control-policies",
@@ -43,11 +53,11 @@
 </script>
 </head>
 <body>
-<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/tools/">Tools</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
 <main>
 <p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
 <h1>scp-guardrails</h1>
-<p class="lede">AWS service control policy builder and linter.</p>
+<p class="lede">Build AWS service control policies from a short spec and lint them for lockouts and statements that deny nothing.</p>
 <p class="meta">Python · MIT · latest v0.2.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>scp-guardrails builds AWS Organizations service control policies from a short spec (region allowlist, protected roles, deny leaving the org, deny disabling CloudTrail and GuardDuty, deny root, require IMDSv2, deny public S3 ACLs, spend denies) under the SCP size limit, lints existing SCPs for the mistakes that lock you out or do nothing, and runs as a GitHub Action.</strong></p>
@@ -70,8 +80,21 @@ uvx --from git+https://github.com/basitalisandhu/scp-guardrails scp-guardrails -
 <li><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-13">2026-10-13</time></li>
 <li><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>
+<section aria-labelledby="more-h"><h2 id="more-h">More in Security tooling</h2><ul class="links">
+<li><a href="/agent-off-switch/">agent-off-switch</a>: Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Offline on saved exports.</li>
+<li><a href="/skill-scan-gate/">skill-scan-gate</a>: CI gate for Claude Code skills and plugins, with SARIF output. GitHub Action and CLI.</li>
+<li><a href="/agent-threat-model/">agent-threat-model</a>: Threat modeling for AI agents: describe the system in YAML, get a STRIDE and OWASP Agentic threat model.</li>
+<li><a href="/agent-config-audit/">agent-config-audit</a>: Audit AI agent configuration files for security risks.</li>
+<li><a href="/agentic-semgrep-rules/">agentic-semgrep-rules</a>: Semgrep rules for AI agent code in Python, TypeScript and JavaScript.</li>
+<li><a href="/security-actions/">security-actions</a>: GitHub Actions for AI agent and supply chain security checks.</li>
+<li><a href="/cc-hooks/">cc-hooks</a>: Typed Python SDK and offline test runner for Claude Code hooks.</li>
+<li><a href="/cc-plugin-lock/">cc-plugin-lock</a>: Lock file for Claude Code plugins: pins plugins and skills to content hashes and verifies them before load.</li>
+<li><a href="/claude-perm-sim/">claude-perm-sim</a>: Claude Code permission rule simulator: shows which rule decides a tool call and where a rule set is permissive.</li>
+<li><a href="/llms-txt-gen/">llms-txt-gen</a>: Generate llms.txt for any docs site or repository.</li>
+<li><a href="/spotlighting/">spotlighting</a>: Spotlighting for prompt injection defence in Python: mark untrusted text before it reaches a model.</li>
+</ul><p><a href="/tools/">All tools</a></p></section>
 <p class="topics">Topics: aws, aws-organizations, aws-security, cli, cloud-security, devsecops, github-actions, guardrails, hacktoberfest, iam, landing-zone, linter, policy-as-code, python, sarif, scp, security-tools, service-control-policies</p>
 </main>
-<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/tools/">All tools</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
 </body>
 </html>

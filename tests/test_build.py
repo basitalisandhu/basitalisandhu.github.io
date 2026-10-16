@@ -22,7 +22,8 @@ def jsonld_blocks(html: str) -> list[dict]:
 def test_builds_expected_files(tmp_path):
     out = run(tmp_path)
     for rel in ["index.html", "404.html", ".nojekyll", "robots.txt", "sitemap.xml", "feed.xml", "llms.txt", "llms-full.txt",
-                "style.css", "posts/index.html", "posts/hello/index.html", "tool-one/index.html", "tool-two/index.html"]:
+                "style.css", "posts/index.html", "posts/hello/index.html", "tool-one/index.html", "tool-two/index.html",
+                "tools/index.html", "og.png"]:
         assert (out / rel).is_file(), rel
     key = json.loads((ROOT / "site.json").read_text())["indexnow_key"]
     assert (out / f"{key}.txt").read_text().strip() == key
@@ -41,7 +42,7 @@ def test_repo_page_jsonld_and_escaping(tmp_path):
     assert code["codeRepository"] == "https://github.com/basitalisandhu/tool-one"
     assert code["programmingLanguage"] == "Python"
     assert code["license"] == "https://spdx.org/licenses/MIT.html"
-    assert code["author"]["sameAs"] == ["https://github.com/basitalisandhu"]
+    assert "https://github.com/basitalisandhu" in code["author"]["sameAs"]
     assert code["version"] == "0.2.0"
     assert "things &amp; reports &lt;them&gt;" in html
     assert "<pre><code class=\"language-bash\">pipx install tool-one" in html
@@ -52,7 +53,8 @@ def test_home_has_person_and_themes(tmp_path):
     html = (run(tmp_path) / "index.html").read_text()
     blocks = jsonld_blocks(html)
     persons = [b for b in blocks if b["@type"] == "Person"]
-    assert persons and persons[0]["sameAs"] == ["https://github.com/basitalisandhu"]
+    assert persons and "https://github.com/basitalisandhu" in persons[0]["sameAs"]
+    assert persons[0]["jobTitle"] and persons[0]["knowsAbout"]
     assert '<h3 id="security-tooling">Security tooling</h3>' in html
     assert "v0.2.0" in html and "?tab=packages" in html
     assert '<a href="/posts/hello/">Hello</a>' in html
@@ -110,3 +112,56 @@ def test_refuses_to_clear_unmarked_directory(tmp_path):
 def test_real_data_builds_and_passes_checks(tmp_path):
     out = tmp_path / "docs"
     assert build.main(["--out", str(out), "--check"]) == 0
+
+
+def test_every_page_has_open_graph_and_twitter_card(tmp_path):
+    out = run(tmp_path)
+    assert (out / "og.png").read_bytes() == (ROOT / "sitekit" / "og-default.png").read_bytes()
+    for page in ["index.html", "tools/index.html", "posts/hello/index.html", "tool-one/index.html"]:
+        html = (out / page).read_text()
+        assert '<meta property="og:image" content="https://basitalisandhu.github.io/og.png">' in html, page
+        assert '<meta name="twitter:card" content="summary_large_image">' in html, page
+        assert '<link rel="canonical" href="https://basitalisandhu.github.io/' in html, page
+        (desc,) = re.findall(r'<meta name="description" content="([^"]*)">', html)
+        assert 0 < len(desc) <= 160, page
+
+
+def test_tools_page_lists_every_repo_with_install(tmp_path):
+    html = (run(tmp_path) / "tools" / "index.html").read_text()
+    assert '<a href="/tool-one/">tool-one</a>' in html and '<a href="/tool-two/">tool-two</a>' in html
+    assert '<a href="https://basitalisandhu.github.io/dataset-x/">dataset-x</a>' in html
+    assert "<pre><code class=\"language-bash\">pipx install tool-one" in html
+    assert "https://github.com/basitalisandhu/tool-two#readme" in html
+    (ld,) = jsonld_blocks(html)
+    assert ld["@type"] == "CollectionPage" and ld["mainEntity"]["numberOfItems"] == 3
+    assert '<a href="/tools/">Tools</a>' in html
+
+
+def test_posts_and_tools_link_each_other(tmp_path):
+    out = run(tmp_path)
+    post = (out / "posts" / "hello" / "index.html").read_text()
+    assert 'id="tools-h">Tools in this post' in post and '<li><a href="/tool-one/">tool-one</a>' in post
+    (ld,) = jsonld_blocks(post)
+    assert ld["mentions"][0]["name"] == "tool-one" and ld["image"].endswith("/og.png")
+    tool = (out / "tool-one" / "index.html").read_text()
+    assert 'Posts about it' in tool and '<a href="/posts/hello/">Hello</a>' in tool
+    assert 'More in Security tooling' in tool and '<a href="/tool-two/">tool-two</a>' in tool
+    assert "Posts about it" not in (out / "tool-two" / "index.html").read_text()
+
+
+def test_sitemap_robots_llms_include_new_pages(tmp_path):
+    out = run(tmp_path)
+    assert "<loc>https://basitalisandhu.github.io/tools/</loc>" in (out / "sitemap.xml").read_text()
+    robots = (out / "robots.txt").read_text()
+    for bot in ("OAI-SearchBot", "Claude-SearchBot", "Perplexity-User", "Bingbot"):
+        assert f"User-agent: {bot}\nAllow: /" in robots
+    assert "(https://basitalisandhu.github.io/tools/)" in (out / "llms.txt").read_text()
+
+
+def test_short_description():
+    assert site.short_description("Short.") == "Short."
+    long = "First sentence is here. " + "word " * 60
+    assert site.short_description(long) == "First sentence is here."
+    one = "x" * 10 + " " + "word " * 60
+    out = site.short_description(one)
+    assert out.endswith("...") and len(out) <= 160

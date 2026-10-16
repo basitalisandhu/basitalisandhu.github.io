@@ -16,8 +16,8 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 - [agent-security-skills](https://basitalisandhu.github.io/agent-security-skills/): Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review, incident lookup.
 - [github-manager-skills](https://basitalisandhu.github.io/github-manager-skills/): Claude Code skills for engineering managers that compute from exported GitHub data: stuck-PR and review-queue digest, iteration report, blameless postmortem timeline.
 - [mac-maintenance-skills](https://basitalisandhu.github.io/mac-maintenance-skills/): Claude Code skills for cleaning up and speeding up a Mac: read-only survey first, safe tier removes only what programs recreate, leftovers and duplicate finders.
-- [agent-identity-governance-skills](https://basitalisandhu.github.io/agent-identity-governance-skills/): Claude Code skills for agent identity governance.
-- [claude-code-tooling-skills](https://basitalisandhu.github.io/claude-code-tooling-skills/): Claude Code skills for keeping a Claude Code setup safe.
+- [claude-code-tooling-skills](https://basitalisandhu.github.io/claude-code-tooling-skills/): Claude Code skills for keeping a Claude Code setup safe: review a third-party skill before installing it, lint skill descriptions, audit the context budget, build least-privilege permissions, test hooks.
+- [agent-identity-governance-skills](https://basitalisandhu.github.io/agent-identity-governance-skills/): Claude Code skills for agent identity governance: inventory the non-human identities agents run as, review permissions, recertify quarterly, catch expiring credentials, switch one off fast.
 
 ## MCP tooling
 
@@ -27,12 +27,14 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 - [mcp-auth-doctor](https://basitalisandhu.github.io/mcp-auth-doctor/): Diagnose OAuth discovery problems on remote MCP servers.
 - [mcp-egress](https://basitalisandhu.github.io/mcp-egress/): Record every host an MCP server contacts, per tool, and fail CI on new ones.
 - [claude-mcp-allow](https://basitalisandhu.github.io/claude-mcp-allow/): Least-privilege Claude Code permission rules for MCP tools, generated from their annotations.
-- [agentdojo-mcp](https://basitalisandhu.github.io/agentdojo-mcp/): Run AgentDojo against MCP servers.
-- [garak-mcp-probes](https://basitalisandhu.github.io/garak-mcp-probes/): Run garak against your own MCP servers.
-- [mcp-rc-check](https://basitalisandhu.github.io/mcp-rc-check/): MCP specification migration checker for the 2026-07-28 revision.
+- [agentdojo-mcp](https://basitalisandhu.github.io/agentdojo-mcp/): Run the AgentDojo benchmark's user and injection tasks against a real MCP server's tools.
+- [garak-mcp-probes](https://basitalisandhu.github.io/garak-mcp-probes/): Run garak against your own MCP servers, with detectors for denied tool calls, leaked canaries and runaway step counts.
+- [mcp-rc-check](https://basitalisandhu.github.io/mcp-rc-check/): MCP specification migration checker for the 2026-07-28 revision: flags removed, changed and deprecated constructs and writes a patch for mechanical fixes.
 
 ## Security tooling
 
+- [agent-off-switch](https://basitalisandhu.github.io/agent-off-switch/): Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Offline on saved exports.
+- [skill-scan-gate](https://basitalisandhu.github.io/skill-scan-gate/): CI gate for Claude Code skills and plugins, with SARIF output. GitHub Action and CLI.
 - [agent-threat-model](https://basitalisandhu.github.io/agent-threat-model/): Threat modeling for AI agents: describe the system in YAML, get a STRIDE and OWASP Agentic threat model.
 - [agent-config-audit](https://basitalisandhu.github.io/agent-config-audit/): Audit AI agent configuration files for security risks.
 - [agentic-semgrep-rules](https://basitalisandhu.github.io/agentic-semgrep-rules/): Semgrep rules for AI agent code in Python, TypeScript and JavaScript.
@@ -41,16 +43,14 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 - [cc-plugin-lock](https://basitalisandhu.github.io/cc-plugin-lock/): Lock file for Claude Code plugins: pins plugins and skills to content hashes and verifies them before load.
 - [claude-perm-sim](https://basitalisandhu.github.io/claude-perm-sim/): Claude Code permission rule simulator: shows which rule decides a tool call and where a rule set is permissive.
 - [llms-txt-gen](https://basitalisandhu.github.io/llms-txt-gen/): Generate llms.txt for any docs site or repository.
-- [agent-off-switch](https://basitalisandhu.github.io/agent-off-switch/): Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Inventory, blast-radius review with SARIF, an ordered off-switch runbook per identity, and a drift gate for CI. Offline on saved read-only exports; it prints commands and never runs them.
-- [scp-guardrails](https://basitalisandhu.github.io/scp-guardrails/): AWS service control policy builder and linter.
-- [skill-scan-gate](https://basitalisandhu.github.io/skill-scan-gate/): CI gate for Claude Code skills and plugins.
-- [spotlighting](https://basitalisandhu.github.io/spotlighting/): Spotlighting for prompt injection defence in Python.
+- [scp-guardrails](https://basitalisandhu.github.io/scp-guardrails/): Build AWS service control policies from a short spec and lint them for lockouts and statements that deny nothing.
+- [spotlighting](https://basitalisandhu.github.io/spotlighting/): Spotlighting for prompt injection defence in Python: mark untrusted text before it reaches a model.
 
 ## Data and lists
 
 - [ai-agent-incidents](https://basitalisandhu.github.io/ai-agent-incidents/): An open dataset of AI agent and LLM security incidents, with a browsable site.
+- [agent-skills-state-2026](https://basitalisandhu.github.io/agent-skills-state-2026/): Monthly study of public agent skill, plugin and MCP repositories: dataset, method, hand-checked precision and scripts.
 - [awesome-agent-security](https://basitalisandhu.github.io/awesome-agent-security/): Curated list of AI agent security tools, papers and datasets.
-- [agent-skills-state-2026](https://basitalisandhu.github.io/agent-skills-state-2026/): Study of 2,999 public agent skill, plugin and MCP repositories (October 2026).
 
 ## Posts
 
@@ -61,5 +61,6 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 
 ## Optional
 
+- [Tools](https://basitalisandhu.github.io/tools/): every repository with one line and its install command
 - [Full text](https://basitalisandhu.github.io/llms-full.txt): every project page and post in one file
 - [Feed](https://basitalisandhu.github.io/feed.xml): posts and releases as RSS

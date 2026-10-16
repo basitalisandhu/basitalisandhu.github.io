@@ -30,7 +30,8 @@ def main(argv: list[str] | None = None) -> int:
 
     s = site.load_site(ROOT, args.data, args.content)
     css = (ROOT / "sitekit" / "style.css").read_text(encoding="utf-8")
-    written = site.build(s, args.out, css)
+    og = (ROOT / "sitekit" / "og-default.png").read_bytes()
+    written = site.build(s, args.out, css, og)
     pages = [p for p in written if p.suffix == ".html"]
     print(f"built {len(written)} files ({len(pages)} HTML pages, {len(s.generated_repos())} project pages, "
           f"{len(s.posts)} posts) into {args.out}")
