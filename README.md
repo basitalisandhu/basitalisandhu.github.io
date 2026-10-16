@@ -1,6 +1,6 @@
 # basitalisandhu.github.io
 
-Source of [basitalisandhu.github.io](https://basitalisandhu.github.io/): a small docs hub for the open-source repositories of [Muhammad Basit Ali](https://github.com/basitalisandhu), covering AI agent security, MCP tooling, Claude Code skill packs and cloud security automation. It has one page per repository (what it is, how to install it, links to releases, packages and issues), the latest releases, posts, an RSS feed, a sitemap and `llms.txt`.
+Source of [basitalisandhu.github.io](https://basitalisandhu.github.io/): a small docs hub for the open-source repositories of [Muhammad Basit Ali](https://github.com/basitalisandhu), covering AI agent security, MCP tooling, Claude Code skill packs and cloud security automation. It has one page per repository (what it is, how to install it, links to releases, packages and issues), a [tools page](https://basitalisandhu.github.io/tools/) with every install command, the latest releases, posts, an RSS feed, a sitemap, `llms.txt` and `llms-full.txt`, Open Graph and Twitter card tags with a default image, and JSON-LD on every page.
 
 No framework, no JavaScript, no analytics, no external assets. A standard-library Python generator turns committed data into static HTML in `docs/`, and GitHub Actions deploys `docs/` to Pages.
 
@@ -9,13 +9,14 @@ No framework, no JavaScript, no analytics, no external assets. A standard-librar
 | Path | What it is |
 |---|---|
 | `build.py` | The generator. `python3 build.py` writes `docs/`; `--check` also runs the site checks. Offline and deterministic. |
-| `site.json` | Site URL, author, bio, description and the IndexNow key. |
+| `site.json` | Site URL, author, bio, description, the Open Graph tagline, the `Person` details for JSON-LD and the IndexNow key. |
 | `data/repos.json` | Every listed repository: description, one-liner, theme, topics, language, licence, the README's first screen, an install block and the last five releases. Written by `scripts/sync_repos.py`, committed so the build needs no network. |
 | `data/exclude.json` | Repository names to leave off the site (empty by default). |
 | `content/*.md` | Posts. |
-| `sitekit/` | The Markdown converter, the page renderer, the stylesheet and the checks. |
+| `sitekit/` | The Markdown converter, the page renderer, the stylesheet, the default Open Graph image (`og-default.png`) and the checks. |
 | `scripts/sync_repos.py` | Refreshes `data/repos.json` from the GitHub API. |
 | `scripts/check_site.py` | Runs the checks over an existing `docs/` without rebuilding. |
+| `scripts/make_og_image.py` | Regenerates `sitekit/og-default.png` from `site.json` (needs Pillow; run by hand, the build only copies the PNG). |
 | `scripts/changed_urls.py` | Lists the page URLs that changed between two commits, for IndexNow. |
 | `docs/` | The built site. Committed; CI fails if it does not match a fresh build. |
 
@@ -28,11 +29,11 @@ python3 -m pytest -q              # converter, generator and check tests
 
 Python 3.11 or newer. Nothing to install for the build; the tests need `pytest`.
 
-The checks: every HTML page parses with balanced tags, a doctype and a title; every JSON-LD block parses and has `@context` and `@type`; internal links and anchors resolve; `sitemap.xml` and `feed.xml` parse and every sitemap URL is a built file; every link in `llms.txt` is a page on this site (or a repository's own Pages site); `robots.txt` allows everyone, AI crawlers by name; the IndexNow key file matches `site.json`; and no generated file contains an em-dash, an AI model name or a word on the house blocklist.
+The checks: every HTML page parses with balanced tags, a doctype and a title; every JSON-LD block parses and has `@context` and `@type`; internal links and anchors resolve; `sitemap.xml` and `feed.xml` parse and every sitemap URL is a built file; every link in `llms.txt` is a page on this site (or a repository's own Pages site); `robots.txt` allows everyone, AI crawlers by name; every page has `og:image` and `og.png` is a PNG; the IndexNow key file matches `site.json`; and no generated file contains an em-dash, an AI model name or a word on the house blocklist.
 
 ## Add a post
 
-1. Create `content/YYYY-MM-DD-your-slug.md`:
+1. Create `content/YYYY-MM-DD-your-slug.md`. Link the tools you write about by their page here (`/agent-off-switch/`) or their GitHub URL: the post then lists them under "Tools in this post" and their pages link back:
 
    ```markdown
    ---

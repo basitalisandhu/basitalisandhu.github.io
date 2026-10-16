@@ -5,6 +5,7 @@ from sitekit import checks
 URL = "https://example.org"
 KEY = "0123456789abcdef0123456789abcdef"
 GOOD = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><title>t</title>'
+        '<meta property="og:image" content="https://example.org/og.png">'
         '<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Thing"}</script>'
         '</head><body><p id="a"><a href="/">home</a> <a href="#a">a</a></p></body></html>')
 
@@ -74,3 +75,14 @@ def test_required_files_and_robots(tmp_path):
     assert "IndexNow key file content does not match its name" in problems
     assert "robots.txt does not name GPTBot" in problems
     assert "robots.txt disallows everything" in problems
+
+
+def test_page_without_og_image_is_reported(tmp_path):
+    d = make(tmp_path, **{"index.html": GOOD.replace('<meta property="og:image" content="https://example.org/og.png">', "")})
+    assert checks.check_html(d, URL) == ["index.html: missing og:image"]
+
+
+def test_robots_may_name_crawlers_with_product_names(tmp_path):
+    d = make(tmp_path, **{"robots.txt": "User-agent: ChatGPT-User\nAllow: /\n", "page.txt": "Ask ChatGPT\n"})
+    problems = checks.check_text(d)
+    assert problems == ["page.txt:1: model name 'ChatGPT'"]

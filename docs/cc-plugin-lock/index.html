@@ -4,17 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>cc-plugin-lock | Muhammad Basit Ali</title>
-<meta name="description" content="Lock file for Claude Code plugins: pins marketplace plugins and skills to content hashes, verifies them before a session loads them, scores changes by component (hooks and MCP high, skills medium), diffs against the locked content, and scans plugin folders before install. SARIF output, SessionStart gate, Python stdlib only.">
+<meta name="description" content="Lock file for Claude Code plugins: pins marketplace plugins and skills to content hashes, verifies them before a session loads them, scores changes by...">
 <meta name="author" content="Muhammad Basit Ali">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0A1628">
 <link rel="canonical" href="https://basitalisandhu.github.io/cc-plugin-lock/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="cc-plugin-lock">
-<meta property="og:description" content="Lock file for Claude Code plugins: pins marketplace plugins and skills to content hashes, verifies them before a session loads them, scores changes by component (hooks and MCP high, skills medium), diffs against the locked content, and scans plugin folders before install. SARIF output, SessionStart gate, Python stdlib only.">
+<meta property="og:description" content="Lock file for Claude Code plugins: pins marketplace plugins and skills to content hashes, verifies them before a session loads them, scores changes by...">
 <meta property="og:url" content="https://basitalisandhu.github.io/cc-plugin-lock/">
 <meta property="og:site_name" content="Muhammad Basit Ali">
-<meta name="twitter:card" content="summary">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://basitalisandhu.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="cc-plugin-lock">
+<meta name="twitter:description" content="Lock file for Claude Code plugins: pins marketplace plugins and skills to content hashes, verifies them before a session loads them, scores changes by...">
+<meta name="twitter:image" content="https://basitalisandhu.github.io/og.png">
+<meta name="twitter:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
 <link rel="stylesheet" href="/style.css">
 <link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
 <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
@@ -33,7 +42,8 @@
   "name": "Muhammad Basit Ali",
   "url": "https://basitalisandhu.github.io/",
   "sameAs": [
-   "https://github.com/basitalisandhu"
+   "https://github.com/basitalisandhu",
+   "https://dev.to/basitalisandhu"
   ]
  },
  "keywords": "agent-security, ai-agents, ai-security, claude-code, claude-code-plugins, cli, devsecops, hacktoberfest, hooks, integrity, lockfile, mcp, plugins, python, sarif, security-tools, skills, supply-chain-security",
@@ -43,7 +53,7 @@
 </script>
 </head>
 <body>
-<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/tools/">Tools</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
 <main>
 <p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
 <h1>cc-plugin-lock</h1>
@@ -75,8 +85,21 @@ cc-plugin-lock hook --lock ~/.claude/cc-plugins.lock.json</code></pre>
 <li><a href="https://github.com/basitalisandhu/cc-plugin-lock/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-09">2026-10-09</time></li>
 <li><a href="https://github.com/basitalisandhu/cc-plugin-lock/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>
+<section aria-labelledby="more-h"><h2 id="more-h">More in Security tooling</h2><ul class="links">
+<li><a href="/agent-off-switch/">agent-off-switch</a>: Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Offline on saved exports.</li>
+<li><a href="/skill-scan-gate/">skill-scan-gate</a>: CI gate for Claude Code skills and plugins, with SARIF output. GitHub Action and CLI.</li>
+<li><a href="/agent-threat-model/">agent-threat-model</a>: Threat modeling for AI agents: describe the system in YAML, get a STRIDE and OWASP Agentic threat model.</li>
+<li><a href="/agent-config-audit/">agent-config-audit</a>: Audit AI agent configuration files for security risks.</li>
+<li><a href="/agentic-semgrep-rules/">agentic-semgrep-rules</a>: Semgrep rules for AI agent code in Python, TypeScript and JavaScript.</li>
+<li><a href="/security-actions/">security-actions</a>: GitHub Actions for AI agent and supply chain security checks.</li>
+<li><a href="/cc-hooks/">cc-hooks</a>: Typed Python SDK and offline test runner for Claude Code hooks.</li>
+<li><a href="/claude-perm-sim/">claude-perm-sim</a>: Claude Code permission rule simulator: shows which rule decides a tool call and where a rule set is permissive.</li>
+<li><a href="/llms-txt-gen/">llms-txt-gen</a>: Generate llms.txt for any docs site or repository.</li>
+<li><a href="/scp-guardrails/">scp-guardrails</a>: Build AWS service control policies from a short spec and lint them for lockouts and statements that deny nothing.</li>
+<li><a href="/spotlighting/">spotlighting</a>: Spotlighting for prompt injection defence in Python: mark untrusted text before it reaches a model.</li>
+</ul><p><a href="/tools/">All tools</a></p></section>
 <p class="topics">Topics: agent-security, ai-agents, ai-security, claude-code, claude-code-plugins, cli, devsecops, hacktoberfest, hooks, integrity, lockfile, mcp, plugins, python, sarif, security-tools, skills, supply-chain-security</p>
 </main>
-<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/tools/">All tools</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
 </body>
 </html>

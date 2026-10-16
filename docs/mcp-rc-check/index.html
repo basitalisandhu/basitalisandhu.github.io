@@ -4,17 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>mcp-rc-check | Muhammad Basit Ali</title>
-<meta name="description" content="MCP specification migration checker for the 2026-07-28 revision: scans a live stdio or HTTP server, a saved dump or a client config, flags removed, changed and deprecated constructs with the spec section for each, and writes a patch for mechanical fixes. Table, JSON and SARIF. TypeScript CLI.">
+<meta name="description" content="MCP specification migration checker for the 2026-07-28 revision: scans a live stdio or HTTP server, a saved dump or a client config, flags removed, changed...">
 <meta name="author" content="Muhammad Basit Ali">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0A1628">
 <link rel="canonical" href="https://basitalisandhu.github.io/mcp-rc-check/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="mcp-rc-check">
-<meta property="og:description" content="MCP specification migration checker for the 2026-07-28 revision: scans a live stdio or HTTP server, a saved dump or a client config, flags removed, changed and deprecated constructs with the spec section for each, and writes a patch for mechanical fixes. Table, JSON and SARIF. TypeScript CLI.">
+<meta property="og:description" content="MCP specification migration checker for the 2026-07-28 revision: scans a live stdio or HTTP server, a saved dump or a client config, flags removed, changed...">
 <meta property="og:url" content="https://basitalisandhu.github.io/mcp-rc-check/">
 <meta property="og:site_name" content="Muhammad Basit Ali">
-<meta name="twitter:card" content="summary">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://basitalisandhu.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="mcp-rc-check">
+<meta name="twitter:description" content="MCP specification migration checker for the 2026-07-28 revision: scans a live stdio or HTTP server, a saved dump or a client config, flags removed, changed...">
+<meta name="twitter:image" content="https://basitalisandhu.github.io/og.png">
+<meta name="twitter:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
 <link rel="stylesheet" href="/style.css">
 <link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
 <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
@@ -33,7 +42,8 @@
   "name": "Muhammad Basit Ali",
   "url": "https://basitalisandhu.github.io/",
   "sameAs": [
-   "https://github.com/basitalisandhu"
+   "https://github.com/basitalisandhu",
+   "https://dev.to/basitalisandhu"
   ]
  },
  "keywords": "ai-agents, cli, compliance, developer-tools, devsecops, hacktoberfest, json-schema, linter, mcp, mcp-client, mcp-server, migration, model-context-protocol, sarif, specification, static-analysis, typescript",
@@ -43,11 +53,11 @@
 </script>
 </head>
 <body>
-<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/tools/">Tools</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
 <main>
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>mcp-rc-check</h1>
-<p class="lede">MCP specification migration checker for the 2026-07-28 revision.</p>
+<p class="lede">MCP specification migration checker for the 2026-07-28 revision: flags removed, changed and deprecated constructs and writes a patch for mechanical fixes.</p>
 <p class="meta">TypeScript · MIT · latest v0.3.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>mcp-rc-check tells you what an MCP server or client must change for the 2026-07-28 specification revision: it reads the live server (stdio or HTTP) or a saved capabilities and tools dump, flags every deprecated or changed construct with the spec section, and writes the autofix patch where one is mechanical.</strong></p>
@@ -67,8 +77,18 @@ npm install -g @basitalisandhu/mcp-rc-check@0.3.0           # or install the mcp
 <li><a href="https://github.com/basitalisandhu/mcp-rc-check/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-rc-check/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>
+<section aria-labelledby="more-h"><h2 id="more-h">More in MCP tooling</h2><ul class="links">
+<li><a href="/dev-mcp-servers/">dev-mcp-servers</a>: Ten small MCP servers for everyday development and security checks.</li>
+<li><a href="/mcp-server-template/">mcp-server-template</a>: Secure MCP server template in TypeScript and Python, safe by default.</li>
+<li><a href="/mcp-tools-lint/">mcp-tools-lint</a>: Lint MCP tool schemas and annotations before clients reject them.</li>
+<li><a href="/mcp-auth-doctor/">mcp-auth-doctor</a>: Diagnose OAuth discovery problems on remote MCP servers.</li>
+<li><a href="/mcp-egress/">mcp-egress</a>: Record every host an MCP server contacts, per tool, and fail CI on new ones.</li>
+<li><a href="/claude-mcp-allow/">claude-mcp-allow</a>: Least-privilege Claude Code permission rules for MCP tools, generated from their annotations.</li>
+<li><a href="/agentdojo-mcp/">agentdojo-mcp</a>: Run the AgentDojo benchmark&#x27;s user and injection tasks against a real MCP server&#x27;s tools.</li>
+<li><a href="/garak-mcp-probes/">garak-mcp-probes</a>: Run garak against your own MCP servers, with detectors for denied tool calls, leaked canaries and runaway step counts.</li>
+</ul><p><a href="/tools/">All tools</a></p></section>
 <p class="topics">Topics: ai-agents, cli, compliance, developer-tools, devsecops, hacktoberfest, json-schema, linter, mcp, mcp-client, mcp-server, migration, model-context-protocol, sarif, specification, static-analysis, typescript</p>
 </main>
-<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/tools/">All tools</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
 </body>
 </html>

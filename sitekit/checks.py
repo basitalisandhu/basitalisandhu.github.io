@@ -33,6 +33,7 @@ class _Checker(HTMLParser):
         self._buf: list[str] = []
         self.has_title = False
         self.doctype = False
+        self.head_html = ""
 
     def handle_decl(self, decl: str) -> None:
         if decl.lower() == "doctype html":
@@ -95,6 +96,7 @@ class _Checker(HTMLParser):
 
 def parse_html(text: str) -> _Checker:
     c = _Checker()
+    c.head_html = text.split("</head>", 1)[0]
     c.feed(text)
     c.close()
     return c
@@ -127,6 +129,8 @@ def check_html(site_dir: Path, site_url: str, external_ok: set[str] | None = Non
             problems.append(f"{name}: missing <!doctype html>")
         if not c.has_title:
             problems.append(f"{name}: missing <title>")
+        if 'property="og:image"' not in c.head_html:
+            problems.append(f"{name}: missing og:image")
         for i, block in enumerate(c.jsonld):
             try:
                 obj = json.loads(block)
@@ -209,7 +213,8 @@ def check_text(site_dir: Path) -> list[str]:
         for n, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
             if EM_DASH in line:
                 problems.append(f"{name}:{n}: em-dash")
-            if m := MODEL_NAMES.search(line):
+            # robots.txt names crawlers by their user-agent tokens, which can contain product names.
+            if name != "robots.txt" and (m := MODEL_NAMES.search(line)):
                 problems.append(f"{name}:{n}: model name {m.group(0)!r}")
             if m := forbidden.search(line):
                 problems.append(f"{name}:{n}: forbidden word")
@@ -218,7 +223,7 @@ def check_text(site_dir: Path) -> list[str]:
 
 def check_required(site_dir: Path, key: str) -> list[str]:
     need = ["index.html", "404.html", ".nojekyll", "robots.txt", "sitemap.xml", "feed.xml", "llms.txt",
-            "llms-full.txt", "style.css", f"{key}.txt"]
+            "llms-full.txt", "style.css", "og.png", "tools/index.html", f"{key}.txt"]
     problems = [f"missing {n}" for n in need if not (site_dir / n).is_file()]
     keyfile = site_dir / f"{key}.txt"
     if keyfile.is_file() and keyfile.read_text(encoding="utf-8").strip() != key:
@@ -229,6 +234,9 @@ def check_required(site_dir: Path, key: str) -> list[str]:
     for bot in ("GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended"):
         if f"User-agent: {bot}" not in robots:
             problems.append(f"robots.txt does not name {bot}")
+    og = site_dir / "og.png"
+    if og.is_file() and not og.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"):
+        problems.append("og.png is not a PNG")
     if "Disallow: /\n" in robots:
         problems.append("robots.txt disallows everything")
     return problems

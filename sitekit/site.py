@@ -13,7 +13,17 @@ from pathlib import Path
 
 from . import markdown as md
 
-AI_CRAWLERS = ("GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended")
+# Crawlers and user-triggered fetchers named explicitly in robots.txt (all allowed).
+AI_CRAWLERS = (
+    "GPTBot", "OAI-SearchBot", "ChatGPT-User",
+    "ClaudeBot", "Claude-SearchBot", "Claude-User",
+    "PerplexityBot", "Perplexity-User",
+    "Google-Extended", "Googlebot", "Bingbot",
+    "Applebot", "Applebot-Extended", "CCBot",
+)
+OG_IMAGE = "/og.png"
+OG_IMAGE_SIZE = (1200, 630)
+META_DESCRIPTION_MAX = 160
 
 
 @dataclass
@@ -123,7 +133,52 @@ def rfc822(date: str) -> str:
 
 
 def person(site: Site) -> dict:
-    return {"@type": "Person", "name": site.cfg["author"], "url": site.url + "/", "sameAs": [site.cfg["github"]]}
+    return {"@type": "Person", "name": site.cfg["author"], "url": site.url + "/",
+            "sameAs": site.cfg.get("same_as") or [site.cfg["github"]]}
+
+
+def person_full(site: Site) -> dict:
+    """The Person block for the home page: who, what they do, what they know about."""
+    obj = {**person(site), "description": site.cfg["bio"]}
+    if site.cfg.get("job_title"):
+        obj["jobTitle"] = site.cfg["job_title"]
+    if site.cfg.get("knows_about"):
+        obj["knowsAbout"] = site.cfg["knows_about"]
+    return obj
+
+
+def short_description(text: str, limit: int = META_DESCRIPTION_MAX) -> str:
+    """A meta description of at most `limit` characters: whole sentences when they fit,
+    else whole words with an ellipsis."""
+    text = " ".join(text.split())
+    if len(text) <= limit:
+        return text
+    sentences = re.split(r"(?<=[.!?])\s+", text)
+    out = ""
+    for s in sentences:
+        if len(f"{out} {s}".strip()) > limit:
+            break
+        out = f"{out} {s}".strip()
+    if out:
+        return out
+    cut = text[: limit - 3].rsplit(" ", 1)[0].rstrip(" ,;:")
+    return cut + "..."
+
+
+def mentioned_repos(site: Site, body_md: str) -> list[dict]:
+    """Repositories a post links to, by their page here or their GitHub URL, in site order."""
+    owner = site.data["owner"]
+    found = []
+    for r in site.repos:
+        name = re.escape(r["name"])
+        pattern = rf"\]\((?:{re.escape(site.url)})?/{name}/?[)#]|github\.com/{re.escape(owner)}/{name}(?![\w.-])"
+        if re.search(pattern, body_md):
+            found.append(r)
+    return found
+
+
+def posts_mentioning(site: Site, repo: dict) -> list[Post]:
+    return [p for p in site.posts if repo in mentioned_repos(site, p.body_md)]
 
 
 # ---------------------------------------------------------------- layout
@@ -132,6 +187,9 @@ def page(site: Site, *, path: str, title: str, description: str, body: str,
          ld: list[dict] | None = None, og_type: str = "website", noindex: bool = False) -> str:
     full_title = title if title == site.cfg["title"] else f"{title} | {site.cfg['title']}"
     canonical = site.abs(path)
+    description = short_description(description)
+    image = site.abs(OG_IMAGE)
+    image_alt = f"{site.cfg['title']}: {site.cfg.get('og_tagline') or site.cfg['description']}"
     head = [
         '<meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
@@ -151,7 +209,16 @@ def page(site: Site, *, path: str, title: str, description: str, body: str,
         f'<meta property="og:description" content="{esc(description)}">',
         f'<meta property="og:url" content="{esc(canonical)}">',
         f'<meta property="og:site_name" content="{esc(site.cfg["title"])}">',
-        '<meta name="twitter:card" content="summary">',
+        f'<meta property="og:locale" content="{"en_GB" if site.cfg.get("lang", "en") == "en" else esc(site.cfg["lang"])}">',
+        f'<meta property="og:image" content="{esc(image)}">',
+        f'<meta property="og:image:width" content="{OG_IMAGE_SIZE[0]}">',
+        f'<meta property="og:image:height" content="{OG_IMAGE_SIZE[1]}">',
+        f'<meta property="og:image:alt" content="{esc(image_alt)}">',
+        '<meta name="twitter:card" content="summary_large_image">',
+        f'<meta name="twitter:title" content="{esc(title)}">',
+        f'<meta name="twitter:description" content="{esc(description)}">',
+        f'<meta name="twitter:image" content="{esc(image)}">',
+        f'<meta name="twitter:image:alt" content="{esc(image_alt)}">',
         '<link rel="stylesheet" href="/style.css">',
         f'<link rel="alternate" type="application/rss+xml" title="{esc(site.cfg["title"])}" href="/feed.xml">',
         '<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">',
@@ -161,7 +228,7 @@ def page(site: Site, *, path: str, title: str, description: str, body: str,
     nav = (
         '<header class="top"><nav aria-label="Site">'
         f'<a class="home" href="/">{esc(site.cfg["author"])}</a>'
-        '<a href="/#projects">Projects</a><a href="/posts/">Posts</a>'
+        '<a href="/#projects">Projects</a><a href="/tools/">Tools</a><a href="/posts/">Posts</a>'
         f'<a href="{esc(site.cfg["github"])}">GitHub</a>'
         "</nav></header>"
     )
@@ -170,7 +237,8 @@ def page(site: Site, *, path: str, title: str, description: str, body: str,
         '<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. '
         f'Source: <a href="{esc(site.cfg["source"])}">{esc(site.cfg["source"].split("github.com/")[-1])}</a>. '
         'No analytics, no cookies, no scripts.</p>'
-        '<p><a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>'
+        '<p><a href="/tools/">All tools</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · '
+        '<a href="/sitemap.xml">Sitemap</a></p></footer>'
     )
     return (
         "<!doctype html>\n"
@@ -184,6 +252,7 @@ def page(site: Site, *, path: str, title: str, description: str, body: str,
 def render_home(site: Site) -> str:
     parts = [f'<h1>{esc(site.cfg["author"])}</h1>', f'<p class="lede">{esc(site.cfg["bio"])}</p>']
     parts.append('<section id="projects" aria-labelledby="projects-h"><h2 id="projects-h">Projects</h2>')
+    parts.append('<p>Every repository with one line and its install command is on the <a href="/tools/">tools page</a>.</p>')
     for theme in site.data["themes"]:
         repos = [site.repo(n) for n in theme["repos"] if site.repo(n)]
         if not repos:
@@ -228,7 +297,7 @@ def render_home(site: Site) -> str:
 
     ld = [
         {"@type": "WebSite", "name": site.cfg["title"], "url": site.url + "/", "author": person(site)},
-        {**person(site), "description": site.cfg["bio"]},
+        person_full(site),
     ]
     return page(site, path="/", title=site.cfg["title"], description=site.cfg["description"], body="\n".join(parts), ld=ld)
 
@@ -280,6 +349,17 @@ def render_repo(site: Site, r: dict) -> str:
             label = x["tag"] if not x.get("name") or x["name"] == x["tag"] else f'{x["tag"]}: {x["name"]}'
             parts.append(f'<li><a href="{esc(x["url"])}">{esc(label)}</a> <time datetime="{x["date"]}">{x["date"]}</time></li>')
         parts.append("</ul></section>")
+    related_posts = posts_mentioning(site, r)
+    if related_posts:
+        parts.append('<section aria-labelledby="posts-h"><h2 id="posts-h">Posts about it</h2>')
+        parts.append(post_list(related_posts))
+        parts.append("</section>")
+    theme = next((t for t in site.data["themes"] if t["title"] == r["theme"]), None)
+    siblings = [s for n in (theme or {}).get("repos", []) if n != r["name"] and (s := site.repo(n))]
+    if siblings:
+        parts.append(f'<section aria-labelledby="more-h"><h2 id="more-h">More in {esc(r["theme"])}</h2><ul class="links">')
+        parts += [f'<li><a href="{esc(site.repo_href(s))}">{esc(s["name"])}</a>: {md.inline(s["one_liner"])}</li>' for s in siblings]
+        parts.append('</ul><p><a href="/tools/">All tools</a></p></section>')
     if r.get("topics"):
         parts.append('<p class="topics">Topics: ' + ", ".join(esc(t) for t in r["topics"]) + "</p>")
 
@@ -298,15 +378,30 @@ def render_repo(site: Site, r: dict) -> str:
     if rel:
         code["version"] = rel["tag"].lstrip("v")
         code["dateModified"] = rel["date"]
-    return page(site, path=f"/{r['name']}/", title=r["name"], description=r["description"], body="\n".join(parts), ld=[code])
+    title = r["name"]
+    lead = plain(r["one_liner"]).rstrip(".")
+    if lead and len(f"{title}: {lead}") <= 70:
+        title = f"{title}: {lead}"
+    return page(site, path=f"/{r['name']}/", title=title, description=r["description"], body="\n".join(parts), ld=[code])
 
 
 def render_post(site: Site, p: Post) -> str:
+    tools = mentioned_repos(site, p.body_md)
+    others = [o for o in site.posts if o.slug != p.slug]
+    extra = []
+    if tools:
+        extra.append('<section aria-labelledby="tools-h"><h2 id="tools-h">Tools in this post</h2><ul class="links">')
+        extra += [f'<li><a href="{esc(site.repo_href(r))}">{esc(r["name"])}</a>: {md.inline(r["one_liner"])}</li>' for r in tools]
+        extra.append('</ul><p><a href="/tools/">All tools</a></p></section>')
+    if others:
+        extra.append('<section aria-labelledby="more-posts-h"><h2 id="more-posts-h">More posts</h2>')
+        extra.append(post_list(others[:5]))
+        extra.append("</section>")
     body = (
         f'<p class="crumbs"><a href="/">Home</a> / <a href="/posts/">Posts</a></p>'
         f'<article><h1>{esc(p.title)}</h1>'
         f'<p class="meta">By {esc(site.cfg["author"])} · <time datetime="{p.date}">{p.date}</time></p>\n'
-        f"{md.convert(p.body_md, heading_offset=1)}\n</article>"
+        f"{md.convert(p.body_md, heading_offset=1)}\n</article>\n" + "\n".join(extra)
     )
     ld = {
         "@type": "BlogPosting",
@@ -317,15 +412,56 @@ def render_post(site: Site, p: Post) -> str:
         "url": site.abs(p.path),
         "mainEntityOfPage": site.abs(p.path),
         "author": person(site),
+        "publisher": person(site),
+        "image": site.abs(OG_IMAGE),
+        "isPartOf": {"@type": "WebSite", "name": site.cfg["title"], "url": site.url + "/"},
         "license": "https://creativecommons.org/licenses/by/4.0/",
         "inLanguage": site.cfg.get("lang", "en"),
     }
+    if tools:
+        ld["mentions"] = [{"@type": "SoftwareSourceCode", "name": r["name"], "url": absolute(site, site.repo_href(r)),
+                           "codeRepository": r["html_url"]} for r in tools]
     return page(site, path=p.path, title=p.title, description=p.description, body=body, ld=[ld], og_type="article")
 
 
 def render_posts_index(site: Site) -> str:
     body = '<p class="crumbs"><a href="/">Home</a></p><h1>Posts</h1>' + (post_list(site.posts) if site.posts else "<p>No posts yet.</p>")
-    return page(site, path="/posts/", title="Posts", description=f"Posts by {site.cfg['author']}.", body=body)
+    description = (f"Posts by {site.cfg['author']} on AI agent security, MCP servers, Claude Code skills "
+                   "and cloud security, with the open-source tools behind them.")
+    return page(site, path="/posts/", title="Posts", description=description, body=body)
+
+
+def render_tools(site: Site) -> str:
+    """Every repository, grouped by theme, with its one-liner and install command."""
+    parts = ['<p class="crumbs"><a href="/">Home</a></p>', "<h1>Tools</h1>",
+             f'<p class="lede">Every open-source repository by {esc(site.cfg["author"])}, with one line on what it does '
+             "and the command to install or run it. Each name links to the project page.</p>"]
+    toc = [f'<li><a href="#{md.slugify(t["title"])}">{esc(t["title"])}</a></li>' for t in site.data["themes"]
+           if any(site.repo(n) for n in t["repos"])]
+    parts.append('<nav aria-label="Themes"><ul>' + "".join(toc) + "</ul></nav>")
+    items = []
+    for theme in site.data["themes"]:
+        repos = [site.repo(n) for n in theme["repos"] if site.repo(n)]
+        if not repos:
+            continue
+        parts.append(f'<h2 id="{md.slugify(theme["title"])}">{esc(theme["title"])}</h2>')
+        for r in repos:
+            href = site.repo_href(r)
+            parts.append(f'<section class="tool" aria-labelledby="tool-{esc(r["name"])}">'
+                         f'<h3 id="tool-{esc(r["name"])}"><a href="{esc(href)}">{esc(r["name"])}</a></h3>'
+                         f"<p>{md.inline(r['one_liner'])}</p>")
+            if r.get("install"):
+                lang = r["install"].get("lang") or "bash"
+                parts.append(f'<pre><code class="language-{esc(lang)}">{esc(r["install"]["code"])}</code></pre>')
+            else:
+                parts.append(f'<p class="muted">No install step: see <a href="{esc(r["html_url"])}#readme">the README</a>.</p>')
+            parts.append("</section>")
+            items.append({"@type": "ListItem", "position": len(items) + 1, "url": absolute(site, href), "name": r["name"]})
+    ld = {"@type": "CollectionPage", "name": "Tools", "url": site.abs("/tools/"), "author": person(site),
+          "mainEntity": {"@type": "ItemList", "numberOfItems": len(items), "itemListElement": items}}
+    description = (f"Every open-source tool by {site.cfg['author']}: Claude Code skill packs, MCP servers and linters, "
+                   "agent security tooling and datasets, each with one line and its install command.")
+    return page(site, path="/tools/", title="Tools", description=description, body="\n".join(parts), ld=[ld])
 
 
 def render_404(site: Site) -> str:
@@ -343,6 +479,7 @@ def site_pages(site: Site) -> list[tuple[str, str | None]]:
     dates = [p.date for p in site.posts] + [rel["date"] for r in site.repos if (rel := latest_release(r))]
     pages: list[tuple[str, str | None]] = [("/", max(dates) if dates else None)]
     pages.append(("/posts/", site.posts[0].date if site.posts else None))
+    pages.append(("/tools/", max((r["date"] for r in (latest_release(x) for x in site.repos) if r), default=None)))
     pages += [(p.path, p.date) for p in site.posts]
     for r in site.generated_repos():
         rel = latest_release(r)
@@ -411,6 +548,7 @@ def render_llms(site: Site) -> str:
         out += [f"- [{p.title}]({site.abs(p.path)}): {p.description}" for p in site.posts]
         out.append("")
     out += ["## Optional", "",
+            f"- [Tools]({site.abs('/tools/')}): every repository with one line and its install command",
             f"- [Full text]({site.abs('/llms-full.txt')}): every project page and post in one file",
             f"- [Feed]({site.abs('/feed.xml')}): posts and releases as RSS", ""]
     return "\n".join(out)
@@ -438,7 +576,7 @@ def render_llms_full(site: Site) -> str:
 
 # ---------------------------------------------------------------- build
 
-def build(site: Site, out: Path, css: str) -> list[Path]:
+def build(site: Site, out: Path, css: str, og_image: bytes | None = None) -> list[Path]:
     if out.exists():
         if any(out.iterdir()) and not (out / ".nojekyll").exists():
             raise SystemExit(f"refusing to clear {out}: it has files but no .nojekyll marker")
@@ -456,6 +594,7 @@ def build(site: Site, out: Path, css: str) -> list[Path]:
     write("style.css", css)
     write("index.html", render_home(site))
     write("posts/index.html", render_posts_index(site))
+    write("tools/index.html", render_tools(site))
     for p in site.posts:
         write(f"posts/{p.slug}/index.html", render_post(site, p))
     for r in site.generated_repos():
@@ -467,4 +606,7 @@ def build(site: Site, out: Path, css: str) -> list[Path]:
     write("llms.txt", render_llms(site))
     write("llms-full.txt", render_llms_full(site))
     write(f"{site.cfg['indexnow_key']}.txt", site.cfg["indexnow_key"] + "\n")
+    if og_image is not None:
+        (out / OG_IMAGE.lstrip("/")).write_bytes(og_image)
+        written.append(out / OG_IMAGE.lstrip("/"))
     return written

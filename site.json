@@ -6,6 +6,20 @@
   "source": "https://github.com/basitalisandhu/basitalisandhu.github.io",
   "lang": "en",
   "description": "Open-source tooling for AI agent security and cloud security: Claude Code skill packs, MCP servers and linters, threat modelling, Semgrep rules and an AI agent incident dataset.",
+  "og_tagline": "AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.",
+  "job_title": "AI agent security and cloud security engineer",
+  "knows_about": [
+    "AI agent security",
+    "Model Context Protocol",
+    "Claude Code skills",
+    "Non-human identity governance",
+    "AWS security",
+    "Microsoft 365 governance"
+  ],
+  "same_as": [
+    "https://github.com/basitalisandhu",
+    "https://dev.to/basitalisandhu"
+  ],
   "bio": "I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day-to-day work is cloud governance: multi-account AWS guardrails, identity and endpoint controls in Microsoft 365, access reviews and the engineering teams that run them. Before that I built backend systems in Python and TypeScript, including a regulated lending platform and real-time grid software. The repositories here are the open part of that work: Claude Code skill packs, MCP servers and linters, threat modelling and static analysis for agent code, and a dataset of AI agent incidents. Each one stands alone, says what it does not do, and backs its security claims with tests.",
   "indexnow_key": "92e8b361795a4af2e514c405cf94f171",
   "home_releases": 8,
