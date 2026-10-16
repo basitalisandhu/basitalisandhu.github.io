@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do MCP servers say which tools are safe? | Muhammad Basit Ali</title>
+<meta name="description" content="I read the tool registrations of 304 public MCP servers.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/posts/do-mcp-servers-say-which-tools-are-safe/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Do MCP servers say which tools are safe?">
+<meta property="og:description" content="I read the tool registrations of 304 public MCP servers.">
+<meta property="og:url" content="https://basitalisandhu.github.io/posts/do-mcp-servers-say-which-tools-are-safe/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://basitalisandhu.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Do MCP servers say which tools are safe?">
+<meta name="twitter:description" content="I read the tool registrations of 304 public MCP servers.">
+<meta name="twitter:image" content="https://basitalisandhu.github.io/og.png">
+<meta name="twitter:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "Do MCP servers say which tools are safe?",
+ "description": "I read the tool registrations of 304 public MCP servers. Six in ten mark none of their tools as read-only or destructive, and only one delete-or-send tool in five says it is destructive.",
+ "datePublished": "2026-10-16",
+ "dateModified": "2026-10-16",
+ "url": "https://basitalisandhu.github.io/posts/do-mcp-servers-say-which-tools-are-safe/",
+ "mainEntityOfPage": "https://basitalisandhu.github.io/posts/do-mcp-servers-say-which-tools-are-safe/",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu",
+   "https://dev.to/basitalisandhu"
+  ]
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu",
+   "https://dev.to/basitalisandhu"
+  ]
+ },
+ "image": "https://basitalisandhu.github.io/og.png",
+ "isPartOf": {
+  "@type": "WebSite",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "inLanguage": "en",
+ "mentions": [
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "agent-skills-state-2026",
+   "url": "https://basitalisandhu.github.io/agent-skills-state-2026/",
+   "codeRepository": "https://github.com/basitalisandhu/agent-skills-state-2026"
+  },
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "mcp-tools-lint",
+   "url": "https://basitalisandhu.github.io/mcp-tools-lint/",
+   "codeRepository": "https://github.com/basitalisandhu/mcp-tools-lint"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/tools/">Tools</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/posts/">Posts</a></p><article><h1>Do MCP servers say which tools are safe?</h1><p class="meta">By Muhammad Basit Ali · <time datetime="2026-10-16">2026-10-16</time></p>
+<p>An MCP server can label each of its tools with four hints. <code>readOnlyHint</code> says the tool changes nothing. <code>destructiveHint</code> says it may delete or overwrite. <code>idempotentHint</code> says calling it twice does no more harm than calling it once, and <code>openWorldHint</code> says it reaches systems outside the server. A client uses these labels to decide when to stop and ask you before a call goes through.</p>
+<p>When I published <a href="/posts/the-state-of-public-agent-skills-and-mcp-servers/">the state of public agent skills and MCP servers</a> on Tuesday, this was the one question I could not answer. A server has to run before it will list its tools, I ran nothing, and only 10 repositories in the sample had a tool list committed to the repository. So this week I went back to the same sample and read the hints straight out of the servers&#x27; source code.</p>
+<h3 id="the-headline-numbers">The headline numbers</h3>
+<ul><li><strong>Six servers in ten mark nothing.</strong> Of the 304 MCP servers whose tool registrations I could read, 188 (61.8%) annotate none of their tools. The 95% confidence interval runs from 56.3% to 67.1%. Only 69 of 304 (22.7%) annotate every tool.</li><li><strong>About a third of tools carry a label.</strong> 6,243 of the 17,688 tools (35.3%) set at least one hint. Tools cluster heavily by server, one repository alone holds more than 1,500, so the more honest figure is per server: the typical server labels 29.4% of its tools (95% CI 24.5% to 34.6%).</li><li><strong>The tools that most need a label are no better.</strong> 1,099 tools have a name that says delete, remove, drop, purge, send, pay, transfer, write or similar. 366 of them (33.3%) carry any hint, and 214 (19.5%) say <code>destructiveHint: true</code> outright. In 83 of the 117 repositories that ship such tools (70.9%), not one of them is labelled.</li><li><strong>Read tools mostly do not say so either.</strong> Of 7,609 tools named get, list, search, read and so on, 2,095 (27.5%) declare <code>readOnlyHint: true</code>.</li><li><strong>Wrong labels are rare.</strong> Only 7 of the 1,099 delete-or-send tools, in 3 of the 304 repositories, are marked read-only or non-destructive. The problem is silence, not lies.</li><li><strong>Popularity barely helps.</strong> 36 of 67 repositories with 100 or more stars set a hint somewhere in their source (53.7%), against 106 of 237 with fewer (44.7%). The intervals overlap.</li></ul>
+<p>The money names are the sharpest example. 42 tools are named for paying or charging, and none of them carries a single hint, though 34 of the 42 come from one repository.</p>
+<h3 id="why-missing-labels-matter-and-why-they-are-not-a-vulnerability">Why missing labels matter, and why they are not a vulnerability</h3>
+<p>The specification&#x27;s defaults are cautious. A tool with no hints is assumed to be able to write, to be destructive and to talk to the outside world. A client that follows those defaults will still ask before it calls an unlabelled delete tool, so a missing hint does not, on its own, let anything happen silently.</p>
+<p>The cost shows up somewhere else. When most tools carry no labels, a client cannot tell the 7,609 read-looking tools from the 1,099 delete-or-send ones. It can ask about everything, in which case people learn to approve prompts without reading them, or the user allows the whole server and the question is never asked again. Both outcomes are worse than a prompt that appears only when it should. That is the practical value of the hints: they let an honest server earn the right prompts.</p>
+<p>They do not protect you from a dishonest server. A hint is a claim by the author, and the specification says clients should treat it as untrusted unless they trust the server. So the right reading of these numbers is about hygiene and usability, not about attacks.</p>
+<h3 id="how-i-measured-it">How I measured it</h3>
+<p>I took the 399 repositories in Tuesday&#x27;s random sample that ship an MCP <code>server.json</code>, fetched each one&#x27;s source at the exact commit recorded in the dataset, and read every tool registration statically for the main SDK styles in TypeScript, JavaScript, Python, Go, Rust and C#, without installing, building or running anything. Repository-level shares carry 95% Wilson intervals and tool-level shares carry intervals from resampling whole repositories, because one server can hold over a thousand tools. A random hand check of 60 tools found 59 real registrations, and for every one of those 59 the labelled or unlabelled verdict and the name class matched what I read in the source.</p>
+<p>The full method, every rule, the hand-check file and the limitations are in the report page, <a href="https://github.com/basitalisandhu/agent-skills-state-2026/blob/main/docs/mcp-tool-annotations.md">Do MCP servers say which tools are safe?</a>, and the data is in <a href="https://github.com/basitalisandhu/agent-skills-state-2026/tree/main/data/2026-10/annotations">data/2026-10/annotations</a>: one row per tool, one row per repository, and a results file with every number and its interval. A test in the repository checks that every share on the report page matches that file.</p>
+<h3 id="what-to-check-before-you-install-an-mcp-server">What to check before you install an MCP server</h3>
+<ul><li><strong>Open the tool definitions.</strong> Search the source for <code>registerTool</code>, <code>server.tool</code>, <code>@mcp.tool</code>, <code>NewTool</code> or <code>McpServerTool</code> and look for <code>readOnlyHint</code> and <code>destructiveHint</code>. Six servers in ten have no label on any tool.</li><li><strong>Read silence as &quot;can change things&quot;.</strong> That is what the defaults say and it is the only safe assumption.</li><li><strong>Look for contradictions.</strong> A tool whose name says delete, remove, send, pay or write should never be marked <code>readOnlyHint: true</code>, and a delete tool should not say <code>destructiveHint: false</code>.</li><li><strong>Allow by name, not by server.</strong> Put the read-only tools you trust on an allow list in your client and leave everything else on &quot;ask&quot;. If you maintain a server, labelling your tools is what makes that possible for your users.</li><li><strong>Pin the version.</strong> Tuesday&#x27;s report found that 46.0% of local MCP configurations start a server with no pinned version. A label you checked last week means little if the package can change under you.</li></ul>
+<p>If you maintain a server, <a href="/mcp-tools-lint/">mcp-tools-lint</a> checks a server&#x27;s tool list for missing annotations and for a delete-named tool marked read-only, and runs as a GitHub Action.</p>
+<h3 id="what-the-data-does-not-show">What the data does not show</h3>
+<p>It reads source code, not running servers. A hint added at run time, by middleware or by a framework default is missed, and so is any registration style I did not write a pattern for: 73 repositories had source but no registration I recognised, and they sit outside the denominator. Tool names are a weak signal of behaviour, which is why I write &quot;named for deleting&quot;, not &quot;deletes&quot;. A few very large servers dominate the pooled tool counts, so the repository-level numbers deserve more weight. And this is a subset of a sample of what GitHub code search surfaces, not a census of every MCP server.</p>
+<h3 id="the-data">The data</h3>
+<p>Everything is in <a href="https://github.com/basitalisandhu/agent-skills-state-2026">basitalisandhu/agent-skills-state-2026</a>, now at version 1.1.0, under CC BY 4.0 for the data and MIT for the scripts. Nothing in Tuesday&#x27;s report changed. If a number looks wrong to you, or you know a registration style I missed, an issue is the best way to tell me.</p>
+</article>
+<section aria-labelledby="tools-h"><h2 id="tools-h">Tools in this post</h2><ul class="links">
+<li><a href="/agent-skills-state-2026/">agent-skills-state-2026</a>: Monthly study of public agent skill, plugin and MCP repositories: dataset, method, hand-checked precision and scripts.</li>
+<li><a href="/mcp-tools-lint/">mcp-tools-lint</a>: Lint MCP tool schemas and annotations before clients reject them.</li>
+</ul><p><a href="/tools/">All tools</a></p></section>
+<section aria-labelledby="more-posts-h"><h2 id="more-posts-h">More posts</h2>
+<ul class="posts"><li><a href="/posts/what-the-owasp-agentic-top-10-maps-to-in-88-real-incidents/">What the OWASP Agentic Top 10 maps to in 88 real incidents</a> <time datetime="2026-10-16">2026-10-16</time><br><span class="muted">88 public AI incidents coded against the OWASP Agentic Top 10: which categories show up, what they travel with, and what the list leaves out.</span></li><li><a href="/posts/gating-claude-code-skills-in-ci-with-a-pull-request-comment/">Gating Claude Code skills in CI with a pull request comment</a> <time datetime="2026-10-16">2026-10-16</time><br><span class="muted">A how-to for skill-scan-gate: block risky skills, hooks and MCP servers in pull requests, adopt it with a baseline, and read its sticky comment.</span></li><li><a href="/posts/the-state-of-public-agent-skills-and-mcp-servers/">The state of public agent skills and MCP servers</a> <time datetime="2026-10-13">2026-10-13</time><br><span class="muted">A random sample of 2,999 public repositories that ship agent skills, plugins or MCP servers, scanned and hand-checked. Five findings, with denominators, and what to check before you install one.</span></li><li><a href="/posts/agent-identities-are-the-new-service-accounts/">Agent identities are the new service accounts</a> <time datetime="2026-10-13">2026-10-13</time><br><span class="muted">AI agents run as app registrations, IAM roles and GitHub Apps that nobody owns or reviews. The failure modes, the controls, and an offline tool for them.</span></li><li><a href="/posts/four-open-repositories-for-securing-ai-agents/">Four open repositories for securing AI agents, and what each is for</a> <time datetime="2026-10-04">2026-10-04</time><br><span class="muted">A map of the open tools for AI agent security: an incident dataset, Semgrep rules for agent code, a threat-model CLI and Claude Code skill packs, with where each one stops.</span></li></ul>
+</section>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/tools/">All tools</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>
