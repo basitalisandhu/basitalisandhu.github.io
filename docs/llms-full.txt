@@ -35,7 +35,7 @@ Claude Code skills for ways of working: change requests from a Terraform plan, a
 
 **Thirteen skills: change requests, action ledgers, exception and risk registers, RFC lint, a decision log, weekly status notes, a private 1:1 ledger, focus time from a calendar export, a vendor scorecard, a working agreement check, a shift handover note and a ranked next-actions list from mail and chat exports. Offline, standard-library scripts, tested.**
 
-ways-of-working-skills is a Claude Code plugin for the records that keep a team honest about its own process: what a change will do before the board approves it, which actions from last month's meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, where the focus time went, whether a vendor choice survives a change of weights, whether the repository settings match the team's working agreement, what the next on-call shift needs to know, and which messages across several inboxes and chats need you next. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.
+ways-of-working-skills is a Claude Code plugin for teams and their leads who keep the records that hold a team to its own process: what a change will do before the board approves it, which actions from last month's meetings are still open, which security exceptions have expired and which risks need a fresh look, which design proposals are stuck in review, which operational decisions are due for a second look, what a lead shipped this week, what each side promised in 1:1s, where the focus time went, whether a vendor choice survives a change of weights, whether the repository settings match the team's working agreement, what the next on-call shift needs to know, and which messages across several inboxes and chats need you next. These records usually live in files nobody re-reads. Each skill here reads those files with a small Python script, applies stated rules, cites the file and line behind every finding, and leaves decisions to people.
 
 Find this when you search for: "meeting overload", "action items", "weekly update".
 
@@ -44,18 +44,15 @@ Find this when you search for: "meeting overload", "action items", "weekly updat
 /plugin install ways-of-working@ways-of-working-skills
 ```
 
-Quickstart: open Claude Code in a folder of meeting notes and ask "which actions from our syncs are overdue?". Or run a script directly from a clone of this repository:
+Quickstart: open Claude Code in a folder of meeting notes and ask "which actions from our syncs are overdue?". Or run a script directly from a clone of this repository, here on the synthetic mail export that ships with `next-actions-sweep`:
 
 ```bash
-python3 scripts/cli.py meeting-ledger path/to/notes --as-of 2026-10-05
-python3 scripts/cli.py change-request plan.json --out change-record.md
+python3 scripts/cli.py next-actions --source work=plugins/ways-of-working/skills/next-actions-sweep/examples/work-mail.json --me alex.morgan@example.com --as-of 2026-10-16T09:00:00Z --top 3
 ```
 
-Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/ways-of-working-skills/blob/main/SECURITY.md).
+Real output (exit code 1, because three items need you):
 
-This pack is part of [claude-skills](https://github.com/basitalisandhu/claude-skills), which holds every skill I maintain as one marketplace: `/plugin marketplace add basitalisandhu/claude-skills`.
-
-Latest release: v0.3.0 (2026-10-16) https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.3.0
+Latest release: v0.4.0 (2026-10-18) https://github.com/basitalisandhu/ways-of-working-skills/releases/tag/v0.4.0
 
 ## aws-security-skills
 
@@ -82,7 +79,7 @@ Install:
 /plugin install aws-security@aws-security-skills
 ```
 
-Latest release: v0.4.0 (2026-10-09) https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.4.0
+Latest release: v0.4.1 (2026-10-18) https://github.com/basitalisandhu/aws-security-skills/releases/tag/v0.4.1
 
 ## repo-engineering-skills
 
@@ -106,22 +103,32 @@ Common searches it answers: technical due diligence on a codebase, an import dep
 Quickstart: open Claude Code in a repository and ask "check the docs against the code", or run a script directly from a clone of this repository:
 
 ```bash
-python3 plugins/repo-engineering/skills/docs-truth-check/scripts/docs_truth_check.py . --only-failures
+python3 plugins/repo-engineering/skills/docs-truth-check/scripts/docs_truth_check.py tests/fixtures/docs_truth/sample_repo --only-failures
 ```
 
-Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/repo-engineering-skills/blob/main/SECURITY.md).
+Real output on the committed sample repository, which has planted drift (exit code 1):
+
+```text
+STATUS   KIND     LOCATION      CLAIM                         DETAIL
+stale    version  README.md:3   greeter 1.1.0                 manifest version is 1.2.0
+stale    default  README.md:18  --retries default 3           code default is 5 in src/greeter/cli.py
+missing  flag     README.md:9   --color (src/greeter/cli.py)  src/greeter/cli.py does not declare it
+missing  path     README.md:24  src/greeter/helpers.py        not found in the working tree
+
+29 claims in 2 documents: 22 verified, 4 missing, 3 stale, 0 unverified
+```
 
 Install:
 
 ```bash
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 docs-truth /work --only-failures
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 readme-check /work/README.md
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 test-gaps /work --top 20
-docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 hygiene /work --sarif /work/hygiene.sarif
-docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 --help
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 docs-truth /work --only-failures
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 readme-check /work/README.md
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 test-gaps /work --top 20
+docker run --rm -v "$PWD:/work" ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 hygiene /work --sarif /work/hygiene.sarif
+docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 --help
 ```
 
-Latest release: v0.4.1 (2026-10-09) https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.4.1
+Latest release: v0.5.0 (2026-10-18) https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.5.0
 
 ## m365-governance-skills
 
@@ -148,7 +155,7 @@ claude plugin marketplace add basitalisandhu/m365-governance-skills
 claude plugin install m365-governance@m365-governance-skills --scope user
 ```
 
-Latest release: v0.5.0 (2026-10-13) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.5.0
+Latest release: v0.5.1 (2026-10-18) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.5.1
 
 ## compliance-evidence-skills
 
@@ -175,9 +182,15 @@ python3 plugins/compliance-evidence/skills/control-map-from-exports/scripts/cont
   --map plugins/compliance-evidence/skills/control-map-from-exports/references/starter-map.yaml --out /tmp/control-map.json
 python3 plugins/compliance-evidence/skills/auditor-narrative-drafter/scripts/narrative.py /tmp/control-map.json --control A.8.15
 python3 plugins/compliance-evidence/skills/github-change-control-evidence/scripts/github_evidence.py tests/fixtures/github/free-plan
+python3 plugins/compliance-evidence/skills/essential-eight-evidence-map/scripts/e8_map.py /tmp/pack \
+  --map plugins/compliance-evidence/skills/essential-eight-evidence-map/references/example-e8-map.csv
+python3 plugins/compliance-evidence/skills/security-questionnaire-drafter/scripts/questionnaire.py tests/fixtures/questionnaire/questionnaire.csv \
+  --policies tests/fixtures/questionnaire/policies --evidence /tmp/pack
+python3 plugins/compliance-evidence/skills/maester-control-map/scripts/maester_map.py tests/fixtures/maester/results.json \
+  --map plugins/compliance-evidence/skills/maester-control-map/references/example-map.csv --as-of 2026-10-16
 ```
 
-Latest release: v0.4.0 (2026-10-16) https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.4.0
+Latest release: v0.5.0 (2026-10-18) https://github.com/basitalisandhu/compliance-evidence-skills/releases/tag/v0.5.0
 
 ## claude-dev-skills
 
@@ -202,7 +215,7 @@ Install:
 /plugin install code-quality@claude-dev-skills
 ```
 
-Latest release: v0.3.0 (2026-10-09) https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.3.0
+Latest release: v0.3.1 (2026-10-18) https://github.com/basitalisandhu/claude-dev-skills/releases/tag/v0.3.1
 
 ## agent-security-skills
 
@@ -216,20 +229,15 @@ Claude Code security plugin and agent skills for securing LLM agents: threat mod
 
 agent-security-skills is a Claude Code plugin marketplace and an [agentskills.io](https://agentskills.io)-compatible skill pack for people who build or run LLM agents against real APIs, MCP servers and codebases: security engineers reviewing an agent before it ships, and developers who want that review inside the tool they already use. Each skill is a procedure with a tested script or a fixed checklist, so two reviewers reach the same verdict and the evidence is a file, a line or a command output.
 
-Ten skills (each with a tested script or a checklist), three slash commands, a subagent, two guard hooks for `Bash`, and an optional MCP server over the [ai-agent-incidents](https://github.com/basitalisandhu/ai-agent-incidents) dataset (80 documented events mapped to OWASP Agentic, OWASP LLM and MITRE ATLAS). No telemetry, no network calls except the documented, opt-in dataset refresh.
-
-Typical questions it answers: "is this MCP server safe to install?", "does this agent have the lethal trifecta?", "could a malicious skill or plugin in this repository take over my agent?" and "which of my agent's tools run without approval?" and "what did the agent actually do in this session?".
-
-Find this when you search for: human-in-the-loop approval for agent tools, needs_approval audit, LangGraph interrupt check, AI agent session log review, Claude Code transcript audit, agent observability for actions outside policy, detecting prompt injection in agent logs, agent data exfiltration check.
-
 Install:
 
-```text
-/plugin marketplace add basitalisandhu/agent-security-skills
-/plugin install agent-security@agent-security-skills
+```bash
+claude plugin marketplace add basitalisandhu/agent-security-skills
+claude plugin install agent-security@agent-security-skills
+# then, in Claude Code: "what did the agent actually do in this session?" or /agent-security:audit
 ```
 
-Latest release: v0.4.0 (2026-10-16) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.4.0
+Latest release: v0.5.0 (2026-10-18) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.5.0
 
 ## github-manager-skills
 
@@ -260,7 +268,7 @@ python3 scripts/cli.py pr-queue tests/fixtures/pr_queue
 
 Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/github-manager-skills/blob/main/SECURITY.md).
 
-Latest release: v0.3.0 (2026-10-09) https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.3.0
+Latest release: v0.3.1 (2026-10-18) https://github.com/basitalisandhu/github-manager-skills/releases/tag/v0.3.1
 
 ## mac-maintenance-skills
 
@@ -293,7 +301,29 @@ That prints the safe-tier plan with sizes and changes nothing; add `--apply` to 
 
 Questions, bugs and ideas: open an issue on this repository. Security reports: see [SECURITY.md](https://github.com/basitalisandhu/mac-maintenance-skills/blob/main/SECURITY.md).
 
-Latest release: v0.1.2 (2026-10-05) https://github.com/basitalisandhu/mac-maintenance-skills/releases/tag/v0.1.2
+Install:
+
+```console
+$ python3 scripts/demo_home.py demo-home
+Demo home written to demo-home: 10 files. See the commands in this script's --help.
+
+$ python3 plugins/mac-maintenance/skills/mac-duplicate-finder/scripts/find_dupes.py --home demo-home --quiet
+Scanned 5 files in 4 roots; 2 duplicate groups; 5.5 MB wasted
+
+Largest groups (of 2):
+      3.0 MB wasted  2 x 3.0 MB
+      demo-home/Desktop/IMG_0412 (1).MOV
+      demo-home/Desktop/IMG_0412.MOV
+      2.5 MB wasted  2 x 2.5 MB
+      demo-home/Documents/Invoices/invoice-2026-09.pdf
+      demo-home/Downloads/invoice-2026-09.pdf
+
+Folders that duplicate each other:
+      3.0 MB      1 groups  Desktop (copies inside it)
+# ... see the README for the rest
+```
+
+Latest release: v0.1.4 (2026-10-18) https://github.com/basitalisandhu/mac-maintenance-skills/releases/tag/v0.1.4
 
 ## claude-code-tooling-skills
 
@@ -319,12 +349,16 @@ claude-code-tooling-skills is a Claude Code plugin for the upkeep of Claude Code
 Quickstart: open Claude Code in a folder of skills and ask "will this skill work on Windows?" or "why is my context so full?". Or run a script directly from a clone of this repository:
 
 ```bash
-python3 scripts/cli.py portability path/to/my-skill
-python3 scripts/cli.py desc-lint path/to/skills --diff
-python3 scripts/cli.py context-budget . --home ~
+printf 'allow Bash(*)\nallow mcp__*\nallow Bash(git * main)\ndeny Bash(rm -rf *)\n' > rules.txt
+python3 scripts/cli.py perm-merge --source rules.txt
 ```
 
-Latest release: v0.2.0 (2026-10-16) https://github.com/basitalisandhu/claude-code-tooling-skills/releases/tag/v0.2.0
+Real output, the findings part (exit code 1):
+
+```text
+## Findings
+
+Latest release: v0.3.0 (2026-10-18) https://github.com/basitalisandhu/claude-code-tooling-skills/releases/tag/v0.3.0
 
 ## agent-identity-governance-skills
 
@@ -336,7 +370,7 @@ Claude Code skills for agent identity governance: inventory the non-human identi
 
 **Eight skills that treat AI agents, service principals, workload identities, API keys and MCP connectors as identities: each needs an inventory entry, an owner, a periodic review, credentials that expire and an off switch. Offline, standard-library scripts over exports you save from Entra ID, AWS, GitHub and your own registers. Tested.**
 
-Latest release: v0.1.1 (2026-10-05) https://github.com/basitalisandhu/agent-identity-governance-skills/releases/tag/v0.1.1
+Latest release: v0.2.0 (2026-10-18) https://github.com/basitalisandhu/agent-identity-governance-skills/releases/tag/v0.2.0
 
 ## dev-mcp-servers
 
@@ -353,11 +387,11 @@ All servers are TypeScript on the official `@modelcontextprotocol/sdk`, speak st
 Install:
 
 ```bash
-claude mcp add jwt-tools -- docker run --rm -i ghcr.io/basitalisandhu/mcp-jwt-tools:0.2.1
+claude mcp add jwt-tools -- docker run --rm -i ghcr.io/basitalisandhu/mcp-jwt-tools:0.2.2
 claude mcp list
 ```
 
-Latest release: v0.2.1 (2026-10-13) https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.2.1
+Latest release: v0.2.2 (2026-10-18) https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.2.2
 
 ## mcp-server-template
 
@@ -377,7 +411,7 @@ npm ci && npm run build && npm test
 MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing one directory
 ```
 
-Latest release: v0.2.0 (2026-10-09) https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.2.0
+Latest release: v0.2.1 (2026-10-18) https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.2.1
 
 ## mcp-tools-lint
 
@@ -574,11 +608,11 @@ Standard-library Python 3.10+, offline, read-only. It needs no credentials of it
 Install:
 
 ```bash
-pip install "git+https://github.com/basitalisandhu/agent-off-switch@v0.1.0"
+pip install "git+https://github.com/basitalisandhu/agent-off-switch@v0.1.1"
 aos --help
 ```
 
-Latest release: v0.1.0 (2026-10-09) https://github.com/basitalisandhu/agent-off-switch/releases/tag/v0.1.0
+Latest release: v0.1.1 (2026-10-18) https://github.com/basitalisandhu/agent-off-switch/releases/tag/v0.1.1
 
 ## skill-scan-gate
 
@@ -923,7 +957,7 @@ table, one page per event, [RSS feed](https://basitalisandhu.github.io/ai-agent-
 [CSV](https://basitalisandhu.github.io/ai-agent-incidents/incidents.csv),
 [stats](https://basitalisandhu.github.io/ai-agent-incidents/stats.json)).
 
-Latest release: v1.0.0 (2026-10-13) https://github.com/basitalisandhu/ai-agent-incidents/releases/tag/v1.0.0
+Latest release: v1.1.0 (2026-10-18) https://github.com/basitalisandhu/ai-agent-incidents/releases/tag/v1.1.0
 
 ## agent-skills-state-2026
 
@@ -952,6 +986,8 @@ Curated list of AI agent security tools, papers and datasets.
 > Curated list of AI agent security tools, papers and datasets: runtime controls, sandboxes, scanners for MCP servers and skills, static analysis, red teaming, incident records, threat models and standards.
 
 An AI agent is a model that can read untrusted content and call tools with real privileges. Securing one means controlling what it may touch, isolating what it runs, scanning what it loads, and measuring how it fails. Every entry below exists on GitHub and is maintained; descriptions are the projects' own words, shortened. Maintained by [Muhammad Basit Ali](https://github.com/basitalisandhu); projects by the maintainer are listed in their sections like any other entry. See [contributing.md](https://github.com/basitalisandhu/awesome-agent-security/blob/main/contributing.md) for the inclusion criteria and [SECURITY.md](https://github.com/basitalisandhu/awesome-agent-security/blob/main/SECURITY.md) to report a listed project that has turned malicious.
+
+Latest release: v0.1.0 (2026-10-18) https://github.com/basitalisandhu/awesome-agent-security/releases/tag/v0.1.0
 
 ## Post: What the OWASP Agentic Top 10 maps to in 88 real incidents
 
