@@ -54,6 +54,7 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 
 ## Posts
 
+- [Do MCP server READMEs tell you which version to run?](https://basitalisandhu.github.io/posts/do-mcp-server-readmes-tell-you-which-version-to-run/): I read the install commands in the READMEs of 264 public MCP servers. 95.5% never name an exact version, and a quarter ask for the latest release on every launch.
 - [What the OWASP Agentic Top 10 maps to in 88 real incidents](https://basitalisandhu.github.io/posts/what-the-owasp-agentic-top-10-maps-to-in-88-real-incidents/): 88 public AI incidents coded against the OWASP Agentic Top 10: which categories show up, what they travel with, and what the list leaves out.
 - [Gating Claude Code skills in CI with a pull request comment](https://basitalisandhu.github.io/posts/gating-claude-code-skills-in-ci-with-a-pull-request-comment/): A how-to for skill-scan-gate: block risky skills, hooks and MCP servers in pull requests, adopt it with a baseline, and read its sticky comment.
 - [Do MCP servers say which tools are safe?](https://basitalisandhu.github.io/posts/do-mcp-servers-say-which-tools-are-safe/): I read the tool registrations of 304 public MCP servers. Six in ten mark none of their tools as read-only or destructive, and only one delete-or-send tool in five says it is destructive.
