@@ -287,11 +287,11 @@
 /plugin install aws-security@aws-security-skills</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-repo-engineering-skills"><h3 id="tool-repo-engineering-skills"><a href="/repo-engineering-skills/">repo-engineering-skills</a></h3><p>Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, agent context files that say only what code cannot.</p>
-<pre><code class="language-bash">docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 docs-truth /work --only-failures
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 readme-check /work/README.md
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 test-gaps /work --top 20
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 hygiene /work --sarif /work/hygiene.sarif
-docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.4.1 --help</code></pre>
+<pre><code class="language-bash">docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 docs-truth /work --only-failures
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 readme-check /work/README.md
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 test-gaps /work --top 20
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 hygiene /work --sarif /work/hygiene.sarif
+docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 --help</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-m365-governance-skills"><h3 id="tool-m365-governance-skills"><a href="/m365-governance-skills/">m365-governance-skills</a></h3><p>Microsoft 365 governance skills for Claude Code: Entra ID posture review, Intune baseline check, Graph permission preflight, Teams and group sprawl, access review pack.</p>
 <pre><code class="language-bash">claude plugin marketplace add basitalisandhu/m365-governance-skills
@@ -303,21 +303,44 @@ python3 plugins/compliance-evidence/skills/evidence-pack-builder/scripts/evidenc
 python3 plugins/compliance-evidence/skills/control-map-from-exports/scripts/control_map.py /tmp/pack --framework iso27001 \
   --map plugins/compliance-evidence/skills/control-map-from-exports/references/starter-map.yaml --out /tmp/control-map.json
 python3 plugins/compliance-evidence/skills/auditor-narrative-drafter/scripts/narrative.py /tmp/control-map.json --control A.8.15
-python3 plugins/compliance-evidence/skills/github-change-control-evidence/scripts/github_evidence.py tests/fixtures/github/free-plan</code></pre>
+python3 plugins/compliance-evidence/skills/github-change-control-evidence/scripts/github_evidence.py tests/fixtures/github/free-plan
+python3 plugins/compliance-evidence/skills/essential-eight-evidence-map/scripts/e8_map.py /tmp/pack \
+  --map plugins/compliance-evidence/skills/essential-eight-evidence-map/references/example-e8-map.csv
+python3 plugins/compliance-evidence/skills/security-questionnaire-drafter/scripts/questionnaire.py tests/fixtures/questionnaire/questionnaire.csv \
+  --policies tests/fixtures/questionnaire/policies --evidence /tmp/pack
+python3 plugins/compliance-evidence/skills/maester-control-map/scripts/maester_map.py tests/fixtures/maester/results.json \
+  --map plugins/compliance-evidence/skills/maester-control-map/references/example-map.csv --as-of 2026-10-16</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-claude-dev-skills"><h3 id="tool-claude-dev-skills"><a href="/claude-dev-skills/">claude-dev-skills</a></h3><p>Claude Code skills for everyday development: code review, refactoring, debugging, CI and containers, data and APIs, documentation and security basics.</p>
 <pre><code class="language-text">/plugin marketplace add basitalisandhu/claude-dev-skills
 /plugin install code-quality@claude-dev-skills</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-agent-security-skills"><h3 id="tool-agent-security-skills"><a href="/agent-security-skills/">agent-security-skills</a></h3><p>Claude Code security plugin and agent skills for securing LLM agents: threat modelling, configuration audits, prompt injection review, MCP server review, incident lookup.</p>
-<pre><code class="language-text">/plugin marketplace add basitalisandhu/agent-security-skills
-/plugin install agent-security@agent-security-skills</code></pre>
+<pre><code class="language-bash">claude plugin marketplace add basitalisandhu/agent-security-skills
+claude plugin install agent-security@agent-security-skills
+# then, in Claude Code: &quot;what did the agent actually do in this session?&quot; or /agent-security:audit</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-github-manager-skills"><h3 id="tool-github-manager-skills"><a href="/github-manager-skills/">github-manager-skills</a></h3><p>Claude Code skills for engineering managers that compute from exported GitHub data: stuck-PR and review-queue digest, iteration report, blameless postmortem timeline.</p>
 <p class="muted">No install step: see <a href="https://github.com/basitalisandhu/github-manager-skills#readme">the README</a>.</p>
 </section>
 <section class="tool" aria-labelledby="tool-mac-maintenance-skills"><h3 id="tool-mac-maintenance-skills"><a href="/mac-maintenance-skills/">mac-maintenance-skills</a></h3><p>Claude Code skills for cleaning up and speeding up a Mac: read-only survey first, safe tier removes only what programs recreate, leftovers and duplicate finders.</p>
-<p class="muted">No install step: see <a href="https://github.com/basitalisandhu/mac-maintenance-skills#readme">the README</a>.</p>
+<pre><code class="language-console">$ python3 scripts/demo_home.py demo-home
+Demo home written to demo-home: 10 files. See the commands in this script&#x27;s --help.
+
+$ python3 plugins/mac-maintenance/skills/mac-duplicate-finder/scripts/find_dupes.py --home demo-home --quiet
+Scanned 5 files in 4 roots; 2 duplicate groups; 5.5 MB wasted
+
+Largest groups (of 2):
+      3.0 MB wasted  2 x 3.0 MB
+      demo-home/Desktop/IMG_0412 (1).MOV
+      demo-home/Desktop/IMG_0412.MOV
+      2.5 MB wasted  2 x 2.5 MB
+      demo-home/Documents/Invoices/invoice-2026-09.pdf
+      demo-home/Downloads/invoice-2026-09.pdf
+
+Folders that duplicate each other:
+      3.0 MB      1 groups  Desktop (copies inside it)
+# ... see the README for the rest</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-claude-code-tooling-skills"><h3 id="tool-claude-code-tooling-skills"><a href="/claude-code-tooling-skills/">claude-code-tooling-skills</a></h3><p>Claude Code skills for keeping a Claude Code setup safe: review a third-party skill before installing it, lint skill descriptions, audit the context budget, build least-privilege permissions, test hooks.</p>
 <p class="muted">No install step: see <a href="https://github.com/basitalisandhu/claude-code-tooling-skills#readme">the README</a>.</p>
@@ -327,7 +350,7 @@ python3 plugins/compliance-evidence/skills/github-change-control-evidence/script
 </section>
 <h2 id="mcp-tooling">MCP tooling</h2>
 <section class="tool" aria-labelledby="tool-dev-mcp-servers"><h3 id="tool-dev-mcp-servers"><a href="/dev-mcp-servers/">dev-mcp-servers</a></h3><p>Ten small MCP servers for everyday development and security checks.</p>
-<pre><code class="language-bash">claude mcp add jwt-tools -- docker run --rm -i ghcr.io/basitalisandhu/mcp-jwt-tools:0.2.1
+<pre><code class="language-bash">claude mcp add jwt-tools -- docker run --rm -i ghcr.io/basitalisandhu/mcp-jwt-tools:0.2.2
 claude mcp list</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-mcp-server-template"><h3 id="tool-mcp-server-template"><a href="/mcp-server-template/">mcp-server-template</a></h3><p>Secure MCP server template in TypeScript and Python, safe by default.</p>
@@ -386,7 +409,7 @@ node dist/cli.js scan --dump test/fixtures/fixture-pre-revision.json   # try it 
 </section>
 <h2 id="security-tooling">Security tooling</h2>
 <section class="tool" aria-labelledby="tool-agent-off-switch"><h3 id="tool-agent-off-switch"><a href="/agent-off-switch/">agent-off-switch</a></h3><p>Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Offline on saved exports.</p>
-<pre><code class="language-bash">pip install &quot;git+https://github.com/basitalisandhu/agent-off-switch@v0.1.0&quot;
+<pre><code class="language-bash">pip install &quot;git+https://github.com/basitalisandhu/agent-off-switch@v0.1.1&quot;
 aos --help</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-skill-scan-gate"><h3 id="tool-skill-scan-gate"><a href="/skill-scan-gate/">skill-scan-gate</a></h3><p>CI gate for Claude Code skills and plugins, with SARIF output. GitHub Action and CLI.</p>
