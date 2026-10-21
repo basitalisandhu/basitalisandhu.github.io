@@ -35,7 +35,7 @@
  "description": "Secure MCP server template in TypeScript and Python: stdio by default, optional streamable HTTP behind bearer auth, rate limit and body cap, bound to 127.0.0.1; bounded file and network access with allowlists and SSRF protection; redacting JSON logs; health tool; tests, non-root pinned Docker images, Semgrep, gitleaks, CodeQL, SBOMs.",
  "url": "https://basitalisandhu.github.io/mcp-server-template/",
  "codeRepository": "https://github.com/basitalisandhu/mcp-server-template",
- "programmingLanguage": "Python",
+ "programmingLanguage": "TypeScript",
  "license": "https://spdx.org/licenses/MIT.html",
  "author": {
   "@type": "Person",
@@ -46,9 +46,9 @@
    "https://dev.to/basitalisandhu"
   ]
  },
- "keywords": "agent-security, ai-agents, ai-security, devsecops, docker, fastmcp, github-actions, hacktoberfest, llm-security, mcp, mcp-server, model-context-protocol, python, sbom, security-automation, ssrf, template, template-repository, typescript",
- "version": "0.2.1",
- "dateModified": "2026-10-18"
+ "keywords": "agent-security, ai-agents, ai-security, audit-log, devsecops, docker, fastmcp, github-actions, hacktoberfest, llm-security, mcp, mcp-server, model-context-protocol, python, sbom, security-automation, ssrf, template, template-repository, typescript",
+ "version": "0.3.0",
+ "dateModified": "2026-10-20"
 }
 </script>
 </head>
@@ -58,7 +58,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>mcp-server-template</h1>
 <p class="lede">Secure MCP server template in TypeScript and Python, safe by default.</p>
-<p class="meta">Python · MIT · latest v0.2.1</p>
+<p class="meta">TypeScript · MIT · latest v0.3.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p>Secure MCP server template in TypeScript and Python: a starting point for a Model Context Protocol server that is safe by default. Both reference implementations ship the same four read-only tools and the same controls: strict input validation, file access bounded to allowlisted directories, network access bounded to allowlisted hosts with SSRF protection, structured logs that redact secrets, a health tool, stdio transport by default, and an optional streamable HTTP transport that is bound to 127.0.0.1, requires a bearer token, rate-limits clients and caps request bodies. Tests, Dockerfiles with digest-pinned bases and non-root users, CI with Semgrep, gitleaks and CodeQL, and SBOMs on release are included.</p>
 </section>
@@ -74,6 +74,7 @@ MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing 
 <li><a href="https://github.com/basitalisandhu/mcp-server-template/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-20">2026-10-20</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.2.1">v0.2.1</a> <time datetime="2026-10-18">2026-10-18</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-09">2026-10-09</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-05">2026-10-05</time></li>
@@ -89,7 +90,7 @@ MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing 
 <li><a href="/garak-mcp-probes/">garak-mcp-probes</a>: Run garak against your own MCP servers, with detectors for denied tool calls, leaked canaries and runaway step counts.</li>
 <li><a href="/mcp-rc-check/">mcp-rc-check</a>: MCP specification migration checker for the 2026-07-28 revision: flags removed, changed and deprecated constructs and writes a patch for mechanical fixes.</li>
 </ul><p><a href="/tools/">All tools</a></p></section>
-<p class="topics">Topics: agent-security, ai-agents, ai-security, devsecops, docker, fastmcp, github-actions, hacktoberfest, llm-security, mcp, mcp-server, model-context-protocol, python, sbom, security-automation, ssrf, template, template-repository, typescript</p>
+<p class="topics">Topics: agent-security, ai-agents, ai-security, audit-log, devsecops, docker, fastmcp, github-actions, hacktoberfest, llm-security, mcp, mcp-server, model-context-protocol, python, sbom, security-automation, ssrf, template, template-repository, typescript</p>
 </main>
 <footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/tools/">All tools</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
 </body>

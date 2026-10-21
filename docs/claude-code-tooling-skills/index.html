@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "agent-skills, ai-agents, ai-security, claude-code, claude-code-plugin, claude-code-skills, claude-skills, context-engineering, developer-tools, hacktoberfest, hooks, linting, permissions, python, skill-security, supply-chain-security",
- "version": "0.3.0",
- "dateModified": "2026-10-18"
+ "version": "0.4.0",
+ "dateModified": "2026-10-20"
 }
 </script>
 </head>
@@ -58,9 +58,9 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
 <h1>claude-code-tooling-skills</h1>
 <p class="lede">Claude Code skills for keeping a Claude Code setup safe: review a third-party skill before installing it, lint skill descriptions, audit the context budget, build least-privilege permissions, test hooks.</p>
-<p class="meta">Python · MIT · latest v0.3.0</p>
+<p class="meta">Python · MIT · latest v0.4.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
-<p><strong>Nine skills, each with an offline, standard-library Python script and tests: skill-supply-chain-review, skill-description-linter, skill-trigger-eval, context-budget-audit, permissions-builder, sandbox-config-review, hook-author, skill-collision-check and skill-portability-check.</strong></p>
+<p><strong>Eleven skills, each with an offline, standard-library Python script and tests: skill-supply-chain-review, skill-description-linter, skill-trigger-eval, context-budget-audit, permissions-builder, sandbox-config-review, unattended-run-preflight, subagent-tool-scope-review, hook-author, skill-collision-check and skill-portability-check.</strong></p>
 <p>claude-code-tooling-skills is a Claude Code plugin for the upkeep of Claude Code itself. A setup grows by accretion: skills and plugins installed from other people&#x27;s repositories, descriptions written once and never measured, memory files and MCP servers that fill the context before the first word, permission rules added one &quot;always allow&quot; at a time, a sandbox whose settings are spread over four scopes, hooks copied from examples, two skills with the same name, a script that works on one laptop only. Each skill here turns one of those into a check with a script that reads local files, applies stated rules, and reports what it found with the file and line, leaving the decision to you.</p>
 <p><strong>Who it is for:</strong> people who write or maintain Claude Code skills and plugins, teams that share a <code>.claude/</code> folder in a repository, and anyone about to install a skill or plugin they did not write.</p>
 <p><strong>Why:</strong> skill and plugin supply chains are now an attack path, descriptions decide whether a skill is ever used, and the context window is shared by everything installed. The author already maintains command-line tools for parts of this (skill-scan-gate, cc-plugin-lock, claude-perm-sim, claude-mcp-allow, cc-hooks, mcp-tools-lint); these skills tell Claude when and how to run them, and add the offline checks they do not cover.</p>
@@ -70,7 +70,6 @@
 <pre><code class="language-bash">printf &#x27;allow Bash(*)\nallow mcp__*\nallow Bash(git * main)\ndeny Bash(rm -rf *)\n&#x27; &gt; rules.txt
 python3 scripts/cli.py perm-merge --source rules.txt</code></pre>
 <p>Real output, the findings part (exit code 1):</p>
-<pre><code class="language-text">## Findings</code></pre>
 </section>
 <section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
 <li><a href="https://github.com/basitalisandhu/claude-code-tooling-skills">Repository</a></li>
@@ -79,6 +78,7 @@ python3 scripts/cli.py perm-merge --source rules.txt</code></pre>
 <li><a href="https://github.com/basitalisandhu/claude-code-tooling-skills/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/claude-code-tooling-skills/releases/tag/v0.4.0">v0.4.0</a> <time datetime="2026-10-20">2026-10-20</time></li>
 <li><a href="https://github.com/basitalisandhu/claude-code-tooling-skills/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-18">2026-10-18</time></li>
 <li><a href="https://github.com/basitalisandhu/claude-code-tooling-skills/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-16">2026-10-16</time></li>
 <li><a href="https://github.com/basitalisandhu/claude-code-tooling-skills/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-09">2026-10-09</time></li>
