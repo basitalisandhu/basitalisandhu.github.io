@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "agent-security, agentdojo, ai-agents, ai-security, benchmark, cli, evaluation, hacktoberfest, llm-evaluation, llm-security, mcp, mcp-server, model-context-protocol, prompt-injection, python, red-teaming, security-tools",
- "version": "0.2.0",
- "dateModified": "2026-10-09"
+ "version": "0.3.0",
+ "dateModified": "2026-10-20"
 }
 </script>
 </head>
@@ -58,16 +58,35 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>agentdojo-mcp</h1>
 <p class="lede">Run the AgentDojo benchmark&#x27;s user and injection tasks against a real MCP server&#x27;s tools.</p>
-<p class="meta">Python · MIT · latest v0.2.0</p>
+<p class="meta">Python · MIT · latest v0.3.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>agentdojo-mcp maps an AgentDojo task suite&#x27;s tools onto a real MCP server so the benchmark&#x27;s user tasks and injection tasks run against the server&#x27;s actual tool surface, and reports utility and attack success per task with every call logged.</strong></p>
-<pre><code class="language-bash">pip install &quot;agentdojo-mcp[dojo] @ git+https://github.com/basitalisandhu/agentdojo-mcp&quot;</code></pre>
+<p>For people who build or review MCP servers and want AgentDojo&#x27;s prompt injection numbers for their own tool surface. Try it on the bundled three-task fixture suite and fixture server, with no model, no keys and no network (Python 3.11 or newer):</p>
+<pre><code class="language-bash">git clone https://github.com/basitalisandhu/agentdojo-mcp &amp;&amp; cd agentdojo-mcp
+python3 -m venv .venv &amp;&amp; . .venv/bin/activate &amp;&amp; pip install &quot;.[dojo]&quot;
+agentdojo-mcp run --suite tests/fixtures/fixture-dojo-suite/fixture-suite.py:suite --mapping tests/fixtures/fixture-mapping-notes.yaml --stdio &quot;python3 tests/fixtures/fixture-server.py&quot; --model ground-truth --attack direct</code></pre>
+<p>The start of the report from a real run of those three lines:</p>
+<pre><code class="language-text">agentdojo-mcp results
+
+  Suite                    notes (v1.2.2)
+  Server                   fixture-notes 0.1.0 over stdio
+  Mapping                  fixture-mapping-notes.yaml (1 both, 1 local, 2 server)
+  Model                    ground-truth
+  Attack                   direct
+  AgentDojo                0.1.35
+
+  Utility, no attack       3/3 (100.0%)
+  Utility under attack     3/3 (100.0%)
+  Targeted attack success  0/3 (0.0%)
+  Injection goals doable   1/1 (100.0%)
+  MCP calls                14 (0 errors, 894 result bytes)</code></pre>
+<p><code>ground-truth</code> replays each task&#x27;s reference solution, so it never follows an injection; the per-task table and every MCP call follow in the report, and <code>results.json</code> and <code>report.md</code> land in <code>agentdojo-mcp-results/</code>.</p>
 </section>
 <section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
 <pre><code class="language-bash">pip install &quot;agentdojo-mcp[dojo] @ git+https://github.com/basitalisandhu/agentdojo-mcp&quot;
 
-# 1. What does the server offer?
-agentdojo-mcp inspect --stdio &quot;python my_server.py&quot; --json -o tools.json
+# 1. What does the server offer? (-o writes the JSON dump and prints a readable list.)
+agentdojo-mcp inspect --stdio &quot;python my_server.py&quot; -o tools.json
 
 # 2. Propose a mapping for a suite, then edit it.
 agentdojo-mcp map --suite travel --server-dump tools.json -o mapping.yaml
@@ -89,6 +108,7 @@ agentdojo-mcp run --suite travel --mapping mapping.yaml --stdio &quot;python my_
 <li><a href="https://github.com/basitalisandhu/agentdojo-mcp/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-20">2026-10-20</time></li>
 <li><a href="https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-09">2026-10-09</time></li>
 <li><a href="https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>

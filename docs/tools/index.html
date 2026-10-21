@@ -309,7 +309,9 @@ python3 plugins/compliance-evidence/skills/essential-eight-evidence-map/scripts/
 python3 plugins/compliance-evidence/skills/security-questionnaire-drafter/scripts/questionnaire.py tests/fixtures/questionnaire/questionnaire.csv \
   --policies tests/fixtures/questionnaire/policies --evidence /tmp/pack
 python3 plugins/compliance-evidence/skills/maester-control-map/scripts/maester_map.py tests/fixtures/maester/results.json \
-  --map plugins/compliance-evidence/skills/maester-control-map/references/example-map.csv --as-of 2026-10-16</code></pre>
+  --map plugins/compliance-evidence/skills/maester-control-map/references/example-map.csv --as-of 2026-10-16
+python3 plugins/compliance-evidence/skills/evidence-collection-plan/scripts/collection_plan.py --scope tests/fixtures/collection-plan/scope-iso27001.json \
+  --manifest tests/fixtures/collection-plan/manifest.json --as-of 2026-11-15</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-claude-dev-skills"><h3 id="tool-claude-dev-skills"><a href="/claude-dev-skills/">claude-dev-skills</a></h3><p>Claude Code skills for everyday development: code review, refactoring, debugging, CI and containers, data and APIs, documentation and security basics.</p>
 <pre><code class="language-text">/plugin marketplace add basitalisandhu/claude-dev-skills
@@ -360,8 +362,8 @@ MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing 
 </section>
 <section class="tool" aria-labelledby="tool-mcp-tools-lint"><h3 id="tool-mcp-tools-lint"><a href="/mcp-tools-lint/">mcp-tools-lint</a></h3><p>Lint MCP tool schemas and annotations before clients reject them.</p>
 <pre><code class="language-bash">npx @basitalisandhu/mcp-tools-lint --help              # run without installing
-npm install -g @basitalisandhu/mcp-tools-lint@0.2.0    # global CLI, installs the mcp-tools-lint command
-npm install -D @basitalisandhu/mcp-tools-lint@0.2.0    # as a dev dependency of a server project</code></pre>
+npm install -g @basitalisandhu/mcp-tools-lint@0.3.0    # global CLI, installs the mcp-tools-lint command
+npm install -D @basitalisandhu/mcp-tools-lint@0.3.0    # as a dev dependency of a server project</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-mcp-auth-doctor"><h3 id="tool-mcp-auth-doctor"><a href="/mcp-auth-doctor/">mcp-auth-doctor</a></h3><p>Diagnose OAuth discovery problems on remote MCP servers.</p>
 <pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/mcp-auth-doctor
@@ -382,8 +384,8 @@ npx @basitalisandhu/claude-mcp-allow --check    # later, or in CI: exit 1 on dri
 <section class="tool" aria-labelledby="tool-agentdojo-mcp"><h3 id="tool-agentdojo-mcp"><a href="/agentdojo-mcp/">agentdojo-mcp</a></h3><p>Run the AgentDojo benchmark&#x27;s user and injection tasks against a real MCP server&#x27;s tools.</p>
 <pre><code class="language-bash">pip install &quot;agentdojo-mcp[dojo] @ git+https://github.com/basitalisandhu/agentdojo-mcp&quot;
 
-# 1. What does the server offer?
-agentdojo-mcp inspect --stdio &quot;python my_server.py&quot; --json -o tools.json
+# 1. What does the server offer? (-o writes the JSON dump and prints a readable list.)
+agentdojo-mcp inspect --stdio &quot;python my_server.py&quot; -o tools.json
 
 # 2. Propose a mapping for a suite, then edit it.
 agentdojo-mcp map --suite travel --server-dump tools.json -o mapping.yaml
