@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What do skills that ask for the whole shell do with it? | Muhammad Basit Ali</title>
+<meta name="description" content="I read 3,715 public agent skills that grant unscoped Bash.">
+<meta name="author" content="Muhammad Basit Ali">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A1628">
+<link rel="canonical" href="https://basitalisandhu.github.io/posts/what-do-skills-that-ask-for-the-whole-shell-do-with-it/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What do skills that ask for the whole shell do with it?">
+<meta property="og:description" content="I read 3,715 public agent skills that grant unscoped Bash.">
+<meta property="og:url" content="https://basitalisandhu.github.io/posts/what-do-skills-that-ask-for-the-whole-shell-do-with-it/">
+<meta property="og:site_name" content="Muhammad Basit Ali">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://basitalisandhu.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What do skills that ask for the whole shell do with it?">
+<meta name="twitter:description" content="I read 3,715 public agent skills that grant unscoped Bash.">
+<meta name="twitter:image" content="https://basitalisandhu.github.io/og.png">
+<meta name="twitter:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Muhammad Basit Ali" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "What do skills that ask for the whole shell do with it?",
+ "description": "I read 3,715 public agent skills that grant unscoped Bash. Three in ten never show a shell command, most of the rest need three commands or fewer, and a third install, delete, push or eval.",
+ "datePublished": "2026-10-26",
+ "dateModified": "2026-10-26",
+ "url": "https://basitalisandhu.github.io/posts/what-do-skills-that-ask-for-the-whole-shell-do-with-it/",
+ "mainEntityOfPage": "https://basitalisandhu.github.io/posts/what-do-skills-that-ask-for-the-whole-shell-do-with-it/",
+ "author": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu",
+   "https://dev.to/basitalisandhu"
+  ]
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/",
+  "sameAs": [
+   "https://github.com/basitalisandhu",
+   "https://dev.to/basitalisandhu"
+  ]
+ },
+ "image": "https://basitalisandhu.github.io/og.png",
+ "isPartOf": {
+  "@type": "WebSite",
+  "name": "Muhammad Basit Ali",
+  "url": "https://basitalisandhu.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "inLanguage": "en",
+ "mentions": [
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "agent-skills-state-2026",
+   "url": "https://basitalisandhu.github.io/agent-skills-state-2026/",
+   "codeRepository": "https://github.com/basitalisandhu/agent-skills-state-2026"
+  },
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "claude-code-tooling-skills",
+   "url": "https://basitalisandhu.github.io/claude-code-tooling-skills/",
+   "codeRepository": "https://github.com/basitalisandhu/claude-code-tooling-skills"
+  },
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "skill-scan-gate",
+   "url": "https://basitalisandhu.github.io/skill-scan-gate/",
+   "codeRepository": "https://github.com/basitalisandhu/skill-scan-gate"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<header class="top"><nav aria-label="Site"><a class="home" href="/">Muhammad Basit Ali</a><a href="/#projects">Projects</a><a href="/tools/">Tools</a><a href="/posts/">Posts</a><a href="https://github.com/basitalisandhu">GitHub</a></nav></header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / <a href="/posts/">Posts</a></p><article><h1>What do skills that ask for the whole shell do with it?</h1><p class="meta">By Muhammad Basit Ali · <time datetime="2026-10-26">2026-10-26</time></p>
+<p>A skill&#x27;s <code>allowed-tools</code> line is a permission slip. While the skill is active, whatever it lists runs without the host asking you first. Write <code>Bash(git status:*)</code> and the agent can check the branch; anything else still prompts. Write a bare <code>Bash</code>, or <code>Bash(*)</code>, and the agent can run any command at all, with no prompt in between.</p>
+<p>Two weeks ago, <a href="/posts/the-state-of-public-agent-skills-and-mcp-servers/">the state of public agent skills and MCP servers</a> found that 407 of 2,621 repositories with skills (15.5%) give at least one skill that unscoped grant, 10,073 declarations in all. That number says the door is open. This week I went through it and asked what is on the other side: when a skill asks for the whole shell, which commands does it actually show you, does it need more than a handful of them, and how often does it download, delete, push, escalate or read credentials?</p>
+<h3 id="the-headline-numbers">The headline numbers</h3>
+<ul><li><strong>Three in ten never use the shell they ask for.</strong> 1,109 of the 3,715 skills I read (29.9%) show no shell command anywhere in their <code>SKILL.md</code> and ship no script. The 95% confidence interval runs from 26.3% to 33.5%. Counting each distinct skill text once, so that copies do not count twice, it is 25.6%. For these skills, removing <code>Bash</code> from <code>allowed-tools</code> loses nothing the page asks for.</li><li><strong>Most of the rest need three commands or fewer.</strong> Of the 2,545 skills that do show shell commands, 1,418 (55.7%) use three or fewer distinct commands, and 806 (31.7%) use exactly one. Three <code>Bash(command:*)</code> rules would cover everything those skills document, and the host would keep prompting for anything else.</li><li><strong>A third do something worth reading first.</strong> 1,289 of 3,715 skills (34.7%) document or ship at least one of nine riskier behaviours, and 279 of the 392 repositories (71.2%) contain at least one such skill. The common ones are ordinary developer work: installing or fetching a package (15.7%), a direct HTTP call (14.4%), recursive deletion or discarding git work (9.2%), and running a built string through <code>eval</code> (8.4%).</li><li><strong>The rarer ones are the ones that matter.</strong> 186 skills (5.0%) push or publish (<code>git push</code>, <code>gh pr create</code>, <code>npm publish</code>). 74 (2.0%) pipe a download straight into a shell, the familiar <code>curl ... | bash</code>. 61 (1.6%) use <code>sudo</code> or open up file permissions, 50 (1.3%) read a credential store or a <code>.env</code> file, and 16 (0.4%) change the machine beyond the project: cron jobs, launch agents, shell start-up files, global git config.</li><li><strong>It is mostly on the page.</strong> Only 647 skills (17.4%) ship a script at all. Of the 1,289 with a riskier behaviour, 1,154 show it in the <code>SKILL.md</code> commands the agent is told to run; just 135 hide it only in a bundled script.</li><li><strong>Stars do not help.</strong> In repositories with 100 or more stars, 27 of 44 (61.4%) have such a skill, against 252 of 348 (72.4%) for the rest; the intervals overlap.</li></ul>
+<h3 id="why-an-unscoped-grant-matters-and-why-it-is-not-an-accusation">Why an unscoped grant matters, and why it is not an accusation</h3>
+<p>None of this says any skill is malicious. Most of what I found is ordinary developer work. The point is about where the checkpoint sits.</p>
+<p>With a scoped grant, the host stays in the loop for everything the skill did not say it needed. With an unscoped one, the only review a command ever gets is whatever you did before you installed the skill. That matters more than it sounds, because a skill does not only follow its own text. It reads web pages, issues and files in your repository, and any of those can carry instructions. An unscoped grant turns a prompt injection that reaches the skill into shell access, with nobody asked.</p>
+<p>For three skills in ten the grant buys nothing the page uses. For more than half of the rest, three rules would do. Narrowing the grant costs the author one line.</p>
+<h3 id="how-i-measured-it">How I measured it</h3>
+<p>I took the 407 repositories in the October sample that grant unscoped Bash and kept the 400 with the smallest hash of a fixed seed and the repository name, to stay under the study&#x27;s ceiling for re-fetching. For each, I fetched the commit recorded in the dataset, read every <code>SKILL.md</code> (up to 2,000 a repository), and for up to 20 skills with an unscoped grant fetched the files bundled in the skill&#x27;s folder. The fetch downloads files by their git object id and writes them out directly, so no checkout, hook or filter ever runs. 393 repositories were still available. Nothing was installed, built or run.</p>
+<p>A short standard-library script reads the commands each <code>SKILL.md</code> asks the agent to run, from shell code blocks and from inline code that starts with a known command. Each command&#x27;s first word, after wrappers like <code>sudo</code>, is its head; the number of distinct heads is the number of scoped rules the skill would need. Nine rule families then run over those commands and over the bundled scripts, ignoring text that is only printed.</p>
+<p>Skill-level intervals come from resampling whole repositories; repository-level ones are Wilson intervals. I read 60 skills drawn at random against their pages and scripts: all 60 grant unscoped Bash, the &quot;shows a command or ships a script&quot; label matched in all 60, the three-or-fewer class matched in all 33 with commands, and 17 of the 20 behaviour flags were right. I found two misses, both in one skill.</p>
+<p>The full method, all nine rules, the hand-check file and the limitations are on the report page, <a href="https://github.com/basitalisandhu/agent-skills-state-2026/blob/main/docs/skills-with-unscoped-bash.md">What do skills that ask for the whole shell do with it?</a>. The data is in <a href="https://github.com/basitalisandhu/agent-skills-state-2026/tree/main/data/2026-10/skill-bash">data/2026-10/skill-bash</a>: one row per skill, one row per repository, and a results file with every number and its interval. A test checks that every share on the report page matches that file.</p>
+<h3 id="what-to-check-before-you-install-a-skill-that-asks-for-bash">What to check before you install a skill that asks for Bash</h3>
+<ul><li><strong>Find the grant.</strong> Open the <code>SKILL.md</code> and read <code>allowed-tools</code>. A bare <code>Bash</code> or <code>Bash(*)</code> means any command, no prompt.</li><li><strong>Look for commands.</strong> If the page has no shell blocks and the skill ships no scripts, which is three skills in ten, delete <code>Bash</code> from your copy.</li><li><strong>Scope what is there.</strong> List the first word of each command. More than half of these skills use three or fewer; replace the grant with <code>Bash(git status:*)</code>, <code>Bash(python scripts/run.py:*)</code> and so on.</li><li><strong>Search for the sharp edges.</strong> <code>curl</code> or <code>wget</code> piped into a shell, <code>sudo</code>, <code>rm -rf</code>, <code>git reset --hard</code>, <code>git push --force</code>, <code>git push</code>, <code>gh pr create</code>, <code>npm publish</code>, <code>pip install</code>, <code>npx</code>, <code>uvx</code>, <code>eval</code>, reads of <code>~/.ssh</code>, <code>~/.aws</code>, a keychain or <code>.env</code>, and writes to <code>crontab</code>, launch agents or <code>~/.zshrc</code>.</li><li><strong>Read the scripts it calls, wherever they live.</strong> Plenty of skills run tools from a plugin&#x27;s shared folder or your home directory. The grant covers them too, and this study did not read them.</li><li><strong>Pin what it installs.</strong> A package the skill runs through <code>npx</code> or <code>uvx</code> is part of the skill; give it a version.</li><li><strong>Re-read after updates.</strong> An unscoped grant lets tomorrow&#x27;s new command run without asking.</li></ul>
+<p>If you publish skills, <a href="/skill-scan-gate/">skill-scan-gate</a> flags unscoped Bash grants in CI, the rule that produced the first report&#x27;s 15.5%, and the <a href="/claude-code-tooling-skills/">skill review pack in claude-code-tooling-skills</a> walks through reviewing a third-party skill before you install it.</p>
+<h3 id="what-the-data-does-not-show">What the data does not show</h3>
+<p>It reads the page, not the run: an agent with unscoped Bash can run commands its page never mentions, and five of the 26 hand-checked skills with no command still describe shell work in prose or hand off to a workflow file elsewhere. Scripts outside the skill&#x27;s folder were not fetched, so the script-level shares are a lower bound. Rule fixes made during the hand check make its figures somewhat optimistic, which is why the rarer categories deserve the most care. And this is a slice of a sample of what GitHub code search surfaces, not a census.</p>
+<h3 id="the-data">The data</h3>
+<p>Everything is in <a href="https://github.com/basitalisandhu/agent-skills-state-2026">basitalisandhu/agent-skills-state-2026</a>, now at version 1.3.0, under CC BY 4.0 for the data and MIT for the scripts. No number in the first report or the earlier follow-ups changed. If a number here looks wrong, or you know a pattern I missed, an issue is the best way to tell me.</p>
+</article>
+<section aria-labelledby="tools-h"><h2 id="tools-h">Tools in this post</h2><ul class="links">
+<li><a href="/agent-skills-state-2026/">agent-skills-state-2026</a>: Monthly study of public agent skill, plugin and MCP repositories: dataset, method, hand-checked precision and scripts.</li>
+<li><a href="/claude-code-tooling-skills/">claude-code-tooling-skills</a>: Claude Code skills for keeping a Claude Code setup safe: review a third-party skill before installing it, lint skill descriptions, audit the context budget, build least-privilege permissions, test hooks.</li>
+<li><a href="/skill-scan-gate/">skill-scan-gate</a>: CI gate for Claude Code skills and plugins, with SARIF output. GitHub Action and CLI.</li>
+</ul><p><a href="/tools/">All tools</a></p></section>
+<section aria-labelledby="more-posts-h"><h2 id="more-posts-h">More posts</h2>
+<ul class="posts"><li><a href="/posts/do-mcp-server-readmes-tell-you-which-version-to-run/">Do MCP server READMEs tell you which version to run?</a> <time datetime="2026-10-20">2026-10-20</time><br><span class="muted">I read the install commands in the READMEs of 264 public MCP servers. 95.5% never name an exact version, and a quarter ask for the latest release on every launch.</span></li><li><a href="/posts/what-the-owasp-agentic-top-10-maps-to-in-88-real-incidents/">What the OWASP Agentic Top 10 maps to in 88 real incidents</a> <time datetime="2026-10-16">2026-10-16</time><br><span class="muted">88 public AI incidents coded against the OWASP Agentic Top 10: which categories show up, what they travel with, and what the list leaves out.</span></li><li><a href="/posts/gating-claude-code-skills-in-ci-with-a-pull-request-comment/">Gating Claude Code skills in CI with a pull request comment</a> <time datetime="2026-10-16">2026-10-16</time><br><span class="muted">A how-to for skill-scan-gate: block risky skills, hooks and MCP servers in pull requests, adopt it with a baseline, and read its sticky comment.</span></li><li><a href="/posts/do-mcp-servers-say-which-tools-are-safe/">Do MCP servers say which tools are safe?</a> <time datetime="2026-10-16">2026-10-16</time><br><span class="muted">I read the tool registrations of 304 public MCP servers. Six in ten mark none of their tools as read-only or destructive, and only one delete-or-send tool in five says it is destructive.</span></li><li><a href="/posts/the-state-of-public-agent-skills-and-mcp-servers/">The state of public agent skills and MCP servers</a> <time datetime="2026-10-13">2026-10-13</time><br><span class="muted">A random sample of 2,999 public repositories that ship agent skills, plugins or MCP servers, scanned and hand-checked. Five findings, with denominators, and what to check before you install one.</span></li></ul>
+</section>
+</main>
+<footer><p>Code on this site is MIT licensed; posts are <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: <a href="https://github.com/basitalisandhu/basitalisandhu.github.io">basitalisandhu/basitalisandhu.github.io</a>. No analytics, no cookies, no scripts.</p><p><a href="/tools/">All tools</a> · <a href="/feed.xml">RSS</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p></footer>
+</body>
+</html>
