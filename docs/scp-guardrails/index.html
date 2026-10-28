@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "aws, aws-organizations, aws-security, cli, cloud-security, devsecops, github-actions, guardrails, hacktoberfest, iam, landing-zone, linter, policy-as-code, python, sarif, scp, security-tools, service-control-policies",
- "version": "0.2.0",
- "dateModified": "2026-10-13"
+ "version": "0.3.0",
+ "dateModified": "2026-10-20"
 }
 </script>
 </head>
@@ -58,12 +58,21 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
 <h1>scp-guardrails</h1>
 <p class="lede">Build AWS service control policies from a short spec and lint them for lockouts and statements that deny nothing.</p>
-<p class="meta">Python · MIT · latest v0.2.0</p>
+<p class="meta">Python · MIT · latest v0.3.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>scp-guardrails builds AWS Organizations service control policies from a short spec (region allowlist, protected roles, deny leaving the org, deny disabling CloudTrail and GuardDuty, deny root, require IMDSv2, deny public S3 ACLs, spend denies) under the SCP size limit, lints existing SCPs for the mistakes that lock you out or do nothing, and runs as a GitHub Action.</strong></p>
+<p>For cloud and platform engineers who run multi-account AWS organizations, and for whoever reviews SCP changes. Quick start (Python 3.11 or newer; the second line fetches the example spec):</p>
 <pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/scp-guardrails
-scp-guardrails build --spec examples/spec.yaml --out scps
-scp-guardrails lint scps/</code></pre>
+curl -fsSLO https://raw.githubusercontent.com/basitalisandhu/scp-guardrails/main/examples/spec.yaml
+scp-guardrails build --spec spec.yaml --out scps &amp;&amp; scp-guardrails lint scps/</code></pre>
+<p>Output of those commands, as run on 2026-10-20:</p>
+<pre><code class="language-text">scp-01.json: 4138/10240 chars, guardrails: allowed_regions, deny_disable_security_services, deny_iam_users_outside, deny_leave_organization, deny_public_s3_acls, deny_root_user, require_imdsv2
+  statements: DenyLeaveOrganization, DenyRootUser, ProtectCloudTrail, ProtectGuardDuty, ProtectSecurityHub, ProtectConfig, DenyOutsideAllowedRegions, DenyIamUsersOutsideIdentityAccount, RequireImdsv2OnLaunch, DenyImdsOptionChanges, DenyImdsv1RoleCredentials, DenyPublicS3CannedAcls, ProtectAccountPublicAccessBlock
+wrote 1 document(s), manifest.json and SUMMARY.md to scps
+Review every document and test it on a non-production OU before attaching it.
+skipped scps/manifest.json: not an SCP document (no Statement)
+scps/scp-01.json: 4138/10240 chars, 0 finding(s)
+1 file(s), 0 finding(s): 0 high, 0 medium, 0 low.</code></pre>
 </section>
 <section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
 <pre><code class="language-bash">pip install scp-guardrails                                                              # once published to PyPI
@@ -77,6 +86,7 @@ uvx --from git+https://github.com/basitalisandhu/scp-guardrails scp-guardrails -
 <li><a href="https://github.com/basitalisandhu/scp-guardrails/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-20">2026-10-20</time></li>
 <li><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-13">2026-10-13</time></li>
 <li><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>
@@ -92,6 +102,7 @@ uvx --from git+https://github.com/basitalisandhu/scp-guardrails scp-guardrails -
 <li><a href="/claude-perm-sim/">claude-perm-sim</a>: Claude Code permission rule simulator: shows which rule decides a tool call and where a rule set is permissive.</li>
 <li><a href="/llms-txt-gen/">llms-txt-gen</a>: Generate llms.txt for any docs site or repository.</li>
 <li><a href="/spotlighting/">spotlighting</a>: Spotlighting for prompt injection defence in Python: mark untrusted text before it reaches a model.</li>
+<li><a href="/llm-agent-control-plane/">llm-agent-control-plane</a>: Deterministic policy enforcement for LLM agents.</li>
 </ul><p><a href="/tools/">All tools</a></p></section>
 <p class="topics">Topics: aws, aws-organizations, aws-security, cli, cloud-security, devsecops, github-actions, guardrails, hacktoberfest, iam, landing-zone, linter, policy-as-code, python, sarif, scp, security-tools, service-control-policies</p>
 </main>

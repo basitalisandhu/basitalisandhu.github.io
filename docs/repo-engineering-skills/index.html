@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "agent-skills, agents-md, characterization-tests, claude-code, claude-code-plugin, claude-md, claude-skills, code-audit, codebase-analysis, developer-tools, docs-as-code, documentation, hacktoberfest, python, readme, static-analysis, technical-debt, testing",
- "version": "0.5.0",
- "dateModified": "2026-10-18"
+ "version": "0.6.0",
+ "dateModified": "2026-10-26"
 }
 </script>
 </head>
@@ -58,10 +58,10 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#claude-code-skill-packs">Claude Code skill packs</a></p>
 <h1>repo-engineering-skills</h1>
 <p class="lede">Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, agent context files that say only what code cannot.</p>
-<p class="meta">Python · MIT · latest v0.5.0</p>
+<p class="meta">Python · MIT · latest v0.6.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, onboarding guides built from cited facts, and restructure, ADR, hygiene and release checks run by scripts.</strong></p>
-<p>repo-engineering-skills is a Claude Code plugin with twelve skills for maintainers and teams who need to trust what is written about their repository: the README, the docs, the onboarding guide, the audit report, the AGENTS.md, the decision records, the release notes, the branch list and the plan before coding. It exists because generated docs and audits are cheap to produce and hard to check, so each skill pairs the model&#x27;s work with a standard-library Python script that checks it against the working tree or the git history, instead of asking you to take the text on faith.</p>
+<p>repo-engineering-skills is a Claude Code plugin with thirteen skills for maintainers and teams who need to trust what is written about their repository: the README, the docs, the onboarding guide, the audit report, the AGENTS.md, the decision records, the release notes, the branch list, the plan before coding and the MCP server metadata before publishing. It exists because generated docs and audits are cheap to produce and hard to check, so each skill pairs the model&#x27;s work with a standard-library Python script that checks it against the working tree or the git history, instead of asking you to take the text on faith.</p>
 <p>Common searches it answers: technical due diligence on a codebase, an import dependency graph before a restructure, stale docs, delete stale branches, and review an implementation plan. Bus factor from commit history is not measured.</p>
 <pre><code class="language-text">/plugin marketplace add basitalisandhu/repo-engineering-skills
 /plugin install repo-engineering@repo-engineering-skills</code></pre>
@@ -77,11 +77,11 @@ missing  path     README.md:24  src/greeter/helpers.py        not found in the w
 29 claims in 2 documents: 22 verified, 4 missing, 3 stale, 0 unverified</code></pre>
 </section>
 <section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
-<pre><code class="language-bash">docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 docs-truth /work --only-failures
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 readme-check /work/README.md
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 test-gaps /work --top 20
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 hygiene /work --sarif /work/hygiene.sarif
-docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 --help</code></pre>
+<pre><code class="language-bash">docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.6.0 docs-truth /work --only-failures
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.6.0 readme-check /work/README.md
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.6.0 test-gaps /work --top 20
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.6.0 hygiene /work --sarif /work/hygiene.sarif
+docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.6.0 --help</code></pre>
 <p class="muted">From the README; see <a href="https://github.com/basitalisandhu/repo-engineering-skills#readme">the full README</a> for every option.</p></section>
 <section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills">Repository</a></li>
@@ -90,11 +90,11 @@ docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 --help</cod
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.6.0">v0.6.0</a> <time datetime="2026-10-26">2026-10-26</time></li>
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.5.0">v0.5.0</a> <time datetime="2026-10-18">2026-10-18</time></li>
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.4.1">v0.4.1</a> <time datetime="2026-10-09">2026-10-09</time></li>
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.4.0">v0.4.0</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.3.1">v0.3.1</a> <time datetime="2026-10-05">2026-10-05</time></li>
-<li><a href="https://github.com/basitalisandhu/repo-engineering-skills/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>
 <section aria-labelledby="posts-h"><h2 id="posts-h">Posts about it</h2>
 <ul class="posts"><li><a href="/posts/four-open-repositories-for-securing-ai-agents/">Four open repositories for securing AI agents, and what each is for</a> <time datetime="2026-10-04">2026-10-04</time><br><span class="muted">A map of the open tools for AI agent security: an incident dataset, Semgrep rules for agent code, a threat-model CLI and Claude Code skill packs, with where each one stops.</span></li><li><a href="/posts/every-claude-code-skill-in-one-repository/">Every Claude Code skill I maintain, in one repository</a> <time datetime="2026-10-04">2026-10-04</time><br><span class="muted">87 Claude Code skills in 13 plugins from 8 source repositories, now in one repository with one marketplace and one install script.</span></li></ul>

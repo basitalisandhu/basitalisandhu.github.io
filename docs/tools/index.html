@@ -44,7 +44,7 @@
  },
  "mainEntity": {
   "@type": "ItemList",
-  "numberOfItems": 36,
+  "numberOfItems": 37,
   "itemListElement": [
    {
     "@type": "ListItem",
@@ -247,18 +247,24 @@
    {
     "@type": "ListItem",
     "position": 34,
+    "url": "https://basitalisandhu.github.io/llm-agent-control-plane/",
+    "name": "llm-agent-control-plane"
+   },
+   {
+    "@type": "ListItem",
+    "position": 35,
     "url": "https://basitalisandhu.github.io/ai-agent-incidents/",
     "name": "ai-agent-incidents"
    },
    {
     "@type": "ListItem",
-    "position": 35,
+    "position": 36,
     "url": "https://basitalisandhu.github.io/agent-skills-state-2026/",
     "name": "agent-skills-state-2026"
    },
    {
     "@type": "ListItem",
-    "position": 36,
+    "position": 37,
     "url": "https://basitalisandhu.github.io/awesome-agent-security/",
     "name": "awesome-agent-security"
    }
@@ -287,11 +293,11 @@
 /plugin install aws-security@aws-security-skills</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-repo-engineering-skills"><h3 id="tool-repo-engineering-skills"><a href="/repo-engineering-skills/">repo-engineering-skills</a></h3><p>Repository engineering skills for Claude Code: docs checked against the code, audits where every finding cites a line, agent context files that say only what code cannot.</p>
-<pre><code class="language-bash">docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 docs-truth /work --only-failures
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 readme-check /work/README.md
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 test-gaps /work --top 20
-docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 hygiene /work --sarif /work/hygiene.sarif
-docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.5.0 --help</code></pre>
+<pre><code class="language-bash">docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.6.0 docs-truth /work --only-failures
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.6.0 readme-check /work/README.md
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.6.0 test-gaps /work --top 20
+docker run --rm -v &quot;$PWD:/work&quot; ghcr.io/basitalisandhu/repo-engineering-skills:0.6.0 hygiene /work --sarif /work/hygiene.sarif
+docker run --rm ghcr.io/basitalisandhu/repo-engineering-skills:0.6.0 --help</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-m365-governance-skills"><h3 id="tool-m365-governance-skills"><a href="/m365-governance-skills/">m365-governance-skills</a></h3><p>Microsoft 365 governance skills for Claude Code: Entra ID posture review, Intune baseline check, Graph permission preflight, Teams and group sprawl, access review pack.</p>
 <pre><code class="language-bash">claude plugin marketplace add basitalisandhu/m365-governance-skills
@@ -309,7 +315,9 @@ python3 plugins/compliance-evidence/skills/essential-eight-evidence-map/scripts/
 python3 plugins/compliance-evidence/skills/security-questionnaire-drafter/scripts/questionnaire.py tests/fixtures/questionnaire/questionnaire.csv \
   --policies tests/fixtures/questionnaire/policies --evidence /tmp/pack
 python3 plugins/compliance-evidence/skills/maester-control-map/scripts/maester_map.py tests/fixtures/maester/results.json \
-  --map plugins/compliance-evidence/skills/maester-control-map/references/example-map.csv --as-of 2026-10-16</code></pre>
+  --map plugins/compliance-evidence/skills/maester-control-map/references/example-map.csv --as-of 2026-10-16
+python3 plugins/compliance-evidence/skills/evidence-collection-plan/scripts/collection_plan.py --scope tests/fixtures/collection-plan/scope-iso27001.json \
+  --manifest tests/fixtures/collection-plan/manifest.json --as-of 2026-11-15</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-claude-dev-skills"><h3 id="tool-claude-dev-skills"><a href="/claude-dev-skills/">claude-dev-skills</a></h3><p>Claude Code skills for everyday development: code review, refactoring, debugging, CI and containers, data and APIs, documentation and security basics.</p>
 <pre><code class="language-text">/plugin marketplace add basitalisandhu/claude-dev-skills
@@ -360,8 +368,8 @@ MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing 
 </section>
 <section class="tool" aria-labelledby="tool-mcp-tools-lint"><h3 id="tool-mcp-tools-lint"><a href="/mcp-tools-lint/">mcp-tools-lint</a></h3><p>Lint MCP tool schemas and annotations before clients reject them.</p>
 <pre><code class="language-bash">npx @basitalisandhu/mcp-tools-lint --help              # run without installing
-npm install -g @basitalisandhu/mcp-tools-lint@0.2.0    # global CLI, installs the mcp-tools-lint command
-npm install -D @basitalisandhu/mcp-tools-lint@0.2.0    # as a dev dependency of a server project</code></pre>
+npm install -g @basitalisandhu/mcp-tools-lint@0.3.0    # global CLI, installs the mcp-tools-lint command
+npm install -D @basitalisandhu/mcp-tools-lint@0.3.0    # as a dev dependency of a server project</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-mcp-auth-doctor"><h3 id="tool-mcp-auth-doctor"><a href="/mcp-auth-doctor/">mcp-auth-doctor</a></h3><p>Diagnose OAuth discovery problems on remote MCP servers.</p>
 <pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/mcp-auth-doctor
@@ -382,8 +390,8 @@ npx @basitalisandhu/claude-mcp-allow --check    # later, or in CI: exit 1 on dri
 <section class="tool" aria-labelledby="tool-agentdojo-mcp"><h3 id="tool-agentdojo-mcp"><a href="/agentdojo-mcp/">agentdojo-mcp</a></h3><p>Run the AgentDojo benchmark&#x27;s user and injection tasks against a real MCP server&#x27;s tools.</p>
 <pre><code class="language-bash">pip install &quot;agentdojo-mcp[dojo] @ git+https://github.com/basitalisandhu/agentdojo-mcp&quot;
 
-# 1. What does the server offer?
-agentdojo-mcp inspect --stdio &quot;python my_server.py&quot; --json -o tools.json
+# 1. What does the server offer? (-o writes the JSON dump and prints a readable list.)
+agentdojo-mcp inspect --stdio &quot;python my_server.py&quot; -o tools.json
 
 # 2. Propose a mapping for a suite, then edit it.
 agentdojo-mcp map --suite travel --server-dump tools.json -o mapping.yaml
@@ -491,6 +499,13 @@ uvx --from git+https://github.com/basitalisandhu/scp-guardrails scp-guardrails -
 <section class="tool" aria-labelledby="tool-spotlighting"><h3 id="tool-spotlighting"><a href="/spotlighting/">spotlighting</a></h3><p>Spotlighting for prompt injection defence in Python: mark untrusted text before it reaches a model.</p>
 <pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/spotlighting            # the spotlighting command
 python3 -m pip install git+https://github.com/basitalisandhu/spotlighting  # the library</code></pre>
+</section>
+<section class="tool" aria-labelledby="tool-llm-agent-control-plane"><h3 id="tool-llm-agent-control-plane"><a href="/llm-agent-control-plane/">llm-agent-control-plane</a></h3><p>Deterministic policy enforcement for LLM agents.</p>
+<pre><code class="language-bash">uv venv &amp;&amp; uv pip install -r requirements.txt     # or: make venv
+make test       # offline unit tests for the released matcher (tests/test_matcher.py)
+make lint       # ruff
+make replay     # one suite replayed through the PEP, checked against results/replay/preflight_v22.json (seconds)
+make replay-full  # all four suites, both attacks, four policy variants (about 13 minutes; output identical to the released file)</code></pre>
 </section>
 <h2 id="data-and-lists">Data and lists</h2>
 <section class="tool" aria-labelledby="tool-ai-agent-incidents"><h3 id="tool-ai-agent-incidents"><a href="https://basitalisandhu.github.io/ai-agent-incidents/">ai-agent-incidents</a></h3><p>An open dataset of AI agent and LLM security incidents, with a <a href="https://basitalisandhu.github.io/ai-agent-incidents/">browsable site</a>.</p>

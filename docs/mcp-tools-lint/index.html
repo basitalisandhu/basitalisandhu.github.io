@@ -32,7 +32,7 @@
  "@context": "https://schema.org",
  "@type": "SoftwareSourceCode",
  "name": "mcp-tools-lint",
- "description": "Lint MCP tool schemas and annotations before clients reject them: flags non-2020-12 $schema dialects, boolean schemas, bad required lists and missing or contradictory annotations in tools/list, over stdio, Streamable HTTP or a JSON file. Text, JSON and SARIF output, RFC 6902 --fix patch, GitHub Action.",
+ "description": "Lint MCP tool schemas and annotations before clients reject them: flags non-2020-12 $schema dialects, boolean schemas, bad required lists and missing or contradictory annotations in tools/list, over stdio, Streamable HTTP, legacy SSE or a JSON file. Text, JSON and SARIF output, RFC 6902 --fix patch, GitHub Action.",
  "url": "https://basitalisandhu.github.io/mcp-tools-lint/",
  "codeRepository": "https://github.com/basitalisandhu/mcp-tools-lint",
  "programmingLanguage": "TypeScript",
@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "ai-agents, claude-code, cli, developer-tools, github-actions, hacktoberfest, json-patch, json-schema, lint, linter, mcp, mcp-server, mcp-tools, model-context-protocol, npm, sarif, tool-annotations, typescript",
- "version": "0.2.0",
- "dateModified": "2026-10-09"
+ "version": "0.3.0",
+ "dateModified": "2026-10-20"
 }
 </script>
 </head>
@@ -58,15 +58,29 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>mcp-tools-lint</h1>
 <p class="lede">Lint MCP tool schemas and annotations before clients reject them.</p>
-<p class="meta">TypeScript · MIT · latest v0.2.0</p>
+<p class="meta">TypeScript · MIT · latest v0.3.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
-<p>Lint MCP tool schemas and annotations before clients reject them. Point it at a running MCP server (stdio or Streamable HTTP) or at a saved <code>tools/list</code> result, and it checks every tool against what Claude Code and other strict clients accept: JSON Schema 2020-12 only, no boolean schemas, <code>required</code> names that exist, and annotations that are present, camelCase and not self-contradictory. It prints text, JSON or SARIF, writes an RFC 6902 patch for the fixable findings, and ships as a GitHub Action.</p>
+<p>Lint MCP tool schemas and annotations before clients reject them. Point it at a running MCP server (stdio, Streamable HTTP or the older HTTP+SSE transport) or at a saved <code>tools/list</code> result, and it checks every tool against what Claude Code and other strict clients accept: JSON Schema 2020-12 only, no boolean schemas, <code>required</code> names that exist, and annotations that are present, camelCase and not self-contradictory. It prints text, JSON or SARIF, writes an RFC 6902 patch for the fixable findings, and ships as a GitHub Action.</p>
 <p>Built alongside <a href="https://github.com/basitalisandhu/dev-mcp-servers">dev-mcp-servers</a>.</p>
+<p><strong>Who it is for:</strong> authors of MCP servers who want CI to catch the schema and annotation mistakes that make Claude Code and other strict clients reject their tools, and people choosing a third-party server who want to know before installing it.</p>
+<h5>Quick start</h5>
+<pre><code class="language-bash">git clone https://github.com/basitalisandhu/mcp-tools-lint &amp;&amp; cd mcp-tools-lint
+npm install &amp;&amp; npm run build
+node dist/cli.js -- node tests/fixtures/servers/draft07.mjs     # or: node dist/cli.js tools.json, or an https:// URL</code></pre>
+<p>The last line lints a bundled fixture server built with the TypeScript SDK&#x27;s defaults. A real run (first tool shown):</p>
+<pre><code class="language-text">node tests/fixtures/servers/draft07.mjs: 2 tools
+
+  read_file
+    error    dialect-2020-12  inputSchema declares dialect &quot;http://json-schema.org/draft-07/schema#&quot;; the default validator in Claude Code supports JSON Schema 2020-12 only  [fixable]
+                              at /tools/0/inputSchema/$schema
+...
+5 errors, 0 warnings, 0 infos (5 fixable with --fix)</code></pre>
+<p>The npm package and container image are on GitHub Packages; see <a href="https://github.com/basitalisandhu/mcp-tools-lint#install">Install</a>. Project site: https://basitalisandhu.github.io/mcp-tools-lint/. Related: <a href="https://github.com/basitalisandhu/mcp-egress">mcp-egress</a> records which hosts the same server contacts at run time.</p>
 </section>
 <section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
 <pre><code class="language-bash">npx @basitalisandhu/mcp-tools-lint --help              # run without installing
-npm install -g @basitalisandhu/mcp-tools-lint@0.2.0    # global CLI, installs the mcp-tools-lint command
-npm install -D @basitalisandhu/mcp-tools-lint@0.2.0    # as a dev dependency of a server project</code></pre>
+npm install -g @basitalisandhu/mcp-tools-lint@0.3.0    # global CLI, installs the mcp-tools-lint command
+npm install -D @basitalisandhu/mcp-tools-lint@0.3.0    # as a dev dependency of a server project</code></pre>
 <p class="muted">From the README; see <a href="https://github.com/basitalisandhu/mcp-tools-lint#readme">the full README</a> for every option.</p></section>
 <section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
 <li><a href="https://github.com/basitalisandhu/mcp-tools-lint">Repository</a></li>
@@ -75,6 +89,7 @@ npm install -D @basitalisandhu/mcp-tools-lint@0.2.0    # as a dev dependency of 
 <li><a href="https://github.com/basitalisandhu/mcp-tools-lint/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-20">2026-10-20</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-09">2026-10-09</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>

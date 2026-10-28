@@ -45,6 +45,7 @@ I am Muhammad Basit Ali, a cloud security and AI agent security engineer. My day
 - [llms-txt-gen](https://basitalisandhu.github.io/llms-txt-gen/): Generate llms.txt for any docs site or repository.
 - [scp-guardrails](https://basitalisandhu.github.io/scp-guardrails/): Build AWS service control policies from a short spec and lint them for lockouts and statements that deny nothing.
 - [spotlighting](https://basitalisandhu.github.io/spotlighting/): Spotlighting for prompt injection defence in Python: mark untrusted text before it reaches a model.
+- [llm-agent-control-plane](https://basitalisandhu.github.io/llm-agent-control-plane/): Deterministic policy enforcement for LLM agents.
 
 ## Data and lists
 

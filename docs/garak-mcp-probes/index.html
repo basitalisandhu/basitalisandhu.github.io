@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>garak-mcp-probes | Muhammad Basit Ali</title>
-<meta name="description" content="Run garak against your own MCP servers: a garak generator that drives an agent with tools from your MCP servers, plus detectors that fire when a probe makes...">
+<meta name="description" content="Run garak against your own MCP servers: a garak generator that drives an agent with your MCP tools, plus detectors that fire when a probe makes the agent...">
 <meta name="author" content="Muhammad Basit Ali">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0A1628">
 <link rel="canonical" href="https://basitalisandhu.github.io/garak-mcp-probes/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="garak-mcp-probes">
-<meta property="og:description" content="Run garak against your own MCP servers: a garak generator that drives an agent with tools from your MCP servers, plus detectors that fire when a probe makes...">
+<meta property="og:description" content="Run garak against your own MCP servers: a garak generator that drives an agent with your MCP tools, plus detectors that fire when a probe makes the agent...">
 <meta property="og:url" content="https://basitalisandhu.github.io/garak-mcp-probes/">
 <meta property="og:site_name" content="Muhammad Basit Ali">
 <meta property="og:locale" content="en_GB">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="garak-mcp-probes">
-<meta name="twitter:description" content="Run garak against your own MCP servers: a garak generator that drives an agent with tools from your MCP servers, plus detectors that fire when a probe makes...">
+<meta name="twitter:description" content="Run garak against your own MCP servers: a garak generator that drives an agent with your MCP tools, plus detectors that fire when a probe makes the agent...">
 <meta name="twitter:image" content="https://basitalisandhu.github.io/og.png">
 <meta name="twitter:image:alt" content="Muhammad Basit Ali: AI agent security and cloud security: open-source tools for agent identities, MCP servers and Claude Code skills.">
 <link rel="stylesheet" href="/style.css">
@@ -32,7 +32,7 @@
  "@context": "https://schema.org",
  "@type": "SoftwareSourceCode",
  "name": "garak-mcp-probes",
- "description": "Run garak against your own MCP servers: a garak generator that drives an agent with tools from your MCP servers, plus detectors that fire when a probe makes the agent call a denied tool, leak a planted canary or exceed its step budget. Reuses garak's probe catalogue, adds no attack content, runs offline in dry-run mode. 111 tests.",
+ "description": "Run garak against your own MCP servers: a garak generator that drives an agent with your MCP tools, plus detectors that fire when a probe makes the agent call a denied tool, leak a planted canary or exceed its step budget, optionally beside each probe's text detectors. Reuses garak's probes, adds no attack content, runs offline in dry-run mode.",
  "url": "https://basitalisandhu.github.io/garak-mcp-probes/",
  "codeRepository": "https://github.com/basitalisandhu/garak-mcp-probes",
  "programmingLanguage": "Python",
@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "agent-security, ai-agents, ai-security, cli, detectors, docker, garak, hacktoberfest, llm-security, mcp, model-context-protocol, prompt-injection, python, red-team, sbom, security-testing, tool-use",
- "version": "0.1.0",
- "dateModified": "2026-10-05"
+ "version": "0.2.0",
+ "dateModified": "2026-10-20"
 }
 </script>
 </head>
@@ -58,12 +58,18 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>garak-mcp-probes</h1>
 <p class="lede">Run garak against your own MCP servers, with detectors for denied tool calls, leaked canaries and runaway step counts.</p>
-<p class="meta">Python · MIT · latest v0.1.0</p>
+<p class="meta">Python · MIT · latest v0.2.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>garak-mcp-probes puts garak&#x27;s existing probes through an agent that uses your own MCP servers, records every tool call the agent makes, and scores that trace with detectors for deny-listed tools, leaked canary strings, tools outside an allow-list, runaway loops and failed calls.</strong></p>
-<p>For servers and agents you own or are authorised to test. This repository contains no probes, no injection payloads and no jailbreak text: every prompt comes from the garak you have installed.</p>
-<pre><code class="language-bash">pip install &quot;garak-mcp-probes @ git+https://github.com/basitalisandhu/garak-mcp-probes&quot;
+<p>For teams that run MCP servers behind their own agents and want to know whether garak&#x27;s prompt catalogue can push that agent into misusing those tools. Use it only on servers and agents you own or are authorised to test. This repository contains no probes, no injection payloads and no jailbreak text: every prompt comes from the garak you have installed.</p>
+<pre><code class="language-bash">python3 -m venv .venv &amp;&amp; . .venv/bin/activate
+pip install &quot;garak-mcp-probes @ git+https://github.com/basitalisandhu/garak-mcp-probes&quot;
 garak-mcp run --dry-run --probes test.Test --report-dir garak-mcp-report</code></pre>
+<p>The dry run needs no network and no keys (a fake model and a fake MCP server). The install is large, because garak brings PyTorch and Hugging Face libraries. The summary table from a real run (garak 0.17.1):</p>
+<pre><code class="language-text">| Probe | Attempts | Tool calls | ArgumentContains | StepBudgetExceeded | ToolCalled | ToolError | UnexpectedTool |
+|---|---|---|---|---|---|---|---|
+| `test.Test` | 8 | 8 | 0 / 8 | 0 / 8 | 0 / 8 | 0 / 8 | 0 / 8 |
+| **Total** | 8 | 8 | 0 / 8 | 0 / 8 | 0 / 8 | 0 / 8 | 0 / 8 |</code></pre>
 </section>
 <section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
 <pre><code class="language-bash">garak-mcp doctor --dry-run
@@ -76,6 +82,7 @@ garak-mcp run --dry-run --probes test.Test --report-dir garak-mcp-report</code><
 <li><a href="https://github.com/basitalisandhu/garak-mcp-probes/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/garak-mcp-probes/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-20">2026-10-20</time></li>
 <li><a href="https://github.com/basitalisandhu/garak-mcp-probes/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-05">2026-10-05</time></li>
 </ul></section>
 <section aria-labelledby="more-h"><h2 id="more-h">More in MCP tooling</h2><ul class="links">
