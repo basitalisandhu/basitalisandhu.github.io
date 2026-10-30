@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "aws, aws-organizations, aws-security, cli, cloud-security, devsecops, github-actions, guardrails, hacktoberfest, iam, landing-zone, linter, policy-as-code, python, sarif, scp, security-tools, service-control-policies",
- "version": "0.3.0",
- "dateModified": "2026-10-20"
+ "version": "0.4.1",
+ "dateModified": "2026-10-28"
 }
 </script>
 </head>
@@ -58,7 +58,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
 <h1>scp-guardrails</h1>
 <p class="lede">Build AWS service control policies from a short spec and lint them for lockouts and statements that deny nothing.</p>
-<p class="meta">Python · MIT · latest v0.3.0</p>
+<p class="meta">Python · MIT · latest v0.4.1</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>scp-guardrails builds AWS Organizations service control policies from a short spec (region allowlist, protected roles, deny leaving the org, deny disabling CloudTrail and GuardDuty, deny root, require IMDSv2, deny public S3 ACLs, spend denies) under the SCP size limit, lints existing SCPs for the mistakes that lock you out or do nothing, and runs as a GitHub Action.</strong></p>
 <p>For cloud and platform engineers who run multi-account AWS organizations, and for whoever reviews SCP changes. Quick start (Python 3.11 or newer; the second line fetches the example spec):</p>
@@ -86,6 +86,8 @@ uvx --from git+https://github.com/basitalisandhu/scp-guardrails scp-guardrails -
 <li><a href="https://github.com/basitalisandhu/scp-guardrails/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.4.1">v0.4.1</a> <time datetime="2026-10-28">2026-10-28</time></li>
+<li><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.4.0">v0.4.0</a> <time datetime="2026-10-28">2026-10-28</time></li>
 <li><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-20">2026-10-20</time></li>
 <li><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-13">2026-10-13</time></li>
 <li><a href="https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>

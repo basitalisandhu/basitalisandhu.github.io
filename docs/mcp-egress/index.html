@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "agent-security, ai-agents, allowlist, ci, claude-code, cli, devsecops, egress, hacktoberfest, llm-security, mcp, model-context-protocol, network-security, proxy, python, sandbox, security-tools, supply-chain-security",
- "version": "0.2.0",
- "dateModified": "2026-10-20"
+ "version": "0.3.1",
+ "dateModified": "2026-10-28"
 }
 </script>
 </head>
@@ -58,7 +58,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>mcp-egress</h1>
 <p class="lede">Record every host an MCP server contacts, per tool, and fail CI on new ones.</p>
-<p class="meta">Python · MIT · latest v0.2.0</p>
+<p class="meta">Python · MIT · latest v0.3.1</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>What:</strong> run a stdio MCP server behind a small recording proxy and get the exact set of hosts it contacts while you run <code>initialize</code>, <code>tools/list</code> and sample tool calls. Every host is attributed to the phase and the tool that reached it, written to <code>egress.json</code>, printed as a table, and printed again as two ready-to-paste blocks: Claude Code <code>WebFetch(domain:host)</code> permission rules and a sandbox allowed-domain list. Keep the file as a baseline and <code>--check</code> fails CI the day a tool starts talking to a host nobody declared.</p>
 <p><strong>Who it is for:</strong> anyone who installs third-party MCP servers or maintains one, and wants a reviewed list of outbound hosts instead of trusting the README; security reviewers who need the allowlist for a Claude Code sandbox.</p>
@@ -100,6 +100,8 @@ git clone https://github.com/basitalisandhu/mcp-egress &amp;&amp; cd mcp-egress 
 <li><a href="https://github.com/basitalisandhu/mcp-egress/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.3.1">v0.3.1</a> <time datetime="2026-10-28">2026-10-28</time></li>
+<li><a href="https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-28">2026-10-28</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-20">2026-10-20</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-05">2026-10-05</time></li>
 <li><a href="https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>

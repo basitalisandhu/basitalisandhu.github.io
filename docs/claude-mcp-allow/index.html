@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "agent-security, ai-agents, ai-security, claude-code, cli, developer-tools, devsecops, drift-detection, hacktoberfest, least-privilege, llm-security, mcp, mcp-client, model-context-protocol, permissions, security-tools, tool-annotations, typescript",
- "version": "0.3.0",
- "dateModified": "2026-10-16"
+ "version": "0.4.0",
+ "dateModified": "2026-10-28"
 }
 </script>
 </head>
@@ -58,15 +58,15 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>claude-mcp-allow</h1>
 <p class="lede">Least-privilege Claude Code permission rules for MCP tools, generated from their annotations.</p>
-<p class="meta">TypeScript · MIT · latest v0.3.0</p>
+<p class="meta">TypeScript · MIT · latest v0.4.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p>Generate <code>permissions.allow</code> and <code>permissions.ask</code> rules for every MCP tool Claude Code can reach, from the annotations each server reports on <code>tools/list</code>: a tool that says <code>readOnlyHint: true</code> (and not <code>destructiveHint: true</code>) gets an <code>allow</code> rule, everything else gets an <code>ask</code> rule, one exact <code>mcp__&lt;server&gt;__&lt;tool&gt;</code> rule per tool and never a glob. <code>--write</code> merges the rules into the settings file you choose, <code>--diff</code> shows what would change, and <code>--check</code> reconnects later and exits 1 when a server&#x27;s annotations have drifted from the rules you saved.</p>
 <p>It is for people who use Claude Code with MCP servers and want read-only tools to stop prompting without allowing everything, and for teams who commit <code>.claude/settings.json</code> and want CI to notice when a server&#x27;s annotations change.</p>
 </section>
 <section aria-labelledby="install-h"><h2 id="install-h">Install</h2>
-<pre><code class="language-bash">npx @basitalisandhu/claude-mcp-allow            # print the proposed rules, change nothing
-npx @basitalisandhu/claude-mcp-allow --diff --write
-npx @basitalisandhu/claude-mcp-allow --check    # later, or in CI: exit 1 on drift</code></pre>
+<pre><code class="language-bash">npx github:basitalisandhu/claude-mcp-allow            # print the proposed rules, change nothing
+npx github:basitalisandhu/claude-mcp-allow --diff --write
+npx github:basitalisandhu/claude-mcp-allow --check    # later, or in CI: exit 1 on drift</code></pre>
 <p class="muted">From the README; see <a href="https://github.com/basitalisandhu/claude-mcp-allow#readme">the full README</a> for every option.</p></section>
 <section aria-labelledby="links-h"><h2 id="links-h">Links</h2><ul class="links">
 <li><a href="https://github.com/basitalisandhu/claude-mcp-allow">Repository</a></li>
@@ -75,6 +75,7 @@ npx @basitalisandhu/claude-mcp-allow --check    # later, or in CI: exit 1 on dri
 <li><a href="https://github.com/basitalisandhu/claude-mcp-allow/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.4.0">v0.4.0</a> <time datetime="2026-10-28">2026-10-28</time></li>
 <li><a href="https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-16">2026-10-16</time></li>
 <li><a href="https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-09">2026-10-09</time></li>
 <li><a href="https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.1.1">v0.1.1</a> <time datetime="2026-10-05">2026-10-05</time></li>
