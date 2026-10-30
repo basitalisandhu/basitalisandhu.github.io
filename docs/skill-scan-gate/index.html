@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "agent-security, agent-skills, ai-security, ci, claude-code, claude-code-plugins, claude-code-skills, code-scanning, devsecops, github-actions, hacktoberfest, hooks, mcp, prompt-injection, python, sarif, secret-scanning, supply-chain-security",
- "version": "0.4.0",
- "dateModified": "2026-10-20"
+ "version": "0.6.0",
+ "dateModified": "2026-10-29"
 }
 </script>
 </head>
@@ -58,7 +58,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
 <h1>skill-scan-gate</h1>
 <p class="lede">CI gate for Claude Code skills and plugins, with SARIF output. GitHub Action and CLI.</p>
-<p class="meta">Python · MIT · latest v0.4.0</p>
+<p class="meta">Python · MIT · latest v0.6.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>skill-scan-gate scans a skills or plugin repository in CI for instruction-override text, exfiltration patterns, dangerous hook commands, unpinned MCP servers and secret-shaped strings, writes SARIF for code scanning, and fails the build on findings above your threshold.</strong></p>
 <p>For maintainers of skills repositories, plugin authors and marketplace owners, and for any team that reviews agent configuration in pull requests. Try it on your own repository first (Python 3.11 or newer):</p>
@@ -66,7 +66,7 @@
 skill-scan-gate scan path/to/your-skills
 skill-scan-gate scan path/to/your-skills --fail-on medium --sarif skill-scan-gate.sarif</code></pre>
 <p>Output on a repository with one skill that tells the model to ignore its instructions and sends a key file to a URL (run on 2026-10-20):</p>
-<pre><code class="language-text">skill-scan-gate 0.4.0: scanned 1 file(s) under my-skills
+<pre><code class="language-text">skill-scan-gate 0.6.0: scanned 1 file(s) under my-skills
 
 SEVERITY  RULE    LOCATION                TITLE
 ----------------------------------------------------------------------------------
@@ -89,10 +89,11 @@ high      SSG201  skills/notes/SKILL.md:6 URL carries an environment variable, c
 <li><a href="https://github.com/basitalisandhu/skill-scan-gate/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.6.0">v0.6.0</a> <time datetime="2026-10-29">2026-10-29</time></li>
+<li><a href="https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.5.0">v0.5.0</a> <time datetime="2026-10-28">2026-10-28</time></li>
 <li><a href="https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.4.0">v0.4.0</a> <time datetime="2026-10-20">2026-10-20</time></li>
 <li><a href="https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-13">2026-10-13</time></li>
 <li><a href="https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-09">2026-10-09</time></li>
-<li><a href="https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>
 <section aria-labelledby="posts-h"><h2 id="posts-h">Posts about it</h2>
 <ul class="posts"><li><a href="/posts/what-do-skills-that-ask-for-the-whole-shell-do-with-it/">What do skills that ask for the whole shell do with it?</a> <time datetime="2026-10-26">2026-10-26</time><br><span class="muted">I read 3,715 public agent skills that grant unscoped Bash. Three in ten never show a shell command, most of the rest need three commands or fewer, and a third install, delete, push or eval.</span></li><li><a href="/posts/do-mcp-server-readmes-tell-you-which-version-to-run/">Do MCP server READMEs tell you which version to run?</a> <time datetime="2026-10-20">2026-10-20</time><br><span class="muted">I read the install commands in the READMEs of 264 public MCP servers. 95.5% never name an exact version, and a quarter ask for the latest release on every launch.</span></li><li><a href="/posts/what-the-owasp-agentic-top-10-maps-to-in-88-real-incidents/">What the OWASP Agentic Top 10 maps to in 88 real incidents</a> <time datetime="2026-10-16">2026-10-16</time><br><span class="muted">88 public AI incidents coded against the OWASP Agentic Top 10: which categories show up, what they travel with, and what the list leaves out.</span></li><li><a href="/posts/gating-claude-code-skills-in-ci-with-a-pull-request-comment/">Gating Claude Code skills in CI with a pull request comment</a> <time datetime="2026-10-16">2026-10-16</time><br><span class="muted">A how-to for skill-scan-gate: block risky skills, hooks and MCP servers in pull requests, adopt it with a baseline, and read its sticky comment.</span></li></ul>

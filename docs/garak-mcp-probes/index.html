@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "agent-security, ai-agents, ai-security, cli, detectors, docker, garak, hacktoberfest, llm-security, mcp, model-context-protocol, prompt-injection, python, red-team, sbom, security-testing, tool-use",
- "version": "0.2.0",
- "dateModified": "2026-10-20"
+ "version": "0.3.1",
+ "dateModified": "2026-10-28"
 }
 </script>
 </head>
@@ -58,7 +58,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#mcp-tooling">MCP tooling</a></p>
 <h1>garak-mcp-probes</h1>
 <p class="lede">Run garak against your own MCP servers, with detectors for denied tool calls, leaked canaries and runaway step counts.</p>
-<p class="meta">Python · MIT · latest v0.2.0</p>
+<p class="meta">Python · MIT · latest v0.3.1</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p><strong>garak-mcp-probes puts garak&#x27;s existing probes through an agent that uses your own MCP servers, records every tool call the agent makes, and scores that trace with detectors for deny-listed tools, leaked canary strings, tools outside an allow-list, runaway loops and failed calls.</strong></p>
 <p>For teams that run MCP servers behind their own agents and want to know whether garak&#x27;s prompt catalogue can push that agent into misusing those tools. Use it only on servers and agents you own or are authorised to test. This repository contains no probes, no injection payloads and no jailbreak text: every prompt comes from the garak you have installed.</p>
@@ -82,6 +82,8 @@ garak-mcp run --dry-run --probes test.Test --report-dir garak-mcp-report</code><
 <li><a href="https://github.com/basitalisandhu/garak-mcp-probes/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/garak-mcp-probes/releases/tag/v0.3.1">v0.3.1</a> <time datetime="2026-10-28">2026-10-28</time></li>
+<li><a href="https://github.com/basitalisandhu/garak-mcp-probes/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-28">2026-10-28</time></li>
 <li><a href="https://github.com/basitalisandhu/garak-mcp-probes/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-20">2026-10-20</time></li>
 <li><a href="https://github.com/basitalisandhu/garak-mcp-probes/releases/tag/v0.1.0">v0.1.0</a> <time datetime="2026-10-05">2026-10-05</time></li>
 </ul></section>

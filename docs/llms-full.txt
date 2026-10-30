@@ -155,7 +155,7 @@ claude plugin marketplace add basitalisandhu/m365-governance-skills
 claude plugin install m365-governance@m365-governance-skills --scope user
 ```
 
-Latest release: v0.6.0 (2026-10-26) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.6.0
+Latest release: v0.7.0 (2026-10-28) https://github.com/basitalisandhu/m365-governance-skills/releases/tag/v0.7.0
 
 ## compliance-evidence-skills
 
@@ -237,7 +237,7 @@ claude plugin install agent-security@agent-security-skills
 # then, in Claude Code: "what did the agent actually do in this session?" or /agent-security:audit
 ```
 
-Latest release: v0.6.0 (2026-10-26) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.6.0
+Latest release: v0.6.1 (2026-10-29) https://github.com/basitalisandhu/agent-security-skills/releases/tag/v0.6.1
 
 ## github-manager-skills
 
@@ -377,11 +377,11 @@ All servers are TypeScript on the official `@modelcontextprotocol/sdk`, speak st
 Install:
 
 ```bash
-claude mcp add jwt-tools -- docker run --rm -i ghcr.io/basitalisandhu/mcp-jwt-tools:0.2.2
+claude mcp add jwt-tools -- docker run --rm -i ghcr.io/basitalisandhu/mcp-jwt-tools:0.3.0
 claude mcp list
 ```
 
-Latest release: v0.2.2 (2026-10-18) https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.2.2
+Latest release: v0.3.0 (2026-10-28) https://github.com/basitalisandhu/dev-mcp-servers/releases/tag/v0.3.0
 
 ## mcp-server-template
 
@@ -401,7 +401,7 @@ npm ci && npm run build && npm test
 MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing one directory
 ```
 
-Latest release: v0.3.0 (2026-10-20) https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.3.0
+Latest release: v0.3.1 (2026-10-28) https://github.com/basitalisandhu/mcp-server-template/releases/tag/v0.3.1
 
 ## mcp-tools-lint
 
@@ -443,11 +443,11 @@ Install:
 
 ```bash
 npx @basitalisandhu/mcp-tools-lint --help              # run without installing
-npm install -g @basitalisandhu/mcp-tools-lint@0.3.0    # global CLI, installs the mcp-tools-lint command
-npm install -D @basitalisandhu/mcp-tools-lint@0.3.0    # as a dev dependency of a server project
+npm install -g @basitalisandhu/mcp-tools-lint@0.3.2    # global CLI, installs the mcp-tools-lint command
+npm install -D @basitalisandhu/mcp-tools-lint@0.3.2    # as a dev dependency of a server project
 ```
 
-Latest release: v0.3.0 (2026-10-20) https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.3.0
+Latest release: v0.3.2 (2026-10-29) https://github.com/basitalisandhu/mcp-tools-lint/releases/tag/v0.3.2
 
 ## mcp-auth-doctor
 
@@ -471,7 +471,7 @@ mcp-auth-doctor https://your-server.example.com/mcp      # read-only; add -v for
 mcp-auth-doctor https://your-server.example.com/mcp --json > report.json
 ```
 
-Latest release: v0.3.0 (2026-10-16) https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.3.0
+Latest release: v0.5.0 (2026-10-28) https://github.com/basitalisandhu/mcp-auth-doctor/releases/tag/v0.5.0
 
 ## mcp-egress
 
@@ -527,7 +527,7 @@ pip install git+https://github.com/basitalisandhu/mcp-egress                    
 git clone https://github.com/basitalisandhu/mcp-egress && cd mcp-egress && uv venv && uv pip install -e ".[dev]"   # development
 ```
 
-Latest release: v0.2.0 (2026-10-20) https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.2.0
+Latest release: v0.3.1 (2026-10-28) https://github.com/basitalisandhu/mcp-egress/releases/tag/v0.3.1
 
 ## claude-mcp-allow
 
@@ -544,12 +544,12 @@ It is for people who use Claude Code with MCP servers and want read-only tools t
 Install:
 
 ```bash
-npx @basitalisandhu/claude-mcp-allow            # print the proposed rules, change nothing
-npx @basitalisandhu/claude-mcp-allow --diff --write
-npx @basitalisandhu/claude-mcp-allow --check    # later, or in CI: exit 1 on drift
+npx github:basitalisandhu/claude-mcp-allow            # print the proposed rules, change nothing
+npx github:basitalisandhu/claude-mcp-allow --diff --write
+npx github:basitalisandhu/claude-mcp-allow --check    # later, or in CI: exit 1 on drift
 ```
 
-Latest release: v0.3.0 (2026-10-16) https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.3.0
+Latest release: v0.4.0 (2026-10-28) https://github.com/basitalisandhu/claude-mcp-allow/releases/tag/v0.4.0
 
 ## agentdojo-mcp
 
@@ -612,7 +612,7 @@ agentdojo-mcp run --suite travel --mapping mapping.yaml --stdio "python my_serve
 # ... see the README for the rest
 ```
 
-Latest release: v0.3.0 (2026-10-20) https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.3.0
+Latest release: v0.4.1 (2026-10-28) https://github.com/basitalisandhu/agentdojo-mcp/releases/tag/v0.4.1
 
 ## garak-mcp-probes
 
@@ -648,7 +648,7 @@ garak-mcp doctor --dry-run
 garak-mcp run --dry-run --probes test.Test --report-dir garak-mcp-report
 ```
 
-Latest release: v0.2.0 (2026-10-20) https://github.com/basitalisandhu/garak-mcp-probes/releases/tag/v0.2.0
+Latest release: v0.3.1 (2026-10-28) https://github.com/basitalisandhu/garak-mcp-probes/releases/tag/v0.3.1
 
 ## mcp-rc-check
 
@@ -668,7 +668,7 @@ node dist/cli.js scan --stdio "node /path/to/your/server.js"   # or --url https:
 node dist/cli.js scan --dump test/fixtures/fixture-pre-revision.json   # try it on a bundled pre-revision dump
 ```
 
-Latest release: v0.4.0 (2026-10-16) https://github.com/basitalisandhu/mcp-rc-check/releases/tag/v0.4.0
+Latest release: v0.5.0 (2026-10-28) https://github.com/basitalisandhu/mcp-rc-check/releases/tag/v0.5.0
 
 ## agent-off-switch
 
@@ -678,7 +678,7 @@ Theme: Security tooling
 
 Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Offline on saved exports.
 
-Copilot agents, MCP connectors and coding agents run as Entra app registrations, managed identities, AWS IAM roles, access keys and GitHub Apps. `aos` reads saved exports of those, puts every agent identity in one table with its owner, credentials, grants and last use, ranks what it can reach, and prints the exact steps to switch one off.
+Copilot agents, MCP connectors and coding agents run as Entra app registrations, managed identities, AWS IAM roles, access keys and GitHub Apps. `aos` reads saved exports of those, puts every agent identity in one table with its owner, credentials, grants and last use, ranks what it can reach, and prints the exact steps to switch one off. It is for the security, platform or identity engineer who runs access reviews or incident response across those platforms and needs one list and a quick way to stop an agent.
 
 - **`aos inventory`**: every non-human identity, with the ones that look like agents marked; flags ownerless identities, identities unused for N days and credentials older than 90 days. Markdown, CSV or JSON.
 - **`aos review`**: findings ranked by blast radius, each with its fix. Markdown, JSON or SARIF for GitHub code scanning.
@@ -692,11 +692,11 @@ Standard-library Python 3.10+, offline, read-only. It needs no credentials of it
 Install:
 
 ```bash
-pip install "git+https://github.com/basitalisandhu/agent-off-switch@v0.1.1"
+pip install "git+https://github.com/basitalisandhu/agent-off-switch@v0.1.3"
 aos --help
 ```
 
-Latest release: v0.1.1 (2026-10-18) https://github.com/basitalisandhu/agent-off-switch/releases/tag/v0.1.1
+Latest release: v0.1.3 (2026-10-28) https://github.com/basitalisandhu/agent-off-switch/releases/tag/v0.1.3
 
 ## skill-scan-gate
 
@@ -719,7 +719,7 @@ skill-scan-gate scan path/to/your-skills --fail-on medium --sarif skill-scan-gat
 Output on a repository with one skill that tells the model to ignore its instructions and sends a key file to a URL (run on 2026-10-20):
 
 ```text
-skill-scan-gate 0.4.0: scanned 1 file(s) under my-skills
+skill-scan-gate 0.6.0: scanned 1 file(s) under my-skills
 
 SEVERITY  RULE    LOCATION                TITLE
 ----------------------------------------------------------------------------------
@@ -739,7 +739,7 @@ Install:
 pip install skill-scan-gate
 ```
 
-Latest release: v0.4.0 (2026-10-20) https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.4.0
+Latest release: v0.6.0 (2026-10-29) https://github.com/basitalisandhu/skill-scan-gate/releases/tag/v0.6.0
 
 ## agent-threat-model
 
@@ -759,7 +759,7 @@ atm init system.yaml                 # writes the support-bot example
 atm analyse system.yaml
 ```
 
-Latest release: v0.3.0 (2026-10-16) https://github.com/basitalisandhu/agent-threat-model/releases/tag/v0.3.0
+Latest release: v0.4.0 (2026-10-28) https://github.com/basitalisandhu/agent-threat-model/releases/tag/v0.4.0
 
 ## agent-config-audit
 
@@ -781,7 +781,7 @@ cd your-project
 agent-config-audit --fail-on high
 ```
 
-Latest release: v0.3.0 (2026-10-16) https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.3.0
+Latest release: v0.4.0 (2026-10-28) https://github.com/basitalisandhu/agent-config-audit/releases/tag/v0.4.0
 
 ## agentic-semgrep-rules
 
@@ -832,7 +832,7 @@ git clone https://github.com/basitalisandhu/agentic-semgrep-rules
 semgrep --config agentic-semgrep-rules/rules .
 ```
 
-Latest release: v0.2.0 (2026-10-16) https://github.com/basitalisandhu/agentic-semgrep-rules/releases/tag/v0.2.0
+Latest release: v0.3.0 (2026-10-28) https://github.com/basitalisandhu/agentic-semgrep-rules/releases/tag/v0.3.0
 
 ## security-actions
 
@@ -870,7 +870,7 @@ jobs:
 # ... see the README for the rest
 ```
 
-Latest release: v0.2.0 (2026-10-16) https://github.com/basitalisandhu/security-actions/releases/tag/v0.2.0
+Latest release: v0.3.1 (2026-10-28) https://github.com/basitalisandhu/security-actions/releases/tag/v0.3.1
 
 ## cc-hooks
 
@@ -889,7 +889,7 @@ pipx install git+https://github.com/basitalisandhu/cc-hooks   # the cc-hooks com
 python3 -m pip install git+https://github.com/basitalisandhu/cc-hooks   # the library, for the python3 that runs your hooks
 ```
 
-Latest release: v0.1.2 (2026-10-16) https://github.com/basitalisandhu/cc-hooks/releases/tag/v0.1.2
+Latest release: v0.2.1 (2026-10-29) https://github.com/basitalisandhu/cc-hooks/releases/tag/v0.2.1
 
 ## cc-plugin-lock
 
@@ -939,7 +939,7 @@ cc-plugin-lock verify --lock ~/.claude/cc-plugins.lock.json
 cc-plugin-lock hook --lock ~/.claude/cc-plugins.lock.json
 ```
 
-Latest release: v0.3.0 (2026-10-16) https://github.com/basitalisandhu/cc-plugin-lock/releases/tag/v0.3.0
+Latest release: v0.4.1 (2026-10-28) https://github.com/basitalisandhu/cc-plugin-lock/releases/tag/v0.4.1
 
 ## claude-perm-sim
 
@@ -961,7 +961,7 @@ npx github:basitalisandhu/claude-perm-sim explain "Bash(git push origin main)"  
 npx github:basitalisandhu/claude-perm-sim bypass                             # where an allow rule admits more than it names
 ```
 
-Latest release: v0.3.0 (2026-10-16) https://github.com/basitalisandhu/claude-perm-sim/releases/tag/v0.3.0
+Latest release: v0.3.1 (2026-10-28) https://github.com/basitalisandhu/claude-perm-sim/releases/tag/v0.3.1
 
 ## llms-txt-gen
 
@@ -986,7 +986,7 @@ llms-txt-gen check llms.txt
 llms-txt-gen serve-snippet
 ```
 
-Latest release: v0.3.0 (2026-10-20) https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.3.0
+Latest release: v0.4.0 (2026-10-28) https://github.com/basitalisandhu/llms-txt-gen/releases/tag/v0.4.0
 
 ## scp-guardrails
 
@@ -1026,7 +1026,7 @@ pipx install git+https://github.com/basitalisandhu/scp-guardrails               
 uvx --from git+https://github.com/basitalisandhu/scp-guardrails scp-guardrails --help   # run without installing
 ```
 
-Latest release: v0.3.0 (2026-10-20) https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.3.0
+Latest release: v0.4.1 (2026-10-28) https://github.com/basitalisandhu/scp-guardrails/releases/tag/v0.4.1
 
 ## spotlighting
 
@@ -1056,7 +1056,7 @@ pipx install git+https://github.com/basitalisandhu/spotlighting            # the
 python3 -m pip install git+https://github.com/basitalisandhu/spotlighting  # the library
 ```
 
-Latest release: v0.3.0 (2026-10-16) https://github.com/basitalisandhu/spotlighting/releases/tag/v0.3.0
+Latest release: v0.4.1 (2026-10-28) https://github.com/basitalisandhu/spotlighting/releases/tag/v0.4.1
 
 ## llm-agent-control-plane
 
@@ -1118,10 +1118,11 @@ MITRE ATLAS.
 Browse it at **https://basitalisandhu.github.io/ai-agent-incidents/** (searchable
 table, one page per event, [RSS feed](https://basitalisandhu.github.io/ai-agent-incidents/feed.xml),
 [JSON](https://basitalisandhu.github.io/ai-agent-incidents/incidents.json),
+[JSONL](https://basitalisandhu.github.io/ai-agent-incidents/incidents.jsonl),
 [CSV](https://basitalisandhu.github.io/ai-agent-incidents/incidents.csv),
 [stats](https://basitalisandhu.github.io/ai-agent-incidents/stats.json)).
 
-Latest release: v1.1.0 (2026-10-18) https://github.com/basitalisandhu/ai-agent-incidents/releases/tag/v1.1.0
+Latest release: v1.2.0 (2026-10-28) https://github.com/basitalisandhu/ai-agent-incidents/releases/tag/v1.2.0
 
 ## agent-skills-state-2026
 

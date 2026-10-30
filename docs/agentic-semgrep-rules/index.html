@@ -47,8 +47,8 @@
   ]
  },
  "keywords": "agent-security, agentic-ai, ai-agents, ai-security, code-scanning, devsecops, github-actions, hacktoberfest, llm-security, mcp, owasp, prompt-injection, sast, security-automation, security-tools, semgrep, semgrep-rules, ssrf, static-analysis",
- "version": "0.2.0",
- "dateModified": "2026-10-16"
+ "version": "0.3.0",
+ "dateModified": "2026-10-28"
 }
 </script>
 </head>
@@ -58,7 +58,7 @@
 <p class="crumbs"><a href="/">Home</a> / <a href="/#security-tooling">Security tooling</a></p>
 <h1>agentic-semgrep-rules</h1>
 <p class="lede">Semgrep rules for AI agent code in Python, TypeScript and JavaScript.</p>
-<p class="meta">Python · MIT · latest v0.2.0</p>
+<p class="meta">Python · MIT · latest v0.3.0</p>
 <section aria-labelledby="what-h"><h2 id="what-h">What it is</h2>
 <p>Semgrep rules for AI agent code: static analysis for LLM applications in Python, TypeScript and JavaScript that finds model output flowing into <code>exec</code>, shells, SQL, URLs, file paths and HTML (eval of model output, SSRF through tool URLs), user input written into system prompts, tools that let the model run anything, MCP server security checks (HTTP transports without authentication, servers bound to every interface), leaked provider keys, and unsafe model or config loading. For teams that ship LLM agents, MCP servers and tool-using assistants and want these mistakes caught in a pull request rather than found in an incident.</p>
 <p>36 rules (23 Python, 13 TypeScript/JavaScript), every one with a tested fixture, CWE and OWASP LLM Top 10 (2025) mapping, and a message that says what is wrong and how to fix it.</p>
@@ -96,6 +96,7 @@ semgrep --config agentic-semgrep-rules/rules .</code></pre>
 <li><a href="https://github.com/basitalisandhu/agentic-semgrep-rules/issues">Issues</a></li>
 </ul></section>
 <section aria-labelledby="rel-h"><h2 id="rel-h">Releases</h2><ul>
+<li><a href="https://github.com/basitalisandhu/agentic-semgrep-rules/releases/tag/v0.3.0">v0.3.0</a> <time datetime="2026-10-28">2026-10-28</time></li>
 <li><a href="https://github.com/basitalisandhu/agentic-semgrep-rules/releases/tag/v0.2.0">v0.2.0</a> <time datetime="2026-10-16">2026-10-16</time></li>
 <li><a href="https://github.com/basitalisandhu/agentic-semgrep-rules/releases/tag/v0.1.0">v0.1.0: 0.1.0</a> <time datetime="2026-10-04">2026-10-04</time></li>
 </ul></section>

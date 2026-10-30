@@ -358,7 +358,7 @@ Folders that duplicate each other:
 </section>
 <h2 id="mcp-tooling">MCP tooling</h2>
 <section class="tool" aria-labelledby="tool-dev-mcp-servers"><h3 id="tool-dev-mcp-servers"><a href="/dev-mcp-servers/">dev-mcp-servers</a></h3><p>Ten small MCP servers for everyday development and security checks.</p>
-<pre><code class="language-bash">claude mcp add jwt-tools -- docker run --rm -i ghcr.io/basitalisandhu/mcp-jwt-tools:0.2.2
+<pre><code class="language-bash">claude mcp add jwt-tools -- docker run --rm -i ghcr.io/basitalisandhu/mcp-jwt-tools:0.3.0
 claude mcp list</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-mcp-server-template"><h3 id="tool-mcp-server-template"><a href="/mcp-server-template/">mcp-server-template</a></h3><p>Secure MCP server template in TypeScript and Python, safe by default.</p>
@@ -368,8 +368,8 @@ MCP_ALLOWED_DIRS=$PWD/../docs node dist/index.js        # stdio server exposing 
 </section>
 <section class="tool" aria-labelledby="tool-mcp-tools-lint"><h3 id="tool-mcp-tools-lint"><a href="/mcp-tools-lint/">mcp-tools-lint</a></h3><p>Lint MCP tool schemas and annotations before clients reject them.</p>
 <pre><code class="language-bash">npx @basitalisandhu/mcp-tools-lint --help              # run without installing
-npm install -g @basitalisandhu/mcp-tools-lint@0.3.0    # global CLI, installs the mcp-tools-lint command
-npm install -D @basitalisandhu/mcp-tools-lint@0.3.0    # as a dev dependency of a server project</code></pre>
+npm install -g @basitalisandhu/mcp-tools-lint@0.3.2    # global CLI, installs the mcp-tools-lint command
+npm install -D @basitalisandhu/mcp-tools-lint@0.3.2    # as a dev dependency of a server project</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-mcp-auth-doctor"><h3 id="tool-mcp-auth-doctor"><a href="/mcp-auth-doctor/">mcp-auth-doctor</a></h3><p>Diagnose OAuth discovery problems on remote MCP servers.</p>
 <pre><code class="language-bash">pipx install git+https://github.com/basitalisandhu/mcp-auth-doctor
@@ -383,9 +383,9 @@ pip install git+https://github.com/basitalisandhu/mcp-egress                    
 git clone https://github.com/basitalisandhu/mcp-egress &amp;&amp; cd mcp-egress &amp;&amp; uv venv &amp;&amp; uv pip install -e &quot;.[dev]&quot;   # development</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-claude-mcp-allow"><h3 id="tool-claude-mcp-allow"><a href="/claude-mcp-allow/">claude-mcp-allow</a></h3><p>Least-privilege Claude Code permission rules for MCP tools, generated from their annotations.</p>
-<pre><code class="language-bash">npx @basitalisandhu/claude-mcp-allow            # print the proposed rules, change nothing
-npx @basitalisandhu/claude-mcp-allow --diff --write
-npx @basitalisandhu/claude-mcp-allow --check    # later, or in CI: exit 1 on drift</code></pre>
+<pre><code class="language-bash">npx github:basitalisandhu/claude-mcp-allow            # print the proposed rules, change nothing
+npx github:basitalisandhu/claude-mcp-allow --diff --write
+npx github:basitalisandhu/claude-mcp-allow --check    # later, or in CI: exit 1 on drift</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-agentdojo-mcp"><h3 id="tool-agentdojo-mcp"><a href="/agentdojo-mcp/">agentdojo-mcp</a></h3><p>Run the AgentDojo benchmark&#x27;s user and injection tasks against a real MCP server&#x27;s tools.</p>
 <pre><code class="language-bash">pip install &quot;agentdojo-mcp[dojo] @ git+https://github.com/basitalisandhu/agentdojo-mcp&quot;
@@ -417,7 +417,7 @@ node dist/cli.js scan --dump test/fixtures/fixture-pre-revision.json   # try it 
 </section>
 <h2 id="security-tooling">Security tooling</h2>
 <section class="tool" aria-labelledby="tool-agent-off-switch"><h3 id="tool-agent-off-switch"><a href="/agent-off-switch/">agent-off-switch</a></h3><p>Find every AI agent identity in Microsoft 365, AWS and GitHub, see what it can reach, and switch it off. Offline on saved exports.</p>
-<pre><code class="language-bash">pip install &quot;git+https://github.com/basitalisandhu/agent-off-switch@v0.1.1&quot;
+<pre><code class="language-bash">pip install &quot;git+https://github.com/basitalisandhu/agent-off-switch@v0.1.3&quot;
 aos --help</code></pre>
 </section>
 <section class="tool" aria-labelledby="tool-skill-scan-gate"><h3 id="tool-skill-scan-gate"><a href="/skill-scan-gate/">skill-scan-gate</a></h3><p>CI gate for Claude Code skills and plugins, with SARIF output. GitHub Action and CLI.</p>
