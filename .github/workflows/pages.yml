@@ -74,7 +74,7 @@ jobs:
           cat changed-urls.txt
       - name: Submit to IndexNow
         if: steps.urls.outputs.count != '0'
-        uses: basitalisandhu/security-actions/indexnow-ping@a000e11948e4073bae727c095f192e92af7f20f8 # v0.2.0
+        uses: basitalisandhu/security-actions/indexnow-ping@4322bbdd2e048d00d8c01af9fea279a1cf72f4b6 # v0.3.1
         with:
           host: ${{ steps.urls.outputs.host }}
           key: ${{ steps.urls.outputs.key }}
